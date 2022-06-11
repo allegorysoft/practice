@@ -1,0 +1,16 @@
+﻿<Window x:Class="SampleAppWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleAppWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="189" Width="323">
+    <Grid Margin="0,0,0,-6">
+        <TextBox Name="username" HorizontalAlignment="Left" Margin="119,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <TextBox Name="password" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="154" Margin="119,0,0,0"/>
+        <Label Content="Kullanıcı Adı" HorizontalAlignment="Left" Margin="39,28,0,0" VerticalAlignment="Top"/>
+        <Label Content="Şifre" HorizontalAlignment="Left" Margin="39,72,0,0" VerticalAlignment="Top"/>
+        <Button Content="Giriş Yap" HorizontalAlignment="Left" Margin="196,114,0,0" VerticalAlignment="Top" Height="22" Width="77" Click="Button_Click"/>
+    </Grid>
+</Window>
