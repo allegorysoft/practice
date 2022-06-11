@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Allegory.Module</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Allegory.Module.Application\Allegory.Module.Application.csproj" />
+    <ProjectReference Include="..\Allegory.Module.Domain.Tests\Allegory.Module.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+  </ItemGroup>
+
+</Project>

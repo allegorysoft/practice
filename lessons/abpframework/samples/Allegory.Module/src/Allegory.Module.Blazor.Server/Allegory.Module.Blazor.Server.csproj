@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.Server.Theming" Version="5.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Allegory.Module.Blazor\Allegory.Module.Blazor.csproj" />
+    </ItemGroup>
+
+</Project>

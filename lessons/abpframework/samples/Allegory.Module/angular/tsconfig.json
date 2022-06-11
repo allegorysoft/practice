@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@allegory/module": [
+        "projects/module/src/public-api.ts"
+      ],
+      "@allegory/module/config": [
+        "projects/module/config/src/public-api.ts"
+      ],
+      "@proxy": ["projects/module/src/lib/proxy/index.ts"],
+      "@proxy/*": ["projects/module/src/lib/proxy/*"]
+    }
+  }
+}

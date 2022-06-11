@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "Allegory.Module.Domain.Shared": {
+      "path": "src/Allegory.Module.Domain.Shared/Allegory.Module.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Domain": {
+      "path": "src/Allegory.Module.Domain/Allegory.Module.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Application.Contracts": {
+      "path": "src/Allegory.Module.Application.Contracts/Allegory.Module.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Application": {
+      "path": "src/Allegory.Module.Application/Allegory.Module.Application.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.EntityFrameworkCore": {
+      "path": "src/Allegory.Module.EntityFrameworkCore/Allegory.Module.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.MongoDB": {
+      "path": "src/Allegory.Module.MongoDB/Allegory.Module.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.HttpApi": {
+      "path": "src/Allegory.Module.HttpApi/Allegory.Module.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.HttpApi.Client": {
+      "path": "src/Allegory.Module.HttpApi.Client/Allegory.Module.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.TestBase": {
+      "path": "test/Allegory.Module.TestBase/Allegory.Module.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.EntityFrameworkCore.Tests": {
+      "path": "test/Allegory.Module.EntityFrameworkCore.Tests/Allegory.Module.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.MongoDB.Tests": {
+      "path": "test/Allegory.Module.MongoDB.Tests/Allegory.Module.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.Domain.Tests": {
+      "path": "test/Allegory.Module.Domain.Tests/Allegory.Module.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.Application.Tests": {
+      "path": "test/Allegory.Module.Application.Tests/Allegory.Module.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.HttpApi.Host": {
+      "path": "host/Allegory.Module.HttpApi.Host/Allegory.Module.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.Web": {
+      "path": "src/Allegory.Module.Web/Allegory.Module.Web.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Allegory.Module.HttpApi.Client.ConsoleTestApp/Allegory.Module.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.Module.Web.Host": {
+      "path": "host/Allegory.Module.Web.Host/Allegory.Module.Web.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.IdentityServer": {
+      "path": "host/Allegory.Module.IdentityServer/Allegory.Module.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.Host.Shared": {
+      "path": "host/Allegory.Module.Host.Shared/Allegory.Module.Host.Shared.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.Web.Unified": {
+      "path": "host/Allegory.Module.Web.Unified/Allegory.Module.Web.Unified.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.Blazor": {
+      "path": "src/Allegory.Module.Blazor/Allegory.Module.Blazor.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Blazor.Host": {
+      "path": "host/Allegory.Module.Blazor.Host/Allegory.Module.Blazor.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.Module.Blazor.Server": {
+      "path": "src/Allegory.Module.Blazor.Server/Allegory.Module.Blazor.Server.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Blazor.WebAssembly": {
+      "path": "src/Allegory.Module.Blazor.WebAssembly/Allegory.Module.Blazor.WebAssembly.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.Module.Blazor.Server.Host": {
+      "path": "host/Allegory.Module.Blazor.Server.Host/Allegory.Module.Blazor.Server.Host.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

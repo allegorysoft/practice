@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Allegory.Module</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.2.2" />
+    <ProjectReference Include="..\Allegory.Module.Application.Contracts\Allegory.Module.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

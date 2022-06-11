@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Allegory.Module": {
+      "path": "Allegory.Module.abpmdl.json"
+    }
+  }
+}
