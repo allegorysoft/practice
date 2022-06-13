@@ -3,7 +3,7 @@
 
 ## Örnek Uygulamaları Çalıştırmak İçin
 - Veritabanı bağlantı cümlenizi bağlanmak istediğiniz sunucu bilgilerine göre ayarlayın
-- samples klasörünün yada çalıştırmak istediğiniz uygulamanın klasör yolunda komut ekranını açıp **abp install-libs** kodunu çalıştırın [detay için](https://github.com/abpframework/abp/issues/8528)
+- samples klasöründe yada çalıştırmak istediğiniz uygulamanın klasör yolunda komut ekranını açıp **abp install-libs** kodunu çalıştırın [detay için](https://github.com/abpframework/abp/issues/8528)
 
 ## Eğitim Sırasında Kullandığım Araçlar
 - [Sunum](https://www.canva.com) 
