@@ -17,3 +17,4 @@
 - [ABP Framework'e Giriş](https://www.youtube.com/watch?v=JvwPpSTEAvg&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=1)
 - [ABP CLI Kullanımı](https://www.youtube.com/watch?v=vgXjA-8XXjg&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=2)
 - [ABP Proje Şablonları](https://www.youtube.com/watch?v=aZoxO9Kpfks&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=3)
+- ABP ile Modülarite
