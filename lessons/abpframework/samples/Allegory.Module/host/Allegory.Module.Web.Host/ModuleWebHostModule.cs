@@ -51,6 +51,9 @@ using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using System.Linq;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Allegory.Module;
 
@@ -143,31 +146,49 @@ public class ModuleWebHostModule : AbpModule
     private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
     {
         context.Services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
-            })
-            .AddCookie("Cookies", options =>
-            {
-                options.ExpireTimeSpan = TimeSpan.FromDays(365);
-            })
-            .AddAbpOpenIdConnect("oidc", options =>
-            {
-                options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
+        {
+            options.DefaultScheme = "Custom";
+            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        })
+         .AddPolicyScheme("Custom", "Custom", options =>
+         {
+             options.ForwardDefaultSelector = context =>
+             {
+                 var authHeader = context.Request.Headers.Authorization.FirstOrDefault();
 
-                options.ClientId = configuration["AuthServer:ClientId"];
-                options.ClientSecret = configuration["AuthServer:ClientSecret"];
+                 if (!authHeader.IsNullOrEmpty() && authHeader.StartsWith("Bearer "))
+                     return JwtBearerDefaults.AuthenticationScheme;
+                 else
+                     return CookieAuthenticationDefaults.AuthenticationScheme;
+             };
+         })
+         .AddCookie("Cookies", options =>
+         {
+             options.ExpireTimeSpan = TimeSpan.FromDays(365);
+         })
+         .AddAbpOpenIdConnect("oidc", options =>
+         {
+             options.Authority = configuration["AuthServer:Authority"];
+             options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+             options.ResponseType = OpenIdConnectResponseType.CodeIdToken;
 
-                options.SaveTokens = true;
-                options.GetClaimsFromUserInfoEndpoint = true;
+             options.ClientId = configuration["AuthServer:ClientId"];
+             options.ClientSecret = configuration["AuthServer:ClientSecret"];
 
-                options.Scope.Add("role");
-                options.Scope.Add("email");
-                options.Scope.Add("phone");
-                options.Scope.Add("Module");
-            });
+             options.SaveTokens = true;
+             options.GetClaimsFromUserInfoEndpoint = true;
+
+             options.Scope.Add("role");
+             options.Scope.Add("email");
+             options.Scope.Add("phone");
+             options.Scope.Add("Module");
+         })
+         .AddJwtBearer(options =>
+         {
+             options.Authority = configuration["AuthServer:Authority"];
+             options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+             options.Audience = "Module";
+         });
     }
 
     private void ConfigureAutoMapper()
