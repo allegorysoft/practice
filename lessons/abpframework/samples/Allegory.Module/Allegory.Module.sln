@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29001.49
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Domain.Shared", "src\Allegory.Module.Domain.Shared\Allegory.Module.Domain.Shared.csproj", "{D64C1577-4929-4B60-939E-96DE1534891A}"
 EndProject
@@ -49,17 +49,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Host.Shared
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Web.Unified", "host\Allegory.Module.Web.Unified\Allegory.Module.Web.Unified.csproj", "{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Blazor", "src\Allegory.Module.Blazor\Allegory.Module.Blazor.csproj", "{827FCC18-A22B-4175-82CD-1233F6DEE8FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Blazor", "src\Allegory.Module.Blazor\Allegory.Module.Blazor.csproj", "{827FCC18-A22B-4175-82CD-1233F6DEE8FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Blazor.Host", "host\Allegory.Module.Blazor.Host\Allegory.Module.Blazor.Host.csproj", "{D7E0F672-F5E2-4338-AFF4-4E5091C55A62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Blazor.Host", "host\Allegory.Module.Blazor.Host\Allegory.Module.Blazor.Host.csproj", "{D7E0F672-F5E2-4338-AFF4-4E5091C55A62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Blazor.Server", "src\Allegory.Module.Blazor.Server\Allegory.Module.Blazor.Server.csproj", "{299BE52E-823F-408E-9C6D-7E2F81BA34FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Blazor.Server", "src\Allegory.Module.Blazor.Server\Allegory.Module.Blazor.Server.csproj", "{299BE52E-823F-408E-9C6D-7E2F81BA34FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Blazor.WebAssembly", "src\Allegory.Module.Blazor.WebAssembly\Allegory.Module.Blazor.WebAssembly.csproj", "{F0EE5760-262D-456A-AA7C-E84F484A05F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Blazor.WebAssembly", "src\Allegory.Module.Blazor.WebAssembly\Allegory.Module.Blazor.WebAssembly.csproj", "{F0EE5760-262D-456A-AA7C-E84F484A05F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Blazor.Server.Host", "host\Allegory.Module.Blazor.Server.Host\Allegory.Module.Blazor.Server.Host.csproj", "{FEA752A1-5B4E-49E9-B1F3-DDC25E41BB52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Blazor.Server.Host", "host\Allegory.Module.Blazor.Server.Host\Allegory.Module.Blazor.Server.Host.csproj", "{FEA752A1-5B4E-49E9-B1F3-DDC25E41BB52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.Installer", "src\Allegory.Module.Installer\Allegory.Module.Installer.csproj", "{BE39FD00-745B-4049-8161-FC129817CBE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.Module.Installer", "src\Allegory.Module.Installer\Allegory.Module.Installer.csproj", "{BE39FD00-745B-4049-8161-FC129817CBE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plug-in", "plug-in", "{784300FF-BF9F-46BA-B4E9-9466BFBA9789}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.Module.PlugInRandomNames", "Allegory.Module.PlugInRandomNames\Allegory.Module.PlugInRandomNames.csproj", "{E3B5505A-F4B8-4405-A504-481B02E8D610}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +175,10 @@ Global
 		{BE39FD00-745B-4049-8161-FC129817CBE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE39FD00-745B-4049-8161-FC129817CBE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE39FD00-745B-4049-8161-FC129817CBE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B5505A-F4B8-4405-A504-481B02E8D610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B5505A-F4B8-4405-A504-481B02E8D610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B5505A-F4B8-4405-A504-481B02E8D610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B5505A-F4B8-4405-A504-481B02E8D610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,6 +210,7 @@ Global
 		{F0EE5760-262D-456A-AA7C-E84F484A05F6} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{FEA752A1-5B4E-49E9-B1F3-DDC25E41BB52} = {E400416D-2895-4512-9D17-90681EEC7E0A}
 		{BE39FD00-745B-4049-8161-FC129817CBE4} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
+		{E3B5505A-F4B8-4405-A504-481B02E8D610} = {784300FF-BF9F-46BA-B4E9-9466BFBA9789}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4324B3B4-B60B-4E3C-91D8-59576B4E26DD}

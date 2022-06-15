@@ -174,7 +174,7 @@ public class ModuleHttpApiHostModule : AbpModule
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 
-        bool isLicenced = false;//Check licence
+        bool isLicenced = true;//Check licence
         if (isLicenced)
         {
             if (env.IsDevelopment())

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
+using Volo.Abp.Modularity.PlugIns;
 
 namespace Allegory.Module;
 
@@ -34,7 +35,10 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
-            await builder.AddApplicationAsync<ModuleHttpApiHostModule>();
+            await builder.AddApplicationAsync<ModuleHttpApiHostModule>(options =>
+            {
+                options.PlugInSources.AddFolder(@"C:\plug-ins");
+            });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
             await app.RunAsync();
