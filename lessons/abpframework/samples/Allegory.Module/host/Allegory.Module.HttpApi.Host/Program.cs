@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,7 +38,8 @@ public class Program
                 .UseSerilog();
             await builder.AddApplicationAsync<ModuleHttpApiHostModule>(options =>
             {
-                options.PlugInSources.AddFolder(@"C:\plug-ins");
+                if (Directory.Exists(@"C:\plug-ins"))
+                    options.PlugInSources.AddFolder(@"C:\plug-ins");
             });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
