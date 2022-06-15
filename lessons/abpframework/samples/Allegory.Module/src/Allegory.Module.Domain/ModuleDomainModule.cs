@@ -9,5 +9,8 @@ namespace Allegory.Module;
 )]
 public class ModuleDomainModule : AbpModule
 {
-
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        base.ConfigureServices(context);
+    }
 }

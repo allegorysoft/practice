@@ -1,22 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using IdentityModel;
+using Allegory.Module.EntityFrameworkCore;
+using Allegory.Module.MultiTenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Allegory.Module.EntityFrameworkCore;
-using Allegory.Module.MultiTenancy;
-using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Autofac;
@@ -28,9 +27,9 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
-using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
+using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 
@@ -53,6 +52,10 @@ namespace Allegory.Module;
     )]
 public class ModuleHttpApiHostModule : AbpModule
 {
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        base.PreConfigureServices(context);
+    }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -88,7 +91,7 @@ public class ModuleHttpApiHostModule : AbpModule
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Module API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Module API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
@@ -156,44 +159,78 @@ public class ModuleHttpApiHostModule : AbpModule
         });
     }
 
+    public override void PostConfigureServices(ServiceConfigurationContext context)
+    {
+        base.PostConfigureServices(context);
+    }
+
+    public override void OnPreApplicationInitialization(ApplicationInitializationContext context)
+    {
+        base.OnPreApplicationInitialization(context);
+    }
+
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 
-        if (env.IsDevelopment())
+        bool isLicenced = false;//Check licence
+        if (isLicenced)
         {
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseCorrelationId();
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseCors();
+            app.UseAuthentication();
+            if (MultiTenancyConsts.IsEnabled)
+            {
+                app.UseMultiTenancy();
+            }
+            app.UseAbpRequestLocalization();
+            app.UseAuthorization();
+            app.UseSwagger();
+            app.UseAbpSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
+
+                var configuration = context.GetConfiguration();
+                options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
+                options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
+                options.OAuthScopes("Module");
+            });
+            app.UseAuditing();
+            app.UseAbpSerilogEnrichers();
+            app.UseConfiguredEndpoints();
         }
         else
         {
-            app.UseHsts();
+            app.Map("", (appBuilder) =>
+            {
+                appBuilder.Run(async (context) =>
+                {
+                    await context.Response.WriteAsync("Uygulamayı önce lisanslayın", Encoding.Latin1);
+                });
+            });
         }
+    }
 
-        app.UseHttpsRedirection();
-        app.UseCorrelationId();
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseCors();
-        app.UseAuthentication();
-        if (MultiTenancyConsts.IsEnabled)
-        {
-            app.UseMultiTenancy();
-        }
-        app.UseAbpRequestLocalization();
-        app.UseAuthorization();
-        app.UseSwagger();
-        app.UseAbpSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
+    public override void OnPostApplicationInitialization(ApplicationInitializationContext context)
+    {
+        base.OnPostApplicationInitialization(context);
+    }
 
-            var configuration = context.GetConfiguration();
-            options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
-            options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
-            options.OAuthScopes("Module");
-        });
-        app.UseAuditing();
-        app.UseAbpSerilogEnrichers();
-        app.UseConfiguredEndpoints();
+    public override void OnApplicationShutdown(ApplicationShutdownContext context)
+    {
+        base.OnApplicationShutdown(context);
     }
 }
