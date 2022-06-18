@@ -18,4 +18,4 @@
 - [ABP CLI Kullanımı](https://www.youtube.com/watch?v=vgXjA-8XXjg&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=2)
 - [ABP Proje Şablonları](https://www.youtube.com/watch?v=aZoxO9Kpfks&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=3)
 - [ABP ile Modülarite](https://www.youtube.com/watch?v=35a6xxiZGyw&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=4)
-- [DDD Entities]()
+- [DDD Entities](https://www.youtube.com/watch?v=x6F8qKTt89c&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=5)
