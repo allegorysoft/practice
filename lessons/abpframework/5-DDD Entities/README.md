@@ -5,4 +5,4 @@
 - [ABP Entities Best Practice Dokümanı](https://docs.abp.io/en/abp/latest/Best-Practices/Entities)
 - [ABP Entities & AggregateRoot Dokümanı](https://docs.abp.io/en/abp/latest/Entities)
 - [ABP Value Object Dokümanı](https://docs.abp.io/en/abp/latest/Value-Objects)
-- [ABP Post]()
+- [ABP Post](https://community.abp.io/posts/ddd-entities-61egz4nv)
