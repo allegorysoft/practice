@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Allegory.Module.Customers;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ public class ModuleDbContext : AbpDbContext<ModuleDbContext>, IModuleDbContext
     /* Add DbSet for each Aggregate Root here. Example:
      * public DbSet<Question> Questions { get; set; }
      */
+    public DbSet<Customer> Customers { get; set; }
 
     public ModuleDbContext(DbContextOptions<ModuleDbContext> options)
         : base(options)
