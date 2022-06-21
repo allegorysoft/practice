@@ -30,7 +30,7 @@ public class ModuleEntityFrameworkCoreTestModule : AbpModule
 
         context.Services.AddAbpDbContext<ModuleDbContext>(options =>
         {
-            options.AddDefaultRepositories();
+            options.AddDefaultRepositories(includeAllEntities: false);
         });
     }
 
