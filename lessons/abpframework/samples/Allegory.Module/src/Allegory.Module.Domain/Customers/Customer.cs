@@ -33,10 +33,10 @@ public class Customer : AggregateRoot<Guid>
         Name = name;
     }
 
-    public virtual void SetSurname(string name)
+    public virtual void SetSurname(string surname)
     {
-        Check.NotNullOrWhiteSpace(name, nameof(Surname), CustomerConsts.MaxNameLength);
-        Name = name;
+        Check.NotNullOrWhiteSpace(surname, nameof(Surname), CustomerConsts.MaxSurnameLength);
+        Surname = surname;
     }
 
     public virtual ContactInformation AddContactInformation(
