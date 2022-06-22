@@ -19,4 +19,4 @@
 - [ABP Proje Şablonları](https://www.youtube.com/watch?v=aZoxO9Kpfks&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=3)
 - [ABP ile Modülarite](https://www.youtube.com/watch?v=35a6xxiZGyw&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=4)
 - [DDD Entities](https://www.youtube.com/watch?v=x6F8qKTt89c&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=5)
-- [ABP Generic Repository]()
+- [ABP Generic Repository](https://www.youtube.com/watch?v=pqW0DXR2I_c&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=6)
