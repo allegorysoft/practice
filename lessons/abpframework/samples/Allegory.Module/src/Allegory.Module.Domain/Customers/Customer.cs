@@ -11,7 +11,7 @@ public class Customer : AggregateRoot<Guid>
 {
     public virtual string Name { get; protected set; }
     public virtual string Surname { get; protected set; }
-    public virtual Guid CustomerGroupId { get; internal set; }
+    public virtual Guid? CustomerGroupId { get; internal set; }
     public virtual ICollection<ContactInformation> ContactInformations { get; protected set; }
     public virtual Address Address { get; set; }
 
