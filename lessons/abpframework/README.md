@@ -20,4 +20,4 @@
 - [ABP ile Modülarite](https://www.youtube.com/watch?v=35a6xxiZGyw&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=4)
 - [DDD Entities](https://www.youtube.com/watch?v=x6F8qKTt89c&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=5)
 - [ABP Generic Repository](https://www.youtube.com/watch?v=pqW0DXR2I_c&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=6)
-- [ABP Domain Service]()
+- [ABP Domain Service](https://www.youtube.com/watch?v=0U0jXpP_ass&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=7)
