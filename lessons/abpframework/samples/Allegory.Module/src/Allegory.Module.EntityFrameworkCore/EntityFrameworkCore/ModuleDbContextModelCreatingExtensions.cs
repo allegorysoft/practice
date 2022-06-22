@@ -28,6 +28,10 @@ public static class ModuleDbContextModelCreatingExtensions
             b.HasMany(a => a.ContactInformations)
              .WithOne()
              .HasForeignKey(f => f.CustomerId);
+
+            b.HasOne<CustomerGroup>()
+             .WithMany()
+             .HasForeignKey(a => a.CustomerGroupId);
         });
 
         builder.Entity<ContactInformation>(b =>
@@ -42,6 +46,20 @@ public static class ModuleDbContextModelCreatingExtensions
             b.Property(a => a.Value)
              .HasMaxLength(ContactInformationConsts.MaxValueLength)
              .IsRequired();
+        });
+
+        builder.Entity<CustomerGroup>(b =>
+        {
+            b.ToTable(ModuleDbProperties.DbTablePrefix + "CustomerGroups", ModuleDbProperties.DbSchema);
+            b.ConfigureByConvention();
+
+            b.Property(a => a.Code)
+             .HasMaxLength(CustomerGroupConsts.MaxCodeLength)
+             .IsRequired();
+            b.Property(a => a.Description)
+             .HasMaxLength(CustomerGroupConsts.MaxDescriptionLength);
+
+            b.HasIndex(a => a.Code).IsUnique();
         });
     }
 }

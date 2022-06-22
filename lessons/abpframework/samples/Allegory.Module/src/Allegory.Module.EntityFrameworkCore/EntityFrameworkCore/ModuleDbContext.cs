@@ -12,6 +12,7 @@ public class ModuleDbContext : AbpDbContext<ModuleDbContext>, IModuleDbContext
      * public DbSet<Question> Questions { get; set; }
      */
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<CustomerGroup> CustomerGroups { get; set; }
 
     public ModuleDbContext(DbContextOptions<ModuleDbContext> options)
         : base(options)
