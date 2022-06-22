@@ -12,8 +12,8 @@ namespace Allegory.Module.Customers;
 
 public class Customer_Generic_Repository_Tests : ModuleDomainTestBase
 {
-    private IGuidGenerator _guidGenerator;
-    private IRepository<Customer, Guid> _repository;
+    private readonly IGuidGenerator _guidGenerator;
+    private readonly IRepository<Customer, Guid> _repository;
 
     public Customer_Generic_Repository_Tests()
     {

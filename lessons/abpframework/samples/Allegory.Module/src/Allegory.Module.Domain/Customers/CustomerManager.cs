@@ -8,6 +8,9 @@ namespace Allegory.Module.Customers;
 
 public class CustomerManager : DomainService
 {
+    //TODO Add custom repositories
+    //TODO Add custom business exceptions
+
     protected IRepository<Customer, Guid> CustomerRepository { get; }
     protected IRepository<CustomerGroup, Guid> CustomerGroupRepository { get; }
 
@@ -21,7 +24,6 @@ public class CustomerManager : DomainService
 
     public virtual async Task<CustomerGroup> CreateCustomerGroupAsync(string code, string description = default)
     {
-        //TODO Add repository method CustomerGroupRepository.FindByCode
         var existingCustomerGroup = await CustomerGroupRepository.FirstOrDefaultAsync(cg => cg.Code == code);
         if (existingCustomerGroup != null)
             throw new UserFriendlyException($"{code} kodlu müşteri grubu zaten kayıtlı");
@@ -31,19 +33,18 @@ public class CustomerManager : DomainService
         return customerGroup;
     }
 
-    public virtual async Task ChangeCustomerGroupCodeAsync(CustomerGroup customerGroup, string code)
+    public virtual async Task ChangeCustomerGroupCodeAsync(CustomerGroup customerGroup, string newCode)
     {
-        //TODO Add repository method CustomerGroupRepository.FindByCode
-        var existingCustomerGroup = await CustomerGroupRepository.FirstOrDefaultAsync(cg => cg.Code == code);
+        var existingCustomerGroup = await CustomerGroupRepository.FirstOrDefaultAsync(cg => cg.Code == newCode);
         if (existingCustomerGroup != null && existingCustomerGroup.Id != customerGroup.Id)
-            throw new UserFriendlyException($"{code} kodlu müşteri grubu zaten kayıtlı");
+            throw new UserFriendlyException($"{newCode} kodlu müşteri grubu zaten kayıtlı");
 
-        customerGroup.SetCode(code);
+        customerGroup.SetCode(newCode);
     }
 
     public virtual async Task SetCustomerGroupAsync(Customer customer, CustomerGroup customerGroup)
     {
-        var customerGroupCount = await CustomerRepository.CountAsync(c => c.CustomerGroupId == customerGroup.Id);
+        var customerGroupCount = await CustomerRepository.CountAsync(c => c.CustomerGroupId == customerGroup.Id && c.Id != customer.Id);
 
         if (customerGroupCount >= 10)
         {
@@ -55,7 +56,6 @@ public class CustomerManager : DomainService
 
     public virtual async Task<CustomerGroup> SetCustomerGroupAsync(Customer customer, string customerGroupCode)
     {
-        //TODO Add repository method CustomerGroupRepository.FindByCode
         var customerGroup = await CustomerGroupRepository.FirstOrDefaultAsync(cg => cg.Code == customerGroupCode);
         if (customerGroup == null)
             throw new UserFriendlyException($"{customerGroupCode} kodlu müşteri grubu bulunamadı");
