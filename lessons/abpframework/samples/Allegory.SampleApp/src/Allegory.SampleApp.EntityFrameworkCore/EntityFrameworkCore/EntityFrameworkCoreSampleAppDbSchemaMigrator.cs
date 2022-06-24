@@ -30,5 +30,10 @@ public class EntityFrameworkCoreSampleAppDbSchemaMigrator
             .GetRequiredService<SampleAppDbContext>()
             .Database
             .MigrateAsync();
+
+        await _serviceProvider
+            .GetRequiredService<SecondDbContext>()
+            .Database
+            .MigrateAsync();
     }
 }

@@ -67,9 +67,7 @@ public class SampleAppDbContext :
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
         builder.ConfigureBackgroundJobs();
-        builder.ConfigureAuditLogging();
         builder.ConfigureIdentity();
-        builder.ConfigureIdentityServer();
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
 
