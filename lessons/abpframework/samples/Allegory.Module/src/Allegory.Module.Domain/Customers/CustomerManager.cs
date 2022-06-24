@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Volo.Abp;
-using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Domain.Services;
 
 namespace Allegory.Module.Customers;
@@ -43,7 +41,7 @@ public class CustomerManager : DomainService
 
     public virtual async Task SetCustomerGroupAsync(Customer customer, CustomerGroup customerGroup)
     {
-        var customerGroupCount = await CustomerRepository.GetCountAsync(customerGroup.Id, customer.Id);
+        var customerGroupCount = await CustomerRepository.GetCountAsync(customerGroupId: customerGroup.Id, excludeCustomerId: customer.Id);
 
         if (customerGroupCount >= 10)
         {
