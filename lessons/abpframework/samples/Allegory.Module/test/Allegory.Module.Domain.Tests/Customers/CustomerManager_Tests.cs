@@ -1,27 +1,22 @@
-﻿using System;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp;
-using Volo.Abp.Domain.Repositories;
-using Xunit;
-using System.Linq;
 using Volo.Abp.Linq;
-using Shouldly;
+using Xunit;
 
 namespace Allegory.Module.Customers;
 
 public class CustomerManager_Tests : ModuleDomainTestBase
 {
-    private readonly IRepository<CustomerGroup, Guid> _customerGroupRepository;
-    private readonly IRepository<Customer, Guid> _customerRepository;
+    private readonly ICustomerGroupRepository _customerGroupRepository;
+    private readonly ICustomerRepository _customerRepository;
     private readonly CustomerManager _customerManager;
-    private readonly IAsyncQueryableExecuter _asyncExecuter;
 
     public CustomerManager_Tests()
     {
-        _customerGroupRepository = GetRequiredService<IRepository<CustomerGroup, Guid>>();
-        _customerRepository = GetRequiredService<IRepository<Customer, Guid>>();
+        _customerGroupRepository = GetRequiredService<ICustomerGroupRepository>();
+        _customerRepository = GetRequiredService<ICustomerRepository>();
         _customerManager = GetRequiredService<CustomerManager>();
-        _asyncExecuter = GetRequiredService<IAsyncQueryableExecuter>();
     }
 
     [Fact]
@@ -53,7 +48,7 @@ public class CustomerManager_Tests : ModuleDomainTestBase
 
         await WithUnitOfWorkAsync(async () =>
         {
-            customerGroup = await _customerGroupRepository.FirstOrDefaultAsync();
+            customerGroup = (await _customerGroupRepository.GetPagedListAsync(0, 1, nameof(CustomerGroup.Id))).FirstOrDefault();
             await _customerManager.ChangeCustomerGroupCodeAsync(customerGroup, "D Grubu");
             await _customerGroupRepository.UpdateAsync(customerGroup);
         });
@@ -68,7 +63,7 @@ public class CustomerManager_Tests : ModuleDomainTestBase
 
         await WithUnitOfWorkAsync(async () =>
         {
-            customer = await _customerRepository.FirstOrDefaultAsync(c => c.CustomerGroupId == null);
+            customer = (await _customerRepository.GetPagedListAsync(0, 1, nameof(Customer.Id))).FirstOrDefault();
             await _customerManager.SetCustomerGroupAsync(customer, "B Grubu");
             await _customerRepository.UpdateAsync(customer);
         });
@@ -83,36 +78,10 @@ public class CustomerManager_Tests : ModuleDomainTestBase
         {
             await WithUnitOfWorkAsync(async () =>
             {
-                var customer = await _customerRepository.FirstOrDefaultAsync(c => c.CustomerGroupId == null);
+                var customer = (await _customerRepository.GetPagedListAsync(0, 20, nameof(Customer.Id))).FirstOrDefault(x => x.CustomerGroupId == null);
                 await _customerManager.SetCustomerGroupAsync(customer, "A Grubu");
                 await _customerRepository.UpdateAsync(customer);
             });
         });
-    }
-
-    [Fact]
-    public async Task Join_Customers_To_Customer_Group()
-    {
-        await WithUnitOfWorkAsync(async () =>
-        {
-            var customerQueryable = await _customerRepository.GetQueryableAsync();
-            var customerGroupQueryable = await _customerGroupRepository.GetQueryableAsync();
-
-            var query = from customers in customerQueryable
-                        join customerGroup in customerGroupQueryable on customers.CustomerGroupId equals customerGroup.Id into customerGroups
-                        from customerGroup in customerGroups.DefaultIfEmpty()
-
-                        select new
-                        {
-                            CustomerId = customers.Id,
-                            CustomerName = customers.Name,
-                            CustomerSurname = customers.Surname,
-                            CustomerGroupCode = customerGroup.Code
-                        };
-            var list = await _asyncExecuter.ToListAsync(query);
-
-            list.Count.ShouldBeGreaterThan(0);
-        });
-
     }
 }

@@ -14,15 +14,15 @@ public class ModuleDataSeedContributor : IDataSeedContributor, ITransientDepende
     private readonly IGuidGenerator _guidGenerator;
     private readonly ICurrentTenant _currentTenant;
     private readonly CustomerManager _customerManager;
-    private readonly IRepository<Customer, Guid> _customerRepository;
-    private readonly IRepository<CustomerGroup, Guid> _customerGroupRepository;
+    private readonly ICustomerRepository _customerRepository;
+    private readonly ICustomerGroupRepository _customerGroupRepository;
 
     public ModuleDataSeedContributor(
         IGuidGenerator guidGenerator,
         ICurrentTenant currentTenant,
         CustomerManager customerManager,
-        IRepository<Customer, Guid> customerRepository,
-        IRepository<CustomerGroup, Guid> customerGroupRepository)
+        ICustomerRepository customerRepository,
+        ICustomerGroupRepository customerGroupRepository)
     {
         _guidGenerator = guidGenerator;
         _currentTenant = currentTenant;
@@ -55,6 +55,8 @@ public class ModuleDataSeedContributor : IDataSeedContributor, ITransientDepende
         {
             var customer = new Customer(_guidGenerator.Create(), "Müşteri - " + i.ToString(), "Soyad " + i.ToString());
             await _customerManager.SetCustomerGroupAsync(customer, group1);
+            customer.AddContactInformation("Cep", ContactInformationType.Phone, "123456789");
+            customer.Address = new Address("TR", "Ankara", "Gölbaşı", "adres1", "adres2");
             await _customerRepository.InsertAsync(customer, autoSave: true);
         }
     }

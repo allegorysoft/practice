@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Allegory.Module.Customers;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
@@ -14,9 +15,8 @@ public class ModuleEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<ModuleDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
+            options.AddRepository<Customer, EfCoreCustomerRepository>();
+            options.AddRepository<CustomerGroup, EfCoreCustomerGroupRepository>();
         });
     }
 }

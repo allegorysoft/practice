@@ -27,11 +27,6 @@ public class ModuleEntityFrameworkCoreTestModule : AbpModule
                 abpDbContextConfigurationContext.DbContextOptions.UseSqlite(sqliteConnection);
             });
         });
-
-        context.Services.AddAbpDbContext<ModuleDbContext>(options =>
-        {
-            options.AddDefaultRepositories(includeAllEntities: false);
-        });
     }
 
     private static SqliteConnection CreateDatabaseAndGetConnection()

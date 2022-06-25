@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
+using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
 namespace Allegory.SampleApp.EntityFrameworkCore;
@@ -34,6 +36,16 @@ public class SampleAppEntityFrameworkCoreTestModule : AbpModule
             {
                 context.DbContextOptions.UseSqlite(_sqliteConnection);
             });
+
+            options.Configure<IdentityServerDbContext>(context =>
+            {
+                context.DbContextOptions.UseSqlite(_sqliteConnection);
+            });
+
+            options.Configure<AbpAuditLoggingDbContext>(context =>
+            {
+                context.DbContextOptions.UseSqlite(_sqliteConnection);
+            });
         });
     }
 
@@ -52,6 +64,15 @@ public class SampleAppEntityFrameworkCoreTestModule : AbpModule
             .Options;
 
         using (var context = new SampleAppDbContext(options))
+        {
+            context.GetService<IRelationalDatabaseCreator>().CreateTables();
+        }
+
+        var options2 = new DbContextOptionsBuilder<SecondDbContext>()
+            .UseSqlite(connection)
+            .Options;
+
+        using (var context = new SecondDbContext(options2))
         {
             context.GetService<IRelationalDatabaseCreator>().CreateTables();
         }
