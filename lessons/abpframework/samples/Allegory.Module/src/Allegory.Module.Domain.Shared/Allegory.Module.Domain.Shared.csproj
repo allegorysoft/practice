@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Validation" Version="5.3.0" />
+    <PackageReference Include="Volo.Abp.Validation" Version="5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
