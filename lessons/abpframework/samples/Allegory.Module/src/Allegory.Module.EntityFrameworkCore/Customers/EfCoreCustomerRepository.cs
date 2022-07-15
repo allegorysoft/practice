@@ -18,7 +18,7 @@ public class EfCoreCustomerRepository : EfCoreRepository<IModuleDbContext, Custo
 
     }
 
-    public async Task<long> GetCountAsync(
+    public virtual async Task<long> GetCountAsync(
         Guid? customerGroupId = null,
         Guid? excludeCustomerId = null,
         CancellationToken cancellationToken = default)
