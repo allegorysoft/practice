@@ -26,4 +26,3 @@ public class EfCoreCustomerGroupRepository : EfCoreRepository<IModuleDbContext, 
             GetCancellationToken(cancellationToken));
     }
 }
-
