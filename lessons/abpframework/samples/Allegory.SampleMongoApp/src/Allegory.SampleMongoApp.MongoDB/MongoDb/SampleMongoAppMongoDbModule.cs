@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Allegory.SampleMongoApp.MongoDb;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AuditLogging.MongoDB;
 using Volo.Abp.BackgroundJobs.MongoDB;
 using Volo.Abp.FeatureManagement.MongoDB;
@@ -30,6 +31,10 @@ public class SampleMongoAppMongoDbModule : AbpModule
         context.Services.AddMongoDbContext<SampleMongoAppMongoDbContext>(options =>
         {
             options.AddDefaultRepositories();
+
+            options.SetDefaultRepositoryClasses(
+                typeof(MyRepositoryBase<,>),
+                typeof(MyRepositoryBase<>));
         });
 
         Configure<AbpUnitOfWorkDefaultOptions>(options =>
