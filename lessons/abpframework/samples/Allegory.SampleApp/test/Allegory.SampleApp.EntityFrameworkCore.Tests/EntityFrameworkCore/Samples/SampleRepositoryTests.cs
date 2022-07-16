@@ -27,7 +27,6 @@ public class SampleRepositoryTests : SampleAppEntityFrameworkCoreTestBase
         _appUserRepository = GetRequiredService<IRepository<IdentityUser, Guid>>();
         _auditLogRepository = GetRequiredService<IRepository<AuditLog, Guid>>();
         _tenantRepository = GetRequiredService<IRepository<Tenant, Guid>>();
-
     }
 
     [Fact]
