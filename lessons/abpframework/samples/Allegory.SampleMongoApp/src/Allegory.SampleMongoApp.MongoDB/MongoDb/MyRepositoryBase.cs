@@ -6,33 +6,38 @@ using Volo.Abp.Domain.Entities;
 using Volo.Abp.Domain.Repositories.MongoDB;
 using Volo.Abp.MongoDB;
 
-namespace Allegory.SampleMongoApp.MongoDb
+namespace Allegory.SampleMongoApp.MongoDb;
+
+public class MyRepositoryBase<TEntity>
+    : MongoDbRepository<SampleMongoAppMongoDbContext, TEntity>
+    where TEntity : class, IEntity
 {
-    public class MyRepositoryBase<TEntity>
-        : MongoDbRepository<SampleMongoAppMongoDbContext, TEntity>
-        where TEntity : class, IEntity
+    public MyRepositoryBase(IMongoDbContextProvider<SampleMongoAppMongoDbContext> dbContextProvider)
+        : base(dbContextProvider)
     {
-        public MyRepositoryBase(IMongoDbContextProvider<SampleMongoAppMongoDbContext> dbContextProvider)
-            : base(dbContextProvider)
-        {
-            
-        }
+
     }
 
-    public class MyRepositoryBase<TEntity, TKey>
-        : MongoDbRepository<SampleMongoAppMongoDbContext, TEntity, TKey>
-        where TEntity : class, IEntity<TKey>
+    public override Task<List<TEntity>> GetPagedListAsync(int skipCount, int maxResultCount, string sorting, bool includeDetails = false, CancellationToken cancellationToken = default)
     {
-        public MyRepositoryBase(IMongoDbContextProvider<SampleMongoAppMongoDbContext> dbContextProvider)
-            : base(dbContextProvider)
-        {
+        //Custom logic
+        return base.GetPagedListAsync(skipCount, maxResultCount, sorting, includeDetails, cancellationToken);
+    }
+}
 
-        }
+public class MyRepositoryBase<TEntity, TKey>
+    : MongoDbRepository<SampleMongoAppMongoDbContext, TEntity, TKey>
+    where TEntity : class, IEntity<TKey>
+{
+    public MyRepositoryBase(IMongoDbContextProvider<SampleMongoAppMongoDbContext> dbContextProvider)
+        : base(dbContextProvider)
+    {
 
-        public override Task<List<TEntity>> GetPagedListAsync(int skipCount, int maxResultCount, string sorting, bool includeDetails = false, CancellationToken cancellationToken = default)
-        {
-            //Custom logic
-            return base.GetPagedListAsync(skipCount, maxResultCount, sorting, includeDetails, cancellationToken);
-        }
+    }
+
+    public override Task<List<TEntity>> GetPagedListAsync(int skipCount, int maxResultCount, string sorting, bool includeDetails = false, CancellationToken cancellationToken = default)
+    {
+        //Custom logic
+        return base.GetPagedListAsync(skipCount, maxResultCount, sorting, includeDetails, cancellationToken);
     }
 }

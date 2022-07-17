@@ -30,11 +30,11 @@ public class SampleMongoAppMongoDbModule : AbpModule
     {
         context.Services.AddMongoDbContext<SampleMongoAppMongoDbContext>(options =>
         {
-            options.AddDefaultRepositories();
-
             options.SetDefaultRepositoryClasses(
                 typeof(MyRepositoryBase<,>),
                 typeof(MyRepositoryBase<>));
+
+            options.AddDefaultRepositories();
         });
 
         Configure<AbpUnitOfWorkDefaultOptions>(options =>
