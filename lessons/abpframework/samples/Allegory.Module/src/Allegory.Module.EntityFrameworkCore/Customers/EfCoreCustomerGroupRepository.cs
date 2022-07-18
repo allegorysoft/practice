@@ -16,7 +16,7 @@ public class EfCoreCustomerGroupRepository : EfCoreRepository<IModuleDbContext, 
 
     }
 
-    public async Task<CustomerGroup> FindByCodeAsync(
+    public virtual async Task<CustomerGroup> FindByCodeAsync(
         string code,
         bool includeDetails = true,
         CancellationToken cancellationToken = default)
@@ -26,4 +26,3 @@ public class EfCoreCustomerGroupRepository : EfCoreRepository<IModuleDbContext, 
             GetCancellationToken(cancellationToken));
     }
 }
-

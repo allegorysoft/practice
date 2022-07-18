@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Allegory.Module.Customers;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Modularity;
 using Volo.Abp.MongoDB;
 
@@ -14,9 +15,8 @@ public class ModuleMongoDbModule : AbpModule
     {
         context.Services.AddMongoDbContext<ModuleMongoDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, MongoQuestionRepository>();
-                 */
+            options.AddRepository<Customer, MongoCustomerRepository>();
+            options.AddRepository<CustomerGroup, MongoCustomerGroupRepository>();
         });
     }
 }
