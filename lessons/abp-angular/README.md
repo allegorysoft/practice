@@ -1,4 +1,4 @@
-# ABP Framework Temelleri
+# ABP Angular
 [YouTube](https://bit.ly/abp-angular-playlist) oynatma listesinde [ABP Angular](https://github.com/abpframework/abp/tree/dev/npm/ng-packs) için çekilen eğitim konuları ve örnekleri bu klasör altında tutulacaktır
 
 ## Eğitim Sırasında Kullandığım Araçlar
