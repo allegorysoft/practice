@@ -157,6 +157,13 @@ public class ModuleHttpApiHostModule : AbpModule
                     .AllowCredentials();
             });
         });
+
+        Configure<Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcOptions>(options =>
+        {
+            options
+                .ConventionalControllers
+                .Create(typeof(ModuleApplicationModule).Assembly);
+        });
     }
 
     public override void PostConfigureServices(ServiceConfigurationContext context)
