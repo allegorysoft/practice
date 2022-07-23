@@ -1,0 +1,25 @@
+<div class="container">
+  <abp-button (click)="change()"> Url Değiştir </abp-button>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5>Environment</h5>
+    </div>
+    <div class="card-body">
+      <pre><code>{{ getEnvironment$ | async | json }}</code></pre>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5>ProductManagement API Url</h5>
+    </div>
+    <div class="card-body">
+      <p>{{ apiUrl$('ProductManagement') | async }}</p>
+    </div>
+  </div>
+</div>
