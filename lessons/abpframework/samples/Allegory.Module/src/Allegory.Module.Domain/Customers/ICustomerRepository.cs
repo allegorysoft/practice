@@ -8,6 +8,10 @@ namespace Allegory.Module.Customers;
 
 public interface ICustomerRepository : IBasicRepository<Customer, Guid>
 {
+    Task<CustomerWithDetails> GetAsync(
+        Guid id,
+        CancellationToken cancellationToken = default);
+
     Task<List<Customer>> GetListAsync(
         int skipCount,
         int maxResultCount,
