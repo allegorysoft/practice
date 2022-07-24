@@ -19,6 +19,39 @@ public class MongoCustomerRepository : MongoDbRepository<IModuleMongoDbContext, 
 
     }
 
+    public virtual async Task<CustomerWithDetails> GetWithDetailsAsync(
+        Guid id, 
+        CancellationToken cancellationToken = default)
+    {
+        var query = await ApplyFilterAsync();
+
+        return await query.FirstOrDefaultAsync(
+            c => c.Id == id,
+            GetCancellationToken(cancellationToken));
+    }
+
+    protected virtual async Task<IMongoQueryable<CustomerWithDetails>> ApplyFilterAsync()
+    {
+        var customerDbSet = await GetMongoQueryableAsync();
+        var customerGroupDbSet = await GetMongoQueryableAsync<CustomerGroup>();
+
+        return from customer in customerDbSet
+
+               join customerGroup in customerGroupDbSet on customer.CustomerGroupId.Value equals customerGroup.Id into customerGroups
+               from customerGroup in customerGroups.DefaultIfEmpty()
+
+               select new CustomerWithDetails
+               {
+                   Id = customer.Id,
+                   Name = customer.Name,
+                   Surname = customer.Surname,
+                   ContactInformations = customer.ContactInformations,
+                   Address = customer.Address,
+                   ExtraProperties = customer.ExtraProperties,
+                   CustomerGroupCode = customerGroup.Code,
+               };
+    }
+
     public virtual async Task<List<Customer>> GetListAsync(
         int skipCount,
         int maxResultCount,
