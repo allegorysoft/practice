@@ -19,6 +19,47 @@ public class EfCoreCustomerRepository : EfCoreRepository<IModuleDbContext, Custo
 
     }
 
+    public virtual async Task<CustomerWithDetails> GetAsync(
+        Guid id,
+        CancellationToken cancellationToken = default)
+    {
+        var query = await ApplyFilterAsync();
+
+        return await query.FirstOrDefaultAsync(
+            c => c.Id == id,
+            GetCancellationToken(cancellationToken));
+    }
+
+    protected virtual async Task<IQueryable<CustomerWithDetails>> ApplyFilterAsync()
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var customerDbSet = await GetDbSetAsync();
+        var customerGroupDbSet = dbContext.Set<CustomerGroup>();
+
+        return from customer in customerDbSet
+
+               join customerGroup in customerGroupDbSet on customer.CustomerGroupId equals customerGroup.Id into customerGroups
+               from customerGroup in customerGroups.DefaultIfEmpty()
+
+               select new CustomerWithDetails
+               {
+                   Id = customer.Id,
+                   Name = customer.Name,
+                   Surname = customer.Surname,
+                   ContactInformations = customer.ContactInformations,
+                   //Address = customer.Address,(Throws exception detail: https://github.com/dotnet/EntityFramework.Docs/issues/2205)
+                   Address = new Address(
+                       customer.Address.Country,
+                       customer.Address.City,
+                       customer.Address.Town,
+                       customer.Address.Line1,
+                       customer.Address.Line2),
+                   ExtraProperties = customer.ExtraProperties,
+                   CustomerGroupCode = customerGroup.Code,
+               };
+    }
+
     public virtual async Task<List<Customer>> GetListAsync(
         int skipCount,
         int maxResultCount,
