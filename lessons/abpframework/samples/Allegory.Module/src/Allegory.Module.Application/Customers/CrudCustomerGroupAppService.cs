@@ -25,17 +25,6 @@ public class CrudCustomerGroupAppService
         CustomerManager = customerManager;
     }
 
-    public async override Task<CustomerGroupDto> CreateAsync(CustomerGroupCreateUpdateDto input)
-    {
-        var customerGroup = await CustomerManager.CreateCustomerGroupAsync(
-            input.Code,
-            description: input.Description);
-
-        await Repository.InsertAsync(customerGroup);
-
-        return ObjectMapper.Map<CustomerGroup, CustomerGroupDto>(customerGroup);
-    }
-
     public async override Task<CustomerGroupDto> UpdateAsync(Guid id, CustomerGroupCreateUpdateDto input)
     {
         var customerGroup = await Repository.GetAsync(id);

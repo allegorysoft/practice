@@ -8,6 +8,6 @@ public class ModuleApplicationAutoMapperProfile : Profile
     public ModuleApplicationAutoMapperProfile()
     {
         CreateMap<CustomerGroup, CustomerGroupDto>();
-        //CreateMap<CustomerGroupCreateUpdateDto, CustomerGroup>(MemberList.Source);
+        CreateMap<CustomerGroupCreateUpdateDto, CustomerGroup>(MemberList.Source);
     }
 }
