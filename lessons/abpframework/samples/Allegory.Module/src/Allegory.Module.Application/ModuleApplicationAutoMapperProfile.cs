@@ -15,5 +15,6 @@ public class ModuleApplicationAutoMapperProfile : Profile
             .ForMember(f => f.CustomerGroupCode, map => map.Ignore());
         CreateMap<ContactInformation, ContactInformationDto>(MemberList.Destination);
         CreateMap<Address, AddressDto>();
+        CreateMap<CustomerWithDetails, CustomerWithDetailsDto>();
     }
 }

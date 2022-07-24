@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
+using Volo.Abp.Domain.Entities;
 
 namespace Allegory.Module.Customers;
 
@@ -38,13 +39,30 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
 
     public virtual async Task<CustomerWithDetailsDto> GetAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var customer = await CustomerRepository.GetWithDetailsAsync(id);
+
+        if (customer == null)
+            throw new EntityNotFoundException(typeof(Customer), id);
+
+        return ObjectMapper.Map<CustomerWithDetails, CustomerWithDetailsDto>(customer);
     }
 
     public virtual async Task<PagedResultDto<CustomerDto>> GetListAsync(GetCustomerListDto input)
     {
+        if (input.Sorting.IsNullOrWhiteSpace())
+            input.Sorting = nameof(Customer.Id);
 
-        throw new NotImplementedException();
+        var result = await CustomerRepository.GetListAsync(
+            input.SkipCount,
+            input.MaxResultCount,
+            input.Sorting,
+            filter: input.Filter);
+
+        var totalCount = await CustomerRepository.GetCountAsync(filter: input.Filter);
+
+        return new PagedResultDto<CustomerDto>(
+            totalCount,
+            ObjectMapper.Map<List<Customer>, List<CustomerDto>>(result));
     }
 
     public virtual async Task<CustomerWithDetailsDto> CreateAsync(CustomerCreateDto input)
