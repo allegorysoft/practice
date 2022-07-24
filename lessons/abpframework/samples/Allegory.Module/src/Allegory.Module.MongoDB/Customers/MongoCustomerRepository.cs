@@ -1,7 +1,10 @@
 ﻿using Allegory.Module.MongoDB;
+using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories.MongoDB;
@@ -16,12 +19,32 @@ public class MongoCustomerRepository : MongoDbRepository<IModuleMongoDbContext, 
 
     }
 
+    public virtual async Task<List<Customer>> GetListAsync(
+        int skipCount,
+        int maxResultCount,
+        string sorting,
+        string filter = null,
+        bool includeDetails = false,
+        CancellationToken cancellationToken = default)
+    {
+        var dbSet = await GetMongoQueryableAsync();
+
+        return await dbSet
+            .WhereIf<Customer, IMongoQueryable<Customer>>(!filter.IsNullOrWhiteSpace(), c => c.Name.Contains(filter))
+            .OrderBy(sorting)
+            .As<IMongoQueryable<Customer>>()
+            .PageBy<Customer, IMongoQueryable<Customer>>(skipCount, maxResultCount)
+            .ToListAsync(GetCancellationToken(cancellationToken));
+    }
+
     public virtual async Task<long> GetCountAsync(
+        string filter = null,
         Guid? customerGroupId = null,
         Guid? excludeCustomerId = null,
         CancellationToken cancellationToken = default)
     {
         return await (await GetMongoQueryableAsync(cancellationToken))
+            .WhereIf<Customer, IMongoQueryable<Customer>>(!filter.IsNullOrWhiteSpace(), customer => customer.Name.Contains(filter))
             .WhereIf<Customer, IMongoQueryable<Customer>>(customerGroupId.HasValue, customer => customer.CustomerGroupId == customerGroupId)
             .WhereIf<Customer, IMongoQueryable<Customer>>(excludeCustomerId.HasValue, customer => customer.Id != excludeCustomerId)
             .LongCountAsync(GetCancellationToken(cancellationToken));
