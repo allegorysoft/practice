@@ -41,9 +41,6 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
     {
         var customer = await CustomerRepository.GetWithDetailsAsync(id);
 
-        if (customer == null)
-            throw new EntityNotFoundException(typeof(Customer), id);
-
         return ObjectMapper.Map<CustomerWithDetails, CustomerWithDetailsDto>(customer);
     }
 

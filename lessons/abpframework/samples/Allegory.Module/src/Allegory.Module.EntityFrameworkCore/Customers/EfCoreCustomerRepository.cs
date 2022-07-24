@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
+using Volo.Abp.Domain.Entities;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -25,9 +26,14 @@ public class EfCoreCustomerRepository : EfCoreRepository<IModuleDbContext, Custo
     {
         var query = await ApplyFilterAsync();
 
-        return await query.FirstOrDefaultAsync(
+        var result = await query.FirstOrDefaultAsync(
             c => c.Id == id,
             GetCancellationToken(cancellationToken));
+
+        if (result == null)
+            throw new EntityNotFoundException(typeof(Customer), id);
+
+        return result;
     }
 
     protected virtual async Task<IQueryable<CustomerWithDetails>> ApplyFilterAsync()
