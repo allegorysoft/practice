@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Services;
 
@@ -53,6 +54,12 @@ public class CustomerManager : DomainService
 
     public virtual async Task<CustomerGroup> SetCustomerGroupAsync(Customer customer, string customerGroupCode)
     {
+        if (customerGroupCode.IsNullOrWhiteSpace())
+        {
+            customer.CustomerGroupId = null;
+            return null;
+        }
+
         var customerGroup = await CustomerGroupRepository.FindByCodeAsync(customerGroupCode);
         if (customerGroup == null)
             throw new UserFriendlyException($"{customerGroupCode} kodlu müşteri grubu bulunamadı");
