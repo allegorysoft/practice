@@ -8,7 +8,7 @@ namespace Allegory.Module.Customers;
 
 public interface ICustomerRepository : IBasicRepository<Customer, Guid>
 {
-    Task<CustomerWithDetails> GetAsync(
+    Task<CustomerWithDetails> GetWithDetailsAsync(
         Guid id,
         CancellationToken cancellationToken = default);
 

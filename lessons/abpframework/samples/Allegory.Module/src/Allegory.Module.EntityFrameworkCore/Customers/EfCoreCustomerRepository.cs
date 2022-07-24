@@ -19,7 +19,7 @@ public class EfCoreCustomerRepository : EfCoreRepository<IModuleDbContext, Custo
 
     }
 
-    public virtual async Task<CustomerWithDetails> GetAsync(
+    public virtual async Task<CustomerWithDetails> GetWithDetailsAsync(
         Guid id,
         CancellationToken cancellationToken = default)
     {
