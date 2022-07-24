@@ -162,7 +162,10 @@ public class ModuleHttpApiHostModule : AbpModule
         {
             options
                 .ConventionalControllers
-                .Create(typeof(ModuleApplicationModule).Assembly);
+                .Create(typeof(ModuleApplicationModule).Assembly,o =>
+                {
+                    o.RootPath = "module";
+                });
         });
     }
 
