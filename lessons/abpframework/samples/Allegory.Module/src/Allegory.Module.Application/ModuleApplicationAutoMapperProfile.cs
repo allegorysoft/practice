@@ -9,5 +9,11 @@ public class ModuleApplicationAutoMapperProfile : Profile
     {
         CreateMap<CustomerGroup, CustomerGroupDto>();
         CreateMap<CustomerGroupCreateUpdateDto, CustomerGroup>(MemberList.Source);
+
+        CreateMap<Customer, CustomerDto>(MemberList.Destination);
+        CreateMap<Customer, CustomerWithDetailsDto>(MemberList.Destination)
+            .ForMember(f => f.CustomerGroupCode, map => map.Ignore());
+        CreateMap<ContactInformation, ContactInformationDto>(MemberList.Destination);
+        CreateMap<Address, AddressDto>();
     }
 }
