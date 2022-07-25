@@ -27,14 +27,11 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
      */
 
     protected ICustomerRepository CustomerRepository { get; }
-    protected CustomerManager CustomerManager { get; }
+    protected CustomerManager CustomerManager => LazyServiceProvider.LazyGetRequiredService<CustomerManager>();
 
-    public CustomerAppService(
-        ICustomerRepository customerRepository,
-        CustomerManager customerManager)
+    public CustomerAppService(ICustomerRepository customerRepository)
     {
         CustomerRepository = customerRepository;
-        CustomerManager = customerManager;
     }
 
     public virtual async Task<CustomerWithDetailsDto> GetAsync(Guid id)

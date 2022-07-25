@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Entities;
 
@@ -9,14 +10,12 @@ namespace Allegory.Module.Customers;
 public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppService
 {
     protected ICustomerGroupRepository CustomerGroupRepository { get; }
-    protected CustomerManager CustomerManager { get; }
+    protected ICustomerRepository CustomerRepository => LazyServiceProvider.LazyGetRequiredService<ICustomerRepository>();
+    protected CustomerManager CustomerManager => LazyServiceProvider.LazyGetRequiredService<CustomerManager>();
 
-    public CustomerGroupAppService(
-        ICustomerGroupRepository customerGroupRepository,
-        CustomerManager customerManager)
+    public CustomerGroupAppService(ICustomerGroupRepository customerGroupRepository)
     {
         CustomerGroupRepository = customerGroupRepository;
-        CustomerManager = customerManager;
     }
 
     public virtual async Task<CustomerGroupDto> GetAsync(Guid id)
@@ -81,7 +80,11 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
 
     public virtual async Task DeleteAsync(Guid id)
     {
-        //TODO  Check if customer is using
-        await CustomerGroupRepository.DeleteAsync(id);
+        var customerGroup = await CustomerGroupRepository.GetAsync(id);
+
+        if (await CustomerRepository.GetCountAsync(customerGroupId: id) > 0)
+            throw new UserFriendlyException($"{customerGroup.Code} kodlu müşteri grubuna bağlı müşteriler bulunmaktadır");
+
+        await CustomerGroupRepository.DeleteAsync(customerGroup);
     }
 }
