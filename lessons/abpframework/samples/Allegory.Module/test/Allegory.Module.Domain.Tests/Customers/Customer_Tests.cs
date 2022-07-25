@@ -7,7 +7,7 @@ namespace Allegory.Module.Customers;
 
 public class Customer_Tests : ModuleDomainTestBase
 {
-    private IGuidGenerator _guidGenerator;
+    private readonly IGuidGenerator _guidGenerator;
 
     public Customer_Tests()
     {
