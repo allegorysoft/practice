@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   AbpApplicationConfigurationService,
   ApplicationConfigurationDto,
@@ -19,6 +20,22 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit(): void {
     this.showAll();
+  }
+
+  showAll(): void {
+    console.clear();
+    /**
+     * this.abpConfigService.get().subscribe(console.log);
+     * Aynı veriyi döner
+     */
+    this.getAll$().subscribe(console.log);
+  }
+
+  addRole(): void {
+    this.config
+      .refreshAppState()
+      .pipe(map(store => store.currentUser.roles.push('reader')))
+      .subscribe();
   }
 
   getAll$(): Observable<ApplicationConfigurationDto> {
@@ -47,14 +64,5 @@ export class ConfigComponent implements OnInit {
 
   getFeature$(key: string): Observable<string> {
     return this.config.getFeature$(key);
-  }
-
-  showAll(): void {
-    console.clear();
-    /**
-     * this.abpConfigService.get().subscribe(console.log);
-     * Aynı veriyi döner
-     */
-    this.getAll$().subscribe(console.log);
   }
 }
