@@ -8,9 +8,11 @@
 ## Eğitim Sırasında Kullandığım Araçlar
 - [Sunum](https://www.canva.com) 
 - [Akış diyagramı](https://app.diagrams.net)
-- [Örnek kod tasarımı](https://carbon.now.sh/)
+- [Örnek kod tasarımı](https://carbon.now.sh)
 - [Ekran kaydetme](https://www.easeus.com/screen-recorder)
 - [Video düzenleme](https://multimedia.easeus.com/video-editor)
+- [Postman](https://www.postman.com)
+- [Azure Data Studio](https://azure.microsoft.com/en-us/services/developer-tools/data-studio/)
 
 ## Eğitimler
 
