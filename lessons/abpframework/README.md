@@ -26,4 +26,4 @@
 - [ABP EntityFrameworkCore](https://www.youtube.com/watch?v=2GM1-pOGqMw&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=8)
 - [ABP MongoDB](https://www.youtube.com/watch?v=Z0-35XWatgs&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=9)
 - [ABP Data Transfer Objects](https://www.youtube.com/watch?v=rRW76OmgLlM&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=10)
-- [ABP Application Services]()
+- [ABP Application Services](https://www.youtube.com/watch?v=hbwyyiMDv-I&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=11)
