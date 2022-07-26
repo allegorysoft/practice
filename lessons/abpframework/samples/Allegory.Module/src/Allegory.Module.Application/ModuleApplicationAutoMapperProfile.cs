@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Allegory.Module.Customers;
+using AutoMapper;
 
 namespace Allegory.Module;
 
@@ -6,8 +7,16 @@ public class ModuleApplicationAutoMapperProfile : Profile
 {
     public ModuleApplicationAutoMapperProfile()
     {
-        /* You can configure your AutoMapper mapping configuration here.
-         * Alternatively, you can split your mapping configurations
-         * into multiple profile classes for a better organization. */
+        CreateMap<CustomerGroup, CustomerGroupDto>();
+        CreateMap<CustomerGroupCreateUpdateDto, CustomerGroup>(MemberList.Source);
+
+        #region Customer
+        CreateMap<Customer, CustomerDto>(MemberList.Destination);
+        CreateMap<Customer, CustomerWithDetailsDto>(MemberList.Destination)
+            .ForMember(f => f.CustomerGroupCode, map => map.Ignore());
+        CreateMap<ContactInformation, ContactInformationDto>(MemberList.Destination);
+        CreateMap<Address, AddressDto>();
+        CreateMap<CustomerWithDetails, CustomerWithDetailsDto>();
+        #endregion
     }
 }

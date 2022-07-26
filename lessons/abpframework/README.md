@@ -8,9 +8,11 @@
 ## Eğitim Sırasında Kullandığım Araçlar
 - [Sunum](https://www.canva.com) 
 - [Akış diyagramı](https://app.diagrams.net)
-- [Örnek kod tasarımı](https://carbon.now.sh/)
+- [Örnek kod tasarımı](https://carbon.now.sh)
 - [Ekran kaydetme](https://www.easeus.com/screen-recorder)
 - [Video düzenleme](https://multimedia.easeus.com/video-editor)
+- [Postman](https://www.postman.com)
+- [Azure Data Studio](https://azure.microsoft.com/en-us/services/developer-tools/data-studio/)
 
 ## Eğitimler
 
@@ -24,3 +26,4 @@
 - [ABP EntityFrameworkCore](https://www.youtube.com/watch?v=2GM1-pOGqMw&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=8)
 - [ABP MongoDB](https://www.youtube.com/watch?v=Z0-35XWatgs&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=9)
 - [ABP Data Transfer Objects](https://www.youtube.com/watch?v=rRW76OmgLlM&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=10)
+- [ABP Application Services](https://www.youtube.com/watch?v=hbwyyiMDv-I&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=11)
