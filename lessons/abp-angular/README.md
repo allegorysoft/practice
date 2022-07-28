@@ -12,4 +12,4 @@
 
 - [ABP Angular'a Giriş](https://www.youtube.com/watch?v=p0TFn20v9mM&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=1)
 - [ABP Angular Environment](https://www.youtube.com/watch?v=6dvSD5vJ1ts&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=2)
-- [ABP Angular Config State Service]()
+- [ABP Angular Config State Service](https://www.youtube.com/watch?v=fXs1Zb85Zvg&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=3)
