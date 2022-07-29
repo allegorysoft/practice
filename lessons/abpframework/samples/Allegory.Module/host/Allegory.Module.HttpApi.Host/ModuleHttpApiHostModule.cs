@@ -1,3 +1,4 @@
+using Allegory.Module.Customers;
 using Allegory.Module.EntityFrameworkCore;
 using Allegory.Module.MultiTenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,7 +30,6 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
-using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 
@@ -162,9 +162,11 @@ public class ModuleHttpApiHostModule : AbpModule
         {
             options
                 .ConventionalControllers
-                .Create(typeof(ModuleApplicationModule).Assembly,o =>
+                .Create(typeof(ModuleApplicationModule).Assembly, o =>
                 {
-                    o.RootPath = "module";
+                    o.RemoteServiceName = ModuleRemoteServiceConsts.RemoteServiceName;
+                    o.RootPath = ModuleRemoteServiceConsts.ModuleName;
+                    o.TypePredicate = type => type == typeof(CrudCustomerGroupAppService);
                 });
         });
     }
