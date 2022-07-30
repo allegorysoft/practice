@@ -164,8 +164,8 @@ public class ModuleHttpApiHostModule : AbpModule
                 .ConventionalControllers
                 .Create(typeof(ModuleApplicationModule).Assembly, o =>
                 {
-                    o.RemoteServiceName = ModuleRemoteServiceConsts.RemoteServiceName;
-                    o.RootPath = ModuleRemoteServiceConsts.ModuleName;
+                    o.RemoteServiceName = "auto_" + ModuleRemoteServiceConsts.RemoteServiceName;
+                    o.RootPath = "alg/"+ ModuleRemoteServiceConsts.ModuleName;
                     o.TypePredicate = type => type == typeof(CrudCustomerGroupAppService);
                 });
         });
