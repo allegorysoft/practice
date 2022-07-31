@@ -34,7 +34,17 @@ export class ConfigComponent implements OnInit {
   addRole(): void {
     this.config
       .refreshAppState()
-      .pipe(map(store => store.currentUser.roles.push('reader')))
+      .pipe(
+        map(store => {
+          store.currentUser.roles.push('reader');//Role ekler
+
+          const policies = store.auth.grantedPolicies;
+          store.auth.grantedPolicies = {
+            ...policies,
+            'NgSampleApp.Customer': true
+          };//Yeni yetki ekler
+        })
+      )
       .subscribe();
   }
 
