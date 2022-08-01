@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -159,7 +160,7 @@ public class ModuleHttpApiHostModule : AbpModule
             });
         });
 
-        Configure<Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcOptions>(options =>
+        Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options
                 .ConventionalControllers
