@@ -9,3 +9,9 @@
 }
 <h1>Module</h1>
 <p>@L["SamplePageMessage"]</p>
+
+@section scripts {
+    <abp-script-bundle name="@typeof(IndexModel).FullName">
+        <abp-script src="/client-proxies/module-proxy.js" />
+    </abp-script-bundle>
+}

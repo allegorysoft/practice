@@ -9,6 +9,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Allegory.Module.Permissions;
+using Volo.Abp.Http.ProxyScripting.Generators.JQuery;
 
 namespace Allegory.Module.Web;
 
@@ -52,7 +53,12 @@ public class ModuleWebModule : AbpModule
 
         Configure<RazorPagesOptions>(options =>
         {
-                //Configure authorization.
-            });
+            //Configure authorization.
+        });
+
+        Configure<DynamicJavaScriptProxyOptions>(options =>
+        {
+            options.DisableModule(ModuleRemoteServiceConsts.ModuleName);
+        });
     }
 }
