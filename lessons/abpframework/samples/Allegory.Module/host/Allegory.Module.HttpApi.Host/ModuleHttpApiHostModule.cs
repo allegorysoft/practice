@@ -169,6 +169,13 @@ public class ModuleHttpApiHostModule : AbpModule
                     o.RemoteServiceName = "auto_" + ModuleRemoteServiceConsts.RemoteServiceName;
                     o.RootPath = "alg/"+ ModuleRemoteServiceConsts.ModuleName;
                     o.TypePredicate = type => type == typeof(CrudCustomerGroupAppService);
+
+                    //o.UseV3UrlStyle = true; => use camel case for routing
+                    o.UrlActionNameNormalizer = urlName =>
+                    {
+                        return urlName.ActionNameInUrl;
+                    };
+
                 });
         });
     }
