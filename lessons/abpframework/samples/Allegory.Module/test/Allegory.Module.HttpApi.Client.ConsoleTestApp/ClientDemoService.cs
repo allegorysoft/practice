@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Allegory.Module.Samples;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.IdentityModel;
+using Allegory.Module.Customers;
 
 namespace Allegory.Module;
 
@@ -14,22 +15,31 @@ public class ClientDemoService : ITransientDependency
     private readonly ISampleAppService _sampleAppService;
     private readonly IIdentityModelAuthenticationService _authenticationService;
     private readonly IConfiguration _configuration;
+    private readonly ICustomerAppService _customerAppService;
 
     public ClientDemoService(
         ISampleAppService sampleAppService,
         IIdentityModelAuthenticationService authenticationService,
-        IConfiguration configuration)
+        IConfiguration configuration,
+        ICustomerAppService customerAppService)
     {
         _sampleAppService = sampleAppService;
         _authenticationService = authenticationService;
         _configuration = configuration;
+        _customerAppService = customerAppService;
     }
 
     public async Task RunAsync()
     {
+        await TestCustomerAppServiceAsync();
         await TestWithDynamicProxiesAsync();
         await TestWithHttpClientAndIdentityModelAuthenticationServiceAsync();
         await TestAllManuallyAsync();
+    }
+
+    private async Task TestCustomerAppServiceAsync()
+    {
+        var result = await _customerAppService.GetListAsync(new GetCustomerListDto());
     }
 
     /* Shows how to perform an HTTP request to the API using ABP's dynamic c# proxy
