@@ -1,6 +1,6 @@
 ## ABP API Controllers
 
-- [Eğitim]()
+- [Eğitim](https://www.youtube.com/watch?v=zahAG0NRlC8&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=12)
 - [Sunum](https://bit.ly/abp-api-controllers)
 - [ABP Swagger Integration Dokümanı](https://docs.abp.io/en/abp/latest/API/Swagger-Integration)
 - [ABP Application Configuration Endpoint Dokümanı](https://docs.abp.io/en/abp/latest/API/Application-Configuration)
