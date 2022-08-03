@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
 
+import { ConfigComponent } from './config/config.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,8 +32,8 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
     SettingManagementConfigModule.forRoot(),
     ThemeBasicModule.forRoot(),
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ConfigComponent],
   providers: [APP_ROUTE_PROVIDER],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

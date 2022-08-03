@@ -1,0 +1,64 @@
+<div class="container">
+  <abp-button (click)="showAll()">Tüm yapılandırmaları getir</abp-button>
+  &nbsp;
+  <abp-button (click)="addRole()">Rol ekle</abp-button>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5><strong class="text-primary">getOne</strong>(currentUser)</h5>
+    </div>
+    <div class="card-body">
+      <pre><code>{{ getOne$('currentUser') | async | json }}</code></pre>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5><strong class="text-primary">getDeep</strong>(currentCulture)</h5>
+    </div>
+    <div class="card-body">
+      <!-- <pre><code>{{ getDeep$('localization.currentCulture') | async | json }}</code></pre> -->
+
+      <pre><code>{{ getDeep$(['localization', 'currentCulture']) | async | json }}</code></pre>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5>Settings</h5>
+    </div>
+    <div class="card-body">
+      <pre><code>{{ getSettings$('Abp.') | async | json }}</code></pre>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="card">
+    <div class="card-header">
+      <h5>Features</h5>
+    </div>
+    <div class="card-body">
+      <pre><code>{{
+        getFeatures$([
+          'SettingManagement.AllowTenantsToChangeEmailSettings',
+          'SettingManagement.Enable'
+        ])
+          | async
+          | json
+      }}</code></pre>
+
+      <pre><code>{{ 
+        getFeature$('SettingManagement.Enable') 
+          | async 
+          | json 
+        }}</code></pre>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,13 @@ function configureRoutes(routesService: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
+      {
+        path: '/config',
+        name: 'Config',
+        order: 2,
+        iconClass: 'fa fa-gear',
+        layout: eLayoutType.application,
+      }
     ]);
   };
 }
