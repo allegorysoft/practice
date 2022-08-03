@@ -1,3 +1,4 @@
+using Allegory.Module.Customers;
 using Allegory.Module.EntityFrameworkCore;
 using Allegory.Module.MultiTenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -29,7 +31,6 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
-using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 
@@ -94,6 +95,7 @@ public class ModuleHttpApiHostModule : AbpModule
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "Module API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
+                //options.HideAbpEndpoints();
             });
 
         Configure<AbpLocalizationOptions>(options =>
@@ -158,13 +160,22 @@ public class ModuleHttpApiHostModule : AbpModule
             });
         });
 
-        Configure<Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcOptions>(options =>
+        Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options
                 .ConventionalControllers
-                .Create(typeof(ModuleApplicationModule).Assembly,o =>
+                .Create(typeof(ModuleApplicationModule).Assembly, o =>
                 {
-                    o.RootPath = "module";
+                    o.RemoteServiceName = "auto_" + ModuleRemoteServiceConsts.RemoteServiceName;
+                    o.RootPath = "alg/"+ ModuleRemoteServiceConsts.ModuleName;
+                    o.TypePredicate = type => type == typeof(CrudCustomerGroupAppService);
+
+                    //o.UseV3UrlStyle = true; => use camel case for routing
+                    o.UrlActionNameNormalizer = urlName =>
+                    {
+                        return urlName.ActionNameInUrl;
+                    };
+
                 });
         });
     }

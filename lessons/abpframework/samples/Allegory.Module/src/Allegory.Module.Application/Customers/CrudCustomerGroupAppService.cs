@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
@@ -25,6 +26,7 @@ public class CrudCustomerGroupAppService
         CustomerManager = customerManager;
     }
 
+    [RemoteService(IsMetadataEnabled = false)]
     public async override Task<CustomerGroupDto> UpdateAsync(Guid id, CustomerGroupCreateUpdateDto input)
     {
         var customerGroup = await Repository.GetAsync(id);
@@ -36,5 +38,11 @@ public class CrudCustomerGroupAppService
         await Repository.UpdateAsync(customerGroup);
 
         return ObjectMapper.Map<CustomerGroup, CustomerGroupDto>(customerGroup);
+    }
+
+    [RemoteService(IsEnabled = false)]
+    public override Task DeleteAsync(Guid id)
+    {
+        return base.DeleteAsync(id);
     }
 }

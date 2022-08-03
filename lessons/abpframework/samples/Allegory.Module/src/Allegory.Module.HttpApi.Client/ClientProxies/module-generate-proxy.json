@@ -1,0 +1,590 @@
+{
+  "modules": {
+    "module": {
+      "rootPath": "module",
+      "remoteServiceName": "Module",
+      "controllers": {
+        "Allegory.Module.Samples.SampleController": {
+          "controllerName": "Sample",
+          "controllerGroupName": "Sample",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Allegory.Module.Samples.SampleController",
+          "interfaces": [
+            {
+              "type": "Allegory.Module.Samples.ISampleAppService"
+            }
+          ],
+          "actions": {
+            "GetAsync": {
+              "uniqueName": "GetAsync",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/Module/sample",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Allegory.Module.Samples.SampleDto",
+                "typeSimple": "Allegory.Module.Samples.SampleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Samples.ISampleAppService"
+            },
+            "GetAuthorizedAsync": {
+              "uniqueName": "GetAuthorizedAsync",
+              "name": "GetAuthorizedAsync",
+              "httpMethod": "GET",
+              "url": "api/Module/sample/authorized",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Allegory.Module.Samples.SampleDto",
+                "typeSimple": "Allegory.Module.Samples.SampleDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Allegory.Module.Samples.ISampleAppService"
+            }
+          }
+        },
+        "Allegory.Module.Customers.CustomerController": {
+          "controllerName": "Customer",
+          "controllerGroupName": "Customer",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Allegory.Module.Customers.CustomerController",
+          "interfaces": [
+            {
+              "type": "Allegory.Module.Customers.ICustomerAppService"
+            }
+          ],
+          "actions": {
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/module/customers/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerWithDetailsDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerWithDetailsDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/module/customers",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Allegory.Module.Customers.GetCustomerListDto, Allegory.Module.Application.Contracts",
+                  "type": "Allegory.Module.Customers.GetCustomerListDto",
+                  "typeSimple": "Allegory.Module.Customers.GetCustomerListDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Allegory.Module.Customers.CustomerDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Allegory.Module.Customers.CustomerDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/module/customers",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Allegory.Module.Customers.CustomerCreateDto, Allegory.Module.Application.Contracts",
+                  "type": "Allegory.Module.Customers.CustomerCreateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Allegory.Module.Customers.CustomerCreateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerWithDetailsDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerWithDetailsDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/module/customers/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Allegory.Module.Customers.CustomerUpdateDto, Allegory.Module.Application.Contracts",
+                  "type": "Allegory.Module.Customers.CustomerUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Allegory.Module.Customers.CustomerUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerWithDetailsDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerWithDetailsDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/module/customers/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerAppService"
+            }
+          }
+        },
+        "Allegory.Module.Customers.CustomerGroupController": {
+          "controllerName": "CustomerGroup",
+          "controllerGroupName": "Customer",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Allegory.Module.Customers.CustomerGroupController",
+          "interfaces": [
+            {
+              "type": "Allegory.Module.Customers.ICustomerGroupAppService"
+            }
+          ],
+          "actions": {
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/module/customer-groups/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerGroupDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerGroupDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            },
+            "GetByCodeAsyncByCode": {
+              "uniqueName": "GetByCodeAsyncByCode",
+              "name": "GetByCodeAsync",
+              "httpMethod": "GET",
+              "url": "api/module/customer-groups/by-code",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "code",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "code",
+                  "name": "code",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerGroupDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerGroupDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/module/customer-groups",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Allegory.Module.Customers.CustomerGroupDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Allegory.Module.Customers.CustomerGroupDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/module/customer-groups",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto, Allegory.Module.Application.Contracts",
+                  "type": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerGroupDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerGroupDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/module/customer-groups/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto, Allegory.Module.Application.Contracts",
+                  "type": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "typeSimple": "Allegory.Module.Customers.CustomerGroupCreateUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Allegory.Module.Customers.CustomerGroupDto",
+                "typeSimple": "Allegory.Module.Customers.CustomerGroupDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/module/customer-groups/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.Module.Customers.ICustomerGroupAppService"
+            }
+          }
+        }
+      }
+    }
+  },
+  "types": {}
+}
