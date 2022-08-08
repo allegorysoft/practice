@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Environment, EnvironmentService } from '@abp/ng.core';
+import { eLayoutType, RoutesService } from '@abp/ng.core';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,22 @@ export class HomeComponent {
     return this.environment.getEnvironment$();
   }
 
-  constructor(private environment: EnvironmentService) { }
+  constructor(
+    private environment: EnvironmentService,
+    private readonly routesService: RoutesService
+  ) { }
+
+  addMenu(): void {
+    this.routesService.add([
+      {
+        path: '/customers',
+        name: 'Müşteriler',
+        order: 3,
+        layout: eLayoutType.application,
+        iconClass: 'fa fa-users',
+      }
+    ]);
+  }
 
   /**
    * 
