@@ -31,6 +31,9 @@ public class SampleMongoAppApplicationModule : AbpModule
     {
         context.Services.AddAssemblyOf<SampleMongoAppApplicationModule>();
 
+        context.Services.AddTransient<IMultiManager, SomeSpecificManager>();
+        context.Services.AddTransient<IMultiManager, OtherManager>();
+
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<SampleMongoAppApplicationModule>();
