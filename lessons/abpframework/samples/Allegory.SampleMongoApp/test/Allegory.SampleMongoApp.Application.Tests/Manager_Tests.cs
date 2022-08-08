@@ -1,5 +1,7 @@
 ﻿using Autofac.Core.Registration;
+using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -28,7 +30,7 @@ public class Manager_Tests : SampleMongoAppApplicationTestBase
     public void Should_Inject_Other_Manager()
     {
         var manager = GetRequiredService<ISomeSpecificManager>();
-        
+
         manager.ShouldNotBeNull();
         Assert.Throws<ComponentNotRegisteredException>(() =>
         {
@@ -48,5 +50,18 @@ public class Manager_Tests : SampleMongoAppApplicationTestBase
 
         managers.Count().ShouldBe(2);
         manager.GetType().ShouldBe(typeof(OtherManager));
+    }
+
+    [Fact]
+    public void Should_Inject_Sample_App_Service()
+    {
+        var sample = GetRequiredService<SampleAppService>();
+        var specificManager = sample.SpecificManager;
+
+        var serviceProvider = GetRequiredService<IServiceProvider>();
+        using (var scope = serviceProvider.CreateScope())
+        {
+            var manager = scope.ServiceProvider.GetRequiredService<IManager>();
+        }
     }
 }
