@@ -64,10 +64,17 @@ public class Manager_Tests : SampleMongoAppApplicationTestBase
             //Same instance
         }
 
-        var serviceProvider = GetRequiredService<IServiceProvider>();
+        var serviceProvider = sample.ServiceProvider;
         using (var scope = serviceProvider.CreateScope())
         {
-            var manager = scope.ServiceProvider.GetRequiredService<IManager>();
+            var scopeSpecificManager = scope.ServiceProvider.GetRequiredService<ISpecificManager>();
+            var scopeSpecificManager2 = scope.ServiceProvider.GetRequiredService<ISpecificManager>();
+
+            if (ReferenceEquals(scopeSpecificManager, scopeSpecificManager2)) { }
+            else
+            {
+                //Different instance
+            }
         }
     }
 }
