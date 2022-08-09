@@ -57,7 +57,12 @@ public class Manager_Tests : SampleMongoAppApplicationTestBase
     {
         var sample = GetRequiredService<SampleAppService>();
         var specificManager = sample.SpecificManager;
-        var specificManager2 = sample.LazyServiceProvider.LazyGetRequiredService<ISpecificManager>;
+        var specificManager2 = sample.LazyServiceProvider.LazyGetRequiredService<ISpecificManager>();
+
+        if(ReferenceEquals(specificManager, specificManager2))
+        {
+            //Same instance
+        }
 
         var serviceProvider = GetRequiredService<IServiceProvider>();
         using (var scope = serviceProvider.CreateScope())
