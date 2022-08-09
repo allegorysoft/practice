@@ -15,8 +15,8 @@ export class CustomersComponent implements OnInit {
   patchAndRemoveMenu(): void {
     const dashboardRouteConfig: ABP.Route = {
       path: '/dashboard',
-      name: 'Test',
-      parentName: '::Menu:Home',
+      name: 'Dashboard',
+      parentName: 'Müşteriler',
       order: 1,
       layout: eLayoutType.application,
     };
