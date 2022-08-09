@@ -2,7 +2,7 @@
 
 namespace Allegory.SampleMongoApp;
 
-//[Dependency(ServiceLifetime.Transient)]
+//[Dependency(ServiceLifetime.Scoped)]
 public class SomeSpecificManager : ITransientDependency,
     ISomeSpecificManager, ISpecificManager, IManager, IcificManager,//Auto registered
     IMultiManager, //Manuel registered
