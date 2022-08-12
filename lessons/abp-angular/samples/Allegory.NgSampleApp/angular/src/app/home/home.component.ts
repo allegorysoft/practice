@@ -1,37 +1,18 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Environment, EnvironmentService } from '@abp/ng.core';
-import { eLayoutType, RoutesService } from '@abp/ng.core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  //#region Environment
   get getEnvironment$(): Observable<Environment> {
     return this.environment.getEnvironment$();
   }
-  //#endregion
 
-  constructor(
-    private environment: EnvironmentService,
-    private readonly routesService: RoutesService
-  ) { }
+  constructor(private environment: EnvironmentService) { }
 
-  addMenu(): void {
-    this.routesService.add([
-      {
-        path: '/customers',
-        name: 'Müşteriler',
-        order: 3,
-        layout: eLayoutType.application,
-        iconClass: 'fa fa-users',
-      }
-    ]);
-  }
-
-  //#region Environment methods
   /**
    * 
    * @param key API adı
@@ -57,5 +38,4 @@ export class HomeComponent {
 
     this.environment.setState(newEnvironment);
   }
-  //#endregion
 }
