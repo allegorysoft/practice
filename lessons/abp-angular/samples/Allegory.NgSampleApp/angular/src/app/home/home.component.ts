@@ -8,9 +8,11 @@ import { eLayoutType, RoutesService } from '@abp/ng.core';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
+  //#region Environment
   get getEnvironment$(): Observable<Environment> {
     return this.environment.getEnvironment$();
   }
+  //#endregion
 
   constructor(
     private environment: EnvironmentService,
@@ -29,6 +31,7 @@ export class HomeComponent {
     ]);
   }
 
+  //#region Environment methods
   /**
    * 
    * @param key API adı
@@ -54,4 +57,5 @@ export class HomeComponent {
 
     this.environment.setState(newEnvironment);
   }
+  //#endregion
 }
