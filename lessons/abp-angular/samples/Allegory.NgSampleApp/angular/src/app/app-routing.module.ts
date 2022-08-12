@@ -29,7 +29,12 @@ const routes: Routes = [
   {
     path: 'config',
     component: ConfigComponent
-  }
+  },
+  {
+    path: 'customers',
+    loadChildren: () =>
+      import('./customers/customers.module').then(m => m.CustomersModule),
+  },
 ];
 
 @NgModule({
