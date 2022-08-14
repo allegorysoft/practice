@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Account;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -21,8 +22,18 @@ namespace Allegory.SampleMongoApp;
     )]
 public class SampleMongoAppApplicationModule : AbpModule
 {
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        SkipAutoServiceRegistration = true;
+    }
+
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        context.Services.AddAssemblyOf<SampleMongoAppApplicationModule>();
+
+        context.Services.AddTransient<IMultiManager, SomeSpecificManager>();
+        context.Services.AddTransient<IMultiManager, OtherManager>();
+
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<SampleMongoAppApplicationModule>();
