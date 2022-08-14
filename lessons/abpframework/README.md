@@ -28,4 +28,4 @@
 - [ABP Data Transfer Objects](https://www.youtube.com/watch?v=rRW76OmgLlM&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=10)
 - [ABP Application Services](https://www.youtube.com/watch?v=hbwyyiMDv-I&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=11)
 - [ABP API Controllers](https://www.youtube.com/watch?v=zahAG0NRlC8&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=12)
-- [ABP Dependency Injection]()
+- [ABP Dependency Injection](https://www.youtube.com/watch?v=y0CmJw3Dzq8&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=13)
