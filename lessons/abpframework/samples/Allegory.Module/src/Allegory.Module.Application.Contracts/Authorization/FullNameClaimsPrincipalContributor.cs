@@ -16,7 +16,7 @@ public class FullNameClaimsPrincipalContributor : IAbpClaimsPrincipalContributor
         var name = identity?.FindFirst(AbpClaimTypes.Name)?.Value;
         var surname = identity?.FindFirst(AbpClaimTypes.SurName)?.Value;
 
-        if (!name.IsNullOrEmpty() || !surname.IsNullOrEmpty())
+        if (!name.IsNullOrEmpty() && !surname.IsNullOrEmpty())
         {
             string fullName = name + " " + surname;
             identity.AddClaim(new Claim("FullName", fullName));

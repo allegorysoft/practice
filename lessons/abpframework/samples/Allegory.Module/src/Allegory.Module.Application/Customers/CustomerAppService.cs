@@ -44,6 +44,7 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
         return ObjectMapper.Map<CustomerWithDetails, CustomerWithDetailsDto>(customer);
     }
 
+    [Authorize("FullNameControl")]
     public virtual async Task<PagedResultDto<CustomerDto>> GetListAsync(GetCustomerListDto input)
     {
         if (input.Sorting.IsNullOrWhiteSpace())
