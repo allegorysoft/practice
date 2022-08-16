@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Allegory.Module.Permissions;
+using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp;
@@ -7,6 +9,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace Allegory.Module.Customers;
 
+[Authorize(ModulePermissions.CustomerGroups.Default)]
 public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppService
 {
     protected ICustomerGroupRepository CustomerGroupRepository { get; }
@@ -52,6 +55,7 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
             ObjectMapper.Map<List<CustomerGroup>, List<CustomerGroupDto>>(result));
     }
 
+    [Authorize(ModulePermissions.CustomerGroups.Create)]
     public virtual async Task<CustomerGroupDto> CreateAsync(CustomerGroupCreateUpdateDto input)
     {
         var customerGroup = await CustomerManager.CreateCustomerGroupAsync(
@@ -63,6 +67,7 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
         return ObjectMapper.Map<CustomerGroup, CustomerGroupDto>(customerGroup);
     }
 
+    [Authorize(ModulePermissions.CustomerGroups.Update)]
     public virtual async Task<CustomerGroupDto> UpdateAsync(
         Guid id,
         CustomerGroupCreateUpdateDto input)
@@ -78,6 +83,7 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
         return ObjectMapper.Map<CustomerGroup, CustomerGroupDto>(customerGroup);
     }
 
+    [Authorize(ModulePermissions.CustomerGroups.Delete)]
     public virtual async Task DeleteAsync(Guid id)
     {
         var customerGroup = await CustomerGroupRepository.GetAsync(id);

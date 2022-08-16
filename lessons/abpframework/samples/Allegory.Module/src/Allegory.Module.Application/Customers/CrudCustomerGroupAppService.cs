@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Allegory.Module.Permissions;
+using System;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
@@ -24,11 +25,19 @@ public class CrudCustomerGroupAppService
         : base(repository)
     {
         CustomerManager = customerManager;
+
+        GetPolicyName = ModulePermissions.CustomerGroups.Default;
+        GetListPolicyName = ModulePermissions.CustomerGroups.Default;
+        CreatePolicyName = ModulePermissions.CustomerGroups.Create;
+        UpdatePolicyName = ModulePermissions.CustomerGroups.Update;
+        DeletePolicyName = ModulePermissions.CustomerGroups.Delete;
     }
 
     [RemoteService(IsMetadataEnabled = false)]
     public async override Task<CustomerGroupDto> UpdateAsync(Guid id, CustomerGroupCreateUpdateDto input)
     {
+        await CheckUpdatePolicyAsync();
+
         var customerGroup = await Repository.GetAsync(id);
 
         if (customerGroup.Code != input.Code)
