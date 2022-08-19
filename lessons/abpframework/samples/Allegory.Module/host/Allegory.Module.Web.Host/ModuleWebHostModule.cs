@@ -148,7 +148,7 @@ public class ModuleWebHostModule : AbpModule
         context.Services.AddAuthentication(options =>
         {
             options.DefaultScheme = "Custom";
-            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = "oidc";
         })
          .AddPolicyScheme("Custom", "Custom", options =>
          {

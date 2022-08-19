@@ -1,7 +1,13 @@
 {
   "culture": "en",
   "texts": {
-    "MyAccount":  "My account",
-    "SamplePageMessage": "A sample page for the Module module"
+    "MyAccount": "My account",
+    "SamplePageMessage": "A sample page for the Module module",
+    "Permission:Module": "Our module management",
+    "Permission:CustomerGroups": "Customer group management",
+    "Permission:Customers": "Customer management",
+    "Permission:Create": "Create",
+    "Permission:Edit": "Edit",
+    "Permission:Delete": "Delete"
   }
 }

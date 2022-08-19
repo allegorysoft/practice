@@ -1,7 +1,13 @@
 {
   "culture": "tr",
   "texts": {
-    "MyAccount":  "Hesabım",
-    "SamplePageMessage": "Module modulünden örnek bir sayfa"
+    "MyAccount": "Hesabım",
+    "SamplePageMessage": "Module modulünden örnek bir sayfa",
+    "Permission:Module": "Modül yönetimi",
+    "Permission:CustomerGroups": "Müşteri grubu yönetimi",
+    "Permission:Customers": "Müşteri yönetimi",
+    "Permission:Create": "Oluşturma",
+    "Permission:Edit": "Düzenleme",
+    "Permission:Delete": "Silme"
   }
 }

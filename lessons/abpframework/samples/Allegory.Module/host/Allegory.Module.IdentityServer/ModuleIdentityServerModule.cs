@@ -49,6 +49,7 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.Threading;
 using Volo.Abp.UI.Navigation.Urls;
+using Volo.Abp.IdentityServer;
 
 namespace Allegory.Module;
 
@@ -104,6 +105,11 @@ public class ModuleIdentityServerModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
+
+        Configure<AbpClaimsServiceOptions>(options =>
+        {
+            options.RequestedClaims.AddRange(new[] { "FullName" });
+        });
 
         Configure<AbpLocalizationOptions>(options =>
         {

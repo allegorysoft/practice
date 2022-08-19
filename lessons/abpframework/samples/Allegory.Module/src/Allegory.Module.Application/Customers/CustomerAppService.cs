@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Allegory.Module.Permissions;
+using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +9,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace Allegory.Module.Customers;
 
+[Authorize(ModulePermissions.Customers.Default)]
 public class CustomerAppService : ModuleAppService, ICustomerAppService
 {
     /*                                 ****Best Practices****
@@ -41,6 +44,7 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
         return ObjectMapper.Map<CustomerWithDetails, CustomerWithDetailsDto>(customer);
     }
 
+    [Authorize("FullNameControl")]
     public virtual async Task<PagedResultDto<CustomerDto>> GetListAsync(GetCustomerListDto input)
     {
         if (input.Sorting.IsNullOrWhiteSpace())
@@ -59,6 +63,7 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
             ObjectMapper.Map<List<Customer>, List<CustomerDto>>(result));
     }
 
+    [Authorize(ModulePermissions.Customers.Create)]
     public virtual async Task<CustomerWithDetailsDto> CreateAsync(CustomerCreateDto input)
     {
         var customer = new Customer(
@@ -78,6 +83,7 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
         return customerDto;
     }
 
+    [Authorize(ModulePermissions.Customers.Update)]
     public virtual async Task<CustomerWithDetailsDto> UpdateAsync(Guid id, CustomerUpdateDto input)
     {
         var customer = await CustomerRepository.GetAsync(id);
@@ -145,6 +151,7 @@ public class CustomerAppService : ModuleAppService, ICustomerAppService
         await Task.CompletedTask;
     }
 
+    [Authorize(ModulePermissions.Customers.Delete)]
     public virtual async Task DeleteAsync(Guid id)
     {
         await CustomerRepository.DeleteAsync(id);
