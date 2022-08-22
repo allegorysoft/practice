@@ -22,14 +22,14 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fa fa-gear',
         layout: eLayoutType.application,
       },
-      // {
-      //   path: '/customers',
-      //   name: 'Müşteriler',
-      //   // requiredPolicy: 'NgSampleApp.Customer',
-      //   order: 3,
-      //   layout: eLayoutType.application,
-      //   iconClass: 'fa fa-users',
-      // }
+      {
+        path: '/customers',
+        name: 'Müşteriler',
+        requiredPolicy: 'NgSampleApp.Customers',
+        order: 3,
+        layout: eLayoutType.application,
+        iconClass: 'fa fa-users',
+      }
     ]);
   };
 }
