@@ -25,7 +25,7 @@
           <th scope="row">
             <button
               *ngIf="hasAnyPolicy"
-              class="btn btn-primary dropdown-toggle"
+              class="btn btn-sm btn-primary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -33,7 +33,7 @@
               {{ 'AbpUi::Actions' | abpLocalization }}
             </button>
             <ul class="dropdown-menu">
-              <li *abpPermission="'NgSampleApp.Customers.Update'">
+              <li *abpPermission="'NgSampleApp.Customers.Edit'">
                 <button class="dropdown-item">
                   {{ 'AbpUi::Edit' | abpLocalization }}
                 </button>
