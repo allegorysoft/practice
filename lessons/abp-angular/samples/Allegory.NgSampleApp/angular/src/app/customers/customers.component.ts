@@ -1,4 +1,4 @@
-import { PermissionService } from '@abp/ng.core';
+import { ABP, PermissionService } from '@abp/ng.core';
 import { Component } from '@angular/core';
 import { Customer } from '../models/customer';
 
@@ -22,7 +22,15 @@ export class CustomersComponent {
 
   hasAnyPolicy: boolean = this.permissionService.getGrantedPolicy(
     'NgSampleApp.Customers.Edit || NgSampleApp.Customers.Delete'
-  );;
+  );
 
-  constructor(private readonly permissionService: PermissionService) { }
+  constructor(private readonly permissionService: PermissionService) {
+    const policies = this.permissionService.filterItemsByPolicy(
+      [
+        { requiredPolicy: 'NgSampleApp.Customers' },
+        { requiredPolicy: 'NgSampleApp.Customers.Create' }
+      ] as ABP.HasPolicy[]
+    );
+    // console.log(policies);
+  }
 }
