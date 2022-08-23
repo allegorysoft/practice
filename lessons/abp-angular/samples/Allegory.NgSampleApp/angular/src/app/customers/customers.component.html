@@ -1,17 +1,23 @@
 <div class="card mt-3">
   <div class="card-header">
-    <span class="card-title">Müşteriler</span>
-    <button
-      *abpPermission="'NgSampleApp.Customers.Create'"
-      class="btn btn-sm btn-primary float-end"
-    >
-      <i class="fa fa-plus"></i>
-      {{ '::Create' | abpLocalization }}
-    </button>
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">Müşteriler</h5>
+      </div>
+      <div class="col col-md-6">
+        <button
+          *abpPermission="'NgSampleApp.Customers.Create'"
+          class="btn btn-sm btn-primary float-end"
+        >
+          <i class="fa fa-plus"></i>
+          {{ '::Create' | abpLocalization }}
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="card-body">
-    <table class="table table-striped">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">{{ 'AbpUi::Actions' | abpLocalization }}</th>
