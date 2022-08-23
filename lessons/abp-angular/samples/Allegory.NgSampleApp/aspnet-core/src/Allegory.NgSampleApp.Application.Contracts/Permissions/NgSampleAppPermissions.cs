@@ -1,4 +1,5 @@
 ﻿using Volo.Abp.Reflection;
+
 namespace Allegory.NgSampleApp.Permissions;
 
 public static class NgSampleAppPermissions
