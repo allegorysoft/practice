@@ -10,7 +10,7 @@ public static class NgSampleAppPermissions
     {
         public const string Default = GroupName + ".Customers";
         public const string Create = Default + ".Create";
-        public const string Edit = Default + ".Edit";
+        public const string Update = Default + ".Update";
         public const string Delete = Default + ".Delete";
     }
 

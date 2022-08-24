@@ -12,7 +12,7 @@ public class NgSampleAppPermissionDefinitionProvider : PermissionDefinitionProvi
 
         var customersPermission = ngSampleAppGroup.AddPermission(NgSampleAppPermissions.Customers.Default, L("Permission:Customers"));
         customersPermission.AddChild(NgSampleAppPermissions.Customers.Create, L("Permission:Create"));
-        customersPermission.AddChild(NgSampleAppPermissions.Customers.Edit, L("Permission:Edit"));
+        customersPermission.AddChild(NgSampleAppPermissions.Customers.Update, L("Permission:Edit"));
         customersPermission.AddChild(NgSampleAppPermissions.Customers.Delete, L("Permission:Delete"));
     }
 
