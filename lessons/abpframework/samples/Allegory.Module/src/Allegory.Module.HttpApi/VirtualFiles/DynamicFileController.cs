@@ -18,7 +18,7 @@ public class DynamicFileController : ModuleController
         DynamicFileProvider = dynamicFileProvider;
     }
 
-    [HttpGet("add-or-update")]
+    [HttpPost]
     public void AddOrUpdate(string value)
     {
         DynamicFileProvider.AddOrUpdate(
@@ -28,5 +28,11 @@ public class DynamicFileController : ModuleController
                 "test.txt"
             )
         );
+    }
+
+    [HttpDelete]
+    public void Delete(string path)
+    {
+        DynamicFileProvider.Delete(path);
     }
 }
