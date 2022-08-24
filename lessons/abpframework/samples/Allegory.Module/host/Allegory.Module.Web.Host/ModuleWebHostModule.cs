@@ -54,6 +54,7 @@ using Volo.Abp.VirtualFileSystem;
 using System.Linq;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Volo.Abp.VirtualFileExplorer.Web;
 
 namespace Allegory.Module;
 
@@ -78,7 +79,8 @@ namespace Allegory.Module;
     typeof(AbpSettingManagementHttpApiClientModule),
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(AbpVirtualFileExplorerWebModule)
     )]
 public class ModuleWebHostModule : AbpModule
 {
