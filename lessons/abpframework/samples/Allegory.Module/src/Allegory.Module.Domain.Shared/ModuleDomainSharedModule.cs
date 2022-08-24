@@ -17,7 +17,7 @@ public class ModuleDomainSharedModule : AbpModule
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<ModuleDomainSharedModule>(baseFolder:"MyResources");
+            options.FileSets.AddEmbedded<ModuleDomainSharedModule>(baseFolder: "MyResources");
         });
 
         Configure<AbpLocalizationOptions>(options =>
