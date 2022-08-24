@@ -8,7 +8,17 @@
 
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.3.0" />
-		<PackageReference Include="Bogus" Version="34.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Bogus">
+	    <HintPath>MyResources\Bogus.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="MyResources\**\*.*" />
+		<Content Remove="MyResources\**\*.*" />
 	</ItemGroup>
 
 </Project>
