@@ -21,7 +21,7 @@ export class CustomersComponent {
   ];
 
   hasAnyPolicy: boolean = this.permissionService.getGrantedPolicy(
-    'NgSampleApp.Customers.Edit || NgSampleApp.Customers.Delete'
+    'NgSampleApp.Customers.Update || NgSampleApp.Customers.Delete'
   );
 
   constructor(private readonly permissionService: PermissionService) {
