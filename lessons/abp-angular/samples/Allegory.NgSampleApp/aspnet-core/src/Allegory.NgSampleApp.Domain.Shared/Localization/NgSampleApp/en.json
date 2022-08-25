@@ -1,8 +1,14 @@
 {
-  "culture": "en",
-  "texts": {
-    "Menu:Home": "Home",
-    "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
-  }
+    "culture": "en",
+    "texts": {
+        "Menu:Home": "Home",
+        "Welcome": "Welcome",
+        "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+        "Permission:NgSampleApp": "Sample App Management",
+        "Permission:Customers": "Customer Management",
+        "Permission:Create": "Create",
+        "Permission:Edit": "Edit",
+        "Permission:Delete": "Delete",
+        "Create": "Create"
+    }
 }

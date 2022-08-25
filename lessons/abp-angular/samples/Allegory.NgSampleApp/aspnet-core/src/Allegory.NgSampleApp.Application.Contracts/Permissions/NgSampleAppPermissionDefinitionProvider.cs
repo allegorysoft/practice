@@ -8,9 +8,12 @@ public class NgSampleAppPermissionDefinitionProvider : PermissionDefinitionProvi
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(NgSampleAppPermissions.GroupName);
-        //Define your own permissions here. Example:
-        //myGroup.AddPermission(NgSampleAppPermissions.MyPermission1, L("Permission:MyPermission1"));
+        var ngSampleAppGroup = context.AddGroup(NgSampleAppPermissions.GroupName, L("Permission:NgSampleApp"));
+
+        var customersPermission = ngSampleAppGroup.AddPermission(NgSampleAppPermissions.Customers.Default, L("Permission:Customers"));
+        customersPermission.AddChild(NgSampleAppPermissions.Customers.Create, L("Permission:Create"));
+        customersPermission.AddChild(NgSampleAppPermissions.Customers.Update, L("Permission:Edit"));
+        customersPermission.AddChild(NgSampleAppPermissions.Customers.Delete, L("Permission:Delete"));
     }
 
     private static LocalizableString L(string name)

@@ -1,5 +1,5 @@
 import { AccountConfigModule } from '@abp/ng.account/config';
-import { CoreModule } from '@abp/ng.core';
+import { CoreModule, PermissionService } from '@abp/ng.core';
 import { registerLocale } from '@abp/ng.core/locale';
 import { IdentityConfigModule } from '@abp/ng.identity/config';
 import { SettingManagementConfigModule } from '@abp/ng.setting-management/config';
@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
 
 import { ConfigComponent } from './config/config.component';
+import { ExtendedPermissionService } from './services/extended-permission.service';
 
 @NgModule({
   imports: [
@@ -33,7 +34,13 @@ import { ConfigComponent } from './config/config.component';
     ThemeBasicModule.forRoot(),
   ],
   declarations: [AppComponent, ConfigComponent],
-  providers: [APP_ROUTE_PROVIDER],
+  providers: [
+    APP_ROUTE_PROVIDER,
+    // {
+    //   provide: PermissionService,
+    //   useExisting: ExtendedPermissionService,
+    // },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

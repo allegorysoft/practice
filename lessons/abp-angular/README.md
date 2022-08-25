@@ -14,3 +14,4 @@
 - [ABP Angular Environment](https://www.youtube.com/watch?v=6dvSD5vJ1ts&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=2)
 - [ABP Angular Config State Service](https://www.youtube.com/watch?v=fXs1Zb85Zvg&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=3)
 - [ABP Angular Menü Yönetimi](https://www.youtube.com/watch?v=BRMdnp7HFWs&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=4)
+- [ABP Angular Authorization](https://www.youtube.com/watch?v=-YHzBwPmqUs&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=5)
