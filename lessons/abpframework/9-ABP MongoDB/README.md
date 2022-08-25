@@ -4,4 +4,4 @@
 - [Sunum](https://bit.ly/abp-mongodb)
 - [ABP MongoDB Best Practice Dokümanı](https://docs.abp.io/en/abp/latest/Best-Practices/MongoDB-Integration)
 - [ABP MongoDB Dokümanı](https://docs.abp.io/en/abp/latest/MongoDB)
-- [ABP Post](https://community.abp.io/posts/abp-mongodb-iqq1py5h)
+- [ABP Post](https://community.abp.io/videos/abp-mongodb-iqq1py5h)

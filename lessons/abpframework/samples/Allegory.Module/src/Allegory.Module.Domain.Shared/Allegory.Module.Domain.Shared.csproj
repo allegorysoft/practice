@@ -1,24 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\common.props" />
+	<Import Project="..\..\common.props" />
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Allegory.Module</RootNamespace>
-    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Allegory.Module</RootNamespace>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.Validation" Version="5.3.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Validation" Version="5.3.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Localization\Module\*.json" />
-    <Content Remove="Localization\Module\*.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\Module\*.json" />
+		<Content Remove="Localization\Module\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="MyResources\**\*.*" />
+		<Content Remove="MyResources\**\*.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="MyResources2\**\*.*" />
+		<Content Remove="MyResources2\**\*.*" />
+	</ItemGroup>
 
 </Project>

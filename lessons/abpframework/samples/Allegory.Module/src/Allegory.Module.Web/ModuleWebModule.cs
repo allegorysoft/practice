@@ -10,6 +10,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Allegory.Module.Permissions;
 using Volo.Abp.Http.ProxyScripting.Generators.JQuery;
+using System;
 
 namespace Allegory.Module.Web;
 
@@ -43,6 +44,7 @@ public class ModuleWebModule : AbpModule
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
             options.FileSets.AddEmbedded<ModuleWebModule>();
+            options.FileSets.AddPhysical(AppContext.BaseDirectory);
         });
 
         context.Services.AddAutoMapperObjectMapper<ModuleWebModule>();

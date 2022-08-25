@@ -19,7 +19,8 @@ public class ModuleHttpApiClientModule : AbpModule
 
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<ModuleHttpApiClientModule>();
+            options.FileSets.AddEmbedded<ModuleHttpApiClientModule>(
+                baseNamespace: "Allegory");
         });
 
     }

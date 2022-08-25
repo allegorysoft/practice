@@ -54,6 +54,7 @@ using Volo.Abp.VirtualFileSystem;
 using System.Linq;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Volo.Abp.VirtualFileExplorer.Web;
 
 namespace Allegory.Module;
 
@@ -78,7 +79,8 @@ namespace Allegory.Module;
     typeof(AbpSettingManagementHttpApiClientModule),
     typeof(AbpSettingManagementWebModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(AbpVirtualFileExplorerWebModule)
     )]
 public class ModuleWebHostModule : AbpModule
 {
@@ -205,7 +207,7 @@ public class ModuleWebHostModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<ModuleDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Allegory.Module.Domain", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<ModuleDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Allegory.Module.Domain.Shared", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<ModuleApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Allegory.Module.Application.Contracts", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<ModuleWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}Allegory.Module.Web", Path.DirectorySeparatorChar)));
             });

@@ -32,7 +32,8 @@
     <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="5.3.3" />
     <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="5.3.3" />
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="5.3.3" />
-    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="5.3.3" />
+	  <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="5.3.3" />
+	  <PackageReference Include="Volo.Abp.VirtualFileExplorer.Web" Version="5.3.3" />
   </ItemGroup>
 
   <ItemGroup>
