@@ -4,4 +4,4 @@
 - [Sunum](https://bit.ly/abp-dependency-injection)
 - [ABP Dependency Injection Dokümanı](https://docs.abp.io/en/abp/latest/Dependency-Injection)
 - [ABP Autofac Integration Dokümanı](https://docs.abp.io/en/abp/latest/Autofac-Integration)
-- [ABP Post](https://community.abp.io/posts/abp-dependency-injection-oj7uel7g)
+- [ABP Post](https://community.abp.io/videos/abp-dependency-injection-oj7uel7g)
