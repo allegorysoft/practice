@@ -4,4 +4,4 @@
 - [Sunum](https://bit.ly/abp-angular-authorization)
 - [ABP Angular Authorization Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Authorization)
 - [ABP Angular Permission Management Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Permission-Management)
-- [ABP Post]()
+- [ABP Post](https://community.abp.io/videos/abp-angular-authorization-h3eqypua)
