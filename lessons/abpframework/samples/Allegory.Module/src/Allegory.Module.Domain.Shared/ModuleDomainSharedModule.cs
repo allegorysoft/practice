@@ -26,6 +26,12 @@ public class ModuleDomainSharedModule : AbpModule
                 .Add<ModuleResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Module");
+
+            //options.DefaultResourceType = typeof(ModuleResource);
+            //options.Resources
+            //    .Get<ModuleResource>()
+            //    .AddBaseTypes(typeof(DefaultResource))//Inherit From Other Resources
+            //    .AddVirtualJson("");//Extending Existing Resource
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>
