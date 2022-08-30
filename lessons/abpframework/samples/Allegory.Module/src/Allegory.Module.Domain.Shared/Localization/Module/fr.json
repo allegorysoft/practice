@@ -1,7 +1,8 @@
 {
  "culture": "fr",
- "texts": {
-  "MyAccount": "Mon compte",
-  "SamplePageMessage": "Exemple de page pour le module Module"
- }
+  "texts": {
+    "MyAccount": "Mon compte",
+    "SamplePageMessage": "Exemple de page pour le module Module",
+    "ParentValue": "french resource parent value"
+  }
 }
