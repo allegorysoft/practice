@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
+using System.Linq;
 using Volo.Abp;
 using Volo.Abp.Localization;
 
@@ -25,9 +26,9 @@ public class LocalizerController : ModuleController
     }
 
     [HttpGet("all-strings")]
-    public IActionResult GetAllStrings()
+    public IActionResult GetAllStrings(bool includeParentCulture, bool includeBaseLocalizers)
     {
-        var result = L.GetAllStrings(true, true);
+        var result = L.GetAllStrings(includeParentCulture, includeBaseLocalizers);
 
         return Ok(result);
     }
@@ -43,6 +44,11 @@ public class LocalizerController : ModuleController
             using (CultureHelper.Use(language.CultureName))
                 values.Add((language.CultureName, L[key]));
 
-        return Ok(values);
+        return Ok(
+            values.Select(v => new
+            {
+                culture = v.culture,
+                value = v.localizedText
+            }).ToList());
     }
 }
