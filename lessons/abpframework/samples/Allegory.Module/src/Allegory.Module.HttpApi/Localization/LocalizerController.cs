@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Localization;
 
@@ -26,5 +22,27 @@ public class LocalizerController : ModuleController
         var result = L[key];
 
         return Ok(result);
+    }
+
+    [HttpGet("all-strings")]
+    public IActionResult GetAllStrings()
+    {
+        var result = L.GetAllStrings(true, true);
+
+        return Ok(result);
+    }
+
+    [HttpGet("localize-all-language")]
+    public IActionResult LocalizeAllLanguage(string key)
+    {
+        var localizeOption = LazyServiceProvider.LazyGetRequiredService<IOptions<AbpLocalizationOptions>>().Value;
+
+        List<(string culture, string localizedText)> values = new();
+
+        foreach (var language in localizeOption.Languages)
+            using (CultureHelper.Use(language.CultureName))
+                values.Add((language.CultureName, L[key]));
+
+        return Ok(values);
     }
 }
