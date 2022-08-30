@@ -1,5 +1,6 @@
 using Allegory.Module.Customers;
 using Allegory.Module.EntityFrameworkCore;
+using Allegory.Module.Localization;
 using Allegory.Module.MultiTenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -17,6 +18,7 @@ using System.Linq;
 using System.Text;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -55,7 +57,13 @@ public class ModuleHttpApiHostModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        base.PreConfigureServices(context);
+        context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
+        {
+            options.AddAssemblyResource(
+                typeof(ModuleResource),
+                typeof(ModuleApplicationContractsModule).Assembly
+            );
+        });
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
