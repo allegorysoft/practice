@@ -8,6 +8,8 @@
     "Permission:Customers": "Customer management",
     "Permission:Create": "Create",
     "Permission:Edit": "Edit",
-    "Permission:Delete": "Delete"
+    "Permission:Delete": "Delete",
+    "ParentValue": "english resource parent value",
+    "DisplayName:CustomerGroupCreateUpdateDto:Code": "customer group code"
   }
 }

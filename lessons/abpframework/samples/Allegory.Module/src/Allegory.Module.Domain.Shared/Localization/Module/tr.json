@@ -8,6 +8,7 @@
     "Permission:Customers": "Müşteri yönetimi",
     "Permission:Create": "Oluşturma",
     "Permission:Edit": "Düzenleme",
-    "Permission:Delete": "Silme"
+    "Permission:Delete": "Silme",
+    "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu"
   }
 }

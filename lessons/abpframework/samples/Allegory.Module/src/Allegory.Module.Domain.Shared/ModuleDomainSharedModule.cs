@@ -1,7 +1,7 @@
-﻿using Volo.Abp.Modularity;
+﻿using Allegory.Module.Localization;
 using Volo.Abp.Localization;
-using Allegory.Module.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
+using Volo.Abp.Modularity;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
@@ -26,6 +26,12 @@ public class ModuleDomainSharedModule : AbpModule
                 .Add<ModuleResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Module");
+
+            //options.DefaultResourceType = typeof(ModuleResource);
+            //options.Resources
+            //    .Get<ModuleResource>()
+            //    .AddBaseTypes(typeof(DefaultResource))//Inherit From Other Resources
+            //    .AddVirtualJson("/OtherLocalization/Module");//Extending Existing Resource
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>
