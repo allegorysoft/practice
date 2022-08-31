@@ -31,4 +31,4 @@
 - [ABP Dependency Injection](https://www.youtube.com/watch?v=y0CmJw3Dzq8&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=13)
 - [ABP Authorization](https://www.youtube.com/watch?v=9tns9UNHXx0&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=14)
 - [ABP Virtual File System](https://www.youtube.com/watch?v=xFg6BaMTh7Y&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=15)
-- [ABP Localization]()
+- [ABP Localization](https://www.youtube.com/watch?v=NLF6uqyju9Q&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=16)
