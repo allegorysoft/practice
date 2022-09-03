@@ -19,7 +19,7 @@ public class PersonAppService : ApplicationService
         _personRepository = personRepository;
     }
 
-    public async Task<PagedResultDto<PersonDto>> List(FilteredPagedAndSortedResultRequestDto input)
+    public async Task<PagedResultDto<PersonDto>> ListAsync(FilteredPagedAndSortedResultRequestDto input)
     {
         if (input.Sorting.IsNullOrWhiteSpace()) input.Sorting = nameof(Person.Id);
 
@@ -39,20 +39,42 @@ public class PersonAppService : ApplicationService
             ObjectMapper.Map<IReadOnlyList<Person>, IReadOnlyList<PersonDto>>(items));
     }
 
-    public ListResultDto<PersonDto> ListWithRawSql(FilteredPagedAndSortedResultRequestDto input)
+    public async Task<PagedResultDto<ComplexPersonDto>> ListComplexAsync(FilteredPagedAndSortedResultRequestDto input)
     {
-        if (input.Sorting.IsNullOrWhiteSpace()) input.Sorting = nameof(Person.Id);
+        if (input.Sorting.IsNullOrWhiteSpace()) input.Sorting = nameof(ComplexPersonDto.Id);
+        var queryable = await _personRepository.GetQueryableAsync();
+        var predicate = input.Conditions.GetLambdaExpression<ComplexPersonDto>();
 
+        var query = queryable
+            .Select(m => new ComplexPersonDto
+            {
+                Id = m.Id,
+                FullName = m.Name + " " + m.Surname,
+                Age = DateTime.Now.Year - m.BirthDate.Year
+            })
+            .WhereIf(predicate != null, predicate);
+
+        var items = await AsyncExecuter.ToListAsync(
+            query.OrderBy(input.Sorting)
+                 .PageBy(input.SkipCount, input.MaxResultCount));
+
+        var totalCount = await AsyncExecuter.LongCountAsync(query);
+
+        return new PagedResultDto<ComplexPersonDto>(totalCount, items);
+    }
+
+    public ListResultDto<PersonDto> ListWithRawSql(FilteredAndSortedResultRequestDto input)
+    {
         var context = LazyServiceProvider.LazyGetRequiredService<DynamicFilterDbContext>();
 
         using (var connection = context.Database.GetDbConnection())
         {
-            var items = connection.Query<Person>(
-                  string.Format(
-                      "SELECT * FROM People {0}",
-                      input.Conditions.GetFilterQuery(out IDictionary<string, object> parameters)),
-                      parameters)
-                  .ToList();
+            var query = string.Format(
+                "SELECT * FROM People {0} {1}",
+                input.Conditions.GetFilterQuery<Person>(out IDictionary<string, object> parameters),
+                input.Sorting.GetFilterQuery<Person>());
+
+            var items = connection.Query<Person>(query, parameters).ToList();
 
             return new ListResultDto<PersonDto>(ObjectMapper.Map<IReadOnlyList<Person>, IReadOnlyList<PersonDto>>(items));
         }
