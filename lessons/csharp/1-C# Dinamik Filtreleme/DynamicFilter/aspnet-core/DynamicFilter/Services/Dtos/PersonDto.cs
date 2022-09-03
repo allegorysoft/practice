@@ -1,6 +1,7 @@
-﻿using Volo.Abp.Application.Dtos;
+﻿using DynamicFilter.Entities;
+using Volo.Abp.Application.Dtos;
 
-namespace DynamicFilter.Entities;
+namespace DynamicFilter.Services.Dtos;
 
 public class PersonDto : EntityDto<Guid>
 {
