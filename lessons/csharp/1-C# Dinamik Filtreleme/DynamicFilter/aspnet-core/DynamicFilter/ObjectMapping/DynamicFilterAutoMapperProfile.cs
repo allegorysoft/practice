@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DynamicFilter.Entities;
 
 namespace DynamicFilter.ObjectMapping;
 
@@ -6,6 +7,6 @@ public class DynamicFilterAutoMapperProfile : Profile
 {
     public DynamicFilterAutoMapperProfile()
     {
-        /* Create your AutoMapper object mappings here */
+        CreateMap<Person, PersonDto>().ReverseMap();
     }
 }
