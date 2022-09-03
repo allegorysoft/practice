@@ -10,6 +10,8 @@ public class Person : BasicAggregateRoot<Guid>
     public Gender Gender { get; set; }
     public decimal Balance { get; set; }
 
+    protected Person() { }
+
     public Person(Guid id) : base(id)
     {
 
