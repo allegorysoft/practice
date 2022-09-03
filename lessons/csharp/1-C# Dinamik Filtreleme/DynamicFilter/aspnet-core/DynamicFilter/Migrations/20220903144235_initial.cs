@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DynamicFilter.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -438,6 +438,22 @@ namespace DynamicFilter.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_IdentityServerPersistedGrants", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "People",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Gender = table.Column<byte>(type: "tinyint", nullable: false),
+                    Balance = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_People", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1308,6 +1324,9 @@ namespace DynamicFilter.Migrations
 
             migrationBuilder.DropTable(
                 name: "IdentityServerPersistedGrants");
+
+            migrationBuilder.DropTable(
+                name: "People");
 
             migrationBuilder.DropTable(
                 name: "AbpEntityChanges");

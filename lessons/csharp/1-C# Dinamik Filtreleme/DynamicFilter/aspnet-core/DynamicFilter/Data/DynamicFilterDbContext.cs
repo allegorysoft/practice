@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DynamicFilter.Entities;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.IdentityServer.EntityFrameworkCore;
@@ -12,6 +14,8 @@ namespace DynamicFilter.Data;
 
 public class DynamicFilterDbContext : AbpDbContext<DynamicFilterDbContext>
 {
+    public DbSet<Person> People { get; set; }
+
     public DynamicFilterDbContext(DbContextOptions<DynamicFilterDbContext> options)
         : base(options)
     {
@@ -21,8 +25,6 @@ public class DynamicFilterDbContext : AbpDbContext<DynamicFilterDbContext>
     {
         base.OnModelCreating(builder);
 
-        /* Include modules to your migration db context */
-
         builder.ConfigurePermissionManagement();
         builder.ConfigureSettingManagement();
         builder.ConfigureAuditLogging();
@@ -31,6 +33,16 @@ public class DynamicFilterDbContext : AbpDbContext<DynamicFilterDbContext>
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
 
-        /* Configure your own entities here */
+        builder.Entity<Person>(b =>
+        {
+            b.ToTable("People");
+            b.ConfigureByConvention();
+
+            b.Property(p => p.Name).HasMaxLength(25).IsRequired();
+            b.Property(p => p.Surname).HasMaxLength(25).IsRequired();
+            b.Property(p => p.BirthDate).HasColumnType("date").IsRequired();
+            b.Property(p => p.Gender).IsRequired();
+            b.Property(p => p.Balance).HasColumnType("float").IsRequired();
+        });
     }
 }
