@@ -14,7 +14,32 @@ import { CoreModule } from '@abp/ng.core';
   imports: [
     CommonModule,
     CustomersRoutingModule,
-    CoreModule,
+    CoreModule.forChild({
+      localizations: [
+        {
+          culture: 'tr',
+          resources: [
+            {
+              resourceName: 'NgSampleApp',
+              texts: {
+                HelloMessage: '{0} dan Selam'
+              }
+            }
+          ]
+        },
+        {
+          culture: 'en',
+          resources: [
+            {
+              resourceName: 'NgSampleApp',
+              texts: {
+                HelloMessage: 'Hello from {0}'
+              }
+            }
+          ]
+        }
+      ]
+    }),
     ThemeSharedModule.forRoot()
   ]
 })

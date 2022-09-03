@@ -1,12 +1,13 @@
-import { ABP, PermissionService } from '@abp/ng.core';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ABP, LocalizationService, PermissionService } from '@abp/ng.core';
 import { Customer } from '../models/customer';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html'
 })
-export class CustomersComponent {
+export class CustomersComponent implements OnInit {
+  //#region Fields
   readonly customers: Customer[] = [
     {
       id: '688e5469-143c-465e-b6ce-3ac85ea7ad17',
@@ -23,8 +24,13 @@ export class CustomersComponent {
   hasAnyPolicy: boolean = this.permissionService.getGrantedPolicy(
     'NgSampleApp.Customers.Update || NgSampleApp.Customers.Delete'
   );
+  //#endregion
 
-  constructor(private readonly permissionService: PermissionService) {
+  //#region Ctor
+  constructor(
+    private readonly permissionService: PermissionService,
+    private readonly localizationService: LocalizationService
+  ) {
     const policies = this.permissionService.filterItemsByPolicy(
       [
         { requiredPolicy: 'NgSampleApp.Customers' },
@@ -33,4 +39,11 @@ export class CustomersComponent {
     );
     // console.log(policies);
   }
+  //#endregion
+
+  //#region Methods
+  ngOnInit(): void {
+    this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
+  }
+  //#endregion
 }
