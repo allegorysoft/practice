@@ -136,7 +136,9 @@
 
             <td>
               <span class="p-column-title"> Cinsiyet </span>
-              {{ getGender(item.gender) }}
+              <span class="badge gender-{{ item.gender }}">
+                {{ getGender(item.gender) }}
+              </span>
             </td>
 
             <td>
