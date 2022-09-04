@@ -1,5 +1,5 @@
 # C# Genel
-[YouTube]() oynatma listesinde c# için çekilen genel eğitim konuları ve örnekleri bu klasör altında tutulacaktır
+[YouTube](https://www.youtube.com/playlist?list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue) oynatma listesinde c# için çekilen genel eğitim konuları ve örnekleri bu klasör altında tutulacaktır
 
 ## Eğitim Sırasında Kullandığım Araçlar
 - [Sunum](https://www.canva.com) 
