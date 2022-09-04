@@ -1,0 +1,159 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card shadow-2 p-2">
+      <p-toolbar styleClass="mb-2">
+        <ng-template pTemplate="left">
+          <h5>Kişiler</h5>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+          <button
+            *ngIf="table?.multiSortMeta?.length > 0"
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-filter-slash"
+            class="p-button-rounded p-button-text p-speeddial-button p-button-plain"
+            [ngStyle]="{ 'margin-right': '.5rem' }"
+            (click)="clearSort()"
+          ></button>
+        </ng-template>
+      </p-toolbar>
+
+      <p-table
+        #personDt
+        [dataKey]="tableConfig.dataKey"
+        [lazy]="tableConfig.lazy"
+        (onLazyLoad)="loadPeople($event)"
+        [value]="people"
+        responsiveLayout="stack"
+        styleClass="p-datatable-sm"
+        [rowHover]="true"
+        [paginator]="tableConfig.paginator"
+        [rows]="pageSize"
+        [totalRecords]="totalRecords"
+        [loading]="loading"
+        [showCurrentPageReport]="tableConfig.showCurrentPageReport"
+        [rowsPerPageOptions]="pageSizeOptions"
+        [sortMode]="tableConfig.sortMode"
+        paginatorDropdownAppendTo="body"
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th pSortableColumn="name">
+              Adı
+              <p-sortIcon field="name"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="surname">
+              Soyadı
+              <p-sortIcon field="surname"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="birthDate">
+              Doğum Tarihi
+              <p-sortIcon field="birthDate"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="gender">
+              Cinsiyet
+              <p-sortIcon field="gender"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="balance">
+              Bakiye
+              <p-sortIcon field="balance"></p-sortIcon>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+              <p-columnFilter
+                type="text"
+                field="name"
+                matchMode="contains"
+              >
+              </p-columnFilter>
+            </th>
+
+            <th>
+              <p-columnFilter type="text" field="surname" matchMode="contains"> </p-columnFilter>
+            </th>
+
+            <th>
+              <p-columnFilter type="date" field="birthDate"></p-columnFilter>
+            </th>
+
+            <th>
+              <p-columnFilter field="gender" matchMode="equals" [showMenu]="false">
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                  <p-dropdown
+                    [ngModel]="value"
+                    placeholder="Tümü"
+                    inputId="dropdown"
+                    [options]="genders"
+                    optionLabel="key"
+                    optionValue="value"
+                    (onChange)="filter($event.value)"
+                    appendTo="body"
+                  >
+                    <ng-template let-statu pTemplate="selectedItem" style="padding: 0 !important">
+                      {{ getGender(statu.value) }}
+                    </ng-template>
+
+                    <ng-template let-statu pTemplate="item">
+                      <span class="badge gender-{{ statu?.value }}">
+                        {{ getGender(statu.value) }}
+                      </span>
+                    </ng-template>
+                  </p-dropdown>
+                </ng-template>
+              </p-columnFilter>
+            </th>
+
+            <th>
+              <p-columnFilter type="numeric" field="balance"></p-columnFilter>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-item let-columns="columns">
+          <tr>
+            <td>
+              <span class="p-column-title"> Adı </span>
+              {{ item.name }}
+            </td>
+
+            <td>
+              <span class="p-column-title"> Soyadı </span>
+              {{ item.surname }}
+            </td>
+
+            <td>
+              <span class="p-column-title"> Doğum Tarihi </span>
+              {{ item.birthDate | date: 'dd.MM.yyyy' }}
+            </td>
+
+            <td>
+              <span class="p-column-title"> Cinsiyet </span>
+              {{ getGender(item.gender) }}
+            </td>
+
+            <td>
+              <span class="p-column-title"> Bakiye </span>
+              {{ item.balance }}
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="7" class="text-center">Hiç Kayıt Bulunamadı</td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="paginatorleft"></ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

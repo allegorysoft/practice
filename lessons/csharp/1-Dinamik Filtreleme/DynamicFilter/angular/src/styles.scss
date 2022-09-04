@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'primeflex/primeflex.css';
 
 @keyframes donut-spin {
   0% {
@@ -23,4 +23,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+.badge {
+  border-radius: var(--border-radius);
+  padding: 0.25em 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.gender-0 {
+  background: #ffd8b2;
+  color: #805b36;
+}
+
+.gender-1 {
+  background: #c8e6c9;
+  color: #256029;
 }

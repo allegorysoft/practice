@@ -65,6 +65,9 @@
                 "inject": true,
                 "bundleName": "bootstrap-ltr.min"
               },
+              "node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
             ],
             "scripts": []
