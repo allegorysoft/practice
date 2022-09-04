@@ -1,0 +1,39 @@
+::ng-deep {
+  .container {
+    max-width: 100% !important;
+  }
+
+  .p-inputtext {
+    padding: 0.25rem 0.25rem;
+  }
+
+  .p-button-icon {
+    font-size: 1rem !important;
+  }
+
+  .p-speeddial-button.p-button.p-button-icon-only {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+
+  .p-paginator {
+    padding: 0 !important;
+
+    .p-dropdown {
+      height: 2rem !important;
+    }
+
+    .p-paginator-pages .p-paginator-page {
+      min-width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .p-toolbar {
+    padding: 0.5rem;
+  }
+
+  .p-calendar .p-datepicker {
+    min-width: 20rem !important;
+  }
+}
