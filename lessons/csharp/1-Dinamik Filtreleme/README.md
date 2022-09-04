@@ -1,4 +1,4 @@
 ## C# Dinamik Filtreleme
 
 - [Eğitim]()
-- [Sunum]()
+- [Sunum](https://bit.ly/dinamik-filtreleme)
