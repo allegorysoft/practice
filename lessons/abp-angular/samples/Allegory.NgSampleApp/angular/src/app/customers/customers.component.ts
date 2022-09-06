@@ -31,6 +31,7 @@ export class CustomersComponent implements OnInit {
     private readonly permissionService: PermissionService,
     private readonly localizationService: LocalizationService
   ) {
+    //#region Authorization
     const policies = this.permissionService.filterItemsByPolicy(
       [
         { requiredPolicy: 'NgSampleApp.Customers' },
@@ -38,12 +39,22 @@ export class CustomersComponent implements OnInit {
       ] as ABP.HasPolicy[]
     );
     // console.log(policies);
+    //#endregion
   }
   //#endregion
 
   //#region Methods
   ngOnInit(): void {
     this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
+
+    // const response = this.localizationService.instant(
+    //   {
+    //     key: 'NgSampleApp::UserDeletionConfirmation',
+    //     defaultValue: 'Verilen key e uygun değer bulamazsan bunu yaz',
+    //   },
+    //   'Masum'
+    // );
+    // console.log(response);
   }
   //#endregion
 }
