@@ -25,19 +25,19 @@ import { ExtendedPermissionService } from './services/extended-permission.servic
     CoreModule.forRoot({
       environment,
       registerLocaleFn: registerLocale(),
-      // localizations: [
-      //   {
-      //     culture: 'tr',
-      //     resources: [
-      //       {
-      //         resourceName: 'NgSampleApp',
-      //         texts: {
-      //           UserDeletionConfirmation: '{0} adlı kullanıcı silinecek',
-      //         },
-      //       },
-      //     ],
-      //   },
-      // ]
+      localizations: [
+        {
+          culture: 'tr',
+          resources: [
+            {
+              resourceName: 'NgSampleApp',
+              texts: {
+                UserDeletionConfirmation: '{0} adlı kullanıcı silinecek',
+              },
+            },
+          ],
+        },
+      ]
     }),
     ThemeSharedModule.forRoot(),
     AccountConfigModule.forRoot(),
