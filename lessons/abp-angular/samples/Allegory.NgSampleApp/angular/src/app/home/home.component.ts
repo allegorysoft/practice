@@ -20,15 +20,15 @@ export class HomeComponent {
   ) { }
 
   addMenu(): void {
-    this.routesService.add([
-      {
-        path: '/customers',
-        name: 'Müşteriler',
-        order: 3,
-        layout: eLayoutType.application,
-        iconClass: 'fa fa-users',
-      }
-    ]);
+    // this.routesService.add([
+    //   {
+    //     path: '/customers',
+    //     name: 'Müşteriler',
+    //     order: 3,
+    //     layout: eLayoutType.application,
+    //     iconClass: 'fa fa-users',
+    //   }
+    // ]);
   }
 
   //#region Environment methods

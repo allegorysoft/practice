@@ -4,6 +4,7 @@
       <div class="col col-md-6">
         <h5 class="card-title">Müşteriler</h5>
       </div>
+
       <div class="col col-md-6">
         <button
           *abpPermission="'NgSampleApp.Customers.Create'"
@@ -59,4 +60,17 @@
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="card mt-2 p-2">
+  <!-- <h3>{{ 'NgSampleApp::HelloMessage' | abpLocalization: 'Angular' }}</h3> -->
+
+  <!-- <h3>
+    {{
+      {
+        key: 'NgSampleApp::Hello',
+        defaultValue: 'Verilen key e uygun değer bulamazsan bunu yaz'
+      } | abpLocalization: 'Angular'
+    }}
+  </h3> -->
 </div>
