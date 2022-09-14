@@ -15,6 +15,7 @@
     "Module:00002": "The operation could not be completed because there is a transaction record of type {0}",
     "Module:00003": "Contact information named {Name} is already registered",
     "Module:00004": "Customer group with {CustomerGroupCode} already exists",
+    "Module:00005": "A customer group can related only 10 customers. Code: {CustomerGroupCode}",
     "Allegory.Module.Customers.Customer": "Customer"
   }
 }

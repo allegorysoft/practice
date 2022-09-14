@@ -7,8 +7,6 @@ namespace Allegory.Module.Customers;
 
 public class CustomerManager : DomainService
 {
-    //TODO Add custom business exceptions
-
     protected ICustomerRepository CustomerRepository { get; }
     protected ICustomerGroupRepository CustomerGroupRepository { get; }
 
@@ -48,7 +46,7 @@ public class CustomerManager : DomainService
 
         if (customerGroupCount >= 10)
         {
-            throw new UserFriendlyException($"{customerGroup.Code} kodlu müşteri grubuna 10'dan fazla müşteri bağlanamaz");
+            throw new BusinessException(ModuleErrorCodes.CustomerCodeLimit).WithData("CustomerGroupCode", customerGroup.Code);
         }
 
         customer.CustomerGroupId = customerGroup.Id;
