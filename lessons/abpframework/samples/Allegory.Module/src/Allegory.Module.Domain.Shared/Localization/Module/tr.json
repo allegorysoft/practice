@@ -12,6 +12,8 @@
     "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu",
     "Module:00001": "{CustomerGroupCode} kodlu müşteri grubu bulunamadı",
     "Module:00002": "{0} türünde hareket kaydı olduğu için işlem tamamlanamadı",
+    "Module:00003": "{Name} isminde iletişim bilgisi zaten kayıtlı",
+    "Module:00004": "{CustomerGroupCode} kodlu müşteri grubu zaten kayıtlı",
     "Allegory.Module.Customers.Customer": "Müşteri"
   }
 }
