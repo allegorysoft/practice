@@ -33,7 +33,8 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
         var customerGroup = await CustomerGroupRepository.FindByCodeAsync(code);
 
         if (customerGroup == null)
-            throw new EntityNotFoundException($"{code} kodlu müşteri grubu bulunamadı");
+            throw new BusinessException(ModuleErrorCodes.CustomerGroupCodeNotFound)
+                .WithData("CustomerGroupCode", code);
 
         return ObjectMapper.Map<CustomerGroup, CustomerGroupDto>(customerGroup);
     }

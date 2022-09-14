@@ -4,6 +4,8 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net;
+using Volo.Abp.AspNetCore.ExceptionHandling;
 
 namespace Allegory.Module;
 
@@ -27,6 +29,11 @@ public class ModuleHttpApiModule : AbpModule
             options.Resources
                 .Get<ModuleResource>()
                 .AddBaseTypes(typeof(AbpUiResource));
+        });
+
+        Configure<AbpExceptionHttpStatusCodeOptions>(options =>
+        {
+            options.Map("Module:00001", HttpStatusCode.NotFound);
         });
     }
 }

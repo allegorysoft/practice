@@ -10,6 +10,7 @@
     "Permission:Edit": "Edit",
     "Permission:Delete": "Delete",
     "ParentValue": "english resource parent value",
-    "DisplayName:CustomerGroupCreateUpdateDto:Code": "customer group code"
+    "DisplayName:CustomerGroupCreateUpdateDto:Code": "customer group code",
+    "Module:00001": "Customer group with {CustomerGroupCode} not found"
   }
 }

@@ -9,6 +9,7 @@
     "Permission:Create": "Oluşturma",
     "Permission:Edit": "Düzenleme",
     "Permission:Delete": "Silme",
-    "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu"
+    "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu",
+    "Module:00001": "{CustomerGroupCode} kodlu müşteri grubu bulunamadı"
   }
 }
