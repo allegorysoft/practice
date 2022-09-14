@@ -90,7 +90,7 @@ public class CustomerGroupAppService : ModuleAppService, ICustomerGroupAppServic
         var customerGroup = await CustomerGroupRepository.GetAsync(id);
 
         if (await CustomerRepository.GetCountAsync(customerGroupId: id) > 0)
-            throw new UserFriendlyException($"{customerGroup.Code} kodlu müşteri grubuna bağlı müşteriler bulunmaktadır");
+            throw new ThereIsTransactionRecordException(typeof(Customer));
 
         await CustomerGroupRepository.DeleteAsync(customerGroup);
     }

@@ -11,6 +11,8 @@
     "Permission:Delete": "Delete",
     "ParentValue": "english resource parent value",
     "DisplayName:CustomerGroupCreateUpdateDto:Code": "customer group code",
-    "Module:00001": "Customer group with {CustomerGroupCode} not found"
+    "Module:00001": "Customer group with {CustomerGroupCode} not found",
+    "Module:00002": "The operation could not be completed because there is a transaction record of type {0}",
+    "Allegory.Module.Customers.Customer": "Customer"
   }
 }

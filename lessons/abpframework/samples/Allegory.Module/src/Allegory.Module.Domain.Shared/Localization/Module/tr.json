@@ -10,6 +10,8 @@
     "Permission:Edit": "Düzenleme",
     "Permission:Delete": "Silme",
     "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu",
-    "Module:00001": "{CustomerGroupCode} kodlu müşteri grubu bulunamadı"
+    "Module:00001": "{CustomerGroupCode} kodlu müşteri grubu bulunamadı",
+    "Module:00002": "{0} türünde hareket kaydı olduğu için işlem tamamlanamadı",
+    "Allegory.Module.Customers.Customer": "Müşteri"
   }
 }
