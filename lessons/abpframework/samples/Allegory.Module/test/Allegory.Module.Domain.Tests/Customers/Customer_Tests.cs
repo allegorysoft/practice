@@ -56,15 +56,14 @@ public class Customer_Tests : ModuleDomainTestBase
     [Fact]
     public void Contact_Information_Name_Must_Unique_Each_Customer()
     {
-        var exception = Assert.Throws<UserFriendlyException>(() =>
+        var exception = Assert.Throws<BusinessException>(() =>
         {
             var customer = Create_A_Valid_Customer();
             customer.AddContactInformation("Cep telefonu", ContactInformationType.Phone, "531111");
         });
-  
-        Assert.Equal("Cep telefonu isminde iletişim bilgisi kayıtlı", exception.Message);
-    }
 
+        Assert.Equal(ModuleErrorCodes.ContactInformationAlreadyExists, exception.Code);
+    }
 
     [Fact]
     public void Contact_Information_Name_Or_Value_Cannot_Empty()
