@@ -9,6 +9,12 @@
     "Permission:Create": "Oluşturma",
     "Permission:Edit": "Düzenleme",
     "Permission:Delete": "Silme",
-    "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu"
+    "DisplayName:CustomerGroupCreateUpdateDto:Code": "müşteri grup kodu",
+    "Module:00001": "{CustomerGroupCode} kodlu müşteri grubu bulunamadı",
+    "Module:00002": "{0} türünde hareket kaydı olduğu için işlem tamamlanamadı",
+    "Module:00003": "{Name} isminde iletişim bilgisi zaten kayıtlı",
+    "Module:00004": "{CustomerGroupCode} kodlu müşteri grubu zaten kayıtlı",
+    "Module:00005": "Bir müşteri grubuna sadece 10 müşteri bağlanabilir. Kod: {CustomerGroupCode}",
+    "Allegory.Module.Customers.Customer": "Müşteri"
   }
 }

@@ -35,10 +35,12 @@ public class CustomerManager_Tests : ModuleDomainTestBase
     [Fact]
     public async Task When_Try_To_Add_Existing_Customer_Group_Code_It_Must_Throw_Exception()
     {
-        await Assert.ThrowsAsync<UserFriendlyException>(async () =>
-        {
-            await WithUnitOfWorkAsync(async () => await _customerManager.CreateCustomerGroupAsync("A Grubu"));
-        });
+        var result = await Assert.ThrowsAsync<BusinessException>(async () =>
+         {
+             await WithUnitOfWorkAsync(async () => await _customerManager.CreateCustomerGroupAsync("A Grubu"));
+         });
+
+        Assert.Equal(ModuleErrorCodes.CustomerGroupAlreadyExists, result.Code);
     }
 
     [Fact]
@@ -74,7 +76,7 @@ public class CustomerManager_Tests : ModuleDomainTestBase
     [Fact]
     public async Task Cannot_Set_Customer_To_A_Group_With_More_Than_10_Customers()
     {
-        await Assert.ThrowsAsync<UserFriendlyException>(async () =>
+        var result = await Assert.ThrowsAsync<BusinessException>(async () =>
         {
             await WithUnitOfWorkAsync(async () =>
             {
@@ -83,5 +85,7 @@ public class CustomerManager_Tests : ModuleDomainTestBase
                 await _customerRepository.UpdateAsync(customer);
             });
         });
+
+        Assert.Equal(ModuleErrorCodes.CustomerCodeLimit, result.Code);
     }
 }

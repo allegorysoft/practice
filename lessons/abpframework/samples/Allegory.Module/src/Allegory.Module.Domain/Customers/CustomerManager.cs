@@ -7,8 +7,6 @@ namespace Allegory.Module.Customers;
 
 public class CustomerManager : DomainService
 {
-    //TODO Add custom business exceptions
-
     protected ICustomerRepository CustomerRepository { get; }
     protected ICustomerGroupRepository CustomerGroupRepository { get; }
 
@@ -24,7 +22,8 @@ public class CustomerManager : DomainService
     {
         var existingCustomerGroup = await CustomerGroupRepository.FindByCodeAsync(code);
         if (existingCustomerGroup != null)
-            throw new UserFriendlyException($"{code} kodlu müşteri grubu zaten kayıtlı");
+            throw new BusinessException(ModuleErrorCodes.CustomerGroupAlreadyExists)
+                .WithData("CustomerGroupCode", code);
 
         var customerGroup = new CustomerGroup(GuidGenerator.Create(), code, description: description);
 
@@ -35,7 +34,8 @@ public class CustomerManager : DomainService
     {
         var existingCustomerGroup = await CustomerGroupRepository.FindByCodeAsync(newCode);
         if (existingCustomerGroup != null && existingCustomerGroup.Id != customerGroup.Id)
-            throw new UserFriendlyException($"{newCode} kodlu müşteri grubu zaten kayıtlı");
+            throw new BusinessException(ModuleErrorCodes.CustomerGroupAlreadyExists)
+                .WithData("CustomerGroupCode", newCode);
 
         customerGroup.SetCode(newCode);
     }
@@ -46,7 +46,7 @@ public class CustomerManager : DomainService
 
         if (customerGroupCount >= 10)
         {
-            throw new UserFriendlyException($"{customerGroup.Code} kodlu müşteri grubuna 10'dan fazla müşteri bağlanamaz");
+            throw new BusinessException(ModuleErrorCodes.CustomerCodeLimit).WithData("CustomerGroupCode", customerGroup.Code);
         }
 
         customer.CustomerGroupId = customerGroup.Id;
@@ -62,8 +62,8 @@ public class CustomerManager : DomainService
 
         var customerGroup = await CustomerGroupRepository.FindByCodeAsync(customerGroupCode);
         if (customerGroup == null)
-            throw new UserFriendlyException($"{customerGroupCode} kodlu müşteri grubu bulunamadı");
-
+            throw new BusinessException(ModuleErrorCodes.CustomerGroupCodeNotFound)
+                .WithData("CustomerGroupCode", customerGroupCode);
         await SetCustomerGroupAsync(customer, customerGroup);
 
         return customerGroup;

@@ -45,7 +45,8 @@ public class Customer : AggregateRoot<Guid>
         string value)
     {
         if (ContactInformations.Any(c => c.Name == name))
-            throw new UserFriendlyException($"{name} isminde iletişim bilgisi kayıtlı");
+            throw new BusinessException(ModuleErrorCodes.ContactInformationAlreadyExists)
+                .WithData("Name", name);
 
         var contactInformation = new ContactInformation(Id, name, type, value);
         ContactInformations.Add(contactInformation);
