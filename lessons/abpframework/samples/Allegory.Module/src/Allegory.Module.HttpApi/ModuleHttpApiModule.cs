@@ -33,7 +33,7 @@ public class ModuleHttpApiModule : AbpModule
 
         Configure<AbpExceptionHttpStatusCodeOptions>(options =>
         {
-            options.Map("Module:00001", HttpStatusCode.NotFound);
+            options.Map(ModuleErrorCodes.CustomerGroupCodeNotFound, HttpStatusCode.NotFound);
         });
     }
 }
