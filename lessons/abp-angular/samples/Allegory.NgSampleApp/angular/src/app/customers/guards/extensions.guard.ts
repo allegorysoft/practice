@@ -34,13 +34,13 @@ export class CustomerExtensionsGuard implements CanActivate {
         mergeWithDefaultProps(
           extensions.createFormProps,//ExtensionsService de ki hangi listeye ekleneceğini belirtiyor
           DEFAULT_CUSTOMER_CREATE_FORM_PROPS,//Varsayılan form prop'ları
-          // objectExtensionContributors.createForm,//Global state'de ki objectExtensions properties'inden gelen proplar
+          // objectExtensionContributors.createForm,//Global state'de ki objectExtensions properties'inden gelen değerler
           createFormContributors,//forLazy metodu ile dışarıdan eklenen proplar
         );
         mergeWithDefaultProps(
           extensions.editFormProps,//ExtensionsService de ki hangi listeye ekleneceğini belirtiyor
           DEFAULT_CUSTOMER_EDIT_FORM_PROPS,//Varsayılan form prop'ları
-          // objectExtensionContributors.editForm,//Global state'de ki objectExtensions properties'inden gelen proplar
+          // objectExtensionContributors.editForm,//Global state'de ki objectExtensions properties'inden gelen değerler
           editFormContributors,//forLazy metodu ile dışarıdan eklenen proplar
         );
       }),

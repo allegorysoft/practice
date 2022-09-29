@@ -25,7 +25,9 @@ export const DEFAULT_CUSTOMERS_CREATE_FORM_PROPS = FormProp.createMany<CustomerD
         name: 'identityNumber',
         displayName: 'NgSampleApp::IdentityNumber',
         id: 'identityNumber',
-        validators: () => [required, minLength(11), maxLength(11), uniqueIdentityNumber()],
+        validators: () => [
+            required, minLength(11), maxLength(11), uniqueIdentityNumber()
+        ],
     },
     {
         type: ePropType.String,
@@ -58,7 +60,7 @@ export const DEFAULT_CUSTOMERS_CREATE_FORM_PROPS = FormProp.createMany<CustomerD
                         value: 1
                     }
                 ] as ABP.Option<any>[]
-            )
+            );
         }
     }
 ]);

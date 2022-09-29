@@ -1,5 +1,3 @@
-<!-- <pre>{{ form.value | json }}</pre> -->
-
 <div class="m-1"></div>
 <div class="card">
   <div class="card-header">
@@ -10,9 +8,8 @@
       }}
     </h3>
   </div>
-  <div class="card-body">
-    <!-- <pre>{{ form.value | json }}</pre> -->
 
+  <div class="card-body">
     <form *ngIf="form" [formGroup]="form" (ngSubmit)="save()">
       <abp-extensible-form [selectedRecord]="selected"></abp-extensible-form>
 
