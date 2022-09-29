@@ -1,7 +1,10 @@
-import { EXTENSIONS_IDENTIFIER, FormPropData, generateFormFromProps } from '@abp/ng.theme.shared/extensions';
+
 import { Component, Injector, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import {
+  EXTENSIONS_IDENTIFIER, FormPropData, generateFormFromProps
+} from '@abp/ng.theme.shared/extensions';
 import { eCustomersComponents } from '../../enums';
 import { CustomerDto } from '../../models/customer';
 
@@ -45,6 +48,7 @@ export class CustomerEditComponent implements OnInit {
   edit(id: string): void {
     this.selected = {
       id: id,
+      identityNumber: '12345678901',
       name: 'Masum',
       surname: 'ULU',
       gender: 1,

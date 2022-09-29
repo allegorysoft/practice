@@ -23,7 +23,7 @@
       <thead>
         <tr>
           <th scope="col">{{ 'AbpUi::Actions' | abpLocalization }}</th>
-          <th scope="col">Id</th>
+          <th scope="col">Kimlik Numarası</th>
           <th scope="col">Adı</th>
           <th scope="col">Soyadı</th>
         </tr>
@@ -42,7 +42,10 @@
             </button>
             <ul class="dropdown-menu">
               <li *abpPermission="'NgSampleApp.Customers.Update'">
-                <button class="dropdown-item" [routerLink]="['/customers/edit', customer.id]">
+                <button
+                  class="dropdown-item"
+                  [routerLink]="['/customers/edit', customer.id]"
+                >
                   {{ 'AbpUi::Edit' | abpLocalization }}
                 </button>
               </li>
@@ -54,7 +57,7 @@
             </ul>
           </th>
 
-          <td>{{ customer.id }}</td>
+          <td>{{ customer.identityNumber }}</td>
           <td>{{ customer.name }}</td>
           <td>{{ customer.surname }}</td>
         </tr>

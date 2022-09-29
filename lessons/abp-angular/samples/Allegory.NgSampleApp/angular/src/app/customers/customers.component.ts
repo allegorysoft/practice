@@ -11,12 +11,14 @@ export class CustomersComponent implements OnInit {
   readonly customers: CustomerDto[] = [
     {
       id: '688e5469-143c-465e-b6ce-3ac85ea7ad17',
+      identityNumber: '98765432109',
       name: 'Ahmet Faruk',
       surname: 'ULU',
       gender: 1
     },
     {
       id: 'ad11e9c8-7b4e-4181-b8f8-cacde10c529f',
+      identityNumber: '12345678901',
       name: 'Masum',
       surname: 'ULU',
       gender: 1

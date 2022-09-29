@@ -1,12 +1,32 @@
 import { ABP } from '@abp/ng.core';
 import { ePropType, FormProp } from '@abp/ng.theme.shared/extensions';
-import { Validators } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { CustomerDto } from '../models/customer';
 
 const { required, minLength, maxLength } = Validators;
 
+export function uniqueIdentityNumber(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+        return control.value === '12345678901' ?
+            {
+                uniqueIdentityNumber:
+                {
+                    value: control.value,
+                    identityNumber: control.value
+                }
+            } : null;
+    };
+}
+
 export const DEFAULT_CUSTOMERS_CREATE_FORM_PROPS = FormProp.createMany<CustomerDto>([
+    {
+        type: ePropType.String,
+        name: 'identityNumber',
+        displayName: 'NgSampleApp::IdentityNumber',
+        id: 'identityNumber',
+        validators: () => [required, minLength(11), maxLength(11), uniqueIdentityNumber()],
+    },
     {
         type: ePropType.String,
         name: 'name',
