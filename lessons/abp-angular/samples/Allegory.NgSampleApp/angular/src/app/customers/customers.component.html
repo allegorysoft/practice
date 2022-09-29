@@ -9,6 +9,7 @@
         <button
           *abpPermission="'NgSampleApp.Customers.Create'"
           class="btn btn-sm btn-primary float-end"
+          [routerLink]="['/customers/edit']"
         >
           <i class="fa fa-plus"></i>
           {{ '::Create' | abpLocalization }}
@@ -41,7 +42,7 @@
             </button>
             <ul class="dropdown-menu">
               <li *abpPermission="'NgSampleApp.Customers.Update'">
-                <button class="dropdown-item">
+                <button class="dropdown-item" [routerLink]="['/customers/edit', customer.id]">
                   {{ 'AbpUi::Edit' | abpLocalization }}
                 </button>
               </li>

@@ -33,10 +33,25 @@ import { ExtendedPermissionService } from './services/extended-permission.servic
               resourceName: 'NgSampleApp',
               texts: {
                 UserDeletionConfirmation: '{0} adlı kullanıcı silinecek',
+                Gender: 'Cinsiyet',
+                BirthDate: 'Doğum Tarihi',
               },
             },
           ],
         },
+        {
+          culture: 'en',
+          resources: [
+            {
+              resourceName: 'NgSampleApp',
+              texts: {
+                UserDeletionConfirmation: '{0} will be delete',
+                Gender: 'Gender',
+                BirthDate: 'Birth Date',
+              }
+            }
+          ]
+        }
       ]
     }),
     ThemeSharedModule.forRoot(),
