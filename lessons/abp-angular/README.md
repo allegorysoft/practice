@@ -16,3 +16,4 @@
 - [ABP Angular Menü Yönetimi](https://www.youtube.com/watch?v=BRMdnp7HFWs&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=4)
 - [ABP Angular Authorization](https://www.youtube.com/watch?v=-YHzBwPmqUs&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=5)
 - [ABP Angular Localization](https://www.youtube.com/watch?v=fotEK6WRUjo&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=6)
+- [ABP Angular Form]()
