@@ -1,14 +1,23 @@
 import { ConfigStateService } from '@abp/ng.core';
-import { ExtensionsService, getObjectExtensionEntitiesFromStore, mapEntitiesToContributors, mergeWithDefaultProps } from '@abp/ng.theme.shared/extensions';
+import {
+  ExtensionsService,
+  getObjectExtensionEntitiesFromStore,
+  mapEntitiesToContributors,
+  mergeWithDefaultProps
+} from '@abp/ng.theme.shared/extensions';
 import { Injectable, Injector } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, mapTo, tap } from 'rxjs/operators';
 import { eCustomersComponents } from '../enums';
 import { CustomersCreateFormPropContributors, CustomersEditFormPropContributors } from '../models';
-import { CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS } from '../tokens';
+import {
+  CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
+  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
+  DEFAULT_CUSTOMER_CREATE_FORM_PROPS,
+  DEFAULT_CUSTOMER_EDIT_FORM_PROPS
+} from '../tokens';
 
-import { CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS, DEFAULT_CUSTOMER_CREATE_FORM_PROPS, DEFAULT_CUSTOMER_EDIT_FORM_PROPS } from '../tokens/extensions.token';
 
 @Injectable()
 export class CustomerExtensionsGuard implements CanActivate {

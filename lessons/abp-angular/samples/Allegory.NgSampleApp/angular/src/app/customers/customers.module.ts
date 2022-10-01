@@ -13,7 +13,10 @@ import { CustomersComponent } from './customers.component';
 import { CustomerEditComponent } from './components/customer-edit/customer-edit.component';
 
 import { CustomerExtensionsGuard } from './guards';
-import { CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS, CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS } from './tokens';
+import {
+  CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
+  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS
+} from './tokens';
 import { CustomersConfigOptions } from './models';
 
 @NgModule({

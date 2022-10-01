@@ -49,7 +49,7 @@ export class CustomersComponent implements OnInit {
 
   //#region Methods
   ngOnInit(): void {
-    this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
+    // this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
 
     // const response = this.localizationService.instant(
     //   {

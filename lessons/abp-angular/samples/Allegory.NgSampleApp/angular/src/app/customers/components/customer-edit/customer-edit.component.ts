@@ -1,4 +1,3 @@
-
 import { Component, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
@@ -19,8 +18,8 @@ import { CustomerDto } from '../../models/customer';
   ]
 })
 export class CustomerEditComponent implements OnInit {
-  form!: FormGroup;
-  selected!: CustomerDto;
+  form: FormGroup;
+  selected: CustomerDto;
 
   private buildForm(): void {
     const data = new FormPropData(this.injector, this.selected);
@@ -57,7 +56,6 @@ export class CustomerEditComponent implements OnInit {
   }
 
   save(): void {
-    if (!this.form.valid) return;
     const { id } = this.selected;
     console.log(`id: ${id}`, this.form.value);
   }

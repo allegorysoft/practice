@@ -1,4 +1,7 @@
-import { CreateFormPropContributorCallback, EditFormPropContributorCallback } from '@abp/ng.theme.shared/extensions';
+import {
+    CreateFormPropContributorCallback,
+    EditFormPropContributorCallback
+} from '@abp/ng.theme.shared/extensions';
 import { eCustomersComponents } from '../enums/components';
 import { CustomerDto } from './customer';
 

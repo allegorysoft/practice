@@ -1,6 +1,10 @@
 import { InjectionToken } from '@angular/core';
-import { DEFAULT_CUSTOMERS_CREATE_FORM_PROPS, DEFAULT_CUSTOMERS_EDIT_FORM_PROPS } from '../defaults/default-customers-form-props';
-import { CreateFormPropContributorCallback, EditFormPropContributorCallback } from '@abp/ng.theme.shared/extensions';
+import {
+    DEFAULT_CUSTOMERS_CREATE_FORM_PROPS, DEFAULT_CUSTOMERS_EDIT_FORM_PROPS
+} from '../defaults/default-customers-form-props';
+import {
+    CreateFormPropContributorCallback, EditFormPropContributorCallback
+} from '@abp/ng.theme.shared/extensions';
 import { eCustomersComponents } from '../enums/components';
 import { CustomerDto } from '../models/customer';
 
