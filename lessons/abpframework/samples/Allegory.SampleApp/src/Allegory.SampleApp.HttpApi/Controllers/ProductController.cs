@@ -28,6 +28,7 @@ public class ProductController : SampleAppController, IProductAppService
     [HttpGet("multiple-call")]
     public Task MultipleCall()
     {
+        //Hepsi aynı UOW kullanır 
         ProductAppService.IsUow();
         ProductAppService.IsUowAsync();
         ProductAppService.VirtualIsUow();
