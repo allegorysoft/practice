@@ -1,5 +1,7 @@
 ﻿using Shouldly;
+using System;
 using System.Threading.Tasks;
+using Volo.Abp.Identity;
 using Xunit;
 
 namespace Allegory.SampleApp.Products;
@@ -27,5 +29,27 @@ public class ProductAppService_Tests : SampleAppApplicationTestBase
         _productAppServiceInterface.VirtualIsUow().ShouldBe(true);
         (await _productAppServiceInterface.IsUowAsync()).ShouldBe(true);
         (await _productAppServiceInterface.VirtualIsUowAsync()).ShouldBe(true);
+    }
+
+    [Fact]
+    public async Task Multiple_Call()
+    {
+        var roleAppService = GetRequiredService<IIdentityRoleAppService>();
+
+        await Assert.ThrowsAsync<Exception>(async () =>
+        {
+            await roleAppService.CreateAsync(new IdentityRoleCreateDto
+            {
+                Name = "Role-1"
+            });
+            await roleAppService.CreateAsync(new IdentityRoleCreateDto
+            {
+                Name = "Role-2"
+            });
+
+            throw new Exception();
+        });
+
+        var result = await roleAppService.GetAllListAsync();
     }
 }

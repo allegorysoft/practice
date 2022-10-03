@@ -28,7 +28,7 @@ public class ProductController : SampleAppController, IProductAppService
     [HttpGet("virtual-is-uow-async")]
     public Task<bool> VirtualIsUowAsync() => ProductAppService.VirtualIsUowAsync();
 
-    [HttpGet("multiple-call")]
+    [HttpPost("multiple-call")]
     public async Task MultipleCall()
     {
         ProductAppService.IsUow();
