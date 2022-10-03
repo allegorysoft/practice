@@ -34,9 +34,10 @@ public class ProductManager : DomainService
         return !await Task.FromResult(CurrentUnitOfWork == null);
     }
 
-    [UnitOfWork]
-    public virtual async Task<bool> UowAttribute()
+    [UnitOfWork(true)]
+    public virtual async Task<bool> UowAttributeAsync()
     {
+        var isTransactional = CurrentUnitOfWork.Options.IsTransactional;
         return !await Task.FromResult(CurrentUnitOfWork == null);
     }
 }

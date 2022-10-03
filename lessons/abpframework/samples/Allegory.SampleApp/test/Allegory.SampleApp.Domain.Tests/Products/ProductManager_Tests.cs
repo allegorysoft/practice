@@ -20,7 +20,7 @@ public class ProductManager_Tests : SampleAppDomainTestBase
         _productManager.VirtualIsUow().ShouldBe(false);
         (await _productManager.IsUowAsync()).ShouldBe(false);
         (await _productManager.VirtualIsUowAsync()).ShouldBe(false);
-        (await _productManager.UowAttribute()).ShouldBe(true);
+        (await _productManager.UowAttributeAsync()).ShouldBe(true);
 
         await WithUnitOfWorkAsync(async () =>
         {
@@ -28,7 +28,7 @@ public class ProductManager_Tests : SampleAppDomainTestBase
             _productManager.VirtualIsUow().ShouldBe(true);
             (await _productManager.IsUowAsync()).ShouldBe(true);
             (await _productManager.VirtualIsUowAsync()).ShouldBe(true);
-            (await _productManager.UowAttribute()).ShouldBe(true);
+            (await _productManager.UowAttributeAsync()).ShouldBe(true);
         });
     }
 }

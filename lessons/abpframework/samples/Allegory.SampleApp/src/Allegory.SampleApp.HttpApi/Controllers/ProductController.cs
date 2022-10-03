@@ -1,6 +1,9 @@
 ﻿using Allegory.SampleApp.Products;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
+using Volo.Abp.Identity;
+using Volo.Abp.Uow;
 
 namespace Allegory.SampleApp.Controllers;
 
@@ -26,14 +29,31 @@ public class ProductController : SampleAppController, IProductAppService
     public Task<bool> VirtualIsUowAsync() => ProductAppService.VirtualIsUowAsync();
 
     [HttpGet("multiple-call")]
-    public Task MultipleCall()
+    public async Task MultipleCall()
     {
-        //Hepsi aynı UOW kullanır 
         ProductAppService.IsUow();
-        ProductAppService.IsUowAsync();
+        await ProductAppService.IsUowAsync();
         ProductAppService.VirtualIsUow();
-        ProductAppService.VirtualIsUowAsync();
+        await ProductAppService.VirtualIsUowAsync();
 
-        return Task.CompletedTask;
+        var roleAppService = LazyServiceProvider.LazyGetRequiredService<IIdentityRoleAppService>();
+        await roleAppService.CreateAsync(new IdentityRoleCreateDto
+        {
+            Name = "Role-1"
+        });
+        await roleAppService.CreateAsync(new IdentityRoleCreateDto
+        {
+            Name = "Role-2"
+        });
+
+        throw new Exception();
+    }
+
+    [UnitOfWork(false)]
+    public async Task ProductManagerUow()
+    {
+        var productManager = LazyServiceProvider.LazyGetRequiredService<ProductManager>();
+
+        await productManager.UowAttributeAsync();
     }
 }
