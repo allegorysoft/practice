@@ -1,5 +1,8 @@
 ﻿using Shouldly;
+using System;
 using System.Threading.Tasks;
+using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Identity;
 using Xunit;
 
 namespace Allegory.SampleApp.Products;
@@ -9,7 +12,7 @@ public class ProductManager_Tests : SampleAppDomainTestBase
     private readonly ProductManager _productManager;
 
     public ProductManager_Tests()
-	{
+    {
         _productManager = GetRequiredService<ProductManager>();
     }
 
@@ -29,6 +32,23 @@ public class ProductManager_Tests : SampleAppDomainTestBase
             (await _productManager.IsUowAsync()).ShouldBe(true);
             (await _productManager.VirtualIsUowAsync()).ShouldBe(true);
             (await _productManager.UowAttributeAsync()).ShouldBe(true);
+        });
+    }
+
+    [Fact]
+    public async Task Repository_Test()
+    {
+        var roleRepository = GetRequiredService<IRepository<IdentityRole, Guid>>();
+
+        var result = await roleRepository.GetListAsync();
+
+        await Assert.ThrowsAsync<Exception>(async () =>
+        {
+            await roleRepository.AnyAsync(x => x.Name.StartsWith("Role-"));
+        });
+        await WithUnitOfWorkAsync(async () =>
+        {
+            await roleRepository.AnyAsync(x => x.Name.StartsWith("Role-"));
         });
     }
 }
