@@ -42,7 +42,7 @@ public class ProductManager_Tests : SampleAppDomainTestBase
 
         var result = await roleRepository.GetListAsync();
 
-        await Assert.ThrowsAsync<Exception>(async () =>
+        await Assert.ThrowsAnyAsync<Exception>(async () =>
         {
             await roleRepository.AnyAsync(x => x.Name.StartsWith("Role-"));
         });
