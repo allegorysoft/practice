@@ -12,6 +12,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.Uow;
 
 namespace Allegory.SampleApp.EntityFrameworkCore;
 
@@ -68,5 +69,11 @@ public class SampleAppEntityFrameworkCoreModule : AbpModule
             });
         });
 
+        Configure<AbpUnitOfWorkDefaultOptions>(options =>
+        {
+            //options.TransactionBehavior = UnitOfWorkTransactionBehavior.Disabled;
+            //options.Timeout
+            //options.IsolationLevel
+        });
     }
 }
