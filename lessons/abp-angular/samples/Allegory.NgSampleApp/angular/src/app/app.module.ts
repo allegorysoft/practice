@@ -16,6 +16,8 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
 
 import { ConfigComponent } from './config/config.component';
 import { ExtendedPermissionService } from './services/extended-permission.service';
+import { VALIDATION_ERROR_TEMPLATE } from '@ngx-validate/core';
+import { ErrorComponent } from './shared/components/error/error.component';
 
 @NgModule({
   imports: [
@@ -33,13 +35,41 @@ import { ExtendedPermissionService } from './services/extended-permission.servic
               resourceName: 'NgSampleApp',
               texts: {
                 UserDeletionConfirmation: '{0} adlı kullanıcı silinecek',
+                Gender: 'Cinsiyet',
+                BirthDate: 'Doğum Tarihi',
+                IdentityNumber: 'Kimlik numarası',
+                CustomerAlreadyExists: `Üzgünüm \'\{0}\'\ kimlik numarası zaten var`,
+                RequiredInput: "Oops! Bu alan gerekli."
               },
             },
           ],
         },
+        {
+          culture: 'en',
+          resources: [
+            {
+              resourceName: 'NgSampleApp',
+              texts: {
+                UserDeletionConfirmation: '{0} will be delete',
+                Gender: 'Gender',
+                BirthDate: 'Birth Date',
+                IdentityNumber: 'Identity number',
+                CustomerAlreadyExists: `Sorry \'\{0}\'\ identity number already exists`,
+                RequiredInput: "Oops! We need this input."
+              }
+            }
+          ]
+        }
       ]
     }),
-    ThemeSharedModule.forRoot(),
+    ThemeSharedModule.forRoot({
+      validation: {
+        blueprints: {
+          uniqueIdentityNumber: "::CustomerAlreadyExists[{{ identityNumber }}]",
+          required: "::RequiredInput",
+        },
+      },
+    }),
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),
     TenantManagementConfigModule.forRoot(),
@@ -49,6 +79,10 @@ import { ExtendedPermissionService } from './services/extended-permission.servic
   declarations: [AppComponent, ConfigComponent],
   providers: [
     APP_ROUTE_PROVIDER,
+    {
+      provide: VALIDATION_ERROR_TEMPLATE,
+      useValue: ErrorComponent,
+    }
     // {
     //   provide: PermissionService,
     //   useExisting: ExtendedPermissionService,

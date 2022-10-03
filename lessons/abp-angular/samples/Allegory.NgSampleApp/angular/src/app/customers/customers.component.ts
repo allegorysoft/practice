@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ABP, LocalizationService, PermissionService } from '@abp/ng.core';
-import { Customer } from '../models/customer';
+import { CustomerDto } from './models/customer';
 
 @Component({
   selector: 'app-customers',
@@ -8,16 +8,20 @@ import { Customer } from '../models/customer';
 })
 export class CustomersComponent implements OnInit {
   //#region Fields
-  readonly customers: Customer[] = [
+  readonly customers: CustomerDto[] = [
     {
       id: '688e5469-143c-465e-b6ce-3ac85ea7ad17',
+      identityNumber: '98765432109',
       name: 'Ahmet Faruk',
-      surname: 'ULU'
+      surname: 'ULU',
+      gender: 1
     },
     {
       id: 'ad11e9c8-7b4e-4181-b8f8-cacde10c529f',
+      identityNumber: '12345678901',
       name: 'Masum',
-      surname: 'ULU'
+      surname: 'ULU',
+      gender: 1
     }
   ];
 
@@ -45,7 +49,7 @@ export class CustomersComponent implements OnInit {
 
   //#region Methods
   ngOnInit(): void {
-    this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
+    // this.localizationService.get('NgSampleApp::Create').subscribe(console.log);
 
     // const response = this.localizationService.instant(
     //   {

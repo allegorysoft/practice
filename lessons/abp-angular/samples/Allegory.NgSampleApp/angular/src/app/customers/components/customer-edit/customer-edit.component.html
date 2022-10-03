@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h3>
+      {{
+        (!this.selected?.id ? '::CreateCustomer' : '::EditCustomer')
+          | abpLocalization
+      }}
+    </h3>
+  </div>
+
+  <div class="card-body">
+    <form *ngIf="form; else loading" [formGroup]="form" (ngSubmit)="save()">
+      <abp-extensible-form [selectedRecord]="selected"></abp-extensible-form>
+
+      <button
+        type="submit"
+        class="btn btn-primary btn-md"
+        [disabled]="form?.invalid"
+      >
+        <i class="fa fa-check"></i>
+        {{ 'AbpIdentity::Save' | abpLocalization }}
+      </button>
+    </form>
+    <ng-template #loading>
+      <p>Yükleniyor..</p>
+    </ng-template>
+  </div>
+</div>
