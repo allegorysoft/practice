@@ -56,4 +56,7 @@ public class ProductController : SampleAppController, IProductAppService
 
         await productManager.UowAttributeAsync();
     }
+
+    [HttpPost("create-role")]
+    public Task CreateRoleAsync() => ProductAppService.CreateRoleAsync();
 }

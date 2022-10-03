@@ -9,4 +9,5 @@ public interface IProductAppService : IApplicationService
     bool VirtualIsUow();
     Task<bool> IsUowAsync();
     Task<bool> VirtualIsUowAsync();
+    Task CreateRoleAsync();
 }
