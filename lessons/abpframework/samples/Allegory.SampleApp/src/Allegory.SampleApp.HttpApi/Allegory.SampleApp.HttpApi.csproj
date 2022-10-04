@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Allegory.SampleApp.Application.Contracts\Allegory.SampleApp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Allegory.SampleApp.Application\Allegory.SampleApp.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
