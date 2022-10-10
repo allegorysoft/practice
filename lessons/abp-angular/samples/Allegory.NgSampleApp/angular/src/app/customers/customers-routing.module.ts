@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: CustomersComponent,
-    canActivate: [PermissionGuard],
+    canActivate: [PermissionGuard, CustomerExtensionsGuard],
     data: {
       requiredPolicy: 'NgSampleApp.Customers'
     }

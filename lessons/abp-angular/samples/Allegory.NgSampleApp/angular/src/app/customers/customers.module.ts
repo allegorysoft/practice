@@ -15,7 +15,8 @@ import { CustomerEditComponent } from './components/customer-edit/customer-edit.
 import { CustomerExtensionsGuard } from './guards';
 import {
   CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
-  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS
+  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
+  CUSTOMERS_ENTITY_PROP_CONTRIBUTORS
 } from './tokens';
 import { CustomersConfigOptions } from './models';
 
@@ -35,7 +36,9 @@ import { CustomersConfigOptions } from './models';
               texts: {
                 HelloMessage: '{0} dan Selam',
                 CreateCustomer: 'Müşteri oluştur',
-                EditCustomer: 'Müşteri düzenle'
+                EditCustomer: 'Müşteri düzenle',
+                Female: 'Kadın',
+                Male: 'Erkek',
               }
             }
           ]
@@ -48,7 +51,9 @@ import { CustomersConfigOptions } from './models';
               texts: {
                 HelloMessage: 'Hello from {0}',
                 CreateCustomer: 'Create customer',
-                EditCustomer: 'Edit customer'
+                EditCustomer: 'Edit customer',
+                Female: 'Female',
+                Male: 'Male',
               }
             }
           ]
@@ -65,6 +70,10 @@ export class CustomersModule {
     return {
       ngModule: CustomersModule,
       providers: [
+        {
+          provide: CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
+          useValue: options.entityPropContributors,
+        },
         {
           provide: CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
           useValue: options.createFormPropContributors

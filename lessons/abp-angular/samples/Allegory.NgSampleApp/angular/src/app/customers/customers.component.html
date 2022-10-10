@@ -19,61 +19,10 @@
   </div>
 
   <div class="card-body">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">{{ 'AbpUi::Actions' | abpLocalization }}</th>
-          <th scope="col">Kimlik Numarası</th>
-          <th scope="col">Adı</th>
-          <th scope="col">Soyadı</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of customers; let i = index">
-          <th scope="row">
-            <button
-              *ngIf="hasAnyPolicy"
-              class="btn btn-sm btn-primary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              {{ 'AbpUi::Actions' | abpLocalization }}
-            </button>
-            <ul class="dropdown-menu">
-              <li *abpPermission="'NgSampleApp.Customers.Update'">
-                <button
-                  class="dropdown-item"
-                  [routerLink]="['/customers/edit', customer.id]"
-                >
-                  {{ 'AbpUi::Edit' | abpLocalization }}
-                </button>
-              </li>
-              <li *abpPermission="'NgSampleApp.Customers.Delete'">
-                <button class="dropdown-item">
-                  {{ 'AbpUi::Delete' | abpLocalization }}
-                </button>
-              </li>
-            </ul>
-          </th>
-
-          <td>{{ customer.identityNumber }}</td>
-          <td>{{ customer.name }}</td>
-          <td>{{ customer.surname }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <abp-extensible-table
+      [data]="data.items"
+      [recordsTotal]="data.totalCount"
+      [list]="list"
+    ></abp-extensible-table>
   </div>
 </div>
-
-<!-- <div class="card mt-2 p-2">
-  <h3>{{ 'NgSampleApp::HelloMessage' | abpLocalization: 'Angular' }}</h3>
-  <h3>
-    {{
-      {
-        key: 'NgSampleApp::Hello',
-        defaultValue: 'Verilen key e uygun değer bulamazsan bunu yaz'
-      } | abpLocalization: 'Angular'
-    }}
-  </h3>
-</div> -->
