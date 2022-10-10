@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigComponent } from './config/config.component';
 import { customersCreateFormPropContributors } from './form-prop-contributors';
-import { identityCreateFormPropContributors, identityEditFormPropContributors } from './identity/contributors/form-prop-contributors';
+import { identityCreateFormPropContributors, identityEditFormPropContributors, identityEntityPropContributors } from './identity/contributors/form-prop-contributors';
 
 const routes: Routes = [
   {
@@ -18,7 +18,8 @@ const routes: Routes = [
     path: 'identity',
     loadChildren: () => import('@abp/ng.identity').then(m => m.IdentityModule.forLazy({
       createFormPropContributors: identityCreateFormPropContributors,
-      editFormPropContributors: identityEditFormPropContributors
+      editFormPropContributors: identityEditFormPropContributors,
+      entityPropContributors: identityEntityPropContributors
     })),
   },
   {
