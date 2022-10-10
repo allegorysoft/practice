@@ -6,14 +6,7 @@
       </div>
 
       <div class="col col-md-6">
-        <button
-          *abpPermission="'NgSampleApp.Customers.Create'"
-          class="btn btn-sm btn-primary float-end"
-          [routerLink]="['/customers/edit']"
-        >
-          <i class="fa fa-plus"></i>
-          {{ '::Create' | abpLocalization }}
-        </button>
+        <abp-page-toolbar [record]="data.items"></abp-page-toolbar>
       </div>
     </div>
   </div>

@@ -3,25 +3,28 @@ import {
     CreateFormPropContributorCallback,
     EditFormPropContributorCallback,
     EntityActionContributorCallback,
-    EntityPropContributorCallback
+    EntityPropContributorCallback,
+    ToolbarActionContributorCallback
 } from '@abp/ng.theme.shared/extensions';
 
 import { CustomerDto } from '../models/customer';
 import { eCustomersComponents } from '../enums/components';
 import {
-    DEFAULT_CUSTOMERS_CREATE_FORM_PROPS, DEFAULT_CUSTOMERS_EDIT_FORM_PROPS
-} from '../defaults/default-customers-form-props';
-import {
-    DEFAULT_CUSTOMERS_ENTITY_PROPS
-} from '../defaults/default-customers-entity-props';
-import {
-    DEFAULT_CUSTOMERS_ENTITY_ACTIONS
-} from '../defaults/default-customers-entity-actions';
+    DEFAULT_CUSTOMERS_CREATE_FORM_PROPS,
+    DEFAULT_CUSTOMERS_EDIT_FORM_PROPS,
+    DEFAULT_CUSTOMERS_ENTITY_ACTIONS,
+    DEFAULT_CUSTOMERS_ENTITY_PROPS,
+    DEFAULT_CUSTOMERS_TOOLBAR_ACTIONS
+} from '../defaults';
 
 
 //#region Default Consts
 export const DEFAULT_CUSTOMER_ENTITY_ACTIONS = {
     [eCustomersComponents.Customers]: DEFAULT_CUSTOMERS_ENTITY_ACTIONS,
+};
+
+export const DEFAULT_CUSTOMER_TOOLBAR_ACTIONS = {
+    [eCustomersComponents.Customers]: DEFAULT_CUSTOMERS_TOOLBAR_ACTIONS,
 };
 
 export const DEFAULT_CUSTOMER_ENTITY_PROPS = {
@@ -43,6 +46,10 @@ export const CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS = new InjectionToken<EntityAct
     'CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS',
 );
 
+export const CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS = new InjectionToken<ToolbarActionContributors>(
+    'CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS',
+);
+
 export const CUSTOMERS_ENTITY_PROP_CONTRIBUTORS = new InjectionToken<EntityPropContributors>(
     'CUSTOMERS_ENTITY_PROP_CONTRIBUTORS',
 );
@@ -60,6 +67,10 @@ export const CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS = new InjectionToken<EditForm
 //#region type Contributors
 type EntityActionContributors = Partial<{
     [eCustomersComponents.Customers]: EntityActionContributorCallback<CustomerDto>[];
+}>;
+
+type ToolbarActionContributors = Partial<{
+    [eCustomersComponents.Customers]: ToolbarActionContributorCallback<CustomerDto[]>[];
 }>;
 
 type EntityPropContributors = Partial<{

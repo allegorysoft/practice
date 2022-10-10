@@ -18,17 +18,20 @@ import {
   CustomersCreateFormPropContributors,
   CustomersEditFormPropContributors,
   CustomersEntityActionContributors,
-  CustomersEntityPropContributors
+  CustomersEntityPropContributors,
+  CustomersToolbarActionContributors
 } from '../models';
 import {
   CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
   CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
   CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
   CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
+  CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS,
   DEFAULT_CUSTOMER_CREATE_FORM_PROPS,
   DEFAULT_CUSTOMER_EDIT_FORM_PROPS,
   DEFAULT_CUSTOMER_ENTITY_ACTIONS,
-  DEFAULT_CUSTOMER_ENTITY_PROPS
+  DEFAULT_CUSTOMER_ENTITY_PROPS,
+  DEFAULT_CUSTOMER_TOOLBAR_ACTIONS
 } from '../tokens';
 
 @Injectable()
@@ -42,6 +45,9 @@ export class CustomerExtensionsGuard implements CanActivate {
 
     const propContributors: CustomersEntityPropContributors =
       this.injector.get(CUSTOMERS_ENTITY_PROP_CONTRIBUTORS, null) || {};
+
+    const toolbarContributors: CustomersToolbarActionContributors =
+      this.injector.get(CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS, null) || {};
 
     const createFormContributors: CustomersCreateFormPropContributors =
       this.injector.get(CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS, null) || {};
@@ -61,6 +67,11 @@ export class CustomerExtensionsGuard implements CanActivate {
           extensions.entityActions,
           DEFAULT_CUSTOMER_ENTITY_ACTIONS,
           actionContributors,
+        );
+        mergeWithDefaultActions(
+          extensions.toolbarActions,
+          DEFAULT_CUSTOMER_TOOLBAR_ACTIONS,
+          toolbarContributors,
         );
         mergeWithDefaultProps(
           extensions.entityProps,

@@ -17,7 +17,8 @@ import {
   CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
   CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
   CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
-  CUSTOMERS_ENTITY_PROP_CONTRIBUTORS
+  CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
+  CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS
 } from './tokens';
 import { CustomersConfigOptions } from './models';
 
@@ -76,6 +77,10 @@ export class CustomersModule {
         {
           provide: CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
           useValue: options.entityActionContributors,
+        },
+        {
+          provide: CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS,
+          useValue: options.toolbarActionContributors,
         },
         {
           provide: CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
