@@ -19,7 +19,7 @@ const routes: Routes = [
     component: CustomerEditComponent,
     canActivate: [PermissionGuard, CustomerExtensionsGuard],
     data: {
-      requiredPolicy: 'NgSampleApp.Customers.Create || NgSampleApp.Customers.Update'
+      requiredPolicy: 'NgSampleApp.Customers.Create'
     },
   },
   {
@@ -27,7 +27,7 @@ const routes: Routes = [
     component: CustomerEditComponent,
     canActivate: [PermissionGuard, CustomerExtensionsGuard],
     data: {
-      requiredPolicy: 'NgSampleApp.Customers.Create || NgSampleApp.Customers.Update'
+      requiredPolicy: 'NgSampleApp.Customers.Update'
     },
   }
 ];

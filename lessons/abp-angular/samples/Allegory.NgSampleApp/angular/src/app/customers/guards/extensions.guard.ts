@@ -1,22 +1,33 @@
+import { Injectable, Injector } from '@angular/core';
+import { CanActivate } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, mapTo, tap } from 'rxjs/operators';
+
 import { ConfigStateService } from '@abp/ng.core';
 import {
   ExtensionsService,
   getObjectExtensionEntitiesFromStore,
   mapEntitiesToContributors,
+  mergeWithDefaultActions,
   mergeWithDefaultProps
 } from '@abp/ng.theme.shared/extensions';
-import { Injectable, Injector } from '@angular/core';
-import { CanActivate } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, mapTo, tap } from 'rxjs/operators';
+
 import { eCustomersComponents } from '../enums';
-import { CustomersCreateFormPropContributors, CustomersEditFormPropContributors, CustomersEntityPropContributors } from '../models';
+
+import {
+  CustomersCreateFormPropContributors,
+  CustomersEditFormPropContributors,
+  CustomersEntityActionContributors,
+  CustomersEntityPropContributors
+} from '../models';
 import {
   CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
   CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
+  CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
   CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
   DEFAULT_CUSTOMER_CREATE_FORM_PROPS,
   DEFAULT_CUSTOMER_EDIT_FORM_PROPS,
+  DEFAULT_CUSTOMER_ENTITY_ACTIONS,
   DEFAULT_CUSTOMER_ENTITY_PROPS
 } from '../tokens';
 
@@ -26,6 +37,8 @@ export class CustomerExtensionsGuard implements CanActivate {
 
   canActivate(): Observable<boolean> {
     const extensions = this.injector.get(ExtensionsService);
+    const actionContributors: CustomersEntityActionContributors =
+      this.injector.get(CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS, null) || {};
 
     const propContributors: CustomersEntityPropContributors =
       this.injector.get(CUSTOMERS_ENTITY_PROP_CONTRIBUTORS, null) || {};
@@ -44,6 +57,11 @@ export class CustomerExtensionsGuard implements CanActivate {
       })),
       mapEntitiesToContributors(configState, 'NgSampleApp'),
       tap(objectExtensionContributors => {
+        mergeWithDefaultActions(
+          extensions.entityActions,
+          DEFAULT_CUSTOMER_ENTITY_ACTIONS,
+          actionContributors,
+        );
         mergeWithDefaultProps(
           extensions.entityProps,
           DEFAULT_CUSTOMER_ENTITY_PROPS,

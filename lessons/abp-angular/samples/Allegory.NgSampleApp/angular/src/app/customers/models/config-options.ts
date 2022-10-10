@@ -1,10 +1,15 @@
 import {
     CreateFormPropContributorCallback,
     EditFormPropContributorCallback,
+    EntityActionContributorCallback,
     EntityPropContributorCallback
 } from '@abp/ng.theme.shared/extensions';
 import { eCustomersComponents } from '../enums/components';
 import { CustomerDto } from './customer';
+
+export type CustomersEntityActionContributors = Partial<{
+    [eCustomersComponents.Customers]: EntityActionContributorCallback<CustomerDto>[];
+}>;
 
 export type CustomersEntityPropContributors = Partial<{
     [eCustomersComponents.Customers]: EntityPropContributorCallback<CustomerDto>[];
@@ -19,6 +24,7 @@ export type CustomersEditFormPropContributors = Partial<{
 }>;
 
 export interface CustomersConfigOptions {
+    entityActionContributors?: CustomersEntityActionContributors;
     entityPropContributors?: CustomersEntityPropContributors;
     createFormPropContributors?: CustomersCreateFormPropContributors;
     editFormPropContributors?: CustomersEditFormPropContributors;
