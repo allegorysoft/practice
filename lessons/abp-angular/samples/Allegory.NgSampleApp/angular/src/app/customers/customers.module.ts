@@ -42,7 +42,8 @@ import { CustomersConfigOptions } from './models';
                 EditCustomer: 'Müşteri düzenle',
                 Female: 'Kadın',
                 Male: 'Erkek',
-                View:'İncele'
+                View: 'İncele',
+                ExportToExcel: 'Excele aktar'
               }
             }
           ]
@@ -59,7 +60,8 @@ import { CustomersConfigOptions } from './models';
                 EditCustomer: 'Edit customer',
                 Female: 'Female',
                 Male: 'Male',
-                View:'View'
+                View: 'View',
+                ExportToExcel: 'Export to excel'
               }
             }
           ]

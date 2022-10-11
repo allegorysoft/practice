@@ -6,10 +6,11 @@ import { CustomersModule } from '../customers/customers.module';
 
 import { CustomersExtendedComponent } from './customers-extended.component';
 import {
+  customersEntityActionContributors,
   customersCreateFormPropContributors,
-  customersEntityPropContributors
+  customersEntityPropContributors,
+  customersToolbarActionContributors
 } from './contributors';
-import { customersEntityActionContributors } from './contributors/entity-action-contributors';
 
 @NgModule({
   imports: [
@@ -24,9 +25,10 @@ import { customersEntityActionContributors } from './contributors/entity-action-
             path: '',
             loadChildren: () =>
               CustomersModule.forLazy({
+                // entityActionContributors: customersEntityActionContributors,
                 createFormPropContributors: customersCreateFormPropContributors,
                 // entityPropContributors: customersEntityPropContributors,
-                // entityActionContributors: customersEntityActionContributors,
+                // toolbarActionContributors: customersToolbarActionContributors
               }),
           },
         ]

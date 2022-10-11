@@ -30,7 +30,7 @@ export type CustomersEditFormPropContributors = Partial<{
 
 export interface CustomersConfigOptions {
     entityActionContributors?: CustomersEntityActionContributors;
-    toolbarActionContributors?: CustomersEntityActionContributors;
+    toolbarActionContributors?: CustomersToolbarActionContributors;
     entityPropContributors?: CustomersEntityPropContributors;
     createFormPropContributors?: CustomersCreateFormPropContributors;
     editFormPropContributors?: CustomersEditFormPropContributors;
