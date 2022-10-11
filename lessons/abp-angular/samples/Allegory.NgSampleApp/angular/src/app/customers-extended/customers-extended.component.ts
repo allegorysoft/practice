@@ -10,7 +10,7 @@ export class CustomersExtendedComponent {
 
   customer!: CustomerDto;
 
-  openUserQuickView(record: CustomerDto) {
+  openUserQuickView(record: CustomerDto):void {
     this.customer = new Proxy(record, {
       get: (target, prop) => target[prop] || '—',
     });

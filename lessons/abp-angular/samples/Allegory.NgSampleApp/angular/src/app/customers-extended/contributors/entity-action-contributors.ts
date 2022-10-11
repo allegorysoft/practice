@@ -10,6 +10,8 @@ const viewAction = new EntityAction<CustomerDto>({
         const component = data.getInjected(CustomersExtendedComponent);
         component.openUserQuickView(data.record);
     },
+    icon: 'fa fa-eye',
+    // permission: 'NgSampleApp.Customers.View',
 });
 
 export function customModalContributor(actionList: EntityActionList<CustomerDto>) {
