@@ -42,6 +42,7 @@ import { CustomersConfigOptions } from './models';
                 EditCustomer: 'Müşteri düzenle',
                 Female: 'Kadın',
                 Male: 'Erkek',
+                View:'İncele'
               }
             }
           ]
@@ -58,6 +59,7 @@ import { CustomersConfigOptions } from './models';
                 EditCustomer: 'Edit customer',
                 Female: 'Female',
                 Male: 'Male',
+                View:'View'
               }
             }
           ]

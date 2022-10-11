@@ -29,7 +29,7 @@ export const identityEditFormPropContributors = identityCreateFormPropContributo
 
 
 
-//#region Tabloya Yeni alan ekleme
+//#region Tabloya yeni sütun ekleme
 const nameProp = new EntityProp<IdentityUserDto>({
     type: ePropType.String,
     name: 'name',
@@ -43,7 +43,7 @@ export function namePropContributor(propList: EntityPropList<IdentityUserDto>) {
 }
 //#endregion
 
-//#region Tablo da var olan alanları özelleştirme
+//#region Tablo da var olan sütunları özelleştirme
 export function emailPropContributor(propList: EntityPropList<IdentityUserDto>) {
     const index = propList.indexOf('email', (value, name) => value.name === name);
     const droppedNode = propList.dropByIndex(index);

@@ -1,9 +1,9 @@
 import { LocalizationService } from "@abp/ng.core";
 import { of } from "rxjs";
 import { EntityProp, EntityPropList, ePropType } from "@abp/ng.theme.shared/extensions";
-import { eCustomersComponents } from "../customers/enums";
-import { CustomersEntityPropContributors } from "../customers/models";
-import { CustomerDto } from "../customers/models/customer";
+import { eCustomersComponents } from "../../customers/enums";
+import { CustomersEntityPropContributors } from "../../customers/models";
+import { CustomerDto } from "../../customers/models/customer";
 
 const genderProp = new EntityProp<CustomerDto>({
     type: ePropType.Number,
