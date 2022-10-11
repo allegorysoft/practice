@@ -1,8 +1,8 @@
 import { Validators } from '@angular/forms';
 import { ePropType, FormProp, FormPropList } from '@abp/ng.theme.shared/extensions';
-import { eCustomersComponents } from './customers/enums';
-import { CustomersCreateFormPropContributors } from './customers/models';
-import { CustomerDto } from './customers/models/customer';
+import { eCustomersComponents } from '../customers/enums';
+import { CustomersCreateFormPropContributors } from '../customers/models';
+import { CustomerDto } from '../customers/models/customer';
 
 const birthdayProp = new FormProp<CustomerDto>({
     type: ePropType.Date,
@@ -16,7 +16,5 @@ export function birthdayPropContributor(propList: FormPropList<CustomerDto>) {
 }
 
 export const customersCreateFormPropContributors: CustomersCreateFormPropContributors = {
-    [eCustomersComponents.CustomerEdit]: [
-        birthdayPropContributor
-    ],
+    [eCustomersComponents.CustomerEdit]: [birthdayPropContributor],
 };

@@ -31,21 +31,5 @@ export const DEFAULT_CUSTOMERS_ENTITY_PROPS = EntityProp.createMany<CustomerDto>
     displayName: 'AbpIdentity::DisplayName:Surname',
     sortable: false,
     columnWidth: 200
-  },
-  {
-    type: ePropType.Number,
-    name: 'gender',
-    displayName: 'NgSampleApp::Gender',
-    sortable: false,
-    columnWidth: 200,
-    valueResolver: (data) => {
-      const { gender } = data.record;
-      const l10n = data.getInjected(LocalizationService);
-      const t = l10n.instant.bind(l10n);
-
-      const icon = `<i class="fa ${gender === 0 ? 'fa-venus' : 'fa-mars'} m-1"></i>`
-      const _gender = t(gender === 0 ? 'NgSampleApp::Female' : 'NgSampleApp::Male');
-      return of(icon + _gender);
-    }
   }
 ]);

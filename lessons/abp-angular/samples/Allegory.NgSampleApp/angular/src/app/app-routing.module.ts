@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigComponent } from './config/config.component';
-import { customersCreateFormPropContributors } from './form-prop-contributors';
-import { identityCreateFormPropContributors, identityEditFormPropContributors, identityEntityPropContributors } from './identity/contributors/form-prop-contributors';
+import {
+  customersEntityPropContributors,
+  customersCreateFormPropContributors
+} from './contributors';
+import {
+  identityCreateFormPropContributors,
+  identityEditFormPropContributors,
+  identityEntityPropContributors
+} from './identity/contributors';
 
 const routes: Routes = [
   {
@@ -19,7 +26,7 @@ const routes: Routes = [
     loadChildren: () => import('@abp/ng.identity').then(m => m.IdentityModule.forLazy({
       createFormPropContributors: identityCreateFormPropContributors,
       editFormPropContributors: identityEditFormPropContributors,
-      entityPropContributors: identityEntityPropContributors
+      // entityPropContributors: identityEntityPropContributors
     })),
   },
   {
@@ -40,7 +47,8 @@ const routes: Routes = [
     path: 'customers',
     loadChildren: () =>
       import('./customers/customers.module').then(m => m.CustomersModule.forLazy({
-        createFormPropContributors: customersCreateFormPropContributors
+        createFormPropContributors: customersCreateFormPropContributors,
+        // entityPropContributors: customersEntityPropContributors
       })),
   },
 ];
