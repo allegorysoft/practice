@@ -5,7 +5,7 @@ import {
   identityCreateFormPropContributors,
   identityEditFormPropContributors,
   identityEntityPropContributors
-} from './identity/contributors';
+} from './identity-extended/contributors';
 
 const routes: Routes = [
   {
