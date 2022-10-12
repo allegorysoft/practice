@@ -1,0 +1,22 @@
+<router-outlet></router-outlet>
+
+<abp-modal [(visible)]="isModalVisible" [busy]="modalBusy">
+  <ng-template #abpHeader>
+    <h3>
+      {{
+        (selected?.id ? 'AbpIdentity::Edit' : 'AbpIdentity::NewUser')
+          | abpLocalization
+      }}
+    </h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <ng-template #loaderRef
+      ><div class="text-center"><i class="fa fa-pulse fa-spinner"></i></div
+    ></ng-template>
+
+    <div *ngIf="form; else loaderRef">
+      <pre>{{ form.value | json }}</pre>
+    </div>
+  </ng-template>
+</abp-modal>

@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigComponent } from './config/config.component';
-import {
-  identityCreateFormPropContributors,
-  identityEditFormPropContributors,
-  identityEntityPropContributors
-} from './identity-extended/contributors';
 
 const routes: Routes = [
   {
@@ -19,11 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'identity',
-    loadChildren: () => import('@abp/ng.identity').then(m => m.IdentityModule.forLazy({
-      createFormPropContributors: identityCreateFormPropContributors,
-      editFormPropContributors: identityEditFormPropContributors,
-      entityPropContributors: identityEntityPropContributors
-    })),
+    loadChildren: () => import('./identity-extended/identity-extended.module')
+      .then(m => m.IdentityExtendedModule),
   },
   {
     path: 'tenant-management',
@@ -41,9 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'customers',
-    loadChildren: () =>
-      import('./customers-extended/customers-extended.module')
-        .then(m => m.CustomersExtendedModule),
+    loadChildren: () => import('./customers-extended/customers-extended.module')
+      .then(m => m.CustomersExtendedModule),
   },
 ];
 

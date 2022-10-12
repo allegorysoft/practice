@@ -14,7 +14,7 @@ import {
 
 @NgModule({
   imports: [
-    CoreModule.forChild(),
+    CoreModule,
     ThemeSharedModule,
     RouterModule.forChild([
       {

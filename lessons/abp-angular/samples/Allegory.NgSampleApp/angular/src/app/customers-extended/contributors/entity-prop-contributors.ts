@@ -28,5 +28,5 @@ export function genderPropContributor(propList: EntityPropList<CustomerDto>) {
 
 
 export const customersEntityPropContributors: CustomersEntityPropContributors = {
-    // [eCustomersComponents.Customers]: [genderPropContributor],
+    [eCustomersComponents.Customers]: [genderPropContributor],
 };

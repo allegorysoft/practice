@@ -14,10 +14,10 @@ const viewAction = new EntityAction<CustomerDto>({
     // permission: 'NgSampleApp.Customers.View',
 });
 
-export function customModalContributor(actionList: EntityActionList<CustomerDto>) {
+export function customersModalContributor(actionList: EntityActionList<CustomerDto>) {
     actionList.addTail(viewAction);
 }
 
 export const customersEntityActionContributors: CustomersEntityActionContributors = {
-    [eCustomersComponents.Customers]: [customModalContributor],
+    [eCustomersComponents.Customers]: [customersModalContributor],
 };
