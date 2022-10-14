@@ -1,6 +1,4 @@
-import { LocalizationService } from '@abp/ng.core';
 import { EntityProp, ePropType } from '@abp/ng.theme.shared/extensions';
-import { of } from 'rxjs';
 import { CustomerDto } from '../models/customer';
 
 export const DEFAULT_CUSTOMERS_ENTITY_PROPS = EntityProp.createMany<CustomerDto>([

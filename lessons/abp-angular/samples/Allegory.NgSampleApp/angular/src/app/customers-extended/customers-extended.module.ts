@@ -25,10 +25,10 @@ import {
             path: '',
             loadChildren: () =>
               CustomersModule.forLazy({
-                // entityActionContributors: customersEntityActionContributors,
+                entityActionContributors: customersEntityActionContributors,
                 createFormPropContributors: customersCreateFormPropContributors,
-                // entityPropContributors: customersEntityPropContributors,
-                // toolbarActionContributors: customersToolbarActionContributors
+                entityPropContributors: customersEntityPropContributors,
+                toolbarActionContributors: customersToolbarActionContributors
               }),
           },
         ]

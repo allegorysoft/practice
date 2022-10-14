@@ -25,10 +25,10 @@ import {
             path: '',
             loadChildren: () =>
               IdentityModule.forLazy({
-                // entityActionContributors: identityEntityActionContributors,
+                entityActionContributors: identityEntityActionContributors,
                 createFormPropContributors: identityCreateFormPropContributors,
-                // editFormPropContributors: identityEditFormPropContributors,
-                // entityPropContributors: identityEntityPropContributors
+                editFormPropContributors: identityEditFormPropContributors,
+                entityPropContributors: identityEntityPropContributors
               }),
           },
         ],
