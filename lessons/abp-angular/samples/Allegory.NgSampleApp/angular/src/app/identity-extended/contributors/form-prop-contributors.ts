@@ -1,8 +1,10 @@
 import { Validators } from '@angular/forms';
-import { ePropType, FormProp, FormPropList } from '@abp/ng.theme.shared/extensions';
+import {
+    ePropType, FormProp, FormPropList
+} from '@abp/ng.theme.shared/extensions';
 import {
     eIdentityComponents,
-    IdentityCreateFormPropContributors
+    IdentityCreateFormPropContributors,
 } from '@abp/ng.identity';
 import { IdentityUserDto } from '@abp/ng.identity/proxy';
 

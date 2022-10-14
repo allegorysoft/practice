@@ -11,5 +11,4 @@ export class ExtendedPermissionService extends PermissionService {
   }
 
   //Kendi metodlarımızı buraya yazabiliriz..
-  
 }

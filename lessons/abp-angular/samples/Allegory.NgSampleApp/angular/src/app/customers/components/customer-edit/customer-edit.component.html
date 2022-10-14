@@ -1,11 +1,20 @@
 <div class="card">
   <div class="card-header">
-    <h3>
-      {{
-        (!this.selected?.id ? '::CreateCustomer' : '::EditCustomer')
-          | abpLocalization
-      }}
-    </h3>
+    <div class="d-flex justify-content-start">
+      <button
+        type="button"
+        class="btn text-secondary mr-1 btn-sm"
+        [routerLink]="['/customers']"
+      >
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <h3 style="margin-bottom: 0.2rem">
+        {{
+          (!this.selected?.id ? '::CreateCustomer' : '::EditCustomer')
+            | abpLocalization
+        }}
+      </h3>
+    </div>
   </div>
 
   <div class="card-body">

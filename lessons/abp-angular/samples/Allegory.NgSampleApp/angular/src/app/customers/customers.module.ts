@@ -15,7 +15,10 @@ import { CustomerEditComponent } from './components/customer-edit/customer-edit.
 import { CustomerExtensionsGuard } from './guards';
 import {
   CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
-  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS
+  CUSTOMERS_EDIT_FORM_PROP_CONTRIBUTORS,
+  CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
+  CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
+  CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS
 } from './tokens';
 import { CustomersConfigOptions } from './models';
 
@@ -33,9 +36,14 @@ import { CustomersConfigOptions } from './models';
             {
               resourceName: 'NgSampleApp',
               texts: {
+                Customers: 'Müşteriler',
                 HelloMessage: '{0} dan Selam',
                 CreateCustomer: 'Müşteri oluştur',
-                EditCustomer: 'Müşteri düzenle'
+                EditCustomer: 'Müşteri düzenle',
+                Female: 'Kadın',
+                Male: 'Erkek',
+                View: 'İncele',
+                ExportToExcel: 'Excele aktar'
               }
             }
           ]
@@ -46,9 +54,14 @@ import { CustomersConfigOptions } from './models';
             {
               resourceName: 'NgSampleApp',
               texts: {
+                Customers: 'Customers',
                 HelloMessage: 'Hello from {0}',
                 CreateCustomer: 'Create customer',
-                EditCustomer: 'Edit customer'
+                EditCustomer: 'Edit customer',
+                Female: 'Female',
+                Male: 'Male',
+                View: 'View',
+                ExportToExcel: 'Export to excel'
               }
             }
           ]
@@ -65,6 +78,18 @@ export class CustomersModule {
     return {
       ngModule: CustomersModule,
       providers: [
+        {
+          provide: CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS,
+          useValue: options.entityActionContributors,
+        },
+        {
+          provide: CUSTOMERS_TOOLBAR_ACTION_CONTRIBUTORS,
+          useValue: options.toolbarActionContributors,
+        },
+        {
+          provide: CUSTOMERS_ENTITY_PROP_CONTRIBUTORS,
+          useValue: options.entityPropContributors,
+        },
         {
           provide: CUSTOMERS_CREATE_FORM_PROP_CONTRIBUTORS,
           useValue: options.createFormPropContributors

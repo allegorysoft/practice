@@ -10,6 +10,11 @@ import { CustomerDto } from '../../models/customer';
 @Component({
   selector: 'app-customer-edit',
   templateUrl: './customer-edit.component.html',
+  styles: [`
+    .mr-1{
+      margin-right:.5rem;
+    }
+  `],
   providers: [
     {
       provide: EXTENSIONS_IDENTIFIER,

@@ -1,0 +1,49 @@
+<router-outlet></router-outlet>
+
+<abp-modal [(visible)]="isCustomerQuickViewVisible">
+  <ng-template #abpHeader>
+    <h5>{{ customer.id }}</h5>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th scope="row">
+            {{ 'NgSampleApp::IdentityNumber' | abpLocalization }}
+          </th>
+          <td>{{ customer.identityNumber }}</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            {{ 'AbpIdentity::DisplayName:Name' | abpLocalization }}
+          </th>
+          <td>{{ customer.name }}</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            {{ 'AbpIdentity::DisplayName:Surname' | abpLocalization }}
+          </th>
+          <td>{{ customer.surname }}</td>
+        </tr>
+        <tr>
+          <th scope="row">
+            {{ 'NgSampleApp::Gender' | abpLocalization }}
+          </th>
+          <td>
+            {{
+              (customer.gender === 0 ? 'NgSampleApp::Female' : 'NgSampleApp::Male')
+                | abpLocalization
+            }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ 'AbpUi::Close' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>
