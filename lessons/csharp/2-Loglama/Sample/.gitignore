@@ -261,3 +261,5 @@ DynamicFilter/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*
+
+[Ll]ogs
