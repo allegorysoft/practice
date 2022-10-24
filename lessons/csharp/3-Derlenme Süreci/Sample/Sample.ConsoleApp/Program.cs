@@ -1,9 +1,5 @@
-﻿
-int counter = 0;
+﻿using Sample.VbLibrary;
 
-while(true)
-{
-    counter++;
-    Console.WriteLine(counter);
-    await Task.Delay(1000);
-}
+var calculator = new Calculator();
+var result = calculator.Add(10, 25);
+Console.WriteLine("Result: " + result);
