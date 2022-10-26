@@ -12,4 +12,4 @@
 
 - [C# Dinamik Filtreleme](https://www.youtube.com/watch?v=iz7pJXDe3VI&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=1)
 - [C# Loglama (Serilog, Elasticsearch, Kibana, Seq)](https://www.youtube.com/watch?v=KPNNDco4KPQ&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=2)
-- [.NET Derlenme Süreci(IL, CLR, JIT)]()
+- [.NET Derlenme Süreci(IL, CLR, JIT)](https://www.youtube.com/watch?v=Q4S_MVyugWM&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=3)
