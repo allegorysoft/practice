@@ -1,4 +1,6 @@
-﻿namespace Allegory.SampleApp.Example;
+﻿using System.Threading.Tasks;
+
+namespace Allegory.SampleApp.Example;
 
 public class ExampleAppService : SampleAppAppService, IExampleAppService
 {
@@ -7,5 +9,10 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
     public ExampleAppService(IExampleRepository exampleRepository)
     {
         ExampleRepository = exampleRepository;
+    }
+
+    public async Task GetExecutionPerformance()
+    {
+        await ExampleRepository.GetExecutionPerformance();
     }
 }

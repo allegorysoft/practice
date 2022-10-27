@@ -5,5 +5,5 @@ namespace Allegory.SampleApp.Example;
 
 public interface IExampleRepository : IRepository
 {
-    Task Do();
+    Task GetExecutionPerformance();
 }
