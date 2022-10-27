@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="6.0.0" />
     <ProjectReference Include="..\Allegory.Module.Domain.Shared\Allegory.Module.Domain.Shared.csproj" />
   </ItemGroup>
 

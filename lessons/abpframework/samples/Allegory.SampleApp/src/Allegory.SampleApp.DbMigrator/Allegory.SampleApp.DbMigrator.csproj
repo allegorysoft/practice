@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="6.0.0" />
     <ProjectReference Include="..\Allegory.SampleApp.Application.Contracts\Allegory.SampleApp.Application.Contracts.csproj" />
     <ProjectReference Include="..\Allegory.SampleApp.EntityFrameworkCore\Allegory.SampleApp.EntityFrameworkCore.csproj" />
   </ItemGroup>
