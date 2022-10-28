@@ -16,15 +16,18 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
 
     public async Task GetExecutionPerformance()
     {
-        //!!! Connection dispose edildiği an bir UOW bağlıysa rollback işlemi yapar
-        using (var connection = await GetDbConnectionAsync())
-        {
-            var result = connection.Query(@"
+        //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
+        //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
+        //!!! Connection dispose edildikten sonra aynı repository'nin farklı bir metodu çağrılırsa hata verir
+
+        var connection = await GetDbConnectionAsync();
+
+        var result = connection.Query(@"
             SELECT HttpMethod, MAX(ExecutionDuration) ExecutionDuration
             FROM abpauditlogs
-            GROUP BY HttpMethod"
-            //,transaction: await GetDbTransactionAsync() => UOW bağlar
-            ).ToList();
-        }
+            GROUP BY HttpMethod",
+            transaction: await GetDbTransactionAsync()).ToList();
+
     }
+
 }
