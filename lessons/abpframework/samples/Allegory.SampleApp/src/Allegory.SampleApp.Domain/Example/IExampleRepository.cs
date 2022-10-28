@@ -6,4 +6,5 @@ namespace Allegory.SampleApp.Example;
 public interface IExampleRepository : IRepository
 {
     Task GetExecutionPerformance();
+    Task ItThrowsDisposeException();
 }

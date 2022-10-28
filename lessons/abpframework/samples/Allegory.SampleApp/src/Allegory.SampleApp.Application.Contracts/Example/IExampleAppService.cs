@@ -6,4 +6,5 @@ namespace Allegory.SampleApp.Example;
 public interface IExampleAppService : IApplicationService
 {
     Task GetExecutionPerformance();
+    Task ItThrowsDisposeException();
 }

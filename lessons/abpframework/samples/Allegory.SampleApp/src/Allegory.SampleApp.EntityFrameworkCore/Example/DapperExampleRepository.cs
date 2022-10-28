@@ -16,10 +16,6 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
 
     public async Task GetExecutionPerformance()
     {
-        //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
-        //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
-        //!!! Connection dispose edildikten sonra aynı repository'nin farklı bir metodu çağrılırsa hata verir
-
         var connection = await GetDbConnectionAsync();
 
         var result = connection.Query(@"
@@ -27,7 +23,22 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
             FROM abpauditlogs
             GROUP BY HttpMethod",
             transaction: await GetDbTransactionAsync()).ToList();
-
     }
 
+    public async Task ItThrowsDisposeException()
+    {
+        //!!! Connection dispose edildikten sonra aynı DbContext için tekrar SQL isteği atıldığında(Aynı DbContext'i kullanan farklı bir repository olsa dahi her UOW için bir connection oluşturur) ObjectDisposed exception hatası alınır
+        //https://github.com/abpframework/abp/blob/ff43bdc4e8f907508345a15ad81fece82632ad5e/framework/src/Volo.Abp.EntityFrameworkCore/Volo/Abp/Uow/EntityFrameworkCore/UnitOfWorkDbContextProvider.cs#L81
+
+        using (var connection = await GetDbConnectionAsync())
+        {
+            var result = connection.Query(@"
+            SELECT HttpMethod, MAX(ExecutionDuration) ExecutionDuration
+            FROM abpauditlogs
+            GROUP BY HttpMethod",
+            transaction: await GetDbTransactionAsync()).ToList();
+        }
+    }
+    //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
+    //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
 }
