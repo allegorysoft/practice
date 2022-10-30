@@ -18,3 +18,4 @@
 - [ABP Angular Localization](https://www.youtube.com/watch?v=fotEK6WRUjo&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=6)
 - [ABP Angular Form](https://www.youtube.com/watch?v=7BMC6zD24t8&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=7)
 - [ABP Angular Extensions](https://www.youtube.com/watch?v=gp-MpTztd38&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=8)
+- [ABP Angular Component Replacement]()
