@@ -6,19 +6,19 @@ namespace Allegory.SampleApp.Example;
 
 public class ExampleAppService : SampleAppAppService, IExampleAppService
 {
-    protected IExampleRepository ExampleRepository { get; set; }
+    protected IExampleRepository ExampleRepository { get; }
 
     public ExampleAppService(IExampleRepository exampleRepository)
     {
         ExampleRepository = exampleRepository;
     }
 
-    public async Task GetExecutionPerformance()
+    public virtual async Task GetExecutionPerformance()
     {
         await ExampleRepository.GetExecutionPerformance();
     }
 
-    public async Task ItThrowsDisposeException()
+    public virtual async Task ItThrowsDisposeException()
     {
         await ExampleRepository.ItThrowsDisposeException();
 
@@ -32,8 +32,13 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
         var result = await auditLogRepository.GetListAsync();
     }
 
-    public async Task WithoutTransaction()
+    public virtual async Task WithoutTransaction()
     {
         await ExampleRepository.WithoutTransaction();
+    }
+
+    public virtual async Task WithTransaction()
+    {
+        await ExampleRepository.WithTransaction();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Allegory.SampleApp.EntityFrameworkCore;
 using Dapper;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories.Dapper;
@@ -45,5 +46,22 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
         var result = connection.Query("SELECT 1").ToList();
     }
 
-    //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
+    public async Task WithTransaction()
+    {
+        //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
+
+        using (var connection = await GetDbConnectionAsync())
+        {
+            connection.Execute(@"
+            INSERT INTO abpauditlogs(Id, ExecutionTime ,ExecutionDuration) 
+            VALUES(@Id, @ExecutionTime, @ExecutionDuration)",
+            param: new 
+            { 
+                Id = Guid.Empty.ToString(), 
+                ExecutionTime = DateTime.Now, 
+                ExecutionDuration = 0 
+            },
+            transaction: await GetDbTransactionAsync());
+        }
+    }
 }

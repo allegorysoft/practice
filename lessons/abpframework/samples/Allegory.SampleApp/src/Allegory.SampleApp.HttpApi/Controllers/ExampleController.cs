@@ -33,4 +33,10 @@ public class ExampleController : SampleAppController, IExampleAppService
     {
         return ExampleAppService.WithoutTransaction();
     }
+
+    [HttpPost("with-transaction")]
+    public Task WithTransaction()
+    {
+        return ExampleAppService.WithTransaction();
+    }
 }
