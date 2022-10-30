@@ -1,6 +1,7 @@
 ﻿using Allegory.SampleApp.Example;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Volo.Abp.Uow;
 
 namespace Allegory.SampleApp.Controllers;
 
@@ -24,5 +25,12 @@ public class ExampleController : SampleAppController, IExampleAppService
     public Task ItThrowsDisposeException()
     {
         return ExampleAppService.ItThrowsDisposeException();
+    }
+
+    [HttpGet("without-transaction")]
+    [UnitOfWork(true)]
+    public Task WithoutTransaction()
+    {
+        return ExampleAppService.WithoutTransaction();
     }
 }

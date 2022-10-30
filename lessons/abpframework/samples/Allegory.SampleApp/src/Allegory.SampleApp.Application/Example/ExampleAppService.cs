@@ -31,4 +31,9 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
 
         var result = await auditLogRepository.GetListAsync();
     }
+
+    public async Task WithoutTransaction()
+    {
+        await ExampleRepository.WithoutTransaction();
+    }
 }

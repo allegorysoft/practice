@@ -37,6 +37,13 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
         }
     }
 
-    //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
+    public async Task WithoutTransaction()
+    {
+        //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
+
+        var connection = await GetDbConnectionAsync();
+        var result = connection.Query("SELECT 1").ToList();
+    }
+
     //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
 }

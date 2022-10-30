@@ -7,4 +7,5 @@ public interface IExampleRepository : IRepository
 {
     Task GetExecutionPerformance();
     Task ItThrowsDisposeException();
+    Task WithoutTransaction();
 }

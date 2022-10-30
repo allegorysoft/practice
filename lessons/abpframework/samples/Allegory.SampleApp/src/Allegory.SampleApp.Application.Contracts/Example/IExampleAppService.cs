@@ -7,4 +7,5 @@ public interface IExampleAppService : IApplicationService
 {
     Task GetExecutionPerformance();
     Task ItThrowsDisposeException();
+    Task WithoutTransaction();
 }
