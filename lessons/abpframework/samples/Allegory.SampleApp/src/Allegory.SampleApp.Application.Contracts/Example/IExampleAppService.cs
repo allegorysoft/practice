@@ -5,8 +5,8 @@ namespace Allegory.SampleApp.Example;
 
 public interface IExampleAppService : IApplicationService
 {
-    Task GetExecutionPerformance();
-    Task ItThrowsDisposeException();
-    Task WithoutTransaction();
-    Task WithTransaction();
+    Task GetExecutionPerformanceAsync();
+    Task ItThrowsDisposeExceptionAsync();
+    Task WithoutTransactionAsync();
+    Task WithTransactionAsync();
 }

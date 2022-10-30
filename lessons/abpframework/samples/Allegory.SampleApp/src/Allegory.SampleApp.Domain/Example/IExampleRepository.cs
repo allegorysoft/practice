@@ -5,8 +5,8 @@ namespace Allegory.SampleApp.Example;
 
 public interface IExampleRepository : IRepository
 {
-    Task GetExecutionPerformance();
-    Task ItThrowsDisposeException();
-    Task WithoutTransaction();
-    Task WithTransaction();
+    Task GetExecutionPerformanceAsync();
+    Task ItThrowsDisposeExceptionAsync();
+    Task WithoutTransactionAsync();
+    Task WithTransactionAsync();
 }

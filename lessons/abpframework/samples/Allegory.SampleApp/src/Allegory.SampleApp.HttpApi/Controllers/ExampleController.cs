@@ -16,27 +16,27 @@ public class ExampleController : SampleAppController, IExampleAppService
     }
 
     [HttpGet]
-    public virtual Task GetExecutionPerformance()
+    public virtual Task GetExecutionPerformanceAsync()
     {
-        return ExampleAppService.GetExecutionPerformance();
+        return ExampleAppService.GetExecutionPerformanceAsync();
     }
 
     [HttpGet("disposed-exception")]
-    public Task ItThrowsDisposeException()
+    public Task ItThrowsDisposeExceptionAsync()
     {
-        return ExampleAppService.ItThrowsDisposeException();
+        return ExampleAppService.ItThrowsDisposeExceptionAsync();
     }
 
     [HttpGet("without-transaction")]
     [UnitOfWork(true)]
-    public Task WithoutTransaction()
+    public Task WithoutTransactionAsync()
     {
-        return ExampleAppService.WithoutTransaction();
+        return ExampleAppService.WithoutTransactionAsync();
     }
 
     [HttpPost("with-transaction")]
-    public Task WithTransaction()
+    public Task WithTransactionAsync()
     {
-        return ExampleAppService.WithTransaction();
+        return ExampleAppService.WithTransactionAsync();
     }
 }

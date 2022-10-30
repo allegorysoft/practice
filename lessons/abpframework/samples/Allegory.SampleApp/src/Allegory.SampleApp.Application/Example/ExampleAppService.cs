@@ -13,14 +13,14 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
         ExampleRepository = exampleRepository;
     }
 
-    public virtual async Task GetExecutionPerformance()
+    public virtual async Task GetExecutionPerformanceAsync()
     {
-        await ExampleRepository.GetExecutionPerformance();
+        await ExampleRepository.GetExecutionPerformanceAsync();
     }
 
-    public virtual async Task ItThrowsDisposeException()
+    public virtual async Task ItThrowsDisposeExceptionAsync()
     {
-        await ExampleRepository.ItThrowsDisposeException();
+        await ExampleRepository.ItThrowsDisposeExceptionAsync();
 
         var auditLogRepository = LazyServiceProvider.LazyGetRequiredService<IAuditLogRepository>();
 
@@ -32,13 +32,13 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
         var result = await auditLogRepository.GetListAsync();
     }
 
-    public virtual async Task WithoutTransaction()
+    public virtual async Task WithoutTransactionAsync()
     {
-        await ExampleRepository.WithoutTransaction();
+        await ExampleRepository.WithoutTransactionAsync();
     }
 
-    public virtual async Task WithTransaction()
+    public virtual async Task WithTransactionAsync()
     {
-        await ExampleRepository.WithTransaction();
+        await ExampleRepository.WithTransactionAsync();
     }
 }
