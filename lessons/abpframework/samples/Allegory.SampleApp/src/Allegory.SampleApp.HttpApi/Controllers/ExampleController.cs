@@ -22,21 +22,27 @@ public class ExampleController : SampleAppController, IExampleAppService
     }
 
     [HttpGet("disposed-exception")]
-    public Task ItThrowsDisposeExceptionAsync()
+    public virtual Task ItThrowsDisposeExceptionAsync()
     {
         return ExampleAppService.ItThrowsDisposeExceptionAsync();
     }
 
     [HttpGet("without-transaction")]
     [UnitOfWork(true)]
-    public Task WithoutTransactionAsync()
+    public virtual Task WithoutTransactionAsync()
     {
         return ExampleAppService.WithoutTransactionAsync();
     }
 
     [HttpPost("with-transaction")]
-    public Task WithTransactionAsync()
+    public virtual Task WithTransactionAsync()
     {
         return ExampleAppService.WithTransactionAsync();
+    }
+
+    [HttpGet("run-query")]
+    public virtual Task RunQueryAsync()
+    {
+        return ExampleAppService.RunQueryAsync();
     }
 }

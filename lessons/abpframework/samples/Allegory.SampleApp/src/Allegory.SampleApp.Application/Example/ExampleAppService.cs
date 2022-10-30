@@ -41,4 +41,11 @@ public class ExampleAppService : SampleAppAppService, IExampleAppService
     {
         await ExampleRepository.WithTransactionAsync();
     }
+
+    public virtual async Task RunQueryAsync()
+    {
+        var dapperRepository = LazyServiceProvider.LazyGetRequiredService<IDapperAuditLogRepository>();
+
+        await dapperRepository.RunQueryAsync();
+    }
 }

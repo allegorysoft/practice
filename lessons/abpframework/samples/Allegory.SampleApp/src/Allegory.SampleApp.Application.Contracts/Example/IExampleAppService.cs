@@ -9,4 +9,5 @@ public interface IExampleAppService : IApplicationService
     Task ItThrowsDisposeExceptionAsync();
     Task WithoutTransactionAsync();
     Task WithTransactionAsync();
+    Task RunQueryAsync();
 }
