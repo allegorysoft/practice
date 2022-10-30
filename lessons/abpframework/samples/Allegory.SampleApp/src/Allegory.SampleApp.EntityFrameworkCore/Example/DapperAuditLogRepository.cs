@@ -23,7 +23,7 @@ public class DapperAuditLogRepository : EfCoreRepository<IAuditLoggingDbContext,
         Logger = logger;
     }
 
-    public async Task RunQueryAsync(CancellationToken cancellationToken = default)
+    public virtual async Task RunQueryAsync(CancellationToken cancellationToken = default)
     {
         var connection = (await GetDbContextAsync()).Database.GetDbConnection();
         var transaction = (await GetDbContextAsync()).Database.CurrentTransaction?.GetDbTransaction();
