@@ -32,13 +32,11 @@ public class DapperExampleRepository : DapperRepository<SecondDbContext>, IExamp
 
         using (var connection = await GetDbConnectionAsync())
         {
-            var result = connection.Query(@"
-            SELECT HttpMethod, MAX(ExecutionDuration) ExecutionDuration
-            FROM abpauditlogs
-            GROUP BY HttpMethod",
+            var result = connection.Query("SELECT 1",
             transaction: await GetDbTransactionAsync()).ToList();
         }
     }
+
     //!!! Eğer transactional UOW varsa ve transaction parametresi verilmezse hata verir 
     //!!! Transactional UOW varken connection dispose edilirse rollback işlemi yapar
 }
