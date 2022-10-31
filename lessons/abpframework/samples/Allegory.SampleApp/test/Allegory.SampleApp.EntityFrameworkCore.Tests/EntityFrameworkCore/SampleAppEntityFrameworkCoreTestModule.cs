@@ -46,6 +46,11 @@ public class SampleAppEntityFrameworkCoreTestModule : AbpModule
             {
                 context.DbContextOptions.UseSqlite(_sqliteConnection);
             });
+
+            options.Configure<SecondDbContext>(context =>
+            {
+                context.DbContextOptions.UseSqlite(_sqliteConnection);
+            });
         });
     }
 
