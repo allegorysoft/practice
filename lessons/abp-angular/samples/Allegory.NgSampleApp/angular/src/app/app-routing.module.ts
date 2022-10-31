@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => import('@abp/ng.account').then(m => m.AccountModule.forLazy()),
+    loadChildren: () => import('@abp/ng.account')
+      .then(m => m.AccountModule.forLazy()),
   },
   {
     path: 'identity',
@@ -20,12 +21,14 @@ const routes: Routes = [
   {
     path: 'tenant-management',
     loadChildren: () =>
-      import('@abp/ng.tenant-management').then(m => m.TenantManagementModule.forLazy()),
+      import('@abp/ng.tenant-management')
+        .then(m => m.TenantManagementModule.forLazy()),
   },
   {
     path: 'setting-management',
     loadChildren: () =>
-      import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
+      import('@abp/ng.setting-management')
+        .then(m => m.SettingManagementModule.forLazy()),
   },
   {
     path: 'config',

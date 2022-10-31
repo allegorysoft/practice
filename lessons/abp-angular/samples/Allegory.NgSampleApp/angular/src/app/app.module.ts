@@ -1,23 +1,27 @@
-import { AccountConfigModule } from '@abp/ng.account/config';
-import { CoreModule, PermissionService } from '@abp/ng.core';
-import { registerLocale } from '@abp/ng.core/locale';
-import { IdentityConfigModule } from '@abp/ng.identity/config';
-import { SettingManagementConfigModule } from '@abp/ng.setting-management/config';
-import { TenantManagementConfigModule } from '@abp/ng.tenant-management/config';
-import { ThemeBasicModule } from '@abp/ng.theme.basic';
-import { ThemeSharedModule } from '@abp/ng.theme.shared';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { APP_ROUTE_PROVIDER } from './route.provider';
 
-import { ConfigComponent } from './config/config.component';
-import { ExtendedPermissionService } from './services/extended-permission.service';
+import { CoreModule } from '@abp/ng.core';
+import { registerLocale } from '@abp/ng.core/locale';
+import { ThemeSharedModule } from '@abp/ng.theme.shared';
+import { ThemeBasicModule } from '@abp/ng.theme.basic';
+import { AccountConfigModule } from '@abp/ng.account/config';
+import { IdentityConfigModule } from '@abp/ng.identity/config';
+import { SettingManagementConfigModule } from '@abp/ng.setting-management/config';
+import { TenantManagementConfigModule } from '@abp/ng.tenant-management/config';
+
 import { VALIDATION_ERROR_TEMPLATE } from '@ngx-validate/core';
+
+import { environment } from '../environments/environment';
+import { APP_ROUTE_PROVIDER } from './route.provider';
+import { ExtendedPermissionService } from './services/extended-permission.service';
+import { AppRoutingModule } from './app-routing.module';
+
 import { ErrorComponent } from './shared/components/error/error.component';
+import { ConfigComponent } from './config/config.component';
+import { AppComponent } from './app.component';
+import { AppLayoutModule } from './app-layout/app-layout.module';
 
 @NgModule({
   imports: [
@@ -75,6 +79,7 @@ import { ErrorComponent } from './shared/components/error/error.component';
     TenantManagementConfigModule.forRoot(),
     SettingManagementConfigModule.forRoot(),
     ThemeBasicModule.forRoot(),
+    // AppLayoutModule
   ],
   declarations: [AppComponent, ConfigComponent],
   providers: [
