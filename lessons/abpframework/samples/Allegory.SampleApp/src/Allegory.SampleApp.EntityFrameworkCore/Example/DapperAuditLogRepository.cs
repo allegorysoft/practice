@@ -28,7 +28,7 @@ public class DapperAuditLogRepository : EfCoreRepository<IAuditLoggingDbContext,
         var connection = (await GetDbContextAsync()).Database.GetDbConnection();
         var transaction = (await GetDbContextAsync()).Database.CurrentTransaction?.GetDbTransaction();
 
-        var commandDefinition = new CommandDefinition(@"SELECT SLEEP(10) UNION ALL SELECT 'Run query';",
+        var commandDefinition = new CommandDefinition(@"SELECT SLEEP(5) UNION ALL SELECT 'Run query';",
             transaction: transaction,
             cancellationToken: GetCancellationToken(cancellationToken));
 
