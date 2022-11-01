@@ -114,6 +114,7 @@ public class SampleAppHttpApiHostModule : AbpModule
             },
             options =>
             {
+                options.HideAbpEndpoints();
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "SampleApp API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
