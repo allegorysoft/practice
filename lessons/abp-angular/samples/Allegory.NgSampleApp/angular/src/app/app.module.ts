@@ -19,9 +19,11 @@ import { ExtendedPermissionService } from './services/extended-permission.servic
 import { AppRoutingModule } from './app-routing.module';
 
 import { ErrorComponent } from './shared/components/error/error.component';
-import { ConfigComponent } from './config/config.component';
+import { ConfigComponent } from './components/config/config.component';
 import { AppComponent } from './app.component';
-import { AppLayoutModule } from './app-layout/app-layout.module';
+import { AppLayoutModule } from './components/app-layout/app-layout.module';
+import { NavItemsComponent } from './components/nav-items/nav-items.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -79,9 +81,14 @@ import { AppLayoutModule } from './app-layout/app-layout.module';
     TenantManagementConfigModule.forRoot(),
     SettingManagementConfigModule.forRoot(),
     ThemeBasicModule.forRoot(),
-    // AppLayoutModule
+    // AppLayoutModule,
+    SharedModule
   ],
-  declarations: [AppComponent, ConfigComponent],
+  declarations: [
+    AppComponent,
+    ConfigComponent,
+    NavItemsComponent
+  ],
   providers: [
     APP_ROUTE_PROVIDER,
     {

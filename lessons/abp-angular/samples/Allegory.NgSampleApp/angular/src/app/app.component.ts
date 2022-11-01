@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReplaceableComponentsService } from '@abp/ng.core';
 import { eThemeBasicComponents } from '@abp/ng.theme.basic';
 
-import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { AppLayoutComponent } from './components/app-layout/app-layout.component';
+import { NavItemsComponent } from './components/nav-items/nav-items.component';
 
 @Component({
   selector: 'app-root',
@@ -26,5 +27,10 @@ export class AppComponent implements OnInit {
     //   key: 'Theme.ApplicationLayoutComponent',
     //   component: AppLayoutComponent
     // });
+
+    this.replace.add({
+      component: NavItemsComponent,
+      key: eThemeBasicComponents.NavItems,
+    });
   }
 }

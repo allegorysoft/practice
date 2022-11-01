@@ -31,6 +31,7 @@
     "@angular/router": "~13.3.3",
     "@ngx-validate/core": "^0.1.2",
     "rxjs": "~6.6.0",
+    "snq": "^2.0.0",
     "tslib": "^2.1.0",
     "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
