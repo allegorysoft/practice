@@ -16,6 +16,7 @@ import {
       optionLabel="displayName"
       (onChange)="onChangeLang($event.value.cultureName)"
       [appendTo]="'body'"
+      [scrollHeight]="'400px'"
       >
       <ng-template pTemplate="selectedItem">
         <span *ngIf="defaultLanguage$ | async as defaultLang">

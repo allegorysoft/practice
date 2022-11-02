@@ -1,8 +1,19 @@
-import { ABP, AuthService, ConfigStateService, CurrentUserDto, LocalizationService, NAVIGATE_TO_MANAGE_PROFILE, RoutesService, TreeNode } from '@abp/ng.core';
-import { Component, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import {
+  ABP,
+  AuthService,
+  ConfigStateService,
+  CurrentUserDto,
+  LocalizationService,
+  RoutesService,
+  TreeNode
+} from '@abp/ng.core';
+
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +21,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit, OnDestroy {
+  //#region Fields
   private destroy$ = new Subject<void>();
 
   currentUser$: Observable<CurrentUserDto> = this.config.getOne$('currentUser');
@@ -18,7 +30,7 @@ export class NavComponent implements OnInit, OnDestroy {
     {
       icon: 'pi pi-fw pi-user-edit',
       label: this.localizationService.instant('AbpAccount::MyAccount'),
-      routerLink: '/account/manage'
+      routerLink: '/account/manage',
     },
     {
       icon: 'pi pi-fw pi-power-off',
@@ -27,15 +39,23 @@ export class NavComponent implements OnInit, OnDestroy {
     }
   ];
 
+  get isAuthenticated(): boolean {
+    return this.config.getDeep('currentUser.isAuthenticated') as boolean;
+  }
+  //#endregion
+
+  //#region Utilities
   private initMenu(): void {
     this.routesService.visible$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(
+        takeUntil(this.destroy$)
+      )
       .subscribe(response => {
         this.items = [];
         response.map(root => {
           const menuItem = {
             label: this.localizationService.instant(root.name),
-            icon: `pi pi-fw ${root.iconClass ?? 'circle'}`,
+            icon: `pi pi-fw ${root.iconClass ?? 'pi-circle'}`,
             visible: !root.invisible,
             routerLink: root.path,
           } as MenuItem;
@@ -53,7 +73,7 @@ export class NavComponent implements OnInit, OnDestroy {
     root.children.map(child => {
       const childItem = {
         label: this.localizationService.instant(child.name),
-        icon: `pi pi-fw ${child.iconClass ?? 'circle'}`,
+        icon: `pi pi-fw ${child.iconClass ?? 'pi-circle'}`,
         visible: !child.invisible,
         routerLink: child.path,
       } as MenuItem;
@@ -64,18 +84,18 @@ export class NavComponent implements OnInit, OnDestroy {
       menuItem.items.push(childItem);
     });
   }
+  //#endregion
 
-  get isAuthenticated(): boolean {
-    return this.config.getDeep('currentUser.isAuthenticated') as boolean;
-  }
-
+  //#region Ctor
   constructor(
     private readonly routesService: RoutesService,
     private readonly localizationService: LocalizationService,
     private readonly config: ConfigStateService,
     private readonly authService: AuthService
   ) { }
+  //#endregion
 
+  //#region Methods
   ngOnInit(): void {
     this.initMenu();
   }
@@ -88,4 +108,5 @@ export class NavComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+  //#endregion
 }

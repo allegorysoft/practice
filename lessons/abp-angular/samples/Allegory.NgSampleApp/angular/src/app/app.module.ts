@@ -30,6 +30,7 @@ import { AppComponent } from './app.component';
 
 import { ErrorComponent } from './shared/components/error/error.component';
 import { SharedModule } from './shared/shared.module';
+import { RolesExtendedModule } from './modules/roles-extended/roles-extended.module';
 
 @NgModule({
   imports: [
@@ -88,7 +89,8 @@ import { SharedModule } from './shared/shared.module';
     SettingManagementConfigModule.forRoot(),
     ThemeBasicModule.forRoot(),
     SharedModule,
-    AppLayoutModule
+    AppLayoutModule,
+    RolesExtendedModule,
   ],
   declarations: [
     AppComponent,

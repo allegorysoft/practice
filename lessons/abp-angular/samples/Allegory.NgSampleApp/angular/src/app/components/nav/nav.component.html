@@ -30,6 +30,7 @@
         label="{{ (currentUser$ | async).name }}"
         (click)="menu.toggle($event)"
       ></button>
+
       <p-slideMenu #menu [model]="navItems" [popup]="true"></p-slideMenu>
     </ng-template>
   </ng-template>
