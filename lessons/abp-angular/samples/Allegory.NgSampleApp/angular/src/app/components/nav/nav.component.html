@@ -1,0 +1,36 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img
+      src="http://allegorysoft.com/assets/img/logo.png"
+      height="40"
+      class="mr-2"
+    />
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <app-languages></app-languages>
+
+    <button
+      *ngIf="!isAuthenticated; else auth"
+      type="button"
+      class="p-button-sm p-button-text ml-1"
+      pButton
+      pRipple
+      icon="pi pi-sign-in"
+      (click)="navigateToLogin()"
+    ></button>
+
+    <ng-template #auth>
+      <button
+        type="button"
+        class="p-button-sm p-button-text ml-1"
+        pButton
+        pRipple
+        icon="pi pi-user"
+        label="{{ (currentUser$ | async).name }}"
+        (click)="menu.toggle($event)"
+      ></button>
+      <p-slideMenu #menu [model]="navItems" [popup]="true"></p-slideMenu>
+    </ng-template>
+  </ng-template>
+</p-menubar>
