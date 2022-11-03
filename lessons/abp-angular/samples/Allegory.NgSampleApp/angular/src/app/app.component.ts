@@ -28,19 +28,19 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
 
-    // this.replace.add({
-    //   key: 'Theme.ApplicationLayoutComponent',//eThemeBasicComponents.ApplicationLayout,
-    //   component: AppLayoutComponent
-    // });
-
     this.replace.add({
-      component: NavItemsComponent,
       key: eThemeBasicComponents.NavItems,
+      component: NavItemsComponent
     });
 
-    // this.replace.add({
-    //   key: eIdentityComponents.Roles,
-    //   component: RolesExtendedComponent
-    // });
+    this.replace.add({
+      key: eIdentityComponents.Roles,
+      component: RolesExtendedComponent
+    });
+
+    this.replace.add({
+      key: 'Theme.ApplicationLayoutComponent',//eThemeBasicComponents.ApplicationLayout,
+      component: AppLayoutComponent
+    });
   }
 }
