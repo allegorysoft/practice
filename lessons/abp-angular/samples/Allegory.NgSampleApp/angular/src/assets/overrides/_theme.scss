@@ -1,0 +1,20 @@
+:host ::ng-deep {
+  .p-menubar {
+    padding: 0.25rem;
+
+    .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+      padding: 0.5rem;
+    }
+    .p-menuitem > .p-menuitem-link {
+      padding: 0.6rem;
+    }
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item,
+  .p-inputtext {
+    padding: 0.25rem 0.25rem;
+    min-width: 5rem;
+  }
+  .p-button.p-button-sm {
+    padding: 0.5rem;
+  }
+}

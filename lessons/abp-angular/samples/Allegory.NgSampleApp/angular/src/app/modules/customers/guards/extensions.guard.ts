@@ -40,7 +40,7 @@ export class CustomerExtensionsGuard implements CanActivate {
 
   canActivate(): Observable<boolean> {
     const extensions = this.injector.get(ExtensionsService);
-    
+
     const actionContributors: CustomersEntityActionContributors =
       this.injector.get(CUSTOMERS_ENTITY_ACTION_CONTRIBUTORS, null) || {};
 

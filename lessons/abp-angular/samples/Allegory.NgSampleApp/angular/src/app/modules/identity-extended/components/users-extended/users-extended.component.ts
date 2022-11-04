@@ -1,10 +1,12 @@
+import { Component, Injector } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
 import { ListService } from '@abp/ng.core';
 import { eIdentityComponents, UsersComponent } from '@abp/ng.identity';
 import { GetIdentityUsersInput, IdentityUserService } from '@abp/ng.identity/proxy';
 import { ConfirmationService, ToasterService } from '@abp/ng.theme.shared';
 import { EXTENSIONS_IDENTIFIER } from '@abp/ng.theme.shared/extensions';
-import { Component, Injector } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+
 import { switchMap, tap } from 'rxjs/operators';
 
 @Component({

@@ -1,31 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfigComponent } from './config/config.component';
+import { ConfigComponent } from './components/config/config.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'account',
-    loadChildren: () => import('@abp/ng.account').then(m => m.AccountModule.forLazy()),
+    loadChildren: () => import('@abp/ng.account')
+      .then(m => m.AccountModule.forLazy()),
   },
   {
     path: 'identity',
-    loadChildren: () => import('./identity-extended/identity-extended.module')
+    loadChildren: () => import('./modules/identity-extended/identity-extended.module')
       .then(m => m.IdentityExtendedModule),
   },
   {
     path: 'tenant-management',
     loadChildren: () =>
-      import('@abp/ng.tenant-management').then(m => m.TenantManagementModule.forLazy()),
+      import('@abp/ng.tenant-management')
+        .then(m => m.TenantManagementModule.forLazy()),
   },
   {
     path: 'setting-management',
     loadChildren: () =>
-      import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
+      import('@abp/ng.setting-management')
+        .then(m => m.SettingManagementModule.forLazy()),
   },
   {
     path: 'config',
@@ -33,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'customers',
-    loadChildren: () => import('./customers-extended/customers-extended.module')
+    loadChildren: () => import('./modules/customers-extended/customers-extended.module')
       .then(m => m.CustomersExtendedModule),
   },
 ];
