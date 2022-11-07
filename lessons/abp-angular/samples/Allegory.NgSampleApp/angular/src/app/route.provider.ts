@@ -11,24 +11,27 @@ function configureRoutes(routesService: RoutesService) {
       {
         path: '/',
         name: '::Menu:Home',
-        iconClass: 'fas fa-home',
         order: 1,
+        // iconClass: 'pi-home',
+        iconClass: 'fas fa-home',
         layout: eLayoutType.application,
       },
       {
         path: '/config',
         name: 'Config',
         order: 2,
+        // iconClass: 'pi-cog',
         iconClass: 'fa fa-gear',
         layout: eLayoutType.application,
       },
       {
         path: '/customers',
         name: 'Müşteriler',
-        requiredPolicy: 'NgSampleApp.Customers',
         order: 3,
-        layout: eLayoutType.application,
+        requiredPolicy: 'NgSampleApp.Customers',
+        // iconClass: 'pi-users',
         iconClass: 'fa fa-users',
+        layout: eLayoutType.application,
       }
     ]);
   };

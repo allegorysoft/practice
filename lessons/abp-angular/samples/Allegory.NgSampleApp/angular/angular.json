@@ -65,7 +65,26 @@
                 "inject": true,
                 "bundleName": "bootstrap-ltr.min"
               },
-              "src/styles.scss"
+              {
+                "input": "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                "inject": true,
+                "bundleName": "lara-light-light-theme"
+              },
+              {
+                "input": "node_modules/primeng/resources/primeng.min.css",
+                "inject": true,
+                "bundleName": "primeng.min"
+              },
+              {
+                "input": "node_modules/primeicons/primeicons.css",
+                "inject": true,
+                "bundleName": "primeicons"
+              },
+              {
+                "input": "src/styles.scss",
+                "inject": true,
+                "bundleName": "styles"
+              }
             ],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
