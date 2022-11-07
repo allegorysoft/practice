@@ -1,7 +1,10 @@
 ﻿using System.Data.SqlClient;
 
 
-await PoolingBehaviour();
+//await PoolingBehaviour();
+//await MinPoolSizeAsync();
+await MaxPoolSizeAsync();
+
 Console.ReadLine();
 
 
@@ -17,6 +20,23 @@ async Task PoolingBehaviour()
 
     await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDb;Database=ConnectionPool;Trusted_Connection=True;Pooling=false;");
     await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDb;Database=ConnectionPool;Trusted_Connection=True;Pooling=false;");
+}
+
+async Task MinPoolSizeAsync()
+{
+    await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True; Min Pool Size = 10;");
+}
+
+async Task MaxPoolSizeAsync()
+{
+    var list = new List<Task>();
+
+    for (int i = 0; i < 6; i++)
+    {
+        list.Add(ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True; Max Pool Size = 5;"));
+    }
+
+    await Task.WhenAll(list);
 }
 
 async Task ConnectAsync(string connectionString)
