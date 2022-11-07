@@ -7,14 +7,11 @@ Console.ReadLine();
 
 async Task PoolingBehaviour()
 {
-    string connectionString = @"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;";
+    await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
+    await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
 
-    await ConnectAsync(connectionString);
-    await ConnectAsync(connectionString);
-
-    //Veritabanı bağlantısı aynı olmasına rağmen Server bilgisi "MSSQLLocalDb"(sonu Db şeklinde) güncellendiğinde yeni connection pool oluşturuyor
-    connectionString = @"Server=(LocalDb)\MSSQLLocalDb;Database=ConnectionPool;Trusted_Connection=True;";
-    await ConnectAsync(connectionString);
+    //Veritabanı bağlantısı aynı olmasına rağmen Server bilgisi "MSSQLLocalDb"(sonu Db şeklinde) olduğu için yeni connection pool oluşturur
+    await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDb;Database=ConnectionPool;Trusted_Connection=True;");
 }
 
 async Task ConnectAsync(string connectionString)
