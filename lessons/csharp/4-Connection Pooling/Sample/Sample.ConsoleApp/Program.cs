@@ -7,7 +7,6 @@
 await WithoutConnectionCloseAsync();
 Console.ReadLine();
 
-
 async Task PoolingBehaviour()
 {
     //Bağlantılar havuzda bekletilir 4-8 dakika arasında tekrar kullanılmazsa zaman aşımına uğrar
@@ -72,3 +71,18 @@ async Task ConnectAsync(string connectionString)
     await connection.OpenAsync();
     await Task.Delay(1000);
 }
+
+
+/* SQL Queries
+SELECT @@SPID as SessionID
+
+SELECT 
+    DB_NAME(dbid) as DBName, 
+    COUNT(dbid) as NumberOfConnections,
+    loginame as LoginName
+FROM   sys.sysprocesses
+WHERE 
+    dbid > 0
+GROUP BY 
+    dbid, loginame;
+ */
