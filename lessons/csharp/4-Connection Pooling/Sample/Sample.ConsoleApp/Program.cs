@@ -3,8 +3,8 @@
 
 //await PoolingBehaviour();
 //await MinPoolSizeAsync();
-await MaxPoolSizeAsync();
-
+//await MaxPoolSizeAsync();
+await WithoutConnectionCloseAsync();
 Console.ReadLine();
 
 
@@ -39,9 +39,32 @@ async Task MaxPoolSizeAsync()
     await Task.WhenAll(list);
 }
 
+async Task WithoutConnectionCloseAsync()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        var connection = new SqlConnection(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
+        await connection.OpenAsync();
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        try
+        {
+            var connection = new SqlConnection(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
+            await connection.OpenAsync();
+            throw new Exception();
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+}
+
 async Task ConnectAsync(string connectionString)
 {
-    using SqlConnection connection = new SqlConnection(connectionString);
+    using var connection = new SqlConnection(connectionString);
     await connection.OpenAsync();
     await Task.Delay(1000);
 }
