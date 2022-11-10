@@ -10,6 +10,7 @@ Console.ReadLine();
 
 async Task PoolingBehaviour()
 {
+    //Bağlantılar havuzda bekletilir 4-8 dakika arasında tekrar kullanılmazsa zaman aşımına uğrar
     await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
     await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
 
@@ -24,6 +25,7 @@ async Task PoolingBehaviour()
 
 async Task MinPoolSizeAsync()
 {
+    //Havuzda minimum belirtilen değer kadar sürekli bağlantıyı açık tutar(Örnek olarak minimum bağlantı sayısı 10 ise havuzda boşta 20 bağlantı varsa sadece 10 tanesini zaman aşımına uğratır)
     await ConnectAsync(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True; Min Pool Size = 10;");
 }
 
@@ -41,6 +43,7 @@ async Task MaxPoolSizeAsync()
 
 async Task WithoutConnectionCloseAsync()
 {
+    //!!! Açık kalan bağlantılar havuzda kulllanımda olarak tutulur zaman aşımına uğramazlar
     for (int i = 0; i < 10; i++)
     {
         var connection = new SqlConnection(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
@@ -54,6 +57,7 @@ async Task WithoutConnectionCloseAsync()
             var connection = new SqlConnection(@"Server=(LocalDb)\MSSQLLocalDB;Database=ConnectionPool;Trusted_Connection=True;");
             await connection.OpenAsync();
             throw new Exception();
+            connection.Close();
         }
         catch (Exception)
         {
