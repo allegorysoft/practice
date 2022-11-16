@@ -22,5 +22,8 @@ export const environment = {
       url: 'https://localhost:44313',
       rootNamespace: 'Allegory.NgSampleApp',
     },
+    jsonPlaceholder: {
+      url: 'https://jsonplaceholder.typicode.com'
+    }
   },
 } as Environment;

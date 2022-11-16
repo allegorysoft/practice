@@ -81,6 +81,11 @@
                 "bundleName": "primeicons"
               },
               {
+                "input": "node_modules/primeflex/primeflex.css",
+                "inject": true,
+                "bundleName": "primeflex"
+              },
+              {
                 "input": "src/styles.scss",
                 "inject": true,
                 "bundleName": "styles"

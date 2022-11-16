@@ -1,0 +1,63 @@
+<div class="card p-2">
+  <h5>{{ 'NgSampleApp::Photos' | abpLocalization }}</h5>
+  <hr />
+
+  <div class="pb-3">
+    <div class="flex justify-content-between">
+      <div class="flex align-items-center justify-content-center">
+        <label class="col-fixed" for="users">
+          {{ 'NgSampleApp::SelectUser' | abpLocalization }}
+        </label>
+
+        <ng-container *ngIf="users$ | async as users; else loadingUsers">
+          <p-dropdown
+            id="users"
+            [options]="users"
+            [(ngModel)]="selectedUser"
+            optionLabel="name"
+            [showClear]="true"
+            (onChange)="selectedUserChange()"
+            placeholder="{{ 'NgSampleApp::All' | abpLocalization }}"
+          ></p-dropdown>
+        </ng-container>
+
+        <ng-template #loadingUsers>
+          <p-skeleton width="13rem" height="2rem"></p-skeleton>
+        </ng-template>
+      </div>
+
+      <div class="flex align-items-center justify-content-center">
+        <p-dropdown
+          id="users"
+          [options]="limits"
+          [(ngModel)]="limit"
+          (onChange)="limitChange()"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid formgrid" *ngIf="photos$ | async as photos; else loading">
+    <div
+      class="field col-12 md:col-4 md:pr-1 pr-0"
+      *ngFor="let photo of photos; trackBy: photo?.id"
+    >
+      <app-photo-card [photo]="photo"></app-photo-card>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div class="grid formgrid">
+      <div
+        class="field col-12 md:col-4 md:pr-1 pr-0"
+        *ngFor="let limit of limitLoop"
+      >
+        <div class="border p-2 border-round">
+          <p-skeleton width="100%" height="250px"></p-skeleton>
+          <hr />
+          <p-skeleton width="100%" height="2rem"></p-skeleton>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

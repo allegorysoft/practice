@@ -39,6 +39,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/customers-extended/customers-extended.module')
       .then(m => m.CustomersExtendedModule),
   },
+  {
+    path: 'photos',
+    loadChildren: () => import('./modules/photos/photos.module')
+      .then(m => m.PhotosModule),
+  },
 ];
 
 @NgModule({
