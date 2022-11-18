@@ -68,7 +68,7 @@
               {
                 "input": "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
                 "inject": true,
-                "bundleName": "lara-light-light-theme"
+                "bundleName": "lara-light-theme"
               },
               {
                 "input": "node_modules/primeng/resources/primeng.min.css",

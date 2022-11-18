@@ -14,12 +14,14 @@ import { User, UserService } from '@proxy/users';
 export class PhotosComponent {
   limit: number = 3;
   limits = [3, 5, 10, 20];
-  limitLoop = Array(this.limit).fill(0);
-
   photos$: Observable<Photo[]> = this.getPhotos()
   users$: Observable<User> = this.userService.get();
 
   selectedUser: User;
+
+  get limitLoop(): number[] {
+    return Array(this.limit).fill(0);;
+  }
 
   private getPhotos(): Observable<Photo[]> {
     const { id } = this.selectedUser || {};
