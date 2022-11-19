@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SkeletonModule } from 'primeng/skeleton';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { AccordionModule } from 'primeng/accordion';
 
 import { CoreModule } from '@abp/ng.core';
 
@@ -16,6 +18,7 @@ import { PhotoCardComponent } from './components/photo-card/photo-card.component
   declarations: [PhotosComponent, PhotoCardComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -32,7 +35,9 @@ import { PhotoCardComponent } from './components/photo-card/photo-card.component
               texts: {
                 Photos: 'Fotoğraflar',
                 All: 'Tümü',
-                SelectUser: 'Kullanıcı seç'
+                CreateUser: 'Kullanıcı oluştur',
+                SelectUser: 'Kullanıcı seç',
+                GetOrganization: 'Organizasyonu getir',
               },
             },
           ],
@@ -45,7 +50,9 @@ import { PhotoCardComponent } from './components/photo-card/photo-card.component
               texts: {
                 Photos: 'Photos',
                 All: 'All',
-                SelectUser: 'Selecet user'
+                CreateUser: 'Create user',
+                SelectUser: 'Selecet user',
+                GetOrganization: 'Get organization'
               }
             }
           ]
@@ -55,7 +62,8 @@ import { PhotoCardComponent } from './components/photo-card/photo-card.component
     SkeletonModule,
     CardModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    AccordionModule
   ]
 })
 export class PhotosModule { }

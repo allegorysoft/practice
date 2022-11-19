@@ -66,9 +66,9 @@
                 "bundleName": "bootstrap-ltr.min"
               },
               {
-                "input": "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                "input": "node_modules/primeng/resources/themes/lara-dark-blue/theme.css",
                 "inject": true,
-                "bundleName": "lara-light-theme"
+                "bundleName": "lara-dark-theme"
               },
               {
                 "input": "node_modules/primeng/resources/primeng.min.css",

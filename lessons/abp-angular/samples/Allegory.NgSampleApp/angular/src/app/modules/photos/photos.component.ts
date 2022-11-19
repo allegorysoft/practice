@@ -1,9 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Observable, of } from 'rxjs';
+import { catchError, delay } from 'rxjs/operators';
 
 import { Photo, PhotoService } from '@proxy/photos';
 import { User, UserService } from '@proxy/users';
+
+const { required, email } = Validators;
 
 @Component({
   selector: 'app-photos',
@@ -12,29 +16,58 @@ import { User, UserService } from '@proxy/users';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotosComponent {
+  //#region Fields
   limit: number = 3;
   limits = [3, 5, 10, 20];
   photos$: Observable<Photo[]> = this.getPhotos()
+  hasError: boolean = false;
+
   users$: Observable<User> = this.userService.get();
-
+  form!: FormGroup;
   selectedUser: User;
+  //#endregion
 
+  //#region Utilities
   get limitLoop(): number[] {
     return Array(this.limit).fill(0);;
   }
 
   private getPhotos(): Observable<Photo[]> {
+    this.hasError = false
     const { id } = this.selectedUser || {};
-    return id
+    const req = id
       ? this.photoService.getByUser(this.limit, id)
-      : this.photoService.get(this.limit).pipe(delay(500));
+      : this.photoService.get(this.limit);
+
+    return req.pipe(
+      delay(500),
+      catchError(error => {
+        this.hasError = true;
+        return of(error);
+      })
+    );
   }
 
+  private buildForm(): void {
+    this.form = this.fb.group({
+      name: [null, [required]],
+      username: [null, [required]],
+      email: [null, [required, email]]
+    });
+  }
+  //#endregion
+
+  //#region Ctor
   constructor(
     private readonly photoService: PhotoService,
-    private readonly userService: UserService
-  ) { }
+    private readonly userService: UserService,
+    private readonly fb: FormBuilder
+  ) {
+    this.buildForm();
+  }
+  //#endregion
 
+  //#region Methods
   selectedUserChange(): void {
     this.photos$ = this.getPhotos();
   }
@@ -42,4 +75,18 @@ export class PhotosComponent {
   limitChange(): void {
     this.photos$ = this.getPhotos();
   }
+
+  getOrganization(): void {
+    this.userService.getOrganization().subscribe();
+  }
+
+  onSubmit(): void {
+    if (!this.form.valid) return;
+
+    this.userService.create(this.form.value)
+      .subscribe(response =>
+        console.log(response)
+      );
+  }
+  //#endregion
 }

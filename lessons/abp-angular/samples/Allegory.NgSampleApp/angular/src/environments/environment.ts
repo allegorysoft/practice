@@ -24,6 +24,9 @@ export const environment = {
     },
     jsonPlaceholder: {
       url: 'https://jsonplaceholder.typicode.com'
+    },
+    github: {
+      url: 'https://api.github.com'
     }
   },
 } as Environment;
