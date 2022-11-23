@@ -35,3 +35,4 @@
 - [ABP Exception Handling](https://www.youtube.com/watch?v=Zf8v1hlMk5o&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=17)
 - [ABP Unit of Work](https://www.youtube.com/watch?v=MHNemWchSrA&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=18)
 - [ABP Dapper](https://www.youtube.com/watch?v=YFJ5qZzsMsI&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=19)
+- [ABP Kişisel Proje Şablonu Oluşturma]()
