@@ -12,7 +12,7 @@ export class UserService {
   constructor(private readonly restService: RestService) { }
 
   get = () =>
-    this.restService.request<any, User>(
+    this.restService.request<any, User[]>(
       {
         method: 'GET',
         url: `/users`

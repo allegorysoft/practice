@@ -22,7 +22,7 @@ export class PhotosComponent {
   photos$: Observable<Photo[]> = this.getPhotos()
   hasError: boolean = false;
 
-  users$: Observable<User> = this.userService.get();
+  users$: Observable<User[]> = this.userService.get();
   form!: FormGroup;
   selectedUser: User;
   //#endregion
@@ -33,7 +33,7 @@ export class PhotosComponent {
   }
 
   private getPhotos(): Observable<Photo[]> {
-    this.hasError = false
+    this.hasError = false;
     const { id } = this.selectedUser || {};
     const req = id
       ? this.photoService.getByUser(this.limit, id)
