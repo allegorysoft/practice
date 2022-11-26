@@ -24,7 +24,7 @@ export class UserService {
     this.restService.request<any, User>(
       {
         method: 'GET',
-        url: `/orgs/${organizationName}`
+        url: `/orgss/${organizationName}`
       },
       { apiName: this.apiNameGithub }
     );

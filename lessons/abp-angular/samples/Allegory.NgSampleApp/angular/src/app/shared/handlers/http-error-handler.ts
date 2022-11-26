@@ -6,6 +6,7 @@ import { throwError } from "rxjs";
 
 export function handleHttpErrors(injector: Injector, httpError: HttpErrorResponse) {
     const toaster = injector.get(ToasterService);
+
     if (httpError.status === 400) {
         toaster.error(httpError.error?.error?.message || 'Bad request!', '400');
         return;
@@ -15,6 +16,11 @@ export function handleHttpErrors(injector: Injector, httpError: HttpErrorRespons
         // const contentProjection = injector.get(ContentProjectionService);
         // contentProjection.projectContent(PROJECTION_STRATEGY.AppendComponentToBody(CustomComponetn));
         toaster.error(httpError.error?.message || 'Unauthorized!', '401');
+    }
+
+    if (httpError.status === 404) {
+        toaster.error(httpError.error?.message || 'NotFound!', '404');
+        return;
     }
 
     return throwError(httpError);
