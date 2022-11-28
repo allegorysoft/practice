@@ -1,8 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Observable, of } from 'rxjs';
-import { catchError, delay } from 'rxjs/operators';
+import { catchError, delay, map } from 'rxjs/operators';
 
 import { Photo, PhotoService } from '@proxy/photos';
 import { User, UserService } from '@proxy/users';
@@ -61,7 +61,8 @@ export class PhotosComponent {
   constructor(
     private readonly photoService: PhotoService,
     private readonly userService: UserService,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly cd: ChangeDetectorRef
   ) {
     this.buildForm();
   }
@@ -87,6 +88,13 @@ export class PhotosComponent {
       .subscribe(response =>
         console.log(response)
       );
+  }
+
+  delete(id: number): void {
+    this.photoService.delete(id).subscribe(() => {
+      this.photos$ = this.photos$.pipe(map(item => item = item.filter(f => f.id !== id)))
+      this.cd.detectChanges();
+    });
   }
   //#endregion
 }

@@ -54,7 +54,10 @@
       </form>
     </p-accordionTab>
 
-    <p-accordionTab header="{{ 'NgSampleApp::Photos' | abpLocalization }}">
+    <p-accordionTab
+      header="{{ 'NgSampleApp::Photos' | abpLocalization }}"
+      [selected]="true"
+    >
       <div class="pb-3">
         <div class="flex justify-content-between">
           <div class="flex align-items-center justify-content-center">
@@ -100,7 +103,7 @@
           class="field col-12 md:col-4 md:pr-1 pr-0"
           *ngFor="let photo of photos; trackBy: photo?.id"
         >
-          <app-photo-card [photo]="photo"></app-photo-card>
+          <app-photo-card [photo]="photo" (delete)="delete($event)"></app-photo-card>
         </div>
       </div>
 

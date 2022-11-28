@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Photo } from '@proxy/photos/models';
 
 @Component({
@@ -8,4 +8,9 @@ import { Photo } from '@proxy/photos/models';
 })
 export class PhotoCardComponent {
   @Input() photo!: Photo;
+  @Output() delete = new EventEmitter<number>();
+
+  deleteOnClick(): void {
+    this.delete.emit(this.photo.id);
+  }
 }

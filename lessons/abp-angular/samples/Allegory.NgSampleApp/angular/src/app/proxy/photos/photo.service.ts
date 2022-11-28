@@ -27,4 +27,13 @@ export class PhotoService {
       },
       { apiName: this.apiName }
     );
+
+  delete = (id: number) =>
+    this.restService.request<null, any>(
+      {
+        method: 'DELETE',
+        url: `/photos/${id}`
+      },
+      { apiName: this.apiName }
+    )
 }

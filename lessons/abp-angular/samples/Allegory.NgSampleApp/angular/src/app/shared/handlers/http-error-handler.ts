@@ -14,8 +14,9 @@ export function handleHttpErrors(injector: Injector, httpError: HttpErrorRespons
 
     if (httpError.status === 401) {
         // const contentProjection = injector.get(ContentProjectionService);
-        // contentProjection.projectContent(PROJECTION_STRATEGY.AppendComponentToBody(CustomComponetn));
+        // contentProjection.projectContent(PROJECTION_STRATEGY.AppendComponentToBody(CustomErrorComponent));
         toaster.error(httpError.error?.message || 'Unauthorized!', '401');
+        return;
     }
 
     if (httpError.status === 404) {

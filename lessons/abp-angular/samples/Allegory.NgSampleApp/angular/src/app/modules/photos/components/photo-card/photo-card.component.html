@@ -3,6 +3,18 @@
   style="min-height: 400px"
 >
   <img [src]="photo.url" style="width: 100%; height: 250px" />
-  <hr />
+
+  <div class="d-flex justify-content-end">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-button-xsm mt-1 p-button-rounded p-button-text p-button-danger"
+      (click)="deleteOnClick()"
+    ></button>
+  </div>
+
+  <hr class="m-0 mt-1 mb-1" />
   <p>{{ photo.title }}</p>
 </div>
