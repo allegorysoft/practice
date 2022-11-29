@@ -68,7 +68,7 @@
               {
                 "input": "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
                 "inject": true,
-                "bundleName": "lara-light-light-theme"
+                "bundleName": "lara-light-theme"
               },
               {
                 "input": "node_modules/primeng/resources/primeng.min.css",
@@ -79,6 +79,11 @@
                 "input": "node_modules/primeicons/primeicons.css",
                 "inject": true,
                 "bundleName": "primeicons"
+              },
+              {
+                "input": "node_modules/primeflex/primeflex.css",
+                "inject": true,
+                "bundleName": "primeflex"
               },
               {
                 "input": "src/styles.scss",

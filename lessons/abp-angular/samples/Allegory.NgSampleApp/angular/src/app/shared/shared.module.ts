@@ -1,8 +1,11 @@
-import { CoreModule } from '@abp/ng.core';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
-import { ThemeSharedModule } from '@abp/ng.theme.shared';
+
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxValidateCoreModule } from '@ngx-validate/core';
+
+import { CoreModule } from '@abp/ng.core';
+import { ThemeSharedModule } from '@abp/ng.theme.shared';
+
 import { ErrorComponent } from './components/error/error.component';
 
 const COMPONENTS = [
@@ -12,16 +15,16 @@ const COMPONENTS = [
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
-    CoreModule,
-    ThemeSharedModule,
-    NgbDropdownModule,
-    NgxValidateCoreModule
-  ],
-  exports: [
-    CoreModule,
-    ThemeSharedModule,
     NgbDropdownModule,
     NgxValidateCoreModule,
+    CoreModule,
+    ThemeSharedModule
+  ],
+  exports: [
+    NgbDropdownModule,
+    NgxValidateCoreModule,
+    CoreModule,
+    ThemeSharedModule,
     ...COMPONENTS
   ]
 })

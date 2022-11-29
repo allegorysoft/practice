@@ -14,7 +14,6 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@proxy": ["src/app/proxy/index.ts"],
       "@proxy/*": ["src/app/proxy/*"]
     }
   },

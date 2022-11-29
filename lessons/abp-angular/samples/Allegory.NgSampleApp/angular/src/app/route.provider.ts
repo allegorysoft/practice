@@ -32,6 +32,13 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'pi-users',
         // iconClass: 'fa fa-users',
         layout: eLayoutType.application,
+      },
+      {
+        path: '/photos',
+        name: 'Fotoğraflar',
+        order: 4,
+        iconClass: 'pi-images',
+        layout: eLayoutType.application,
       }
     ]);
   };

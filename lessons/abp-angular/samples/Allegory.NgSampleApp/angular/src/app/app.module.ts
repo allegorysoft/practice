@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from '@abp/ng.core';
 import { registerLocale } from '@abp/ng.core/locale';
-import { ThemeSharedModule, THEME_SHARED_APPEND_CONTENT } from '@abp/ng.theme.shared';
+import { ThemeSharedModule, HTTP_ERROR_HANDLER } from '@abp/ng.theme.shared';
 import { ThemeBasicModule } from '@abp/ng.theme.basic';
 import { AccountConfigModule } from '@abp/ng.account/config';
 import { IdentityConfigModule } from '@abp/ng.identity/config';
@@ -30,6 +30,7 @@ import { AppComponent } from './app.component';
 
 import { ErrorComponent } from './shared/components/error/error.component';
 import { SharedModule } from './shared/shared.module';
+import { handleHttpErrors } from './shared/handlers/http-error-handler';
 import { RolesExtendedModule } from './modules/roles-extended/roles-extended.module';
 
 @NgModule({
@@ -120,6 +121,7 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
     //   provide: PermissionService,
     //   useExisting: ExtendedPermissionService,
     // },
+    { provide: HTTP_ERROR_HANDLER, useValue: handleHttpErrors }
   ],
   bootstrap: [AppComponent],
 })
