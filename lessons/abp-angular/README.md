@@ -19,4 +19,4 @@
 - [ABP Angular Form](https://www.youtube.com/watch?v=7BMC6zD24t8&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=7)
 - [ABP Angular Extensions](https://www.youtube.com/watch?v=gp-MpTztd38&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=8)
 - [ABP Angular Component Replacement](https://www.youtube.com/watch?v=6FU2ttjCCEc&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=11&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
-- [ABP Angular HTTP Requests]()
+- [ABP Angular HTTP Requests](https://www.youtube.com/watch?v=H4xigL7r-lo&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=10&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
