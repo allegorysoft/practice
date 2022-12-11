@@ -8,6 +8,7 @@ internal class HeapSample
     {
         ReferenceTypes();
         MethodParameterConvention();
+        HeapSizeLimit.Do();
     }
 
     static void ReferenceTypes()
