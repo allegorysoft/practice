@@ -1,10 +1,5 @@
-﻿using Sample.StackVsHeap.StackTopic;
-
+﻿using Sample.StackVsHeap.HeapTopic;
+using Sample.StackVsHeap.StackTopic;
 
 StackSample.Do();
-Heap();
-
-void Heap()
-{
-
-}
+HeapSample.Do();
