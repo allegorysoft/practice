@@ -8,12 +8,9 @@ internal class HeapSizeLimit
     {
         const int size = 1024 * 1024;//1mb
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1024 * 3; i++)
         {
-            for (int j = 0; j < 1024; j++)
-            {
-                Marshal.AllocHGlobal(size);
-            }
+            Marshal.AllocHGlobal(size);
         }
     }
 }
