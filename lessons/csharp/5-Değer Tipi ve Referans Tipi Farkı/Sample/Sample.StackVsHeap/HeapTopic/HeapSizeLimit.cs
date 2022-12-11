@@ -6,11 +6,7 @@ internal class HeapSizeLimit
 {
     public static void Do()
     {
-        const int size = 1024 * 1024;//1mb
-
-        for (int i = 0; i < 1024 * 3; i++)
-        {
-            Marshal.AllocHGlobal(size);
-        }
+        var ptr = Marshal.AllocHGlobal(1024 * 1024 * 1024);//1gb heapte yer tut
+        Marshal.FreeHGlobal(ptr);//Pointer alanını boşa çek
     }
 }
