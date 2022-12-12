@@ -4,8 +4,10 @@ internal class StringSample
 {
     public static void Do()
     {
-        string name = "ahmet";
-        name += " faruk";
-        name = "mehmet";
+        string number = string.Empty;
+        for (int i = 0; i < 3; i++)
+        {
+            number += " " + i;
+        }
     }
 }
