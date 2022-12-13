@@ -14,7 +14,8 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@proxy/*": ["src/app/proxy/*"]
+      "@proxy/*": ["src/app/proxy/*"],
+      "@NgSampleApp/theme": ["src/app/modules/theme/index.ts"]
     }
   },
   "angularCompilerOptions": {

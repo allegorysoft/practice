@@ -8,30 +8,41 @@
   </ng-template>
 
   <ng-template pTemplate="end">
-    <app-languages></app-languages>
+    <div class="d-flex justify-content-center align-items-center">
+      <app-languages></app-languages>
 
-    <button
-      *ngIf="!isAuthenticated; else auth"
-      type="button"
-      class="p-button-sm p-button-text ml-1"
-      pButton
-      pRipple
-      icon="pi pi-sign-in"
-      (click)="navigateToLogin()"
-    ></button>
-
-    <ng-template #auth>
       <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-{{ (theme$ | async).isDark ? 'sun' : 'moon' }}"
+        class="p-button-xsm p-button-rounded p-button-text ml-2"
+        (click)="toggleTheme()"
+      ></button>
+
+      <button
+        *ngIf="!isAuthenticated; else auth"
         type="button"
         class="p-button-sm p-button-text ml-1"
         pButton
         pRipple
-        icon="pi pi-user"
-        label="{{ (currentUser$ | async).name }}"
-        (click)="menu.toggle($event)"
+        icon="pi pi-sign-in"
+        (click)="navigateToLogin()"
       ></button>
 
-      <p-slideMenu #menu [model]="navItems" [popup]="true"></p-slideMenu>
-    </ng-template>
+      <ng-template #auth>
+        <button
+          type="button"
+          class="p-button-sm p-button-text ml-1"
+          pButton
+          pRipple
+          icon="pi pi-user"
+          label="{{ (currentUser$ | async).name }}"
+          (click)="menu.toggle($event)"
+        ></button>
+
+        <p-slideMenu #menu [model]="navItems" [popup]="true"></p-slideMenu>
+      </ng-template>
+    </div>
   </ng-template>
 </p-menubar>
