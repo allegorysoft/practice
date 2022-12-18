@@ -26,7 +26,7 @@ export class ThemeService {
     return this._themeState.asObservable();
   }
 
-  constructor(private domInsertionService: DomInsertionService) {}
+  constructor(private readonly domInsertionService: DomInsertionService) {}
 
   toggleTheme(): void {
     const curr = this._themeState.value;
