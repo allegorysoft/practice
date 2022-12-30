@@ -1,6 +1,6 @@
 export default `
-body {
-  background-color:#343434;
-  color:white;
+* {
+  background-color:#161d31 !important;
+  color:#b4b7bd !important;
 }
 `;
