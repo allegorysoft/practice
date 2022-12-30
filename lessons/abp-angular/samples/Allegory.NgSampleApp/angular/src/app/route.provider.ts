@@ -39,6 +39,13 @@ function configureRoutes(routesService: RoutesService) {
         order: 4,
         iconClass: 'pi-images',
         layout: eLayoutType.application,
+      },
+      {
+        path: '/theme',
+        name: 'Tema',
+        order: 5,
+        iconClass: 'pi-palette',
+        layout: eLayoutType.application,
       }
     ]);
   };

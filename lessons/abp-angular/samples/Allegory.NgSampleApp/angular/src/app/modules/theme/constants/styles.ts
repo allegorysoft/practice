@@ -1,0 +1,6 @@
+export default `
+* {
+  background-color:#161d31 !important;
+  color:#b4b7bd !important;
+}
+`;

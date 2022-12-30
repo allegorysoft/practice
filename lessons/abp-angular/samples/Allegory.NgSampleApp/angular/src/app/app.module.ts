@@ -125,4 +125,4 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

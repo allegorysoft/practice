@@ -44,10 +44,14 @@ const routes: Routes = [
     loadChildren: () => import('./modules/photos/photos.module')
       .then(m => m.PhotosModule),
   },
+  {
+    path: 'theme',
+    loadChildren: () => import('./modules/theme/theme.module').then(m => m.ThemeModule)
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

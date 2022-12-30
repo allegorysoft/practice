@@ -15,6 +15,8 @@ import {
 
 import { MenuItem } from 'primeng/api';
 
+import { Theme, ThemeService } from '@NgSampleApp/theme';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -23,6 +25,8 @@ import { MenuItem } from 'primeng/api';
 export class NavComponent implements OnInit, OnDestroy {
   //#region Fields
   private destroy$ = new Subject<void>();
+
+  theme$: Observable<Theme> = this.themeService.theme$;
 
   currentUser$: Observable<CurrentUserDto> = this.config.getOne$('currentUser');
   items: MenuItem[] = [];
@@ -91,8 +95,9 @@ export class NavComponent implements OnInit, OnDestroy {
     private readonly routesService: RoutesService,
     private readonly localizationService: LocalizationService,
     private readonly config: ConfigStateService,
-    private readonly authService: AuthService
-  ) { }
+    private readonly authService: AuthService,
+    private readonly themeService: ThemeService
+  ) {}
   //#endregion
 
   //#region Methods
@@ -100,9 +105,11 @@ export class NavComponent implements OnInit, OnDestroy {
     this.initMenu();
   }
 
+  toggleTheme = () => this.themeService.toggleTheme();
+
   navigateToLogin = (): void => this.authService.navigateToLogin();
 
-  logOut = (): any => this.authService.logout().pipe(takeUntil(this.destroy$)).subscribe()
+  logOut = (): any => this.authService.logout().pipe(takeUntil(this.destroy$)).subscribe();
 
   ngOnDestroy(): void {
     this.destroy$.next();

@@ -56,7 +56,7 @@ export class NavItemsComponent {
     private configState: ConfigStateService,
     private authService: AuthService,
     private sessionState: SessionStateService
-  ) { }
+  ) {}
 
   onChangeLang(cultureName: string) {
     this.sessionState.setLanguage(cultureName);

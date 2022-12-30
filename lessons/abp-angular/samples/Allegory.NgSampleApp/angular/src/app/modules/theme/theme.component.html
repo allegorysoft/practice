@@ -1,0 +1,12 @@
+<p>{{ 'NgSampleApp::Theming' | abpLocalization }}</p>
+
+<hr />
+
+<button
+  pButton
+  pRipple
+  type="button"
+  icon="pi pi-{{ (theme$ | async).isDark ? 'sun' : 'moon' }}"
+  class="p-button-xsm p-button-rounded p-button-text"
+  (click)="toggleTheme()"
+></button>
