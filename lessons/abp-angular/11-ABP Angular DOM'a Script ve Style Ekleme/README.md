@@ -4,4 +4,4 @@
 - [Sunum](https://bit.ly/abp-angular-insert-script-style-to-dom)
 - [Inserting Scripts & Styles to DOM Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Dom-Insertion-Service)
 - [CONTENT_STRATEGY Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Content-Strategy)
-- [ABP Post](https://community.abp.io/Videos/abp-angular-http-requests-e2w72ijr)
+- [ABP Post](https://community.abp.io/videos/abp-angular-doma-script-ve-style-ekleme-qxgrx3cr)
