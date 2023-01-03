@@ -1,17 +1,89 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { concat, Observable, Subject } from 'rxjs';
+import { finalize, takeUntil } from 'rxjs/operators';
+
+import {
+  CROSS_ORIGIN_STRATEGY,
+  DOM_STRATEGY,
+  LazyLoadService,
+  LOADING_STRATEGY,
+  StyleLoadingStrategy,
+} from '@abp/ng.core';
+
+import { THEME_KEY } from '../providers';
 import { Theme, ThemeService } from './services/theme.service';
+
+const PATH = 'bootstrap4-light-purple.css';
 
 @Component({
   selector: 'app-theme',
-  templateUrl: './theme.component.html'
+  templateUrl: './theme.component.html',
 })
-export class ThemeComponent {
+export class ThemeComponent implements OnDestroy {
+  private readonly destroy$ = new Subject<void>();
+
   theme$: Observable<Theme> = this.themeService.theme$;
 
-  constructor(private readonly themeService: ThemeService) {}
+  jsLibs$ = concat(
+    this.lazyLoad.load(
+      LOADING_STRATEGY.AppendScriptToBody(
+        'https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js'
+      )
+    ),
+    this.lazyLoad.load(
+      LOADING_STRATEGY.AppendScriptToBody(
+        '/assets/js/sample-lib.js'
+      )
+    )
+  );
+
+  constructor(
+    private readonly themeService: ThemeService,
+    private readonly lazyLoad: LazyLoadService
+  ) {}
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  addLink() {
+    this.lazyLoad
+      .load(LOADING_STRATEGY.AppendAnonymousStyleToHead(PATH))
+      .pipe(
+        takeUntil(this.destroy$),
+        finalize(() =>
+          localStorage.setItem(THEME_KEY, PATH)
+        )
+      )
+      .subscribe();
+  }
+
+  addJsLib(): void {
+    this.jsLibs$.pipe(takeUntil(this.destroy$)).subscribe();
+  }
+
+  addRemoteLink(): void {
+    const domStrategy = DOM_STRATEGY.PrependToHead();
+
+    const crossOriginStrategy = CROSS_ORIGIN_STRATEGY.Anonymous(
+      'sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'
+    );
+
+    const loadingStrategy = new StyleLoadingStrategy(
+      'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
+      domStrategy,
+      crossOriginStrategy
+    );
+
+    this.lazyLoad
+      .load(loadingStrategy, 1, 2000)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    // this.lazyLoad.remove(PATH);
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,5 +1,8 @@
-<p>{{ 'NgSampleApp::Theming' | abpLocalization }}</p>
-
+<p-message
+  severity="info"
+  text="{{ 'NgSampleApp::Theming' | abpLocalization }}"
+  styleClass="mr-2"
+></p-message>
 <hr />
 
 <button
@@ -10,3 +13,131 @@
   class="p-button-xsm p-button-rounded p-button-text"
   (click)="toggleTheme()"
 ></button>
+
+<hr />
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm mr-2 p-danger p-button-help"
+  label="Dış kaynak bootstrap ekle"
+  (click)="addRemoteLink()"
+></button>
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm mr-2"
+  label="Yerel kaynak bootstrap ekle"
+  (click)="addLink()"
+></button>
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm"
+  label="JS ekle"
+  (click)="addJsLib()"
+></button>
+
+<hr />
+
+<div class="card mt-1">
+  <div class="card-body">
+    <h5>Addons</h5>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text" pInputText placeholder="Username" />
+        </div>
+      </div>
+
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">$</span>
+          <input type="text" pInputText placeholder="Price" />
+          <span class="p-inputgroup-addon">.00</span>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">www</span>
+          <input type="text" pInputText placeholder="Website" />
+        </div>
+      </div>
+    </div>
+
+    <h5>Multiple Addons</h5>
+    <div class="grid">
+      <div class="col-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"
+            ><i class="pi pi-tags" style="line-height: 1.25"></i
+          ></span>
+          <span class="p-inputgroup-addon"
+            ><i class="pi pi-shopping-cart" style="line-height: 1.25"></i
+          ></span>
+          <input type="text" pInputText placeholder="Price" />
+          <span class="p-inputgroup-addon">$</span>
+          <span class="p-inputgroup-addon">.00</span>
+        </div>
+      </div>
+    </div>
+
+    <h5>Button Addons</h5>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <button type="button" pButton pRipple label="Search"></button>
+          <input type="text" pInputText placeholder="Keyword" />
+        </div>
+      </div>
+
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <input type="text" pInputText placeholder="Keyword" />
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-refresh"
+            styleClass="p-button-warn"
+          ></button>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-check"
+            styleClass="p-button-success"
+          ></button>
+          <input type="text" pInputText placeholder="Vote" />
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-times"
+            styleClass="p-button-danger"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <h5>Checkbox and RadioButton</h5>
+    <div class="grid p-fluid">
+      <div class="col-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><p-checkbox></p-checkbox></span>
+          <input type="text" pInputText placeholder="Username" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
