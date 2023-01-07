@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { concat, Observable, Subject } from 'rxjs';
-import { finalize, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 import {
   CROSS_ORIGIN_STRATEGY,
@@ -10,10 +10,9 @@ import {
   StyleLoadingStrategy,
 } from '@abp/ng.core';
 
-import { THEME_KEY } from '../providers';
 import { Theme, ThemeService } from './services/theme.service';
 
-const PATH = 'bootstrap4-light-purple.css';
+const PATH = '/assets/css/theme.css';
 
 @Component({
   selector: 'app-theme',
@@ -49,12 +48,7 @@ export class ThemeComponent implements OnDestroy {
   addLink() {
     this.lazyLoad
       .load(LOADING_STRATEGY.AppendAnonymousStyleToHead(PATH))
-      .pipe(
-        takeUntil(this.destroy$),
-        finalize(() =>
-          localStorage.setItem(THEME_KEY, PATH)
-        )
-      )
+      .pipe(takeUntil(this.destroy$))
       .subscribe();
   }
 
@@ -82,7 +76,7 @@ export class ThemeComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.lazyLoad.remove(PATH);
+    this.lazyLoad.remove(PATH);
     this.destroy$.next();
     this.destroy$.complete();
   }

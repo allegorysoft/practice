@@ -32,7 +32,6 @@ import { ErrorComponent } from './shared/components/error/error.component';
 import { SharedModule } from './shared/shared.module';
 import { handleHttpErrors } from './shared/handlers/http-error-handler';
 import { RolesExtendedModule } from './modules/roles-extended/roles-extended.module';
-import { THEME_STYLES_PROVIDERS } from './modules/providers';
 
 @NgModule({
   imports: [
@@ -97,7 +96,6 @@ import { THEME_STYLES_PROVIDERS } from './modules/providers';
   declarations: [AppComponent, ConfigComponent, NavItemsComponent],
   providers: [
     APP_ROUTE_PROVIDER,
-    THEME_STYLES_PROVIDERS,
     {
       provide: VALIDATION_ERROR_TEMPLATE,
       useValue: ErrorComponent,
