@@ -12,14 +12,13 @@ import {
 
 import { Theme, ThemeService } from './services/theme.service';
 
-const PATH = '/assets/css/theme.css';
-
 @Component({
   selector: 'app-theme',
   templateUrl: './theme.component.html',
 })
 export class ThemeComponent implements OnDestroy {
   private readonly destroy$ = new Subject<void>();
+  private readonly _path = '/assets/css/theme.css';
 
   theme$: Observable<Theme> = this.themeService.theme$;
 
@@ -45,13 +44,6 @@ export class ThemeComponent implements OnDestroy {
     this.themeService.toggleTheme();
   }
 
-  addLink() {
-    this.lazyLoad
-      .load(LOADING_STRATEGY.AppendAnonymousStyleToHead(PATH))
-      .pipe(takeUntil(this.destroy$))
-      .subscribe();
-  }
-
   addJsLib(): void {
     this.jsLibs$.pipe(takeUntil(this.destroy$)).subscribe();
   }
@@ -75,8 +67,15 @@ export class ThemeComponent implements OnDestroy {
       .subscribe();
   }
 
+  addLink() {
+    this.lazyLoad
+      .load(LOADING_STRATEGY.AppendAnonymousStyleToHead(this._path))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
+  }
+
   ngOnDestroy(): void {
-    this.lazyLoad.remove(PATH);
+    this.lazyLoad.remove(this._path);
     this.destroy$.next();
     this.destroy$.complete();
   }

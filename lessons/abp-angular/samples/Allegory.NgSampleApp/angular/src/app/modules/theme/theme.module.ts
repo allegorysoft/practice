@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -57,6 +57,6 @@ import { ThemeComponent } from './theme.component';
     RippleModule,
     MessagesModule,
     MessageModule
-  ],
+  ]
 })
 export class ThemeModule {}
