@@ -15,7 +15,7 @@ import {
   ValidationErrorComponent,
   VALIDATION_ERROR_TEMPLATE,
   VALIDATION_INVALID_CLASSES,
-  VALIDATION_TARGET_SELECTOR
+  VALIDATION_TARGET_SELECTOR,
 } from '@ngx-validate/core';
 
 import { environment } from '../environments/environment';
@@ -53,7 +53,7 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
                 BirthDate: 'Doğum Tarihi',
                 IdentityNumber: 'Kimlik numarası',
                 CustomerAlreadyExists: `Üzgünüm \'\{0}\'\ kimlik numarası zaten var`,
-                RequiredInput: "Oops! Bu alan gerekli."
+                RequiredInput: 'Oops! Bu alan gerekli.',
               },
             },
           ],
@@ -69,18 +69,18 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
                 BirthDate: 'Birth Date',
                 IdentityNumber: 'Identity number',
                 CustomerAlreadyExists: `Sorry \'\{0}\'\ identity number already exists`,
-                RequiredInput: "Oops! We need this input."
-              }
-            }
-          ]
-        }
-      ]
+                RequiredInput: 'Oops! We need this input.',
+              },
+            },
+          ],
+        },
+      ],
     }),
     ThemeSharedModule.forRoot({
       validation: {
         blueprints: {
-          uniqueIdentityNumber: "::CustomerAlreadyExists[{{ identityNumber }}]",
-          required: "::RequiredInput",
+          uniqueIdentityNumber: '::CustomerAlreadyExists[{{ identityNumber }}]',
+          required: '::RequiredInput',
         },
       },
     }),
@@ -93,11 +93,7 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
     AppLayoutModule,
     RolesExtendedModule,
   ],
-  declarations: [
-    AppComponent,
-    ConfigComponent,
-    NavItemsComponent
-  ],
+  declarations: [AppComponent, ConfigComponent, NavItemsComponent],
   providers: [
     APP_ROUTE_PROVIDER,
     {
@@ -121,7 +117,7 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
     //   provide: PermissionService,
     //   useExisting: ExtendedPermissionService,
     // },
-    { provide: HTTP_ERROR_HANDLER, useValue: handleHttpErrors }
+    { provide: HTTP_ERROR_HANDLER, useValue: handleHttpErrors },
   ],
   bootstrap: [AppComponent],
 })

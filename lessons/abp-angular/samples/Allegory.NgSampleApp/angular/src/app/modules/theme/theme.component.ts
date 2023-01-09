@@ -1,17 +1,82 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { concat, Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import {
+  CROSS_ORIGIN_STRATEGY,
+  DOM_STRATEGY,
+  LazyLoadService,
+  LOADING_STRATEGY,
+  StyleLoadingStrategy,
+} from '@abp/ng.core';
+
 import { Theme, ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-theme',
-  templateUrl: './theme.component.html'
+  templateUrl: './theme.component.html',
 })
-export class ThemeComponent {
+export class ThemeComponent implements OnDestroy {
+  private readonly destroy$ = new Subject<void>();
+  private readonly _path = '/assets/css/theme.css';
+
   theme$: Observable<Theme> = this.themeService.theme$;
 
-  constructor(private readonly themeService: ThemeService) {}
+  jsLibs$ = concat(
+    this.lazyLoad.load(
+      LOADING_STRATEGY.AppendScriptToBody(
+        'https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js'
+      )
+    ),
+    this.lazyLoad.load(
+      LOADING_STRATEGY.AppendScriptToBody(
+        '/assets/js/sample-lib.js'
+      )
+    )
+  );
+
+  constructor(
+    private readonly themeService: ThemeService,
+    private readonly lazyLoad: LazyLoadService
+  ) {}
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  addJsLib(): void {
+    this.jsLibs$.pipe(takeUntil(this.destroy$)).subscribe();
+  }
+
+  addRemoteLink(): void {
+    const domStrategy = DOM_STRATEGY.PrependToHead();
+
+    const crossOriginStrategy = CROSS_ORIGIN_STRATEGY.Anonymous(
+      'sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh'
+    );
+
+    const loadingStrategy = new StyleLoadingStrategy(
+      'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
+      domStrategy,
+      crossOriginStrategy
+    );
+
+    this.lazyLoad
+      .load(loadingStrategy, 1, 2000)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
+  }
+
+  addLink() {
+    this.lazyLoad
+      .load(LOADING_STRATEGY.AppendAnonymousStyleToHead(this._path))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.lazyLoad.remove(this._path);
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

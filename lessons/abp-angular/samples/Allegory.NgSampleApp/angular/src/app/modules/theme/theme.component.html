@@ -1,5 +1,8 @@
-<p>{{ 'NgSampleApp::Theming' | abpLocalization }}</p>
-
+<p-message
+  severity="info"
+  text="{{ 'NgSampleApp::Theming' | abpLocalization }}"
+  styleClass="mr-2"
+></p-message>
 <hr />
 
 <button
@@ -9,4 +12,30 @@
   icon="pi pi-{{ (theme$ | async).isDark ? 'sun' : 'moon' }}"
   class="p-button-xsm p-button-rounded p-button-text"
   (click)="toggleTheme()"
+></button>
+
+<hr />
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm mr-2 p-danger p-button-help"
+  label="Dış kaynak bootstrap ekle"
+  (click)="addRemoteLink()"
+></button>
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm mr-2"
+  label="Yerel kaynak bootstrap ekle"
+  (click)="addLink()"
+></button>
+
+<button
+  pButton
+  pRipple
+  class="p-button-sm"
+  label="JS ekle"
+  (click)="addJsLib()"
 ></button>
