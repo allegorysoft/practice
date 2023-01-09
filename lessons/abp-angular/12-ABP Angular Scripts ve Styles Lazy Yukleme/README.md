@@ -4,4 +4,4 @@
 - [Sunum](https://bit.ly/abp-angular-scripts-styles-lazy-yukleme)
 - [Lazy Loading Scripts & Styles Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Lazy-Load-Service)
 - [LOADING_STRATEGY Dokümanı](https://docs.abp.io/en/abp/latest/UI/Angular/Loading-Strategy)
-- [ABP Post]()
+- [ABP Post](https://community.abp.io/videos/abp-angular-scripts-ve-styles-lazy-yukleme-gtua0kf9)
