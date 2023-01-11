@@ -1,6 +1,7 @@
 ﻿
 Sample1();
 Sample2();
+Sample3();
 
 Console.ReadKey();
 
@@ -15,6 +16,15 @@ void Sample1()
 }
 
 void Sample2()
+{
+    object o = -1;
+    for (int i = 0; i < 100_000_000; i++)
+    {
+        o = i;
+    }
+}
+
+void Sample3()
 {
     for (int i = 0; i < 100_000_000; i++)
     {
