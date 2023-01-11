@@ -16,4 +16,4 @@
 - [C# Connection Pooling](https://www.youtube.com/watch?v=CGef3MTWW_A&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=4)
 - [C# Değer Tipi ve Referans Tipi Farkı (Heap, Stack Kavramları)](https://www.youtube.com/watch?v=kSA9XEk2ug0&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=5)
 - [C# Yüzeysel ve Derin Kopyalama (Shallow Copy, Deep Copy)](https://www.youtube.com/watch?v=MFZSSgGKAok&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=6)
-- [C# Kutulama ve Kutudan Çıkarma (Boxing, Unboxing)]()
+- [C# Kutulama ve Kutudan Çıkarma (Boxing, Unboxing)](https://www.youtube.com/watch?v=I7V8ydWiadY&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=7)
