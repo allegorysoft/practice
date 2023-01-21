@@ -71,7 +71,6 @@ export class ContentComponent {
   @Input() selected: Tab | null = null;
 
   @ContentChild('altHeaderTemplate') altHeaderTemplate?: TemplateRef<Tab[]>;
-  // @ContentChild('altBodyTemplate') altBodyTemplate?: TemplateRef<any>;
 
   @Output() selectedChange = new EventEmitter<Tab>();
 
