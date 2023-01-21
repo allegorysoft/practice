@@ -1,6 +1,5 @@
 <button class="btn btn-warning" (click)="reset()">Reset</button>
 <hr />
-
 <app-content [tabs]="tabs" [selected]="selected">
   <ng-template #altHeaderTemplate let-tabs>
     <ul class="nav nav-pills card-header-pills">
@@ -9,20 +8,14 @@
       </li>
 
       <li class="nav-item" *ngFor="let tab of tabs">
-        <a
+        <button
           class="nav-link rounded"
           [ngClass]="{ active: selected?.name === tab.name }"
-          href="#"
           (click)="selectedChange(tab)"
         >
           {{ tab.name }}
-
-          <i
-            (click)="closeTab(tab.name)"
-            class="fa fa-times text-danger"
-            aria-hidden="true"
-          ></i>
-        </a>
+          <i (click)="closeTab(tab.name)" class="fa fa-times text-danger"></i>
+        </button>
       </li>
     </ul>
   </ng-template>

@@ -39,14 +39,13 @@ import { Tab } from '../models/tab';
       <ng-template #defaultHeaderTemplate>
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item" *ngFor="let tab of tabs">
-            <a
+            <button
               class="nav-link"
               [ngClass]="{ active: selected?.name === tab.name }"
-              href="#"
               (click)="selectedOnChange(tab)"
             >
               {{ tab.name }}
-            </a>
+            </button>
           </li>
         </ul>
       </ng-template>
