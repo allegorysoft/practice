@@ -1,28 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { ContentComponent } from '../content/content.component';
 import { Tab } from '../models/tab';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [HttpClientModule, ContentComponent],
+  imports: [ContentComponent],
   templateUrl: './customers.component.html'
 })
 export class CustomersComponent {
-  http = inject(HttpClient);
-
-  productTabs: Tab[] = [
+  customerInfoTabs: Tab[] = [
     { name: 'General' },
     { name: 'Details' },
   ] as Tab[];
-  selected: Tab = this.productTabs[0];
-
-  ngOnInit(): void {
-    console.log('customers worked');
-  }
-
-  ngOnDestroy(): void {
-    console.clear();
-  }
+  
+  selected = this.customerInfoTabs[0];
 }

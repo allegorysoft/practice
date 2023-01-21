@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { AsyncPipe, NgFor } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { User } from '../models/users';
+import { NgFor } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [AsyncPipe, NgFor, HttpClientModule],
+  imports: [NgFor],
+  providers: [UserService],
   templateUrl: './users.component.html'
 })
 export class UsersComponent {
-  users$ = inject(HttpClient).get<User[]>('https://jsonplaceholder.typicode.com/users');
+  users = inject(UserService).users;
 }

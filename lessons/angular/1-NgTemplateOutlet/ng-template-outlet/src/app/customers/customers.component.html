@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12 col-md-6 col-lg-6">
-    <form>
+    <form (submit)="$event.preventDefault()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
@@ -24,6 +24,6 @@
 
   <div class="col-sm-12 col-md-6 col-lg-6">
     <h4>Customer Informations</h4>
-    <app-content [tabs]="productTabs" [selected]="selected"></app-content>
+    <app-content [tabs]="customerInfoTabs" [selected]="selected"></app-content>
   </div>
 </div>

@@ -35,6 +35,10 @@ export default class HomeComponent {
     ];
   }
 
+  selectedChange(selected: Tab): void {
+    this.selected = selected;
+  }
+
   reset(): void {
     this.tabs = this._tabs;
     this.selected = this.tabs[0];
@@ -46,12 +50,8 @@ export default class HomeComponent {
     if (this.selected?.name === name) {
       this.selected = null;
     }
-    if (this.tabs?.length > 0) {
+    if (this.tabs.length > 0) {
       this.selected = this.tabs[0];
     }
-  }
-
-  selectedOnChange(selected: Tab): void {
-    this.selected = selected;
   }
 }

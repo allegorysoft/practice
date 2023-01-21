@@ -5,7 +5,7 @@
   <ng-template #altHeaderTemplate let-tabs>
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item" *ngIf="tabs.length < 1">
-        <a class="nav-link active" href="#"> Kayıt yok </a>
+        <a class="nav-link active" href="#"> Empty tab </a>
       </li>
 
       <li class="nav-item" *ngFor="let tab of tabs">
@@ -13,7 +13,7 @@
           class="nav-link rounded"
           [ngClass]="{ active: selected?.name === tab.name }"
           href="#"
-          (click)="selectedOnChange(tab)"
+          (click)="selectedChange(tab)"
         >
           {{ tab.name }}
 
@@ -26,4 +26,8 @@
       </li>
     </ul>
   </ng-template>
+
+  <div class="card-footer">
+    <h5>Footer</h5>
+  </div>
 </app-content>
