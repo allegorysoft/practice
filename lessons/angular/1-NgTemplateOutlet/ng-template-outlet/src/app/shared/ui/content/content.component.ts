@@ -3,8 +3,8 @@ import {
   Input,
   ContentChild,
   TemplateRef,
-  Output,
-  EventEmitter,
+  SimpleChanges,
+  OnChanges,
 } from '@angular/core';
 import {
   NgIf,
@@ -14,7 +14,7 @@ import {
   NgComponentOutlet,
 } from '@angular/common';
 
-import { Tab } from '../models/tab';
+import { Tab } from '../../../models/tab';
 
 @Component({
   selector: 'app-content',
@@ -31,8 +31,7 @@ import { Tab } from '../models/tab';
     <div class="card-header">
       <ng-container
         *ngTemplateOutlet="
-          altHeaderTemplate || defaultHeaderTemplate;
-          context: { $implicit: tabs, selectedTab: selected }
+          headerTemplate || defaultHeaderTemplate;
         "
       ></ng-container>
 
@@ -61,20 +60,25 @@ import { Tab } from '../models/tab';
       </ng-template>
     </div>
 
-    <ng-content></ng-content>
+    <ng-content select=".card-footer"></ng-content>
   </div>
   `
 })
-export class ContentComponent {
+export class ContentComponent implements OnChanges {
   @Input() tabs!: Tab[];
   @Input() selected: Tab | null = null;
 
-  @ContentChild('altHeaderTemplate') altHeaderTemplate?: TemplateRef<Tab[]>;
-
-  @Output() selectedChange = new EventEmitter<Tab>();
+  // @Input('headerTemplate') headerTemplate?: TemplateRef<Tab[]>;
+  @ContentChild('headerTemplate') headerTemplate?: TemplateRef<Tab[]>;
 
   selectedOnChange(selected: Tab): void {
     this.selected = selected;
-    this.selectedChange.emit(selected);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const _tabs = changes['tabs']
+    if (_tabs && _tabs.currentValue) {
+      this.selected = _tabs.currentValue[0];
+    }
   }
 }

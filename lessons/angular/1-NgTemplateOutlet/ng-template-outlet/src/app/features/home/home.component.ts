@@ -1,8 +1,8 @@
 import { NgClass, NgFor, NgIf, CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { Tab } from '../models/tab';
-import { ContentComponent } from '../content/content.component';
+import { Tab } from '../../models/tab';
+import { ContentComponent } from '../../shared/ui/content/content.component';
 import { UsersComponent } from '../users/users.component';
 import { CustomersComponent } from '../customers/customers.component';
 
@@ -16,7 +16,30 @@ import { CustomersComponent } from '../customers/customers.component';
     //CommonModule, Eklenirse üstde ki 3 sınıfa ihtiyaç duyulmaz
     ContentComponent,
   ],
-  templateUrl: './home.component.html'
+  template: `
+  <button class="btn btn-warning" (click)="reset()">Reset</button>
+  <hr />
+  <app-content [tabs]="tabs" [selected]="selected">
+    <ng-template #headerTemplate>
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item" *ngIf="tabs.length < 1">
+          <a class="nav-link active" href="#"> Empty tab </a>
+        </li>
+
+        <li class="nav-item" *ngFor="let tab of tabs">
+          <button
+            class="nav-link rounded"
+            [ngClass]="{ active: selected?.name === tab.name }"
+            (click)="selectedChange(tab)"
+          >
+            {{ tab.name }}
+            <i (click)="closeTab(tab.name)" class="fa fa-times text-danger"></i>
+          </button>
+        </li>
+      </ul>
+    </ng-template>
+  </app-content>
+  `
 })
 export default class HomeComponent {
   tabs: Tab[] = this._tabs;
