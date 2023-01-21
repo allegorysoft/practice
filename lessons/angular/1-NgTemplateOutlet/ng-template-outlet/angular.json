@@ -26,6 +26,16 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               {
+                "input": "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "inject": true,
+                "bundleName": "bootstrap.min-5.2.3"
+              },
+              {
+                "input": "node_modules/font-awesome/css/font-awesome.min.css",
+                "inject": true,
+                "bundleName": "fontawesome.min"
+              },
+              {
                 "input": "src/styles.scss",
                 "inject": true,
                 "bundleName": "styles"
@@ -91,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

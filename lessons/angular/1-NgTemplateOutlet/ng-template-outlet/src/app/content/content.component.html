@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    <ng-container
+      *ngTemplateOutlet="
+        altHeaderTemplate || defaultHeaderTemplate;
+        context: { $implicit: tabs, selectedTab: selected }
+      "
+    ></ng-container>
+  </div>
+
+  <div class="card-body">
+    <div *ngIf="selected?.component || false; else noContent">
+      <ng-container
+        *ngComponentOutlet="selected?.component || null"
+      ></ng-container>
+    </div>
+
+    <ng-template #noContent>
+      <p>No content</p>
+    </ng-template>
+
+    <!-- <ng-container
+      *ngTemplateOutlet="
+        altBodyTemplate || defaultBodyTemplate;
+        context: { $implicit: selected }
+      "
+    ></ng-container> -->
+  </div>
+</div>
+
+<ng-template #defaultHeaderTemplate let-tabList let-selectedTab="selectedTab">
+  <ul class="nav nav-tabs card-header-tabs">
+    <li class="nav-item" *ngFor="let tab of tabList">
+      <a
+        class="nav-link"
+        [ngClass]="{ active: selectedTab?.name === tab.name }"
+        href="#"
+        (click)="selectedOnChange(tab)"
+      >
+        {{ tab.name }}
+      </a>
+    </li>
+  </ul>
+</ng-template>
+
+<!-- <ng-template #defaultBodyTemplate let-selectedTab>
+  <div *ngIf="selectedTab?.component; else noContent">
+    <ng-container *ngComponentOutlet="selectedTab?.component"></ng-container>
+  </div>
+
+  <ng-template #noContent>
+    <p>No content</p>
+  </ng-template>
+</ng-template> -->
