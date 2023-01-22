@@ -1,35 +1,24 @@
 import { Component } from '@angular/core';
 import { ContentComponent } from '../../shared/ui/content/content.component';
 import { Tab } from '../../models/tab';
+import { TableComponent } from 'src/app/shared/ui/table/table.component';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [ContentComponent],
+  imports: [ContentComponent, TableComponent],
   template: `
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-6">
-      <form (submit)="$event.preventDefault()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
-      </form>
-    </div>
+      <h4>Customer Table</h4>
+      <app-table [data]="customers">
+        <ng-template #headers>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Surname</th>
+        </ng-template>
+      </app-table>
+    </div>  
 
     <div class="col-sm-12 col-md-6 col-lg-6">
       <h4>Customer Informations</h4>
@@ -39,5 +28,10 @@ import { Tab } from '../../models/tab';
   `
 })
 export class CustomersComponent {
+  customers = [
+    { id: 1, name: 'Masum', surname: 'ULU' },
+    { id: 2, name: 'Ahmet Faruk', surname: 'ULU' },
+  ];
+
   customerTabs = [{ name: 'General' }, { name: 'Details' }] as Tab[];
 }

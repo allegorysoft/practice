@@ -59,8 +59,6 @@ import { Tab } from '../../../models/tab';
         <p>Empty content</p>
       </ng-template>
     </div>
-
-    <ng-content select=".card-footer"></ng-content>
   </div>
   `
 })

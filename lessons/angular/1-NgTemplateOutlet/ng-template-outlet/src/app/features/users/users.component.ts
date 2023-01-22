@@ -30,7 +30,7 @@ import { TableComponent } from '../../shared/ui/table/table.component';
       <td>{{ row.username }}</td>
     </ng-template>
 
-    <tfoot *ngIf="users.length > 0" >
+    <tfoot footer *ngIf="users.length > 0" >
       <tr>
         <td colspan="6">
           <h5>Total: {{users.length}}</h5>

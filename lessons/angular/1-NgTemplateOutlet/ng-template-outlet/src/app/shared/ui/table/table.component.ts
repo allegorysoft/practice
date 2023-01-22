@@ -11,7 +11,7 @@ import { KeyValuePipe, NgFor, NgTemplateOutlet } from '@angular/common';
   standalone: true,
   imports: [NgFor, KeyValuePipe, NgTemplateOutlet],
   template: `
-    <table class="table table-hover table-bordered">
+    <table class="table table-sm table-hover table-bordered">
       <thead>
         <tr>
           <ng-container
@@ -31,11 +31,9 @@ import { KeyValuePipe, NgFor, NgTemplateOutlet } from '@angular/common';
           ></ng-container>
         </tr>
       </tbody>
-      <ng-content select="[footer]"></ng-content>
-      <!-- ngProjectAs="[header]" -->
+      <ng-content></ng-content>
     </table>
 
-    <!-- If no template is provided use keys as headers and display all values -->
     <ng-template #defaultHeaderTemplate let-data>
       <th *ngFor="let header of data[0] | keyvalue">{{ header.key }}</th>
     </ng-template>
