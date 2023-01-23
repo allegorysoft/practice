@@ -31,7 +31,7 @@ import { KeyValuePipe, NgFor, NgTemplateOutlet } from '@angular/common';
           ></ng-container>
         </tr>
       </tbody>
-      <ng-content></ng-content>
+      <ng-content [select]="footer"></ng-content>
     </table>
 
     <ng-template #defaultHeaderTemplate let-data>
