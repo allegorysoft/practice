@@ -1,5 +1,5 @@
 # C# Genel
-[YouTube]() oynatma listesinde Angular için çekilen genel eğitim konuları ve örnekleri bu klasör altında tutulacaktır
+[YouTube](https://www.youtube.com/watch?v=cTEz_p0nUX4&list=PLBEMB-Eql15twqXdp3cXKuXckFlQ9q_AP&ab_channel=AlegoriYaz%C4%B1l%C4%B1m) oynatma listesinde Angular için çekilen genel eğitim konuları ve örnekleri bu klasör altında tutulacaktır
 
 ## Eğitim Sırasında Kullandığım Araçlar
 - [Sunum](https://www.canva.com) 
@@ -10,4 +10,4 @@
 
 ## Eğitimler
 
-- [Angular NgTemplateOutlet]()
+- [Angular NgTemplateOutlet](https://www.youtube.com/watch?v=cTEz_p0nUX4&list=PLBEMB-Eql15twqXdp3cXKuXckFlQ9q_AP&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
