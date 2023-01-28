@@ -28,7 +28,7 @@ public class LocalizerController : ModuleController
     [HttpGet("all-strings")]
     public IActionResult GetAllStrings(bool includeParentCulture, bool includeBaseLocalizers)
     {
-        var result = L.GetAllStrings(includeParentCulture, includeBaseLocalizers);
+        var result = L.GetAllStrings(includeParentCulture, includeBaseLocalizers, true);
 
         return Ok(result);
     }
