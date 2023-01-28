@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { APP_ROUTE_PROVIDER } from './route.provider';
 
 import { StyleClassModule } from 'primeng/styleclass';
+import { AbpOAuthModule } from '@abp/ng.oauth';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { StyleClassModule } from 'primeng/styleclass';
       environment,
       registerLocaleFn: registerLocale(),
     }),
+    AbpOAuthModule.forRoot(),
     ThemeSharedModule.forRoot(),
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),

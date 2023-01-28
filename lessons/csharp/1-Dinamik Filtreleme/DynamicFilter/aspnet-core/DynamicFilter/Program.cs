@@ -2,6 +2,7 @@ using System;
 using DynamicFilter.Data;
 using Serilog;
 using Serilog.Events;
+using Volo.Abp.Data;
 
 namespace DynamicFilter;
 
@@ -36,6 +37,10 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
+            if (IsMigrateDatabase(args))
+            {
+                builder.Services.AddDataMigrationEnvironment();
+            }
             await builder.AddApplicationAsync<DynamicFilterModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
@@ -52,7 +57,7 @@ public class Program
         }
         catch (Exception ex)
         {
-            if (ex.GetType().Name.Equals("StopTheHostException", StringComparison.Ordinal))
+            if (ex is HostAbortedException)
             {
                 throw;
             }

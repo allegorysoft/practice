@@ -4,6 +4,7 @@ using DynamicFilter.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace DynamicFilter.Migrations
 {
     [DbContext(typeof(DynamicFilterDbContext))]
-    partial class DynamicFilterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230128185554_Abp_Version_Update")]
+    partial class AbpVersionUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
