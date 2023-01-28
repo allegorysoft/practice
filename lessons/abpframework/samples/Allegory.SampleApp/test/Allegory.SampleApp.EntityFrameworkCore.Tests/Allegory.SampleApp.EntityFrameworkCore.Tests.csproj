@@ -3,14 +3,14 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Allegory.SampleApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Allegory.SampleApp.EntityFrameworkCore\Allegory.SampleApp.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Allegory.SampleApp.TestBase\Allegory.SampleApp.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="6.0.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
