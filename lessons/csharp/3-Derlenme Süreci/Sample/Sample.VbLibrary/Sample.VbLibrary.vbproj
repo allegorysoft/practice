@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <RootNamespace>Sample.VbLibrary</RootNamespace>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>$(NetVersion)</TargetFramework>
   </PropertyGroup>
 
 </Project>
