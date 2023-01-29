@@ -38,10 +38,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/module/**/*.ts",
-              "projects/module/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/module/**/*.ts", "projects/module/**/*.html"]
           }
         }
       }
