@@ -254,7 +254,7 @@ paket-files/
 # NgSampleApp
 src/Allegory.NgSampleApp.Web/Logs/*
 src/Allegory.NgSampleApp.Web.Host/Logs/*
-src/Allegory.NgSampleApp.IdentityServer/Logs/*
+src/Allegory.NgSampleApp.AuthServer/Logs/*
 src/Allegory.NgSampleApp.HttpApi.Host/Logs/*
 src/Allegory.NgSampleApp.HttpApi.Host/Logs/*
 src/Allegory.NgSampleApp.DbMigrator/Logs/*

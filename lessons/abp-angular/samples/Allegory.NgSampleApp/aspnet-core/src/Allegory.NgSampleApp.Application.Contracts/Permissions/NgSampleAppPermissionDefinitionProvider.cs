@@ -8,6 +8,7 @@ public class NgSampleAppPermissionDefinitionProvider : PermissionDefinitionProvi
 {
     public override void Define(IPermissionDefinitionContext context)
     {
+        var myGroup = context.AddGroup(NgSampleAppPermissions.GroupName);
         var ngSampleAppGroup = context.AddGroup(NgSampleAppPermissions.GroupName, L("Permission:NgSampleApp"));
 
         var customersPermission = ngSampleAppGroup.AddPermission(NgSampleAppPermissions.Customers.Default, L("Permission:Customers"));

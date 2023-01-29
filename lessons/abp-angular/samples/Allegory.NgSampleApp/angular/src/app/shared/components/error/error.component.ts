@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { ValidationErrorComponent } from '@abp/ng.theme.basic';
+import { ValidationErrorComponent } from '@abp/ng.theme.lepton-x';
 
 @Component({
   selector: 'app-error',

@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44313',
+    issuer: 'https://localhost:44377/',
     redirectUri: baseUrl,
     clientId: 'NgSampleApp_App',
     responseType: 'code',
@@ -19,7 +19,7 @@ export const environment = {
   },
   apis: {
     default: {
-      url: 'https://localhost:44313',
+      url: 'https://localhost:44377',
       rootNamespace: 'Allegory.NgSampleApp',
     },
     jsonPlaceholder: {
