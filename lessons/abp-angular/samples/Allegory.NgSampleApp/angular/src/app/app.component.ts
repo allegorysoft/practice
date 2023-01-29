@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ReplaceableComponentsService } from '@abp/ng.core';
-import { eThemeBasicComponents } from '@abp/ng.theme.basic';
+import { eThemeLeptonXComponents } from '@abp/ng.theme.lepton-x';
 import { eIdentityComponents } from '@abp/ng.identity';
 
 import { PrimeNGConfig } from 'primeng/api';
@@ -22,14 +22,14 @@ export class AppComponent implements OnInit {
   constructor(
     private replace: ReplaceableComponentsService,
     private primengConfig: PrimeNGConfig
-  ) { }
+  ) {}
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
     this.primengConfig.ripple = true;
 
     this.replace.add({
-      key: eThemeBasicComponents.NavItems,
+      key: eThemeLeptonXComponents.NavItems,
       component: NavItemsComponent
     });
 

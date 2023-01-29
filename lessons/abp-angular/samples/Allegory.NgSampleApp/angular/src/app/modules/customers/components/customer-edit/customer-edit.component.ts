@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import {
   EXTENSIONS_IDENTIFIER, FormPropData, generateFormFromProps
 } from '@abp/ng.theme.shared/extensions';
@@ -23,7 +23,7 @@ import { CustomerDto } from '../../models/customer';
   ]
 })
 export class CustomerEditComponent implements OnInit {
-  form: FormGroup;
+  form!: UntypedFormGroup;
   selected: CustomerDto;
 
   private buildForm(): void {
@@ -34,14 +34,11 @@ export class CustomerEditComponent implements OnInit {
   constructor(
     private injector: Injector,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const id = <string>this.route.snapshot.params.id;
-    if (id)
-      this.edit(id);
-    else
-      this.add();
+    id ? this.edit(id) : this.add();
   }
 
   add(): void {

@@ -28,7 +28,7 @@ function configureRoutes(routesService: RoutesService) {
         path: '/customers',
         name: 'Müşteriler',
         order: 3,
-        requiredPolicy: 'NgSampleApp.Customers',
+        // requiredPolicy: 'NgSampleApp.Customers',
         iconClass: 'pi-users',
         // iconClass: 'fa fa-users',
         layout: eLayoutType.application,

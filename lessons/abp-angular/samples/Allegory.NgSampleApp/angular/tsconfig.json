@@ -10,13 +10,14 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "ES2020",
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
       "@proxy/*": ["src/app/proxy/*"],
       "@NgSampleApp/theme": ["src/app/modules/theme/index.ts"]
-    }
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false

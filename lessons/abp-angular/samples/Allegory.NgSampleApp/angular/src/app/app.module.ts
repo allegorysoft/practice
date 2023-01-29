@@ -1,3 +1,6 @@
+import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
+import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
+import { FeatureManagementModule } from '@abp/ng.feature-management';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -5,9 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@abp/ng.core';
 import { registerLocale } from '@abp/ng.core/locale';
 import { ThemeSharedModule, HTTP_ERROR_HANDLER } from '@abp/ng.theme.shared';
-import { ThemeBasicModule } from '@abp/ng.theme.basic';
 import { AccountConfigModule } from '@abp/ng.account/config';
 import { IdentityConfigModule } from '@abp/ng.identity/config';
+import { AbpOAuthModule } from '@abp/ng.oauth';
 import { SettingManagementConfigModule } from '@abp/ng.setting-management/config';
 import { TenantManagementConfigModule } from '@abp/ng.tenant-management/config';
 
@@ -76,6 +79,7 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
         },
       ],
     }),
+    AbpOAuthModule.forRoot(),
     ThemeSharedModule.forRoot({
       validation: {
         blueprints: {
@@ -88,7 +92,9 @@ import { RolesExtendedModule } from './modules/roles-extended/roles-extended.mod
     IdentityConfigModule.forRoot(),
     TenantManagementConfigModule.forRoot(),
     SettingManagementConfigModule.forRoot(),
-    ThemeBasicModule.forRoot(),
+    ThemeLeptonXModule.forRoot(),
+    SideMenuLayoutModule.forRoot(),
+    FeatureManagementModule.forRoot(),
     SharedModule,
     AppLayoutModule,
     RolesExtendedModule,

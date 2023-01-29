@@ -10,19 +10,19 @@ const routes: Routes = [
     path: '',
     component: CustomersComponent,
     canActivate: [PermissionGuard, CustomerExtensionsGuard],
-    data: { requiredPolicy: 'NgSampleApp.Customers' }
+    // data: { requiredPolicy: 'NgSampleApp.Customers' }
   },
   {
     path: 'edit',
     component: CustomerEditComponent,
     canActivate: [PermissionGuard, CustomerExtensionsGuard],
-    data: { requiredPolicy: 'NgSampleApp.Customers.Create' },
+    // data: { requiredPolicy: 'NgSampleApp.Customers.Create' },
   },
   {
     path: 'edit/:id',
     component: CustomerEditComponent,
     canActivate: [PermissionGuard, CustomerExtensionsGuard],
-    data: { requiredPolicy: 'NgSampleApp.Customers.Update' },
+    // data: { requiredPolicy: 'NgSampleApp.Customers.Update' },
   }
 ];
 
