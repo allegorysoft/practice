@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "Allegory.NgSampleModule.Domain.Shared": {
+      "path": "src/Allegory.NgSampleModule.Domain.Shared/Allegory.NgSampleModule.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Domain": {
+      "path": "src/Allegory.NgSampleModule.Domain/Allegory.NgSampleModule.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Application.Contracts": {
+      "path": "src/Allegory.NgSampleModule.Application.Contracts/Allegory.NgSampleModule.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Application": {
+      "path": "src/Allegory.NgSampleModule.Application/Allegory.NgSampleModule.Application.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.EntityFrameworkCore": {
+      "path": "src/Allegory.NgSampleModule.EntityFrameworkCore/Allegory.NgSampleModule.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.MongoDB": {
+      "path": "src/Allegory.NgSampleModule.MongoDB/Allegory.NgSampleModule.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.HttpApi": {
+      "path": "src/Allegory.NgSampleModule.HttpApi/Allegory.NgSampleModule.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.HttpApi.Client": {
+      "path": "src/Allegory.NgSampleModule.HttpApi.Client/Allegory.NgSampleModule.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.TestBase": {
+      "path": "test/Allegory.NgSampleModule.TestBase/Allegory.NgSampleModule.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.EntityFrameworkCore.Tests": {
+      "path": "test/Allegory.NgSampleModule.EntityFrameworkCore.Tests/Allegory.NgSampleModule.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.MongoDB.Tests": {
+      "path": "test/Allegory.NgSampleModule.MongoDB.Tests/Allegory.NgSampleModule.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.Domain.Tests": {
+      "path": "test/Allegory.NgSampleModule.Domain.Tests/Allegory.NgSampleModule.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.Application.Tests": {
+      "path": "test/Allegory.NgSampleModule.Application.Tests/Allegory.NgSampleModule.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.HttpApi.Host": {
+      "path": "host/Allegory.NgSampleModule.HttpApi.Host/Allegory.NgSampleModule.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.Web": {
+      "path": "src/Allegory.NgSampleModule.Web/Allegory.NgSampleModule.Web.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Allegory.NgSampleModule.HttpApi.Client.ConsoleTestApp/Allegory.NgSampleModule.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "Allegory.NgSampleModule.Web.Host": {
+      "path": "host/Allegory.NgSampleModule.Web.Host/Allegory.NgSampleModule.Web.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.AuthServer": {
+      "path": "host/Allegory.NgSampleModule.AuthServer/Allegory.NgSampleModule.AuthServer.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.Host.Shared": {
+      "path": "host/Allegory.NgSampleModule.Host.Shared/Allegory.NgSampleModule.Host.Shared.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.Web.Unified": {
+      "path": "host/Allegory.NgSampleModule.Web.Unified/Allegory.NgSampleModule.Web.Unified.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.Blazor": {
+      "path": "src/Allegory.NgSampleModule.Blazor/Allegory.NgSampleModule.Blazor.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Blazor.Host": {
+      "path": "host/Allegory.NgSampleModule.Blazor.Host/Allegory.NgSampleModule.Blazor.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Allegory.NgSampleModule.Blazor.Server": {
+      "path": "src/Allegory.NgSampleModule.Blazor.Server/Allegory.NgSampleModule.Blazor.Server.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Blazor.WebAssembly": {
+      "path": "src/Allegory.NgSampleModule.Blazor.WebAssembly/Allegory.NgSampleModule.Blazor.WebAssembly.abppkg.json",
+      "folder": "src"
+    },
+    "Allegory.NgSampleModule.Blazor.Server.Host": {
+      "path": "host/Allegory.NgSampleModule.Blazor.Server.Host/Allegory.NgSampleModule.Blazor.Server.Host.abppkg.json",
+      "folder": "host"
+    }
+  }
+}
