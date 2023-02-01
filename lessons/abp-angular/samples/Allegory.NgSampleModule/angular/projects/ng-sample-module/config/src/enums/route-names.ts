@@ -1,3 +1,3 @@
 export const enum eNgSampleModuleRouteNames {
-  NgSampleModule = 'NgSampleModule',
+  NgSampleModule = 'NgSampleModule::Menu:NgSampleModule',
 }

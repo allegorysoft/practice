@@ -8,8 +8,12 @@
       "@allegory/ng-sample-module/config": [
         "projects/ng-sample-module/config/src/public-api.ts"
       ],
-      "@proxy": ["projects/ng-sample-module/src/lib/proxy/index.ts"],
-      "@proxy/*": ["projects/ng-sample-module/src/lib/proxy/*"]
+      "@allegory/ng-sample-module/proxy": [
+        "projects/ng-sample-module/src/lib/proxy/index.ts"
+      ],
+      "@allegory/ng-sample-module/proxy/*": [
+        "projects/ng-sample-module/src/lib/proxy/*"
+      ]
     }
   }
 }

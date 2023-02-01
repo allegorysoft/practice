@@ -2,6 +2,7 @@
   "culture": "tr",
   "texts": {
     "MyAccount":  "Hesabım",
-    "SamplePageMessage": "NgSampleModule modulünden örnek bir sayfa"
+    "SamplePageMessage": "NgSampleModule modulünden örnek bir sayfa",
+    "Menu:NgSampleModule": "NgSampleModule"
   }
 }

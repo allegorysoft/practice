@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NgSampleModuleService } from '../services/ng-sample-module.service';
+import { SampleService } from '../proxy/samples';
 
 @Component({
   selector: 'lib-ng-sample-module',
-  template: ` <p>ng-sample-module works!</p> `,
-  styles: [],
+  template: `NgSampleModule works!`,
 })
 export class NgSampleModuleComponent implements OnInit {
-  constructor(private service: NgSampleModuleService) {}
+  constructor(private service: SampleService) {}
 
   ngOnInit(): void {
-    this.service.sample().subscribe(console.log);
+    this.service.getAuthorized().subscribe(console.log);
   }
 }

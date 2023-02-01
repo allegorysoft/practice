@@ -15,7 +15,7 @@ export const environment = {
     clientId: 'NgSampleModule_App',
     responseType: 'code',
     scope: 'offline_access NgSampleModule',
-    requireHttps: true
+    requireHttps: true,
   },
   apis: {
     default: {

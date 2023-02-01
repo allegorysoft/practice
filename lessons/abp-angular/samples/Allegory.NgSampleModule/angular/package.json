@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve dev-app --open",
+    "start": "ng serve",
     "build": "ng build ng-sample-module --configuration production",
     "build:app": "npm run symlink:copy -- --no-watch && ng build dev-app --configuration production",
     "symlink:copy": "symlink copy --angular --packages @allegory/ng-sample-module --configuration production",
@@ -60,6 +60,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.7.0",
     "ng-packagr": "^15.0.1",
+    "prettier": "^2.8.3",
     "symlink-manager": "^1.5.0",
     "typescript": "~4.8.3"
   }

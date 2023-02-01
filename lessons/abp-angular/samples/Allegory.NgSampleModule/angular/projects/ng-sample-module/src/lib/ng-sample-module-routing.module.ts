@@ -1,17 +1,30 @@
 import { NgModule } from '@angular/core';
-import { DynamicLayoutComponent } from '@abp/ng.core';
+import {
+  PermissionGuard,
+  ReplaceableComponents,
+  ReplaceableRouteContainerComponent,
+  RouterOutletComponent,
+} from '@abp/ng.core';
 import { Routes, RouterModule } from '@angular/router';
 import { NgSampleModuleComponent } from './components/ng-sample-module.component';
+import { eNgSampleModuleComponents } from './enums';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: DynamicLayoutComponent,
+    component: RouterOutletComponent,
+    canActivate: [PermissionGuard],
     children: [
       {
         path: '',
-        component: NgSampleModuleComponent,
+        component: ReplaceableRouteContainerComponent,
+        data: {
+          // requiredPolicy: 'NgSampleModule',
+          replaceableComponent: {
+            key: eNgSampleModuleComponents.NgSampleModule,
+            defaultComponent: NgSampleModuleComponent,
+          } as ReplaceableComponents.RouteData<NgSampleModuleComponent>,
+        },
       },
     ],
   },
