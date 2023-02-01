@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.DependencyInjection;
 
-namespace Allegory.SampleMongoApp;
+namespace Allegory.SampleMongoApp.DI;
 
 //[Dependency(ServiceLifetime.Scoped)]
 public class SomeSpecificManager : ITransientDependency,

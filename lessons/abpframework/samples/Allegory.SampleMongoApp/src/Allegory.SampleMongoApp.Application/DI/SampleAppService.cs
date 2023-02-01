@@ -1,4 +1,4 @@
-﻿namespace Allegory.SampleMongoApp;
+﻿namespace Allegory.SampleMongoApp.DI;
 
 public class SampleAppService : SampleMongoAppAppService
 {
