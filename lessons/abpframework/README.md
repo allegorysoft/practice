@@ -36,4 +36,4 @@
 - [ABP Unit of Work](https://www.youtube.com/watch?v=MHNemWchSrA&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=18)
 - [ABP Dapper](https://www.youtube.com/watch?v=YFJ5qZzsMsI&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=19)
 - [ABP Kişisel Proje Şablonu Oluşturma](https://www.youtube.com/watch?v=996m7MKjnj8&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=20)
-- [ABP Interception (Aspect Oriented Programming)]()
+- [ABP Interception (Aspect Oriented Programming)](https://www.youtube.com/watch?v=9p1o61ANneA&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=21)
