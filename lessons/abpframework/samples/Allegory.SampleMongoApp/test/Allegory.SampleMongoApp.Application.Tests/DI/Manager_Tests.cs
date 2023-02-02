@@ -1,12 +1,11 @@
-﻿using Autofac.Core.Registration;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Autofac.Core.Registration;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 
-namespace Allegory.SampleMongoApp;
+namespace Allegory.SampleMongoApp.DI;
 
 public class Manager_Tests : SampleMongoAppApplicationTestBase
 {

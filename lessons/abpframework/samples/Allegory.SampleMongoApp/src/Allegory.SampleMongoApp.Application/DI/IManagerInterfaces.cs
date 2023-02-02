@@ -1,4 +1,4 @@
-﻿namespace Allegory.SampleMongoApp;
+﻿namespace Allegory.SampleMongoApp.DI;
 
 public interface ISomeSpecificManager { }
 public interface ISpecificManager { }
