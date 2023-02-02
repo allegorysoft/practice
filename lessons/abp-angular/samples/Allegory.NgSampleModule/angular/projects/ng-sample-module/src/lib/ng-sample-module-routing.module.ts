@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import {
   PermissionGuard,
   ReplaceableComponents,
   ReplaceableRouteContainerComponent,
   RouterOutletComponent,
 } from '@abp/ng.core';
-import { Routes, RouterModule } from '@angular/router';
-import { NgSampleModuleComponent } from './components/ng-sample-module.component';
+import { NgSampleModuleExtensionsGuard } from './guards';
 import { eNgSampleModuleComponents } from './enums';
+import { NgSampleModuleComponent } from './components';
 
 const routes: Routes = [
   {
     path: '',
     component: RouterOutletComponent,
-    canActivate: [PermissionGuard],
+    canActivate: [PermissionGuard, NgSampleModuleExtensionsGuard],
     children: [
       {
         path: '',

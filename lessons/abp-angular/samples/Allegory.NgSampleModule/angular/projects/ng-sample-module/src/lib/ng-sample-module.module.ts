@@ -3,21 +3,46 @@ import {
   NgModuleFactory,
   ModuleWithProviders,
 } from '@angular/core';
+import {
+  NgbDropdownModule,
+  NgbNavModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule, LazyModuleFactory } from '@abp/ng.core';
 import { ThemeSharedModule } from '@abp/ng.theme.shared';
-import { NgSampleModuleComponent } from './components/ng-sample-module.component';
+import { UiExtensionsModule } from '@abp/ng.theme.shared/extensions';
+
 import { NgSampleModuleRoutingModule } from './ng-sample-module-routing.module';
+
+import { NgSampleModuleComponent } from './components';
+import { NgSampleModuleExtensionsGuard } from './guards';
+import { NgSampleModuleConfigOptions } from './models';
+import { NG_SAMPLE_MODULE_ENTITY_PROP_CONTRIBUTORS } from './tokens';
 
 @NgModule({
   declarations: [NgSampleModuleComponent],
-  imports: [CoreModule, ThemeSharedModule, NgSampleModuleRoutingModule],
+  imports: [
+    NgbNavModule,
+    NgbDropdownModule,
+    CoreModule,
+    ThemeSharedModule,
+    UiExtensionsModule,
+    NgSampleModuleRoutingModule,
+  ],
   exports: [NgSampleModuleComponent],
 })
 export class NgSampleModuleModule {
-  static forChild(): ModuleWithProviders<NgSampleModuleModule> {
+  static forChild(
+    options: NgSampleModuleConfigOptions = {}
+  ): ModuleWithProviders<NgSampleModuleModule> {
     return {
       ngModule: NgSampleModuleModule,
-      providers: [],
+      providers: [
+        {
+          provide: NG_SAMPLE_MODULE_ENTITY_PROP_CONTRIBUTORS,
+          useValue: options.entityPropContributors,
+        },
+        NgSampleModuleExtensionsGuard,
+      ],
     };
   }
 
