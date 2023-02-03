@@ -39,12 +39,15 @@ export class NgSampleModuleComponent implements OnInit {
   public readonly list = inject(ListService<CustomerDto[]>);
   //#endregion
 
+  //#region Fields
   form: UntypedFormGroup;
   isModalVisible: boolean;
   modalBusy = false;
   selected: CustomerDto;
   data: PagedResultDto<CustomerDto> = { items: [], totalCount: 0 };
+  //#endregion
 
+  //#region Utilities
   private getCustomers(): void {
     this.service.customers$.subscribe(res => {
       this.data.items = res;
@@ -57,7 +60,9 @@ export class NgSampleModuleComponent implements OnInit {
     //   .hookToQuery(query => this.service.getList(query))
     //   .subscribe((res: PagedResultDto<CustomerDto>) => (this.data = res));
   }
+  //#endregion
 
+  //#region Methods
   ngOnInit(): void {
     this.getCustomers();
   }
@@ -132,4 +137,5 @@ export class NgSampleModuleComponent implements OnInit {
       // this.list.get();// Refresh list from server
     });
   }
+  //#endregion
 }
