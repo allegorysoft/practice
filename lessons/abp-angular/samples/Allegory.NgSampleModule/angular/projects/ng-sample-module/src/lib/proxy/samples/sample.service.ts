@@ -37,7 +37,7 @@ export class SampleService {
       id: '7a0be59e-8f99-4ee1-a7b4-90dcc96161c0',
       name: 'Masum',
       salary: 2500,
-      birthDate: '1999-19-10',
+      birthDate: '1999-01-10',
     },
     {
       id: '15f53f90-99c7-4d8f-827a-2ac52c8ff04c',
@@ -55,10 +55,24 @@ export class SampleService {
     return this._customerSubject.value;
   }
 
+  getCustomer = (id: string) => of(this._customers.find(f => f.id === id));
+
   createCustomer = (input: CustomerCreateOrUpdateBase) =>
     of<CustomerDto>({ id: uuidv4(), ...input }).pipe(
       tap(value => this._customerSubject.next([...this._customers, value]))
     );
+
+  updateCustomer = (id: string, input: CustomerCreateOrUpdateBase) => {
+    const index = this._customers.findIndex(f => f.id === id);
+
+    if ((index ?? -1) < 0) throw new Error('Customer not found');
+
+    const customer = { id, ...input } as CustomerDto;
+    this._customers[index] = customer;
+    this._customerSubject.next([...this._customers]);
+
+    return of(customer);
+  };
 
   deleteCustomer = (id: string) =>
     of(id).pipe(

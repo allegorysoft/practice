@@ -5,7 +5,7 @@
         <h5 class="card-title">{{ 'NgSampleModule::Customers' | abpLocalization }}</h5>
       </div>
       <div class="text-end col col-md-6">
-        <!--<abp-page-toolbar [record]="data.items"></abp-page-toolbar>-->
+        <abp-page-toolbar [record]="data.items"></abp-page-toolbar>
       </div>
     </div>
   </div>
@@ -18,3 +18,27 @@
     ></abp-extensible-table>
   </div>
 </div>
+
+
+<abp-modal [(visible)]="isModalVisible" [busy]="modalBusy">
+  <ng-template #abpHeader>
+    <h3>
+      {{ (selected?.id ? 'NgSampleModule::Edit' : 'NgSampleModule::NewCustomer') | abpLocalization }}
+    </h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()" validateOnSubmit>
+      <abp-extensible-form [selectedRecord]="selected"></abp-extensible-form>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ 'AbpIdentity::Cancel' | abpLocalization }}
+    </button>
+    <abp-button iconClass="fa fa-check" [disabled]="form?.invalid" (click)="save()">{{
+      'AbpIdentity::Save' | abpLocalization
+      }}</abp-button>
+  </ng-template>
+</abp-modal>

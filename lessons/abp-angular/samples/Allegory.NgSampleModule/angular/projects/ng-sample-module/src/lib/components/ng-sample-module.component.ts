@@ -1,11 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Injector, OnInit } from '@angular/core';
+import { UntypedFormGroup } from '@angular/forms';
+import { finalize } from 'rxjs';
 import { ListService, PagedResultDto } from '@abp/ng.core';
-import { EXTENSIONS_IDENTIFIER } from '@abp/ng.theme.shared/extensions';
 import {
   Confirmation,
   ConfirmationService,
   ToasterService,
 } from '@abp/ng.theme.shared';
+import {
+  EXTENSIONS_IDENTIFIER,
+  FormPropData,
+  generateFormFromProps,
+} from '@abp/ng.theme.shared/extensions';
 import {
   CustomerCreateOrUpdateBase,
   CustomerDto,
@@ -26,12 +32,17 @@ import { eNgSampleModuleComponents } from '../enums';
 })
 export class NgSampleModuleComponent implements OnInit {
   //#region Services
+  private readonly injector = inject(Injector);
   private readonly service = inject(SampleService);
   private readonly confirmationService = inject(ConfirmationService);
   private readonly toasterService = inject(ToasterService);
   public readonly list = inject(ListService<CustomerDto[]>);
   //#endregion
 
+  form: UntypedFormGroup;
+  isModalVisible: boolean;
+  modalBusy = false;
+  selected: CustomerDto;
   data: PagedResultDto<CustomerDto> = { items: [], totalCount: 0 };
 
   private getCustomers(): void {
@@ -41,14 +52,53 @@ export class NgSampleModuleComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getCustomers();
-
-    //#region HTTP Request
+  private hookToQuery(): void {
     // this.list
     //   .hookToQuery(query => this.service.getList(query))
     //   .subscribe((res: PagedResultDto<CustomerDto>) => (this.data = res));
-    //#endregion
+  }
+
+  ngOnInit(): void {
+    this.getCustomers();
+  }
+
+  buildForm() {
+    const data = new FormPropData(this.injector, this.selected);
+    this.form = generateFormFromProps(data);
+  }
+
+  openModal() {
+    this.buildForm();
+    this.isModalVisible = true;
+  }
+
+  add() {
+    this.selected = {} as CustomerDto;
+    this.openModal();
+  }
+
+  edit(id: string) {
+    this.service.getCustomer(id).subscribe(res => {
+      this.selected = res;
+      this.openModal();
+    });
+  }
+
+  save() {
+    if (!this.form.valid) return;
+    this.modalBusy = true;
+
+    const { id } = this.selected;
+    const input = this.form.value;
+    (id
+      ? this.service.updateCustomer(id, input)
+      : this.service.createCustomer(input)
+    )
+      .pipe(finalize(() => (this.modalBusy = false)))
+      .subscribe(() => {
+        this.isModalVisible = false;
+        // this.list.get();// Refresh list from server
+      });
   }
 
   delete(id: string, name: string): void {
@@ -64,7 +114,6 @@ export class NgSampleModuleComponent implements OnInit {
         if (status === Confirmation.Status.confirm) {
           this.toasterService.success('AbpUi::SuccessfullyDeleted');
           this.service.deleteCustomer(id).subscribe(() => {
-            this.getCustomers();
             // this.list.get(); // Refresh list from server
           });
         }

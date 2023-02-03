@@ -8,21 +8,14 @@ export const DEFAULT_CUSTOMERS_ENTITY_PROPS =
   EntityProp.createMany<CustomerDto>([
     {
       type: ePropType.String,
-      name: 'id',
-      displayName: 'NgSampleModule::Id',
-      sortable: true,
-      columnWidth: 200,
-    },
-    {
-      type: ePropType.String,
       name: 'name',
-      displayName: 'NgSampleModule::Name',
+      displayName: 'NgSampleModule::DisplayName:Name',
       sortable: true,
     },
     {
       type: ePropType.Number,
       name: 'salary',
-      displayName: 'NgSampleModule::Salary',
+      displayName: 'NgSampleModule::DisplayName:Salary',
       sortable: true,
       valueResolver: data => {
         const config = data.getInjected(ConfigStateService);
@@ -36,7 +29,7 @@ export const DEFAULT_CUSTOMERS_ENTITY_PROPS =
     {
       type: ePropType.Date,
       name: 'birthDate',
-      displayName: 'NgSampleModule::BirthDate',
+      displayName: 'NgSampleModule::DisplayName:BirthDate',
       sortable: true,
     },
   ]);

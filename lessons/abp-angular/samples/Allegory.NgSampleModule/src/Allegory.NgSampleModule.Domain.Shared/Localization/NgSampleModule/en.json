@@ -5,6 +5,9 @@
     "SamplePageMessage": "A sample page for the NgSampleModule module",
     "Menu:NgSampleModule": "NgSampleModule",
     "CustomerDeletionConfirmationMessage": "Customer named {0} will be remove",
-    "AreYouSure": "Are you sure?"
+    "AreYouSure": "Are you sure?",
+    "DisplayName:Name": "Name",
+    "DisplayName:Salary": "Salary",
+    "DisplayName:BirthDate": "Birth date"
   }
 }

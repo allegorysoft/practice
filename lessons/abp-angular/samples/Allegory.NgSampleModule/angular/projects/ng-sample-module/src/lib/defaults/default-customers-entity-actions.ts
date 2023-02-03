@@ -8,7 +8,8 @@ export const DEFAULT_CUSTOMERS_ENTITY_ACTIONS =
       text: 'AbpUi::Edit',
       icon: 'fa fa-pencil',
       action: data => {
-        //Do something with data
+        const component = data.getInjected(NgSampleModuleComponent);
+        component.edit(data.record.id);
       },
       // permission: 'NgSampleModule.Customers.Edit',
     },
