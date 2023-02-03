@@ -7,11 +7,18 @@ import {
   ExtensionsService,
   getObjectExtensionEntitiesFromStore,
   mapEntitiesToContributors,
+  mergeWithDefaultActions,
   mergeWithDefaultProps,
 } from '@abp/ng.theme.shared/extensions';
 import { eNgSampleModuleComponents } from '../enums';
-import { NgSampleModuleEntityPropContributors } from '../models';
-import { DEFAULT_NG_SAMPLE_MODULE_ENTITY_PROPS } from '../tokens';
+import {
+  NgSampleModuleEntityActionContributors,
+  NgSampleModuleEntityPropContributors,
+} from '../models';
+import {
+  DEFAULT_NG_SAMPLE_MODULE_ENTITY_PROPS,
+  DEFAULT_NG_SAMPLE_MODULE_ENTITY_ACTIONS,
+} from '../tokens';
 
 @Injectable()
 export class NgSampleModuleExtensionsGuard implements CanActivate {
@@ -20,6 +27,10 @@ export class NgSampleModuleExtensionsGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     const configState = this.injector.get(ConfigStateService);
     const extensions = this.injector.get(ExtensionsService);
+
+    const actionContributors: NgSampleModuleEntityActionContributors =
+      this.injector.get(DEFAULT_NG_SAMPLE_MODULE_ENTITY_ACTIONS, null) ||
+      {};
 
     const propContributors: NgSampleModuleEntityPropContributors =
       this.injector.get(DEFAULT_NG_SAMPLE_MODULE_ENTITY_PROPS, null) || {};
@@ -33,6 +44,11 @@ export class NgSampleModuleExtensionsGuard implements CanActivate {
       })),
       mapEntitiesToContributors(configState, 'NgSampleModule'),
       tap(objectExtensionContributors => {
+        mergeWithDefaultActions(
+          extensions.entityActions,
+          DEFAULT_NG_SAMPLE_MODULE_ENTITY_ACTIONS,
+          actionContributors
+        );
         mergeWithDefaultProps(
           extensions.entityProps,
           DEFAULT_NG_SAMPLE_MODULE_ENTITY_PROPS,

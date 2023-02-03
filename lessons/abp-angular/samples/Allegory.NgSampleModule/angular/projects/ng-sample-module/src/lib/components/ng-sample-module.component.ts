@@ -25,10 +25,12 @@ import { eNgSampleModuleComponents } from '../enums';
   ],
 })
 export class NgSampleModuleComponent implements OnInit {
+  //#region Services
   private readonly service = inject(SampleService);
   private readonly confirmationService = inject(ConfirmationService);
   private readonly toasterService = inject(ToasterService);
   public readonly list = inject(ListService<CustomerDto[]>);
+  //#endregion
 
   data: PagedResultDto<CustomerDto> = { items: [], totalCount: 0 };
 
@@ -52,8 +54,8 @@ export class NgSampleModuleComponent implements OnInit {
   delete(id: string, name: string): void {
     this.confirmationService
       .warn(
-        'AbpIdentity::RoleDeletionConfirmationMessage',
-        'AbpIdentity::AreYouSure',
+        'NgSampleModule::CustomerDeletionConfirmationMessage',
+        'NgSampleModule::AreYouSure',
         {
           messageLocalizationParams: [name],
         }
@@ -70,13 +72,13 @@ export class NgSampleModuleComponent implements OnInit {
   }
 
   create(): void {
-    const a = {
+    const input = {
       name: `Test-${Math.floor(Math.random() * 10)}`,
       birthDate: new Date().getDate().toLocaleString(''),
       salary: Math.floor(1000 + Math.random() * 5000),
     } as CustomerCreateOrUpdateBase;
 
-    this.service.createCustomer(a).subscribe(() => {
+    this.service.createCustomer(input).subscribe(() => {
       this.getCustomers();
       // this.list.get();// Refresh list from server
     });

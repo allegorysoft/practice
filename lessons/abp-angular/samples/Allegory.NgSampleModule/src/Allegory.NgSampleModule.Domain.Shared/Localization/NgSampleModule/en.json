@@ -3,6 +3,8 @@
   "texts": {
     "MyAccount": "My account",
     "SamplePageMessage": "A sample page for the NgSampleModule module",
-    "Menu:NgSampleModule": "NgSampleModule"
+    "Menu:NgSampleModule": "NgSampleModule",
+    "CustomerDeletionConfirmationMessage": "Customer named {0} will be remove",
+    "AreYouSure": "Are you sure?"
   }
 }

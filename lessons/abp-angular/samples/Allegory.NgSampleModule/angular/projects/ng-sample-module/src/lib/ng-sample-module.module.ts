@@ -16,7 +16,10 @@ import { NgSampleModuleRoutingModule } from './ng-sample-module-routing.module';
 import { NgSampleModuleComponent } from './components';
 import { NgSampleModuleExtensionsGuard } from './guards';
 import { NgSampleModuleConfigOptions } from './models';
-import { NG_SAMPLE_MODULE_ENTITY_PROP_CONTRIBUTORS } from './tokens';
+import {
+  NG_SAMPLE_MODULE_ENTITY_ACTION_CONTRIBUTORS,
+  NG_SAMPLE_MODULE_ENTITY_PROP_CONTRIBUTORS,
+} from './tokens';
 
 @NgModule({
   declarations: [NgSampleModuleComponent],
@@ -40,6 +43,10 @@ export class NgSampleModuleModule {
         {
           provide: NG_SAMPLE_MODULE_ENTITY_PROP_CONTRIBUTORS,
           useValue: options.entityPropContributors,
+        },
+        {
+          provide: NG_SAMPLE_MODULE_ENTITY_ACTION_CONTRIBUTORS,
+          useValue: options.entityActionContributors,
         },
         NgSampleModuleExtensionsGuard,
       ],

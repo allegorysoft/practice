@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { RestService } from '@abp/ng.core';
 
@@ -61,10 +61,15 @@ export class SampleService {
     );
 
   deleteCustomer = (id: string) =>
-    of(() => {
-      this._customers.filter(f => f.id !== id);
-      return of(void 0);
-    });
+    of(id).pipe(
+      switchMap(id => {
+        this._customerSubject.next(
+          this._customers.filter(f => f.id !== id)
+        );
+        return of(void 0);
+      })
+    );
+
   //#endregion
 
   constructor(private restService: RestService) {}
