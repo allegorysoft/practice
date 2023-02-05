@@ -8,6 +8,8 @@
     "AreYouSure": "Are you sure?",
     "DisplayName:Name": "Name",
     "DisplayName:Salary": "Salary",
-    "DisplayName:BirthDate": "Birth date"
+    "DisplayName:BirthDate": "Birth date",
+    "NewCustomer":"New customer",
+    "Edit":"Edit"
   }
 }

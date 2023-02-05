@@ -12,11 +12,7 @@ import {
   FormPropData,
   generateFormFromProps,
 } from '@abp/ng.theme.shared/extensions';
-import {
-  CustomerCreateOrUpdateBase,
-  CustomerDto,
-  SampleService,
-} from '../proxy/samples';
+import { CustomerDto, SampleService } from '../proxy/samples';
 import { eNgSampleModuleComponents } from '../enums';
 
 @Component({
@@ -40,11 +36,11 @@ export class NgSampleModuleComponent implements OnInit {
   //#endregion
 
   //#region Fields
+  data: PagedResultDto<CustomerDto> = { items: [], totalCount: 0 };
+  selected: CustomerDto;
   form: UntypedFormGroup;
   isModalVisible: boolean;
   modalBusy = false;
-  selected: CustomerDto;
-  data: PagedResultDto<CustomerDto> = { items: [], totalCount: 0 };
   //#endregion
 
   //#region Utilities
@@ -123,19 +119,6 @@ export class NgSampleModuleComponent implements OnInit {
           });
         }
       });
-  }
-
-  create(): void {
-    const input = {
-      name: `Test-${Math.floor(Math.random() * 10)}`,
-      birthDate: new Date().getDate().toLocaleString(''),
-      salary: Math.floor(1000 + Math.random() * 5000),
-    } as CustomerCreateOrUpdateBase;
-
-    this.service.createCustomer(input).subscribe(() => {
-      this.getCustomers();
-      // this.list.get();// Refresh list from server
-    });
   }
   //#endregion
 }

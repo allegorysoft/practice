@@ -8,6 +8,8 @@
     "AreYouSure": "Emin misin?",
     "DisplayName:Name": "Adı",
     "DisplayName:Salary": "Maaş",
-    "DisplayName:BirthDate": "Doğum tarihi"
+    "DisplayName:BirthDate": "Doğum tarihi",
+    "NewCustomer":"Yeni müşteri",
+    "Edit":"Düzenle"
   }
 }

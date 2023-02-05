@@ -2,7 +2,7 @@ import { Validators } from '@angular/forms';
 import { ePropType, FormProp } from '@abp/ng.theme.shared/extensions';
 import { CustomerDto } from '../proxy/samples';
 
-const { required, minLength, maxLength } = Validators;
+const { required, minLength, maxLength, min } = Validators;
 
 export const DEFAULT_CUSTOMERS_CREATE_FORM_PROPS =
   FormProp.createMany<CustomerDto>([
@@ -18,7 +18,7 @@ export const DEFAULT_CUSTOMERS_CREATE_FORM_PROPS =
       id: 'salary',
       name: 'salary',
       displayName: 'NgSampleModule::DisplayName:Salary',
-      validators: () => [required, minLength(3), maxLength(64)],
+      validators: () => [required, min(1500)],
     },
     {
       type: ePropType.Date,
