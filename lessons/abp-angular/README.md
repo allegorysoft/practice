@@ -24,4 +24,4 @@
 - [ABP Angular HTTP Requests](https://www.youtube.com/watch?v=H4xigL7r-lo&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=10&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
 - [ABP Angular DOM'a Script ve Style Ekleme](https://www.youtube.com/watch?v=tvJNV_B152I&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=11)
 - [ABP Angular Scripts ve Styles Lazy Yükleme](https://www.youtube.com/watch?v=bjugvuHqTeU&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=12&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
-- [ABP Angular Module]()
+- [ABP Angular Module](https://www.youtube.com/watch?v=ypbAkKbgomw&list=PLBEMB-Eql15s3EJwziiMzW4QdFqYjCC34&index=13&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
