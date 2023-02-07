@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Allegory.NgSampleModule</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.MongoDB" Version="7.0.1" />
+    <ProjectReference Include="..\Allegory.NgSampleModule.Domain\Allegory.NgSampleModule.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

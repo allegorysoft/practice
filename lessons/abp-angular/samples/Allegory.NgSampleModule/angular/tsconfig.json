@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@allegory/ng-sample-module": [
+        "projects/ng-sample-module/src/public-api.ts"
+      ],
+      "@allegory/ng-sample-module/config": [
+        "projects/ng-sample-module/config/src/public-api.ts"
+      ],
+      "@allegory/ng-sample-module/proxy": [
+        "projects/ng-sample-module/src/lib/proxy/index.ts"
+      ],
+      "@allegory/ng-sample-module/proxy/*": [
+        "projects/ng-sample-module/src/lib/proxy/*"
+      ]
+    }
+  }
+}

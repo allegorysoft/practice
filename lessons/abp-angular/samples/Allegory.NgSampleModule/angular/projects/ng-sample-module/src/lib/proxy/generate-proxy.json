@@ -1,0 +1,3113 @@
+{
+  "generated": [
+    "ngSampleModule"
+  ],
+  "modules": {
+    "ngSampleModule": {
+      "rootPath": "ngSampleModule",
+      "remoteServiceName": "NgSampleModule",
+      "controllers": {
+        "Allegory.NgSampleModule.Samples.SampleController": {
+          "controllerName": "Sample",
+          "controllerGroupName": "Sample",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Allegory.NgSampleModule.Samples.SampleController",
+          "interfaces": [
+            {
+              "type": "Allegory.NgSampleModule.Samples.ISampleAppService",
+              "name": "ISampleAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Allegory.NgSampleModule.Samples.SampleDto",
+                    "typeSimple": "Allegory.NgSampleModule.Samples.SampleDto"
+                  }
+                },
+                {
+                  "name": "GetAuthorizedAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Allegory.NgSampleModule.Samples.SampleDto",
+                    "typeSimple": "Allegory.NgSampleModule.Samples.SampleDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetAsync": {
+              "uniqueName": "GetAsync",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/NgSampleModule/sample",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Allegory.NgSampleModule.Samples.SampleDto",
+                "typeSimple": "Allegory.NgSampleModule.Samples.SampleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Allegory.NgSampleModule.Samples.ISampleAppService"
+            },
+            "GetAuthorizedAsync": {
+              "uniqueName": "GetAuthorizedAsync",
+              "name": "GetAuthorizedAsync",
+              "httpMethod": "GET",
+              "url": "api/NgSampleModule/sample/authorized",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Allegory.NgSampleModule.Samples.SampleDto",
+                "typeSimple": "Allegory.NgSampleModule.Samples.SampleDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Allegory.NgSampleModule.Samples.ISampleAppService"
+            }
+          }
+        }
+      }
+    },
+    "abp": {
+      "rootPath": "abp",
+      "remoteServiceName": "abp",
+      "controllers": {
+        "Pages.Abp.MultiTenancy.AbpTenantController": {
+          "controllerName": "AbpTenant",
+          "controllerGroupName": "AbpTenant",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Pages.Abp.MultiTenancy.AbpTenantController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService",
+              "name": "IAbpTenantAppService",
+              "methods": [
+                {
+                  "name": "FindTenantByNameAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+                  }
+                },
+                {
+                  "name": "FindTenantByIdAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "FindTenantByNameAsyncByName": {
+              "uniqueName": "FindTenantByNameAsyncByName",
+              "name": "FindTenantByNameAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/multi-tenancy/tenants/by-name/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
+            },
+            "FindTenantByIdAsyncById": {
+              "uniqueName": "FindTenantByIdAsyncById",
+              "name": "FindTenantByIdAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/multi-tenancy/tenants/by-id/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
+            }
+          }
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController": {
+          "controllerName": "AbpApplicationConfiguration",
+          "controllerGroupName": "AbpApplicationConfiguration",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService",
+              "name": "IAbpApplicationConfigurationAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "options",
+                      "typeAsString": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions, Volo.Abp.AspNetCore.Mvc.Contracts",
+                      "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+                      "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetAsyncByOptions": {
+              "uniqueName": "GetAsyncByOptions",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/application-configuration",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "options",
+                  "typeAsString": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions, Volo.Abp.AspNetCore.Mvc.Contracts",
+                  "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+                  "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "options",
+                  "name": "IncludeLocalizationResources",
+                  "jsonName": null,
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "options"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService"
+            }
+          }
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationLocalizationController": {
+          "controllerName": "AbpApplicationLocalization",
+          "controllerGroupName": "AbpApplicationLocalization",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationLocalizationController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationLocalizationAppService",
+              "name": "IAbpApplicationLocalizationAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto, Volo.Abp.AspNetCore.Mvc.Contracts",
+                      "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto",
+                      "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetAsyncByInput": {
+              "uniqueName": "GetAsyncByInput",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/application-localization",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto, Volo.Abp.AspNetCore.Mvc.Contracts",
+                  "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto",
+                  "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "CultureName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "OnlyDynamics",
+                  "jsonName": null,
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationLocalizationAppService"
+            }
+          }
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController": {
+          "controllerName": "AbpApiDefinition",
+          "controllerGroupName": "AbpApiDefinition",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController",
+          "interfaces": [],
+          "actions": {
+            "GetByModel": {
+              "uniqueName": "GetByModel",
+              "name": "Get",
+              "httpMethod": "GET",
+              "url": "api/abp/api-definition",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "model",
+                  "typeAsString": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto, Volo.Abp.Http",
+                  "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
+                  "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "model",
+                  "name": "IncludeTypes",
+                  "jsonName": null,
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "model"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel",
+                "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController"
+            }
+          }
+        }
+      }
+    }
+  },
+  "types": {
+    "Allegory.NgSampleModule.Samples.SampleDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Value",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Success",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TenantId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IncludeLocalizationResources",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Localization",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationConfigurationDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationConfigurationDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Auth",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationAuthConfigurationDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationAuthConfigurationDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Setting",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationSettingConfigurationDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationSettingConfigurationDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CurrentUser",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentUserDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentUserDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Features",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationFeatureConfigurationDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationFeatureConfigurationDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "GlobalFeatures",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationGlobalFeatureConfigurationDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationGlobalFeatureConfigurationDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MultiTenancy",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.MultiTenancyInfoDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.MultiTenancyInfoDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CurrentTenant",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.CurrentTenantDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.CurrentTenantDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Timing",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimingDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimingDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Clock",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClockDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClockDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ObjectExtensions",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ObjectExtensionsDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ObjectExtensionsDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ExtraProperties",
+          "jsonName": null,
+          "type": "{System.String:System.Object}",
+          "typeSimple": "{string:object}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Values",
+          "jsonName": null,
+          "type": "{System.String:System.Collections.Generic.Dictionary<System.String,System.String>}",
+          "typeSimple": "{string:System.Collections.Generic.Dictionary<string,string>}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Resources",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationResourceDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationResourceDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Languages",
+          "jsonName": null,
+          "type": "[Volo.Abp.Localization.LanguageInfo]",
+          "typeSimple": "[Volo.Abp.Localization.LanguageInfo]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CurrentCulture",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentCultureDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentCultureDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DefaultResourceName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LanguagesMap",
+          "jsonName": null,
+          "type": "{System.String:[Volo.Abp.NameValue]}",
+          "typeSimple": "{string:[Volo.Abp.NameValue]}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LanguageFilesMap",
+          "jsonName": null,
+          "type": "{System.String:[Volo.Abp.NameValue]}",
+          "typeSimple": "{string:[Volo.Abp.NameValue]}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationResourceDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Texts",
+          "jsonName": null,
+          "type": "{System.String:System.String}",
+          "typeSimple": "{string:string}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "BaseResources",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Localization.LanguageInfo": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CultureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UiCultureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DisplayName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TwoLetterISOLanguageName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "FlagIcon",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentCultureDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "DisplayName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "EnglishName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThreeLetterIsoLanguageName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TwoLetterIsoLanguageName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsRightToLeft",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CultureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "NativeName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateTimeFormat",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.DateTimeFormatDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.DateTimeFormatDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.DateTimeFormatDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CalendarAlgorithmType",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateTimeFormatLong",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ShortDatePattern",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "FullDateTimePattern",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateSeparator",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ShortTimePattern",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LongTimePattern",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.NameValue": {
+      "baseType": "Volo.Abp.NameValue<System.String>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": []
+    },
+    "Volo.Abp.NameValue<T0>": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "T"
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Value",
+          "jsonName": null,
+          "type": "T",
+          "typeSimple": "T",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationAuthConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "GrantedPolicies",
+          "jsonName": null,
+          "type": "{System.String:System.Boolean}",
+          "typeSimple": "{string:boolean}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationSettingConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Values",
+          "jsonName": null,
+          "type": "{System.String:System.String}",
+          "typeSimple": "{string:string}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.CurrentUserDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsAuthenticated",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TenantId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ImpersonatorUserId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ImpersonatorTenantId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ImpersonatorUserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ImpersonatorTenantName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SurName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "EmailVerified",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumberVerified",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Roles",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationFeatureConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Values",
+          "jsonName": null,
+          "type": "{System.String:System.String}",
+          "typeSimple": "{string:string}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationGlobalFeatureConfigurationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "EnabledFeatures",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.MultiTenancy.MultiTenancyInfoDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.MultiTenancy.CurrentTenantDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsAvailable",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimingDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "TimeZone",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimeZone",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimeZone",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.TimeZone": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Iana",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IanaTimeZone",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IanaTimeZone",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Windows",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.WindowsTimeZone",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.WindowsTimeZone",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IanaTimeZone": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "TimeZoneName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.WindowsTimeZone": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "TimeZoneId",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClockDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Kind",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ObjectExtensionsDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Modules",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ModuleExtensionDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ModuleExtensionDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Enums",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ModuleExtensionDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Entities",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.EntityExtensionDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.EntityExtensionDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Configuration",
+          "jsonName": null,
+          "type": "{System.String:System.Object}",
+          "typeSimple": "{string:object}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.EntityExtensionDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Properties",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Configuration",
+          "jsonName": null,
+          "type": "{System.String:System.Object}",
+          "typeSimple": "{string:object}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DisplayName",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.LocalizableStringDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.LocalizableStringDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Api",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Ui",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Attributes",
+          "jsonName": null,
+          "type": "[Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyAttributeDto]",
+          "typeSimple": "[Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyAttributeDto]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Configuration",
+          "jsonName": null,
+          "type": "{System.String:System.Object}",
+          "typeSimple": "{string:object}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DefaultValue",
+          "jsonName": null,
+          "type": "System.Object",
+          "typeSimple": "object",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.LocalizableStringDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Resource",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "OnGet",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiGetDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiGetDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "OnCreate",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiCreateDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiCreateDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "OnUpdate",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiUpdateDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiUpdateDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiGetDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiCreateDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyApiUpdateDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "OnTable",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiTableDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiTableDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "OnCreateForm",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiFormDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiFormDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "OnEditForm",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiFormDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiFormDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Lookup",
+          "jsonName": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiLookupDto",
+          "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiLookupDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiTableDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsVisible",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiFormDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IsVisible",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyUiLookupDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Url",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ResultListPropertyName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DisplayPropertyName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ValuePropertyName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "FilterParamName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionPropertyAttributeDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Config",
+          "jsonName": null,
+          "type": "{System.String:System.Object}",
+          "typeSimple": "{string:object}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Fields",
+          "jsonName": null,
+          "type": "[Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumFieldDto]",
+          "typeSimple": "[Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumFieldDto]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LocalizationResource",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ObjectExtending.ExtensionEnumFieldDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Value",
+          "jsonName": null,
+          "type": "System.Object",
+          "typeSimple": "object",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationRequestDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CultureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "OnlyDynamics",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Resources",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationResourceDto}",
+          "typeSimple": "{string:Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationLocalizationResourceDto}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "IncludeTypes",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Modules",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.Http.Modeling.ModuleApiDescriptionModel}",
+          "typeSimple": "{string:Volo.Abp.Http.Modeling.ModuleApiDescriptionModel}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Types",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.Http.Modeling.TypeApiDescriptionModel}",
+          "typeSimple": "{string:Volo.Abp.Http.Modeling.TypeApiDescriptionModel}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ModuleApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "RootPath",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "RemoteServiceName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Controllers",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.Http.Modeling.ControllerApiDescriptionModel}",
+          "typeSimple": "{string:Volo.Abp.Http.Modeling.ControllerApiDescriptionModel}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ControllerApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ControllerName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ControllerGroupName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsRemoteService",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsIntegrationService",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ApiVersion",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Interfaces",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.ControllerInterfaceApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.ControllerInterfaceApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Actions",
+          "jsonName": null,
+          "type": "{System.String:Volo.Abp.Http.Modeling.ActionApiDescriptionModel}",
+          "typeSimple": "{string:Volo.Abp.Http.Modeling.ActionApiDescriptionModel}",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ControllerInterfaceApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Methods",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.InterfaceMethodApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.InterfaceMethodApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.InterfaceMethodApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParametersOnMethod",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.MethodParameterApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.MethodParameterApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ReturnValue",
+          "jsonName": null,
+          "type": "Volo.Abp.Http.Modeling.ReturnValueApiDescriptionModel",
+          "typeSimple": "Volo.Abp.Http.Modeling.ReturnValueApiDescriptionModel",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.MethodParameterApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeAsString",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsOptional",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DefaultValue",
+          "jsonName": null,
+          "type": "System.Object",
+          "typeSimple": "object",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ReturnValueApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ActionApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "UniqueName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "HttpMethod",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Url",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SupportedVersions",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParametersOnMethod",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.MethodParameterApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.MethodParameterApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Parameters",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.ParameterApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.ParameterApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ReturnValue",
+          "jsonName": null,
+          "type": "Volo.Abp.Http.Modeling.ReturnValueApiDescriptionModel",
+          "typeSimple": "Volo.Abp.Http.Modeling.ReturnValueApiDescriptionModel",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AllowAnonymous",
+          "jsonName": null,
+          "type": "System.Boolean?",
+          "typeSimple": "boolean?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ImplementFrom",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.ParameterApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "NameOnMethod",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "JsonName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsOptional",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DefaultValue",
+          "jsonName": null,
+          "type": "System.Object",
+          "typeSimple": "object",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ConstraintTypes",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "BindingSourceId",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DescriptorName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.TypeApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "BaseType",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsEnum",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "EnumNames",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "EnumValues",
+          "jsonName": null,
+          "type": "[System.Object]",
+          "typeSimple": "[object]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "GenericArguments",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Properties",
+          "jsonName": null,
+          "type": "[Volo.Abp.Http.Modeling.PropertyApiDescriptionModel]",
+          "typeSimple": "[Volo.Abp.Http.Modeling.PropertyApiDescriptionModel]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Http.Modeling.PropertyApiDescriptionModel": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "JsonName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TypeSimple",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsRequired",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MinLength",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "MaxLength",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Minimum",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Maximum",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Regex",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    }
+  }
+}

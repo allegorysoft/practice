@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.Theming" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Allegory.NgSampleModule.Blazor\Allegory.NgSampleModule.Blazor.csproj" />
+        <ProjectReference Include="..\Allegory.NgSampleModule.HttpApi.Client\Allegory.NgSampleModule.HttpApi.Client.csproj" />
+    </ItemGroup>
+
+</Project>

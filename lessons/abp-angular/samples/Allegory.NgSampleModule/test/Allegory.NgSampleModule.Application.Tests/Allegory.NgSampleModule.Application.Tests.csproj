@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Allegory.NgSampleModule</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Allegory.NgSampleModule.Application\Allegory.NgSampleModule.Application.csproj" />
+    <ProjectReference Include="..\Allegory.NgSampleModule.Domain.Tests\Allegory.NgSampleModule.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Allegory.NgSampleModule": {
+      "path": "Allegory.NgSampleModule.abpmdl.json"
+    }
+  }
+}

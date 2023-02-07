@@ -1,0 +1,8 @@
+@page "/NgSampleModule"
+@using Microsoft.Extensions.Localization
+@using global::Allegory.NgSampleModule.Localization
+@inject IStringLocalizer<NgSampleModuleResource> L
+@{
+}
+<h1>NgSampleModule</h1>
+<p>@L["SamplePageMessage"]</p>

@@ -1,0 +1,15 @@
+{
+  "culture": "tr",
+  "texts": {
+    "MyAccount": "Hesabım",
+    "SamplePageMessage": "NgSampleModule modulünden örnek bir sayfa",
+    "Menu:NgSampleModule": "NgSampleModule",
+    "CustomerDeletionConfirmationMessage": "{0} adlı müşteri silinecek",
+    "AreYouSure": "Emin misin?",
+    "DisplayName:Name": "Adı",
+    "DisplayName:Salary": "Maaş",
+    "DisplayName:BirthDate": "Doğum tarihi",
+    "NewCustomer":"Yeni müşteri",
+    "Edit":"Düzenle"
+  }
+}
