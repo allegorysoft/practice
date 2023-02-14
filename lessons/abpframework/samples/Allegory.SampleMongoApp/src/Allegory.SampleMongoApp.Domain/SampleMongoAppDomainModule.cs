@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Allegory.SampleMongoApp.MultiTenancy;
-using Allegory.SampleMongoApp.OptionPattern;
+using Allegory.SampleMongoApp.OptionsPattern;
 using Microsoft.Extensions.Configuration;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;

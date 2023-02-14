@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Allegory.SampleMongoApp.OptionPattern;
+namespace Allegory.SampleMongoApp.OptionsPattern;
 
 public class SamplePreOptions
 {

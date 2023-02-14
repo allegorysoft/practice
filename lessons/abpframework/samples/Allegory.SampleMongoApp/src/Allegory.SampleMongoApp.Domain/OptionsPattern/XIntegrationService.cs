@@ -2,14 +2,14 @@
 using Microsoft.Extensions.Options;
 using Volo.Abp.DependencyInjection;
 
-namespace Allegory.SampleMongoApp.OptionPattern;
+namespace Allegory.SampleMongoApp.OptionsPattern;
 
 [DisableConventionalRegistration]
-public class YIntegrationService : IIntegrationService
+public class XIntegrationService : IIntegrationService
 {
     protected virtual SampleOptions Options { get; }
 
-    public YIntegrationService(IOptions<SampleOptions> options)
+    public XIntegrationService(IOptions<SampleOptions> options)
     {
         Options = options.Value;
     }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 
-namespace Allegory.SampleMongoApp.OptionPattern;
+namespace Allegory.SampleMongoApp.OptionsPattern;
 
 public interface IIntegrationService : ITransientDependency
 {
