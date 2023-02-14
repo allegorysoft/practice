@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Allegory.SampleMongoApp.MultiTenancy;
+using Allegory.SampleMongoApp.OptionsPattern;
+using Microsoft.Extensions.Configuration;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Emailing;
@@ -31,12 +33,34 @@ namespace Allegory.SampleMongoApp;
 )]
 public class SampleMongoAppDomainModule : AbpModule
 {
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        PreConfigure<SamplePreOptions>(options =>
+        {
+            options.IntegrationService = context.Services.GetConfiguration().GetValue<string>("SamplePre:IntegrationService");
+            options.DoOtherThings = true;
+        });
+    }
+
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        Configure<AbpMultiTenancyOptions>(options =>
+        Configure<SampleOptions>(context.Services.GetConfiguration().GetSection(SampleOptions.Position));
+        /*
+        Configure<SampleOptions>(c =>
         {
-            options.IsEnabled = MultiTenancyConsts.IsEnabled;
+            c.Username = "ahmet";
+            c.Password = "edFg4Ac";
         });
+        */
+
+        var option = context.Services.ExecutePreConfiguredActions<SamplePreOptions>();
+        context.Services.AddTransient(typeof(IIntegrationService), option.GetIntegrationService());
+        if (option.DoOtherThings)
+        {
+            //...
+        }
+
+        Configure<AbpMultiTenancyOptions>(options => { options.IsEnabled = MultiTenancyConsts.IsEnabled; });
 
 #if DEBUG
         context.Services.Replace(ServiceDescriptor.Singleton<IEmailSender, NullEmailSender>());
