@@ -5,6 +5,7 @@
       <span class="w-100 p-float-label p-input-icon-left mt-4" validationTarget>
         <i class="pi pi-user"></i>
         <input
+          [skipValidation]="true"
           pInputText
           type="text"
           id="name"
@@ -19,10 +20,11 @@
     <div class="col-md-4">
       <span class="w-100 p-float-label mt-4" validationTarget>
         <p-dropdown
-          inputId="country"
+          inputId="countryId"
+          optionValue="id"
           optionLabel="name"
           class="w-100"
-          formControlName="country"
+          formControlName="countryId"
           styleClass="w-100 p-inputtext-sm "
           [autoDisplayFirst]="false"
           [options]="(countries$ | async)!"
@@ -46,128 +48,10 @@
   <hr />
 
   <div class="row">
-    <div class="col-md-12" formArrayName="orders">
-      <p-table
-        [value]="orders.controls"
-        styleClass="p-datatable-sm p-datatable-gridlines"
-      >
-        <ng-template pTemplate="caption">
-          <div class="flex align-items-center justify-content-between">
-            Sipariş kayıtları
-            <p-button
-              styleClass="p-button-xsm p-button-rounded p-button-outlined p-button-info"
-              icon="pi pi-plus"
-              (onClick)="addNewRow()"
-            ></p-button>
-          </div>
-        </ng-template>
-
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="text-center" style="width: 5%">İşlemler</th>
-            <th>Sipariş No</th>
-            <th>Ürün</th>
-            <th>Birim Fiyat</th>
-            <th>Adet</th>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="body" let-controls let-i="rowIndex">
-          <tr [formGroupName]="i" class="pb-3">
-            <td>
-              <button
-                pButton
-                pRipple
-                type="button"
-                icon="pi pi-trash"
-                class="p-button-rounded p-button-text p-button-danger"
-                (click)="remove(i)"
-              ></button>
-            </td>
-            <td class="p-3">
-              <span class="w-100" validationTarget>
-                <input
-                  pInputText
-                  type="text"
-                  id="number"
-                  name="number"
-                  formControlName="number"
-                  class="p-inputtext-sm w-100 form-control"
-                />
-              </span>
-            </td>
-            <td>
-              <p-dropdown
-                inputId="productId"
-                optionValue="id"
-                optionLabel="name"
-                class="w-100"
-                formControlName="productId"
-                styleClass="w-100 p-inputtext-sm"
-                [autoDisplayFirst]="false"
-                [options]="(products$ | async)!"
-                appendTo="body"
-                placeholder="Ürün"
-                [panelStyleClass]="'is-invalid'"
-              >
-                <ng-template let-selected pTemplate="selectedItem">
-                  {{ selected.name }}
-                </ng-template>
-                <ng-template let-product pTemplate="item">
-                  {{ product.name }}
-                </ng-template>
-              </p-dropdown>
-            </td>
-            <td>
-              <span class="w-100 form-group">
-                <p-inputNumber
-                  inputId="price"
-                  formControlName="price"
-                  mode="currency"
-                  [currency]="currency"
-                  [locale]="locale"
-                  class="p-inputtext-sm"
-                  inputStyleClass="form-control {{
-                    controls.get('price').invalid ? 'is-invalid' : ''
-                  }}"
-                >
-                </p-inputNumber>
-              </span>
-            </td>
-            <td>
-              <span class="w-100 form-group">
-                <p-inputNumber
-                  inputId="amount"
-                  formControlName="amount"
-                  [minFractionDigits]="2"
-                  [maxFractionDigits]="2"
-                  class="p-inputtext-sm"
-                  inputStyleClass="form-control {{
-                    controls.get('amount').invalid ? 'is-invalid' : ''
-                  }}"
-                >
-                </p-inputNumber>
-                <!-- <p-inputNumber
-                  inputId="amount"
-                  formControlName="amount"
-                  mode="amount"
-                  class="p-inputtext-sm"
-                  inputStyleClass="form-control {{
-                    controls.get('price').invalid ? 'is-invalid' : ''
-                  }}"
-                >
-                </p-inputNumber> -->
-              </span>
-            </td>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="emptymessage">
-          <tr>
-            <td class="text-center" colspan="5s">Hiç kayıt yok</td>
-          </tr>
-        </ng-template>
-      </p-table>
+    <div class="col-md-12">
+      <app-customer-orders
+        [orders]="customerForm.controls.orders"
+      ></app-customer-orders>
     </div>
   </div>
 

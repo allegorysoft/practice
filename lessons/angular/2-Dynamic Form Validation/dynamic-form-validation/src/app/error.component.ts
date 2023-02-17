@@ -16,4 +16,8 @@ import { ValidationErrorComponent } from '@ngx-validate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ErrorComponent extends ValidationErrorComponent {}
+export class ErrorComponent extends ValidationErrorComponent {
+  ngOnInit(): void {
+    console.log(this.errors);
+  }
+}

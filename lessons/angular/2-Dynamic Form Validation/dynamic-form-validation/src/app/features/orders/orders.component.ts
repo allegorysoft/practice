@@ -60,6 +60,5 @@ export default class OrdersComponent {
 
     console.log(this.orderForm.value);
     this.orderForm.reset();
-    
   }
 }

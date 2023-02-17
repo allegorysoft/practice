@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

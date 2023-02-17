@@ -9,11 +9,10 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgxValidateCoreModule } from '@ngx-validate/core';
+import { BLUEPRINTS, NgxValidateCoreModule } from '@ngx-validate/core';
 import { CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { ErrorComponent } from './error.component';
 import { AppComponent } from './app.component';
 
@@ -37,7 +36,7 @@ import { AppComponent } from './app.component';
 
       //Geçersiz icon sınıfını hangi etikete(tag) ekleyeceğini seçiyor
       // targetSelector: '.col-md-4',
-      targetSelector: 'p-component',
+
       //Hata mesajını göstermek için kullanacağı componenti belirliyoruz(Zorunlu değil)
       errorTemplate: ErrorComponent,
 

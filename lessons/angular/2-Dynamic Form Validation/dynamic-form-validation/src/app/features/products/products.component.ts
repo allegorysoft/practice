@@ -5,7 +5,6 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { NgxValidateCoreModule } from '@ngx-validate/core';
 
 import { SharedModule } from '@app/shared.module';
-
 import { CodeValidators } from '@app/features/shared';
 
 const { required, min, minLength } = Validators;
