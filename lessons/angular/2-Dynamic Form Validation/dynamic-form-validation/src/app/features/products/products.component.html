@@ -1,0 +1,51 @@
+<form class="row g-3 needs-validation" [formGroup]="form" (submit)="save()">
+  <h4>Ürün ekle</h4>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="code" class="form-label">Kodu</label>
+      <input
+        type="text"
+        id="code"
+        name="code"
+        formControlName="code"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="name" class="form-label">Adı</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        formControlName="name"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-12">
+    <div class="form-group" validationTarget>
+      <label for="price" class="form-label">Birim fiyat</label>
+      <input
+        currencyMask
+        type="text"
+        id="price"
+        name="price"
+        formControlName="price"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <div class="col-12">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [class.disabled]="form.invalid"
+    >
+      Kaydet
+    </button>
+  </div>
+</form>

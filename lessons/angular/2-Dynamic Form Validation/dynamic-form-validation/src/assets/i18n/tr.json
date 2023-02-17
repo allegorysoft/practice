@@ -1,0 +1,6 @@
+{
+  "required": "Bu alan zorunlu!",
+  "min": "Min değer {{ min }} olmalı. ({{ actual }} girildi)",
+  "minlength": "Bu alan en az {{ requiredLength }} karakter olmalıdır",
+  "invalidCode": "Geçersiz kod, {{ value }} ile başlamalı"
+}
