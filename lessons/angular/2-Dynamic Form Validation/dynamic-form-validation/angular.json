@@ -50,6 +50,11 @@
                 "inject": true,
                 "bundleName": "tailwind-light"
               },
+              {
+                "input": "./node_modules/primeng/resources/themes/mdc-light-deeppurple/theme.css",
+                "inject": false,
+                "bundleName": "mdc-light-deeppurple"
+              },
               "src/styles.scss"
             ],
             "scripts": []

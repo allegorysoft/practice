@@ -40,7 +40,7 @@ export default class CustomersComponent {
   customerForm = inject(FormBuilder).group({
     name: new FormControl('', {
       nonNullable: true,
-      validators: [required, maxLength(3)],
+        validators: [required],
     }),
     countryId: new FormControl('', {
       nonNullable: true,
