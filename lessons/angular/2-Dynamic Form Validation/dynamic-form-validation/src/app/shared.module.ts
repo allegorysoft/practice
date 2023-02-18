@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [NgIf, NgFor, ReactiveFormsModule],

@@ -3,9 +3,7 @@ import { Component, Input } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-export function hasKeys(val: any): boolean {
-  return Object.keys(val).length > 0;
-}
+export const hasKeys = (val: any): boolean => Object.keys(val).length > 0;
 
 export interface AppError {
   message: string;

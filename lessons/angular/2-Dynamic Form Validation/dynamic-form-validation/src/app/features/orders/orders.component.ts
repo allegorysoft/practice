@@ -44,11 +44,8 @@ export default class OrdersComponent {
     return this.orderForm.controls.number;
   }
 
-  hasTouchedOrDirty = (control: FormControl<any>): boolean =>
-    control.touched || control.dirty;
-
   isInvalid = (control: FormControl<any>): boolean =>
-    this.hasTouchedOrDirty(control) && control.invalid;
+    (control.touched || control.dirty) && control.invalid;
 
   save(): void {
     if (this.orderForm.invalid) {

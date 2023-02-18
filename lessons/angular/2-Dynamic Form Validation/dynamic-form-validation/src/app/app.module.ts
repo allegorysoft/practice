@@ -9,7 +9,8 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { BLUEPRINTS, NgxValidateCoreModule } from '@ngx-validate/core';
+
+import { NgxValidateCoreModule } from '@ngx-validate/core';
 import { CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +46,7 @@ import { AppComponent } from './app.component';
 
       //Kendimize ait hata mesajlarını ekliyoruz(Zorunlu değil)
       blueprints: {
+        required: 'Bu bir deneme mesajıdır',
         productName: 'Ürün adı XYZ ile başlamalı',
       },
     }),
