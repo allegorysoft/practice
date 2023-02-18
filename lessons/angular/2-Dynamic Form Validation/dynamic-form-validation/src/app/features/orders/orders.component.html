@@ -1,0 +1,60 @@
+<form class="row g-3" [formGroup]="orderForm" (ngSubmit)="save()">
+  <h4>Sipariş ekle</h4>
+
+  <div class="col-md-4">
+    <label for="customer" class="form-label">Müşteri</label>
+    <select
+      id="customer"
+      name="customer"
+      formControlName="customer"
+      class="form-select"
+      [class.is-invalid]="isInvalid(customer)"
+    >
+      <option selected disabled value="">Müşteri Seç</option>
+      <option *ngFor="let customer of customers$ | async" [value]="customer.id">
+        {{ customer.name }}
+      </option>
+    </select>
+
+    <div *ngIf="isInvalid(customer)" class="text-danger">
+      <app-custom-error [errors]="customer.errors"></app-custom-error>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <label for="number" class="form-label">Sipariş numarası</label>
+    <input
+      type="text"
+      id="number"
+      name="number"
+      formControlName="number"
+      class="form-control"
+      [class.is-invalid]="isInvalid(number)"
+    />
+
+    <div *ngIf="isInvalid(number)" class="text-danger">
+      <app-custom-error [errors]="number.errors"></app-custom-error>
+    </div>
+  </div>
+
+  <!--Actions-->
+  <div class="col-12">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [class.disabled]="orderForm.invalid"
+    >
+      Kaydet
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary m-2"
+      [class.disabled]="!orderForm.touched"
+      (click)="orderForm.reset()"
+    >
+      Temizle
+    </button>
+  </div>
+  <!--Actions-->
+</form>

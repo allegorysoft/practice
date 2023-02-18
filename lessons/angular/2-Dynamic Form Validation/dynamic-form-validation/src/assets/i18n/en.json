@@ -1,0 +1,6 @@
+{
+  "required": "This field is required!",
+  "min": "Min. value should be {{ min }}. ({{ actual }} entered)",
+  "minlength": "This field should be {{ requiredLength }} character",
+  "invalidCode": "Invalid code, code must be start with {{ value }}"
+}

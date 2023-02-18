@@ -1,0 +1,68 @@
+<form [formGroup]="customerForm" #form="ngForm" (ngSubmit)="save(form)">
+  <h4>Müşteri ekle</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <span class="w-100 p-float-label p-input-icon-left mt-4" validationTarget>
+        <i class="pi pi-user"></i>
+        <input
+          pInputText
+          type="text"
+          id="name"
+          name="name"
+          formControlName="name"
+          class="p-inputtext-sm w-100 form-control"
+        />
+        <label for="inputtext-left">Müşteri Adı</label>
+      </span>
+    </div>
+
+    <div class="col-md-4">
+      <span class="w-100 p-float-label mt-4" validationTarget>
+        <p-dropdown
+          inputId="countryId"
+          optionValue="id"
+          optionLabel="name"
+          class="w-100"
+          formControlName="countryId"
+          styleClass="w-100 p-inputtext-sm "
+          [autoDisplayFirst]="false"
+          [options]="(countries$ | async)!"
+        >
+          <ng-template let-selected pTemplate="selectedItem">
+            <div class="country-item">
+              {{ selected.name }}
+            </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+            <div class="country-item">
+              <div>{{ country.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <label for="countries">Ülke</label>
+      </span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12">
+      <app-customer-orders
+        [orders]="customerForm.controls.orders"
+      ></app-customer-orders>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <button
+        type="submit"
+        class="btn btn-primary mt-3"
+        [class.disabled]="customerForm.invalid"
+      >
+        Kaydet
+      </button>
+    </div>
+  </div>
+</form>
