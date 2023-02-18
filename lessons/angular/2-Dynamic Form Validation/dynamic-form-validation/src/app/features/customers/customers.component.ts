@@ -19,7 +19,7 @@ import { Order } from './models';
 import { CustomerService } from './customer.service';
 import { CustomerOrdersComponent } from './customer-orders.component';
 
-const { required, maxLength } = Validators;
+const { required } = Validators;
 
 @Component({
   selector: 'app-customers',
@@ -40,7 +40,7 @@ export default class CustomersComponent {
   customerForm = inject(FormBuilder).group({
     name: new FormControl('', {
       nonNullable: true,
-        validators: [required],
+      validators: [required],
     }),
     countryId: new FormControl('', {
       nonNullable: true,
