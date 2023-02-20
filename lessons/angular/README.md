@@ -13,4 +13,4 @@
 ## Eğitimler
 
 - [NgTemplateOutlet](https://www.youtube.com/watch?v=cTEz_p0nUX4&list=PLBEMB-Eql15twqXdp3cXKuXckFlQ9q_AP&ab_channel=AlegoriYaz%C4%B1l%C4%B1m)
-- [Dynamic Form Validation]()
+- [Dynamic Form Validation](https://www.youtube.com/watch?v=0G2SsEpnVUs&list=PLBEMB-Eql15twqXdp3cXKuXckFlQ9q_AP&index=2)
