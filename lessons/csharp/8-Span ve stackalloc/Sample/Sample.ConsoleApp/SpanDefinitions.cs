@@ -1,4 +1,6 @@
-﻿namespace Sample.ConsoleApp;
+﻿using BenchmarkDotNet.Attributes;
+
+namespace Sample.ConsoleApp;
 
 public class SpanDefinitions
 {
@@ -32,5 +34,23 @@ public class SpanDefinitions
         Span<IntWrapper> arraySpan2 = arraySpan.AsSpan()[1..3]; //Diğer yöntem: arraySpan.AsSpan(1,2);
         arraySpan2[0] = new IntWrapper(500);
         Console.WriteLine("İlk dizi: {0}, İkinci dizi: {1}", arraySpan[1].Number, arraySpan2[0].Number);
+    }
+}
+
+[MemoryDiagnoser]
+public class SpanBenchmark
+{
+    private readonly int[] _numbers = Enumerable.Range(1, 5).ToArray();
+
+    [Benchmark]
+    public void ToArray()
+    {
+        int[] numbers = _numbers[1..3];
+    }
+
+    [Benchmark]
+    public void AsSpan()
+    {
+        Span<int> span = _numbers.AsSpan()[1..3];
     }
 }

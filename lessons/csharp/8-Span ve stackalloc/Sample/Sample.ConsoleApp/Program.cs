@@ -1,4 +1,7 @@
-﻿using Sample.ConsoleApp;
+﻿using BenchmarkDotNet.Running;
+using Sample.ConsoleApp;
 
-SpanDefinitions.Do();
+//SpanDefinitions.Do();
+BenchmarkRunner.Run<SpanBenchmark>();
+
 Console.ReadKey();
