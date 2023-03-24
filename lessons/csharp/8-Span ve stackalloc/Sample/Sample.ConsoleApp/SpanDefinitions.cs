@@ -1,4 +1,5 @@
-﻿using BenchmarkDotNet.Attributes;
+﻿using System.Runtime.CompilerServices;
+using BenchmarkDotNet.Attributes;
 
 namespace Sample.ConsoleApp;
 
@@ -8,6 +9,19 @@ public class SpanDefinitions
     {
         ValueTypeBehaviour();
         ReferenceTypeBehaviour();
+    }
+
+    static void CreateSpan()
+    {
+        var array = new byte[] { 1, 2, 3, 4, 5 };
+        Span<byte> arraySpan = array;
+        //var arraySpan =  new Span<byte>(array, 1, 2);
+        //var arraySpan = array.AsSpan(1, 2);
+        var arraySpan2 = arraySpan.Slice(1, 2);
+        arraySpan.Fill(5);
+        arraySpan.Clear();
+
+        Span<byte> stackSpan = stackalloc byte[] { 1, 2, 3, 4, 5 };
     }
 
     static void ValueTypeBehaviour()
@@ -43,9 +57,10 @@ public class SpanBenchmark
     private readonly int[] _numbers = Enumerable.Range(1, 5).ToArray();
 
     [Benchmark]
-    public void ToArray()
+    public void GetSubArray()
     {
         int[] numbers = _numbers[1..3];
+        //RuntimeHelpers.GetSubArray(_numbers, 1..3);
     }
 
     [Benchmark]
