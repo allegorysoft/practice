@@ -10,7 +10,20 @@ public class SpanBenchmark
     private readonly List<IntWrapper> _numbers = IntWrapper.Create(100).ToList();
 
     [Benchmark]
-    public void GetDateWithLinq()
+    public void CreateSpanWithExistingArray()
+    {
+        byte[] bytes = new byte[] { 1, 2, 3, 4, 5 };
+        Span<byte> span = bytes;
+    }
+
+    [Benchmark]
+    public void CreateSpanWithStackalloc()
+    {
+        Span<byte> span = stackalloc byte[] { 1, 2, 3, 4, 5 };
+    }
+
+    [Benchmark]
+    public void GetDateWithSubstring()
     {
         int year = int.Parse(_invoiceNumber.Substring(3, 4));
         int month = int.Parse(_invoiceNumber.Substring(7, 2));
@@ -39,7 +52,7 @@ public class SpanBenchmark
     }
 
     [Benchmark]
-    public void LoopSpan()
+    public void LoopSpanForeach()
     {
         Span<IntWrapper> span = CollectionsMarshal.AsSpan(_numbers);
         foreach (var number in span)
