@@ -5,15 +5,6 @@
 - Veritabanı bağlantı cümlenizi bağlanmak istediğiniz sunucu bilgilerine göre ayarlayın
 - samples klasöründe yada çalıştırmak istediğiniz uygulamanın klasör yolunda komut ekranını açıp **abp install-libs** kodunu çalıştırın [detay için](https://github.com/abpframework/abp/issues/8528)
 
-## Eğitim Sırasında Kullandığım Araçlar
-- [Sunum](https://www.canva.com) 
-- [Akış diyagramı](https://app.diagrams.net)
-- [Örnek kod tasarımı](https://carbon.now.sh)
-- [Ekran kaydetme](https://www.easeus.com/screen-recorder)
-- [Video düzenleme](https://multimedia.easeus.com/video-editor)
-- [Postman](https://www.postman.com)
-- [Azure Data Studio](https://azure.microsoft.com/en-us/services/developer-tools/data-studio/)
-
 ## Eğitimler
 
 - [ABP Framework'e Giriş](https://www.youtube.com/watch?v=JvwPpSTEAvg&list=PLBEMB-Eql15s3kaMvQ6pIobVk492a7s9j&index=1)
