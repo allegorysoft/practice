@@ -12,3 +12,4 @@
 - [C# Kutulama ve Kutudan Çıkarma (Boxing, Unboxing)](https://www.youtube.com/watch?v=I7V8ydWiadY&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=7)
 - [C# Span ve stackalloc Kullanarak Yüksek Performanslı Kodlama](https://www.youtube.com/watch?v=35L0_1Ajo8w&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=8)
 - [C# ile Recursive Fonksiyonlar: Call Stack Nedir ve Neden Önemlidir?](https://www.youtube.com/watch?v=-kNOML9JmE8&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=9)
+- [C# Delegate ile Metotları Değişken Gibi Kullanın (Action, Func, Lambda Expressions, Closures)]()
