@@ -10,6 +10,9 @@ public class Example
     {
         Create();
         CombineDelegates();
+        LambdaExpressions();
+        ActionFunc();
+        Closures();
     }
 
     void Create()
@@ -46,6 +49,41 @@ public class Example
             basicDelegate();
             Console.WriteLine($"Target: {basicDelegate.Target} Method: {basicDelegate.Method}");
         }
+    }
+
+    void LambdaExpressions()
+    {
+        BasicDelegate delegate1 = delegate { Console.WriteLine("Anonymous method"); };
+
+        BasicDelegate delegate2 = () => Console.WriteLine("Lambda expression");
+
+        Calculate add = (int x, int y) =>
+        {
+            Console.WriteLine("Adding...");
+            return x + y;
+        };
+    }
+
+    void ActionFunc()
+    {
+        Action action = Foo;
+        action += () =>
+        {
+            Console.WriteLine("Lambda method");
+        };
+        action();
+
+        Func<int> func = () => 10;
+        Console.WriteLine(func());
+    }
+
+    void Closures()
+    {
+        int i = 0;
+        Action a = () => i++;
+        i++;
+        a();
+        Console.WriteLine(i);
     }
 
     void Foo()
