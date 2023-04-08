@@ -1,5 +1,8 @@
-﻿using Sample.ConsoleApp;
+﻿using BenchmarkDotNet.Running;
+using Sample.ConsoleApp;
 
-new Example().Do();
-UseCases.Do();
+//new Example().Do();
+//UseCases.Do();
+BenchmarkRunner.Run<DelegateBenchmark>();
+
 Console.ReadKey();
