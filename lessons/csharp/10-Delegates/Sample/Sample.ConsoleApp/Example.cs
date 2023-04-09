@@ -59,7 +59,7 @@ public class Example
         BasicDelegate delegate1 = delegate { Console.WriteLine("Anonymous method"); };
         BasicDelegate delegate2 = () => Console.WriteLine("Lambda expression");
 
-        static void localFunction()
+        void localFunction()
         {
             Console.WriteLine("Local function");
         }
