@@ -26,6 +26,9 @@ public class Example
         delegate2();
         var total = delegate3(5, 10);
 
+        Zoo(delegate1);
+        Zoo(delegate2);
+
         var delegate1Method = delegate1.Method;
         var delegate1Target = delegate1.Target;
         var delegate2Method = delegate2.Method;
@@ -94,6 +97,11 @@ public class Example
     static void Goo()
     {
         Console.WriteLine("Goo");
+    }
+
+    void Zoo(BasicDelegate basicDelegate)
+    {
+        basicDelegate();
     }
 
     int Add(int number1, int number2)
