@@ -57,23 +57,27 @@ public class Example
     void LambdaExpressions()
     {
         BasicDelegate delegate1 = delegate { Console.WriteLine("Anonymous method"); };
-
         BasicDelegate delegate2 = () => Console.WriteLine("Lambda expression");
+
+        static void localFunction()
+        {
+            Console.WriteLine("Local function");
+        }
 
         Calculate add = (int x, int y) =>
         {
             Console.WriteLine("Adding...");
             return x + y;
         };
+
+        Zoo(() => { Console.WriteLine("Zoo called with lambda expression"); });
+        Zoo(localFunction);
     }
 
     void ActionFunc()
     {
         Action action = Foo;
-        action += () =>
-        {
-            Console.WriteLine("Lambda method");
-        };
+        action += () => { Console.WriteLine("Lambda method"); };
         action();
 
         Func<int> func = () => 10;
