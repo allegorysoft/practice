@@ -4,7 +4,11 @@ public static class UseCases
 {
     public static void Do()
     {
-        HandleException(MethodThrowException, onException: (exception) => Thread.Sleep(1000));
+        HandleException(MethodThrowException, onException: (exception) =>
+        {
+            Console.WriteLine(exception.Message);
+            Thread.Sleep(1000);
+        });
 
         var filteredNumbers = new[] { 1, 2, 3, 4, 5 }.Filter(f => f > 2);
         var filteredStrings = new[] { "ahmet", "mehmet", "ayşe" }.Filter(f => f.StartsWith("a"));

@@ -32,6 +32,27 @@ public class DelegateBenchmark
         action();
     }
 
+    [Benchmark]
+    public void WithoutClosure()
+    {
+        Action<int> action = i =>
+        {
+            i++;
+        };
+        action(0);
+    }
+
+    [Benchmark]
+    public void Closure()
+    {
+        int i = 0;
+        Action action = () =>
+        {
+            i++;
+        };
+        action();
+    }
+
     void Method()
     {
         var total = 0;
