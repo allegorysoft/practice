@@ -58,12 +58,6 @@ public class Example
     {
         BasicDelegate delegate1 = delegate { Console.WriteLine("Anonymous method"); };
         BasicDelegate delegate2 = () => Console.WriteLine("Lambda expression");
-
-        void localFunction()
-        {
-            Console.WriteLine("Local function");
-        }
-
         Calculate add = (int x, int y) =>
         {
             Console.WriteLine("Adding...");
@@ -71,7 +65,7 @@ public class Example
         };
 
         Zoo(() => { Console.WriteLine("Zoo called with lambda expression"); });
-        Zoo(localFunction);
+        Zoo(delegate1);
     }
 
     void ActionFunc()
