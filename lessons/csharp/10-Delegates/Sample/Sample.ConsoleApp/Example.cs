@@ -78,13 +78,18 @@ public class Example
         Console.WriteLine(func());
     }
 
-    void Closures()
+    Action Closures()
     {
         int i = 0;
-        Action a = () => i++;
+        Action a = () =>
+        {
+            i++;
+        };
+
         i++;
         a();
         Console.WriteLine(i);
+        return a;
     }
 
     void Foo()
