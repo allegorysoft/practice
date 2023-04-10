@@ -2,7 +2,6 @@
 using Sample.ConsoleApp;
 
 new Example().Do();
-//UseCases.Do();
+UseCases.Do();
 //BenchmarkRunner.Run<DelegateBenchmark>();
-
 Console.ReadKey();

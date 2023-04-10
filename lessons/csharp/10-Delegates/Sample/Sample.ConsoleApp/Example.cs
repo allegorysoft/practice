@@ -78,7 +78,7 @@ public class Example
         Console.WriteLine(func());
     }
 
-    Action Closures()
+    void Closures()
     {
         int i = 0;
         Action a = () =>
@@ -89,7 +89,6 @@ public class Example
         i++;
         a();
         Console.WriteLine(i);
-        return a;
     }
 
     void Foo()
