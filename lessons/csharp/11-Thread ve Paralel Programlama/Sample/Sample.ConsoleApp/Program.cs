@@ -1,5 +1,10 @@
-﻿//Create();
-BackgroundThread();
+﻿using BenchmarkDotNet.Running;
+using Sample.ConsoleApp;
+
+//Create();
+//BackgroundThread();
+BenchmarkRunner.Run<ParallelCalculationBenchmark>();
+
 
 void Create()
 {
