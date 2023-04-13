@@ -3,6 +3,8 @@ using Sample.ConsoleApp;
 
 //Create();
 //BackgroundThread();
+//ContextSwitch();
+//CpuSample.Do();
 BenchmarkRunner.Run<ParallelCalculationBenchmark>();
 
 
