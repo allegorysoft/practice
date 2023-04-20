@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "conditions": {
-    "column": "Name",
+    "column": "name",
     "operator": 12,
     "Value": "Ashton, Charley"
   }
