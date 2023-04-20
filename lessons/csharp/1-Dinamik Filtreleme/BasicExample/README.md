@@ -14,7 +14,7 @@ var condition = new Condition(nameof(Person.Name), Operator.Contains, value: "he
 ```
 We can also group conditions together. Here's an example:
 - The first parameter represents a list of conditions.
-- The second parameter specifies if any of the conditions should be met.
+- The second parameter specifies whether any of the conditions are sufficient to return a result.
 - The third parameter specifies if the operator should be negated.
 ```csharp
 var conditions = new Condition(new List<Condition>
