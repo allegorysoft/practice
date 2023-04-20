@@ -1,6 +1,6 @@
 ### We can groupize conditions with group array "group: []"
 # Also we can set "groupOr: true" to get if any conditions are met
-# List all people whose balance less than "3000" and name is either "Anne" or "Pitts" and birth date between "1950-01-01 and 2000-12-31"
+# List all people whose balance less than "3000" and name is "Anne" or surname is "Pitts" and birth date between "1950-01-01 and 2000-12-31"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 
