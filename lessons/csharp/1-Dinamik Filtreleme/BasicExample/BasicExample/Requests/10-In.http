@@ -1,0 +1,10 @@
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "column": "Name",
+    "operator": 12,
+    "Value": "Ashton, Charley"
+  }
+}

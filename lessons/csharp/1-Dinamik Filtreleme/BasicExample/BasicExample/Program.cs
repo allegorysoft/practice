@@ -16,8 +16,8 @@ var people = new List<Person>
 app.MapPost("/person/list",
     (FilteredRequest input) =>
     {
-        var expression = input.Conditions.GetLambdaExpression<Person>();
-        return expression == null ? people : people.Where(expression.Compile());
+        var lambdaExpression = input.Conditions.ToLambdaExpression<Person>();
+        return lambdaExpression == null ? people : people.Where(lambdaExpression);
     });
 
 app.Run();

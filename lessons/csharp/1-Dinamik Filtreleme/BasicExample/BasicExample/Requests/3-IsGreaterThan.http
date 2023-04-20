@@ -1,0 +1,19 @@
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "group": [
+      {
+        "column": "balance",
+        "operator": 2,
+        "value": 2000
+      },
+      {
+        "column": "birthDate",
+        "operator": 3,
+        "value": "1983-01-01"
+      }
+    ]
+  }
+}

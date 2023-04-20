@@ -1,0 +1,18 @@
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "group": [
+      {
+        "column": "name",
+        "operator": 10
+      },
+      {
+        "column": "surname",
+        "operator": 11
+      }
+    ],
+    "groupOr": true
+  }
+}
