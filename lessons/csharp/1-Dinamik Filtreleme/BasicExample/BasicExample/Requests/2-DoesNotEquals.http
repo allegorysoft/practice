@@ -1,20 +1,24 @@
+### Doesn't equals operator, list all people whose names don't equal "Kelly"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 
 {
   "conditions": {
-    "group": [
-      {
-        "column": "name",
-        "operator": 1,
-        "value": "Kelly"
-      },
-      {
-        "column": "surname",
-        "operator": 0,
-        "value": "Rangel",
-        "not": true
-      }
-    ]
+    "column": "name",
+    "operator": 1,
+    "value": "Charley"
+  }
+}
+
+### We can use "not: true" to negate the operator, list all people whose surnames don't equal "Rangel"
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "column": "surname",
+    "operator": 0,
+    "value": "Rangel",
+    "not": true
   }
 }

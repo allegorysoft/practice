@@ -1,19 +1,23 @@
+### Is less than operator, list all people whose balance less than "3500"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 
 {
   "conditions": {
-    "group": [
-      {
-        "column": "balance",
-        "operator": 4,
-        "value": 3500
-      },
-      {
-        "column": "birthDate",
-        "operator": 5,
-        "value": "1982-01-01"
-      }
-    ]
+    "column": "balance",
+    "operator": 4,
+    "value": 3500
+  }
+}
+
+### Is less than or equals operator, list all people whose birth date less than or equals "1982-01-01"
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "column": "birthDate",
+    "operator": 5,
+    "value": "1982-01-01"
   }
 }

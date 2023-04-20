@@ -1,18 +1,21 @@
+### Is null operator, list all people whose names is null
 POST https://localhost:44380/person/list
 Content-Type: application/json
 
 {
   "conditions": {
-    "group": [
-      {
-        "column": "name",
-        "operator": 10
-      },
-      {
-        "column": "surname",
-        "operator": 11
-      }
-    ],
-    "groupOr": true
+    "column": "name",
+    "operator": 10
+  }
+}
+
+### Is null or empty operator, list all people whose names is null or empty
+POST https://localhost:44380/person/list
+Content-Type: application/json
+
+{
+  "conditions": {
+    "column": "surname",
+    "operator": 11
   }
 }

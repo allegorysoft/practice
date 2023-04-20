@@ -1,3 +1,4 @@
+### Is between operator, list all people whose balance between "2000 and 3000"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 

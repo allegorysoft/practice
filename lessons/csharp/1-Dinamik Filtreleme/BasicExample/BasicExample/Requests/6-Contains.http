@@ -1,3 +1,4 @@
+### Contains operator, list all people whose surnames contains "e"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 

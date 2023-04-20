@@ -1,10 +1,11 @@
+### In operator, list all people whose gender "Male or Female"
 POST https://localhost:44380/person/list
 Content-Type: application/json
 
 {
   "conditions": {
-    "column": "name",
+    "column": "gender",
     "operator": 12,
-    "Value": "Ashton, Charley"
+    "Value": "Male, Female"
   }
 }
