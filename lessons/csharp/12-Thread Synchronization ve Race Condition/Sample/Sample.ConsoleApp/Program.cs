@@ -1,5 +1,6 @@
-﻿InterlockedExample();
+﻿//InterlockedExample();
 //RaceConditionProblem();
+//LockAndMonitor();
 
 Console.ReadKey();
 
@@ -13,7 +14,7 @@ void InterlockedExample()
         for (var i = 0; i < 1_000_000; i++)
         {
             number++;
-            Interlocked.Increment(ref interlockedNumber);//Decrement, Add, Exchange
+            Interlocked.Increment(ref interlockedNumber); //Decrement, Add, Exchange
         }
     };
 
@@ -59,3 +60,34 @@ void RaceConditionProblem()
     Console.WriteLine(money);
 }
 
+void LockAndMonitor()
+{
+    var money = 100;
+    var lockObject = new object();
+    ParameterizedThreadStart work = async m =>
+    {
+        var expense = (int)m!;
+        lock (lockObject)
+        {
+            //Critical section
+            if (money >= expense)
+            {
+                Thread.Sleep(1000); //await Task.Delay(1000); !!!
+                money -= expense;
+            }
+            else
+            {
+                Console.WriteLine("Expense payment denied.");
+            }
+        }
+    };
+
+    var t1 = new Thread(work);
+    var t2 = new Thread(work);
+    t1.Start(75);
+    t2.Start(75);
+    t1.Join();
+    t2.Join();
+
+    Console.WriteLine(money);
+}
