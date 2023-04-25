@@ -1,6 +1,6 @@
 ﻿namespace Sample.ConsoleApp;
 
-public class LockAndMonitor
+public static class LockAndMonitor
 {
     private static int _money = 100;
     private static readonly object LockObject = new object();
