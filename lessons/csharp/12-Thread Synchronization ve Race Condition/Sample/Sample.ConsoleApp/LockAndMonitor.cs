@@ -7,8 +7,9 @@ public class LockAndMonitor
 
     public static void Do()
     {
-        WithLock();
-        WithMonitor();
+        //WithLock();
+        //WithMonitor();
+        DoubleCheckedLocking();
     }
 
     private static void WithLock()
@@ -80,5 +81,47 @@ public class LockAndMonitor
             if (lockTaken)
                 Monitor.Exit(LockObject);
         }
+    }
+
+    private static void DoubleCheckedLocking()
+    {
+        for (var i = 0; i < 50; i++)
+        {
+            new Thread(() => SampleSingleton.Create()).Start();
+            new Thread(() => SampleSingleton.CreateThreadSafe()).Start();
+        }
+    }
+}
+
+public class SampleSingleton
+{
+    private static SampleSingleton? _instance, _threadSafeInstance;
+    private static readonly object LockObject = new();
+
+    private SampleSingleton(bool isSafe = false)
+    {
+        Console.WriteLine($"Sample singleton created. IsSafe: {isSafe}");
+    }
+
+    public static SampleSingleton Create()
+    {
+        if (_instance == null)
+            _instance = new SampleSingleton();
+
+        return _instance;
+    }
+
+    public static SampleSingleton CreateThreadSafe()
+    {
+        if (_threadSafeInstance == null)
+        {
+            lock (LockObject)
+            {
+                if (_threadSafeInstance == null)
+                    _threadSafeInstance = new SampleSingleton(true);
+            }
+        }
+
+        return _threadSafeInstance;
     }
 }
