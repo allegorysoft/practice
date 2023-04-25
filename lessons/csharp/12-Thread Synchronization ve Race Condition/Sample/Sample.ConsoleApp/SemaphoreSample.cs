@@ -35,6 +35,7 @@ public static class SemaphoreSample
         }
 
         await Task.WhenAll(tasks);
+        semaphoreSlim.Dispose();
     }
 
     private static async Task MaxCountParameter()

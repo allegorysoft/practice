@@ -7,9 +7,9 @@ public static class LockAndMonitor
 
     public static void Do()
     {
-        //WithLock();
+        WithLock();
         //WithMonitor();
-        DoubleCheckedLocking();
+        //DoubleCheckedLocking();
     }
 
     private static void WithLock()
@@ -31,7 +31,7 @@ public static class LockAndMonitor
         lock (LockObject)
         {
             //Critical section
-            if (_money >= expense)
+            if (_money - expense >= 0)
             {
                 //await Task.Delay(1000); !!!
                 Thread.Sleep(1000);
@@ -65,7 +65,7 @@ public static class LockAndMonitor
         {
             //Critical section
             Monitor.Enter(LockObject, ref lockTaken);
-            if (_money >= expense)
+            if (_money - expense >= 0)
             {
                 //await Task.Delay(1000); !!!
                 Thread.Sleep(1000);

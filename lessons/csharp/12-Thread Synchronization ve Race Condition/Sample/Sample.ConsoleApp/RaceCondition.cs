@@ -20,7 +20,7 @@ public static class RaceCondition
 
     private static void TryPayment(int expense)
     {
-        if (_money >= expense)
+        if (_money - expense >= 0)
         {
             Thread.Sleep(1000);
             _money -= expense;
