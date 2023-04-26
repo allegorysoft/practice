@@ -7,8 +7,8 @@ public static class MutexSample
     public static async Task Do()
     {
         //SingleProcess();
-        MultiProcess();
-        //await AsyncMutex();
+        //MultiProcess();
+        await AsyncMutex();
     }
 
     private static void SingleProcess()
@@ -70,10 +70,10 @@ public static class MutexSample
     {
         using var mutex = await TryAcquireAsync();
         Console.WriteLine(
-            $"Enter Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId}");
+            $"Enter Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId} {DateTime.Now}");
         await Task.Delay(5000);
         Console.WriteLine(
-            $"Exit Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId}");
+            $"Exit Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId} {DateTime.Now}");
     }
 
     private static async Task<Mutex> TryAcquireAsync()
