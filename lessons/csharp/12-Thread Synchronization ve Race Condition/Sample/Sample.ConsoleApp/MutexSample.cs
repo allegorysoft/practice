@@ -7,47 +7,57 @@ public static class MutexSample
     public static async Task Do()
     {
         //SingleProcess();
-        //await MultiProcess();
-        await AsyncMutex();
+        MultiProcess();
+        //await AsyncMutex();
     }
 
     private static void SingleProcess()
     {
-        var mutex = new Mutex(); //using !!!
-        for (var i = 0; i < 5; i++)
+        using var mutex = new Mutex();
+        var threads = new Thread[5];
+
+        ThreadStart work = () =>
         {
-            new Thread(() =>
+            Console.WriteLine($"1.part Thread: {Environment.CurrentManagedThreadId}");
+            try
             {
-                Console.WriteLine($"1.part Thread: {Environment.CurrentManagedThreadId}");
-                try
-                {
-                    //Critical section
-                    mutex.WaitOne();
-                    Console.WriteLine($"2.part Thread: {Environment.CurrentManagedThreadId}");
-                    //await Task.Delay(2000); !!!
-                    Thread.Sleep(2000);
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
-            }).Start();
+                //Critical section
+                mutex.WaitOne();
+                Console.WriteLine($"2.part Thread: {Environment.CurrentManagedThreadId}");
+                //await Task.Delay(2000); !!!
+                Thread.Sleep(2000);
+            }
+            finally
+            {
+                mutex.ReleaseMutex();
+            }
+        };
+
+        for (var i = 0; i < threads.Length; i++)
+        {
+            threads[i] = new Thread(work);
+            threads[i].Start();
+        }
+
+        foreach (var thread in threads)
+        {
+            thread.Join();
         }
     }
 
-    private static async Task MultiProcess()
+    private static void MultiProcess()
     {
         using var mutex = new Mutex(false, "App1/MultiProcess");
         for (var i = 0; i < 20; i++)
         {
-            await Task.Delay(3000);
             try
             {
                 //Critical section
                 mutex.WaitOne();
                 //await Task.Delay(3000); !!!
                 Console.WriteLine(
-                    $"Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId}");
+                    $"Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId} {DateTime.Now}");
+                Thread.Sleep(3000);
             }
             finally
             {

@@ -6,43 +6,8 @@ public class ThreadSample
 
     public static void Do()
     {
-        ThreadLocalSample();
-        //ThreadStaticSample();
-    }
-
-    private static void ThreadLocalSample()
-    {
-        var threadLocal = new ThreadLocal<int>();
-        var threads = new Thread[5];
-        var number = 0;
-        var lockObject = new object();
-
-        ThreadStart work = () =>
-        {
-            lock (lockObject)
-            {
-                for (var i = 0; i < 100; i++)
-                {
-                    number++;
-                    threadLocal.Value++;
-                }
-            }
-
-            Console.WriteLine($"Number: {number} ThreadLocal: {threadLocal.Value}");
-        };
-
-        for (var i = 0; i < threads.Length; i++)
-        {
-            threads[i] = new Thread(work);
-            threads[i].Start();
-        }
-
-        foreach (var thread in threads)
-        {
-            thread.Join();
-        }
-
-        threadLocal.Dispose();
+        ThreadStaticSample();
+        //ThreadLocalSample();
     }
 
     private static void ThreadStaticSample()
@@ -63,6 +28,39 @@ public class ThreadSample
             }
 
             Console.WriteLine($"Number: {number} ThreadLocal: {_threadNumber}");
+        };
+
+        for (var i = 0; i < threads.Length; i++)
+        {
+            threads[i] = new Thread(work);
+            threads[i].Start();
+        }
+
+        foreach (var thread in threads)
+        {
+            thread.Join();
+        }
+    }
+
+    private static void ThreadLocalSample()
+    {
+        using var threadLocal = new ThreadLocal<int>();
+        var threads = new Thread[5];
+        var number = 0;
+        var lockObject = new object();
+
+        ThreadStart work = () =>
+        {
+            lock (lockObject)
+            {
+                for (var i = 0; i < 100; i++)
+                {
+                    number++;
+                    threadLocal.Value++;
+                }
+            }
+
+            Console.WriteLine($"Number: {number} ThreadLocal: {threadLocal.Value}");
         };
 
         for (var i = 0; i < threads.Length; i++)
