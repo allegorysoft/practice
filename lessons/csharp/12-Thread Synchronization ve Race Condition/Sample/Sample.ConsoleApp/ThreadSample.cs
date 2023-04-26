@@ -2,18 +2,18 @@
 
 public class ThreadSample
 {
-    [ThreadStatic] private static int _threadNumber = 0;
+    [ThreadStatic] private static int _threadStaticNumber = 0;
+    private static int _number = 0;
 
     public static void Do()
     {
-        ThreadStaticSample();
-        //ThreadLocalSample();
+        //ThreadStaticSample();
+        ThreadLocalSample();
     }
 
     private static void ThreadStaticSample()
     {
         var threads = new Thread[5];
-        var number = 0;
         var lockObject = new object();
 
         ThreadStart work = () =>
@@ -22,12 +22,12 @@ public class ThreadSample
             {
                 for (var i = 0; i < 100; i++)
                 {
-                    number++;
-                    _threadNumber++;
+                    _number++;
+                    _threadStaticNumber++;
                 }
             }
 
-            Console.WriteLine($"Number: {number} ThreadLocal: {_threadNumber}");
+            Console.WriteLine($"Number: {_number} ThreadStatic: {_threadStaticNumber}");
         };
 
         for (var i = 0; i < threads.Length; i++)
