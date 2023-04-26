@@ -11,7 +11,7 @@ public static class SemaphoreSample
 
     private static async Task WithSemaphoreSlim()
     {
-        var semaphoreSlim = new SemaphoreSlim(1); //using !!!
+        using var semaphoreSlim = new SemaphoreSlim(1);
         var work = async () =>
         {
             try
@@ -35,7 +35,6 @@ public static class SemaphoreSample
         }
 
         await Task.WhenAll(tasks);
-        semaphoreSlim.Dispose();
     }
 
     private static async Task MaxCountParameter()
@@ -61,19 +60,23 @@ public static class SemaphoreSample
 
     private static async Task WithSemaphore()
     {
-        using var semaphore = new Semaphore(2, 2, "App/WithSemaphore");
-        try
+        while (true)
         {
-            semaphore.WaitOne();
-            Console.WriteLine(
-                $"Enter Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId}");
-            await Task.Delay(10000);
-            Console.WriteLine(
-                $"Exit Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId}");
+            using var semaphore = new Semaphore(2, 2, "App/WithSemaphore");
+            try
+            {
+                semaphore.WaitOne();
+                Console.WriteLine(
+                    $"Enter Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId} {DateTime.Now}");
+                await Task.Delay(5000);
+                Console.WriteLine(
+                    $"Exit Process: {Environment.ProcessId} Thread: {Environment.CurrentManagedThreadId} {DateTime.Now}");
+            }
+            finally
+            {
+                semaphore.Release();
+            }
         }
-        finally
-        {
-            semaphore.Release();
-        }
+
     }
 }
