@@ -1,6 +1,7 @@
 ﻿using Sample.ConsoleApp;
 
 DeadLockSample();
+Example.Do();
 Console.ReadKey();
 
 void DeadLockSample()
@@ -17,3 +18,4 @@ void DeadLockSample()
 
     Console.WriteLine("Aktarım tamamlandı");
 }
+
