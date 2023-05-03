@@ -1,7 +1,8 @@
 ﻿using Sample.ConsoleApp;
 
 DeadLockSample();
-Example.Do();
+//SemaphoreSample();
+//Example.Do();
 Console.ReadKey();
 
 void DeadLockSample()
@@ -19,3 +20,36 @@ void DeadLockSample()
     Console.WriteLine("Aktarım tamamlandı");
 }
 
+void SemaphoreSample()
+{
+    var semaphore = new SemaphoreSlim(1, 1);
+
+    var action1 = async () =>
+    {
+        try
+        {
+            await semaphore.WaitAsync();
+            Console.WriteLine("Action 1 working");
+        }
+        finally
+        {
+            semaphore.Release();
+        }
+    };
+
+    var action2 = async () =>
+    {
+        try
+        {
+            await semaphore.WaitAsync();
+            await action1();
+            Console.WriteLine("Action 2 working");
+        }
+        finally
+        {
+            semaphore.Release();
+        }
+    };
+
+    action2();
+}
