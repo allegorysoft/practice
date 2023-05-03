@@ -15,4 +15,4 @@
 - [C# Delegate ile Metotları Değişken Gibi Kullanın (Action, Func, Lambda Expressions, Closures)](https://www.youtube.com/watch?v=ygbRB-2s0oQ&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=10)
 - [C# Threadlerle Hızınızı Artırın: Paralel Programlama Yolculuğu](https://www.youtube.com/watch?v=-0RyMR5QEv0&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=11)
 - [C# Thread Synchronization: Race Condition Sorunu ve Çözümleri (Lock, Mutex, Semaphore)](https://www.youtube.com/watch?v=8tzW8XwWomo&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=12)
-- [C# Deadlock Nedir ve Nasıl Önlenir?]()
+- [C# Deadlock, Livelock Nedir ve Nasıl Önlenir]()
