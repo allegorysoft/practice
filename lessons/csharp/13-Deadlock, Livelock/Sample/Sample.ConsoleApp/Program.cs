@@ -33,7 +33,7 @@ void LiveLockSample()
     t1.Join();
     t2.Join();
 
-    Console.WriteLine("Aktarım tamamlandı");
+    Console.WriteLine("Transaction completed");
 }
 
 void SemaphoreSample()
