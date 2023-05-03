@@ -1,17 +1,33 @@
 ﻿using Sample.ConsoleApp;
 
-DeadLockSample();
+//DeadLockSample();
 //SemaphoreSample();
 //Example.Do();
+LiveLockSample();
 Console.ReadKey();
 
 void DeadLockSample()
 {
-    var ahmet = new Person();
-    var mehmet = new Person();
+    var ahmet = new Person("Ahmet");
+    var mehmet = new Person("Mehmet");
 
-    var t1 = new Thread(() => ahmet.TransferDeadLock(100, mehmet));
-    var t2 = new Thread(() => mehmet.TransferDeadLock(100, ahmet));
+    var t1 = new Thread(() => ahmet.Transfer(100, mehmet));
+    var t2 = new Thread(() => mehmet.Transfer(100, ahmet));
+    t1.Start();
+    t2.Start();
+    t1.Join();
+    t2.Join();
+
+    Console.WriteLine("Aktarım tamamlandı");
+}
+
+void LiveLockSample()
+{
+    var ahmet = new Person("Ahmet");
+    var mehmet = new Person("Mehmet");
+
+    var t1 = new Thread(() => ahmet.TransferLiveLock(100, mehmet));
+    var t2 = new Thread(() => mehmet.TransferLiveLock(100, ahmet));
     t1.Start();
     t2.Start();
     t1.Join();

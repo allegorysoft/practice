@@ -5,11 +5,13 @@ public class Person
     private static int _counter;
 
     public int Id { get; }
+    public string Name { get; init; }
     public int Balance { get; protected set; } = 500;
 
-    public Person()
+    public Person(string name)
     {
         Id = Interlocked.Increment(ref _counter);
+        Name = name;
     }
 
     public void TransferDeadLock(int amount, Person to)
@@ -18,6 +20,22 @@ public class Person
         {
             Thread.Sleep(1000);
             lock (to)
+            {
+                Balance -= amount;
+                to.Balance += amount;
+            }
+        }
+    }
+
+    public void Transfer(int amount, Person to)
+    {
+        object lockObject1 = Id > to.Id ? this : to;
+        object lockObject2 = lockObject1 == this ? to : this;
+
+        lock (lockObject1)
+        {
+            Thread.Sleep(1000);
+            lock (lockObject2)
             {
                 Balance -= amount;
                 to.Balance += amount;
@@ -45,19 +63,5 @@ public class Person
         }
     }
 
-    public void Transfer(int amount, Person to)
-    {
-        object lockObject1 = Id > to.Id ? this : to;
-        object lockObject2 = lockObject1 == this ? to : this;
 
-        lock (lockObject1)
-        {
-            Thread.Sleep(1000);
-            lock (lockObject2)
-            {
-                Balance -= amount;
-                to.Balance += amount;
-            }
-        }
-    }
 }
