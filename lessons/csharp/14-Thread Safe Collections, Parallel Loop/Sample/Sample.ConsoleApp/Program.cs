@@ -8,20 +8,26 @@ void BlockingCollectionSample()
     var collection = new BlockingCollection<int>(1);
     new Thread(() =>
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             collection.Add(i);
-            Console.WriteLine($"Producer Added: {i}");
+            Console.WriteLine("Added: " + i);
         }
     }).Start();
 
     new Thread(() =>
     {
-        while (collection.TryTake(out var item, Timeout.Infinite))
+        while (collection.TryTake(out int item, Timeout.Infinite))
         {
-            Console.WriteLine($"Consumer Start: {item}");
-            Thread.Sleep(5_000);
-            Console.WriteLine($"Consumer End: {item}");
+            Console.WriteLine("Consumed: " + item);
+            Console.ReadKey();
         }
     }).Start();
+}
+
+void ConcurrentDictionarySample()
+{
+    var dictionary = new ConcurrentDictionary<string, int>();
+
+    //dictionary.
 }
