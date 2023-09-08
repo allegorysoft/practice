@@ -2,7 +2,8 @@
 
 //ListSample();
 //ConcurrentBagSample();
-ConcurrentQueueSample();
+//ConcurrentQueueSample();
+ConcurrentStackSample();
 //BlockingCollectionSample();
 
 return;
@@ -55,8 +56,8 @@ void ConcurrentBagSample()
     foreach (var item in concurrentBag)
         Console.WriteLine(item);
     concurrentBag.Add(100);
-    var isTaken = concurrentBag.TryTake(out var takeItem);
-    var isPeeked = concurrentBag.TryPeek(out var peekItem);
+    var isTake = concurrentBag.TryTake(out var takeItem);
+    var isPeek = concurrentBag.TryPeek(out var peekItem);
     concurrentBag.Clear();
 }
 
@@ -86,9 +87,40 @@ void ConcurrentQueueSample()
     foreach (var item in concurrentQueue)
         Console.WriteLine(item);
     concurrentQueue.Enqueue(100);
-    var isDequeued = concurrentQueue.TryDequeue(out var dequeueItem);
-    var isPeeked = concurrentQueue.TryPeek(out var peekItem);
+    var isDequeue = concurrentQueue.TryDequeue(out var dequeueItem);
+    var isPeek = concurrentQueue.TryPeek(out var peekItem);
     concurrentQueue.Clear();
+}
+
+void ConcurrentStackSample()
+{
+    var concurrentStack = new ConcurrentStack<int>();
+    const int producedLength = 100_000;
+    ThreadStart producerWork = () =>
+    {
+        for (var i = 0; i < producedLength; i++)
+            concurrentStack.Push(i);
+    };
+
+    var producers = new Thread[Environment.ProcessorCount];
+    for (var i = 0; i < producers.Length; i++)
+    {
+        producers[i] = new Thread(producerWork);
+    }
+
+    Array.ForEach(producers, p => p.Start());
+    Array.ForEach(producers, p => p.Join());
+
+    Console.WriteLine(
+        $"Concurrent Stack item:{concurrentStack.Count} Expected:{producedLength * Environment.ProcessorCount}");
+
+    //concurrentQueue[0] Indexer doesn't work
+    foreach (var item in concurrentStack)
+        Console.WriteLine(item);
+    concurrentStack.Push(100);
+    var isPop = concurrentStack.TryPop(out var popItem);
+    var isPeek = concurrentStack.TryPeek(out var peekItem);
+    concurrentStack.Clear();
 }
 
 void BlockingCollectionSample()
