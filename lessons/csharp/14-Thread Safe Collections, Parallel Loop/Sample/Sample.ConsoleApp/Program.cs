@@ -3,8 +3,8 @@
 //ListSample();
 //ConcurrentBagSample();
 //ConcurrentQueueSample();
-ConcurrentStackSample();
-//BlockingCollectionSample();
+//ConcurrentStackSample();
+BlockingCollectionSample();
 
 return;
 
@@ -114,7 +114,7 @@ void ConcurrentStackSample()
     Console.WriteLine(
         $"Concurrent Stack item:{concurrentStack.Count} Expected:{producedLength * Environment.ProcessorCount}");
 
-    //concurrentQueue[0] Indexer doesn't work
+    //concurrentStack[0] Indexer doesn't work
     foreach (var item in concurrentStack)
         Console.WriteLine(item);
     concurrentStack.Push(100);
@@ -126,24 +126,16 @@ void ConcurrentStackSample()
 void BlockingCollectionSample()
 {
     var blockingCollection = new BlockingCollection<int>(1);
-
-    new Thread(() =>
-    {
-        for (var i = 0; i < 10; i++)
-        {
-            blockingCollection.Add(i);
-            Console.WriteLine("Added: " + i);
-        }
-    }).Start();
-
-    new Thread(() =>
-    {
-        while (blockingCollection.TryTake(out var item, Timeout.Infinite))
-        {
-            Console.WriteLine("Consumed: " + item);
-            Console.ReadKey();
-        }
-    }).Start();
+    blockingCollection.Add(1);
+    var item1 = blockingCollection.Take();
+    
+    //blockingCollection[0] Indexer doesn't work
+    foreach (var item in blockingCollection)
+        Console.WriteLine(item);
+    blockingCollection.Add(100);
+    var isAdd = blockingCollection.TryAdd(100);
+    var takeItem = blockingCollection.Take();
+    var isTake = blockingCollection.TryTake(out var blockingCollectionItem);
 }
 
 void ConcurrentDictionarySample()
