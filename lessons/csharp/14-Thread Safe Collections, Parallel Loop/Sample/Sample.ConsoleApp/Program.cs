@@ -128,7 +128,27 @@ void BlockingCollectionSample()
     var blockingCollection = new BlockingCollection<int>(1);
     blockingCollection.Add(1);
     var item1 = blockingCollection.Take();
-    
+
+    var producer = new Thread(() =>
+    {
+        for (var i = 0; i < 10; i++)
+            blockingCollection.Add(i);
+
+        blockingCollection.CompleteAdding();
+    });
+    var consumer = new Thread(() =>
+    {
+        foreach (var item in blockingCollection.GetConsumingEnumerable())
+        {
+            Console.WriteLine("Consumed: " + item);
+            Thread.Sleep(1000);
+        }
+    });
+    producer.Start();
+    consumer.Start();
+    producer.Join();
+    consumer.Join();
+
     //blockingCollection[0] Indexer doesn't work
     foreach (var item in blockingCollection)
         Console.WriteLine(item);
