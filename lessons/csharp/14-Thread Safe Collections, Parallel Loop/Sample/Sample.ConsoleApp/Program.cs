@@ -4,8 +4,8 @@
 //ConcurrentBagSample();
 //ConcurrentQueueSample();
 //ConcurrentStackSample();
-BlockingCollectionSample();
-
+//BlockingCollectionSample();
+ConcurrentDictionarySample();
 return;
 
 void ListSample()
@@ -156,11 +156,22 @@ void BlockingCollectionSample()
     var isAdd = blockingCollection.TryAdd(100);
     var takeItem = blockingCollection.Take();
     var isTake = blockingCollection.TryTake(out var blockingCollectionItem);
+    //BlockingCollection<int>.AddToAny()
+    //BlockingCollection<int>.TakeFromAny()
 }
 
 void ConcurrentDictionarySample()
 {
-    var dictionary = new ConcurrentDictionary<string, int>();
+    var concurrentDictionary = new ConcurrentDictionary<string, int>();
 
-    //dictionary.
+    foreach (var item in concurrentDictionary)
+        Console.WriteLine(item.Value);
+    var isAdd = concurrentDictionary.TryAdd("key", 1);
+    var isUpdate = concurrentDictionary.TryUpdate("key", 2, 1);
+    var isGet = concurrentDictionary.TryGetValue("key", out var getItem);
+    var isRemove = concurrentDictionary.TryRemove("key", out _);
+    concurrentDictionary["k"] = 10;
+    concurrentDictionary.AddOrUpdate("k", key => 1, (key, oldValue) => 2);
+    var getItem2 = concurrentDictionary.GetOrAdd("k", key => 3);
+    concurrentDictionary.Clear();
 }
