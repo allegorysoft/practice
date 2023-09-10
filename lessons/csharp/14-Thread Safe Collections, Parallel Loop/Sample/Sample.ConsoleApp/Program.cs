@@ -12,16 +12,15 @@ void ListSample()
 {
     var list = new List<int>();
     const int producedLength = 100_000;
-    ThreadStart producerWork = () =>
-    {
-        for (var i = 0; i < producedLength; i++)
-            list.Add(i);
-    };
 
     var producers = new Thread[Environment.ProcessorCount];
     for (var i = 0; i < producers.Length; i++)
     {
-        producers[i] = new Thread(producerWork);
+        producers[i] = new Thread(() =>
+        {
+            for (var j = 0; j < producedLength; j++)
+                list.Add(j);
+        });
     }
 
     Array.ForEach(producers, p => p.Start());
@@ -34,16 +33,15 @@ void ConcurrentBagSample()
 {
     var concurrentBag = new ConcurrentBag<int>();
     const int producedLength = 100_000;
-    ThreadStart producerWork = () =>
-    {
-        for (var i = 0; i < producedLength; i++)
-            concurrentBag.Add(i);
-    };
 
     var producers = new Thread[Environment.ProcessorCount];
     for (var i = 0; i < producers.Length; i++)
     {
-        producers[i] = new Thread(producerWork);
+        producers[i] = new Thread(() =>
+        {
+            for (var j = 0; j < producedLength; j++)
+                concurrentBag.Add(j);
+        });
     }
 
     Array.ForEach(producers, p => p.Start());
@@ -65,16 +63,15 @@ void ConcurrentQueueSample()
 {
     var concurrentQueue = new ConcurrentQueue<int>();
     const int producedLength = 100_000;
-    ThreadStart producerWork = () =>
-    {
-        for (var i = 0; i < producedLength; i++)
-            concurrentQueue.Enqueue(i);
-    };
 
     var producers = new Thread[Environment.ProcessorCount];
     for (var i = 0; i < producers.Length; i++)
     {
-        producers[i] = new Thread(producerWork);
+        producers[i] = new Thread(() =>
+        {
+            for (var j = 0; j < producedLength; j++)
+                concurrentQueue.Enqueue(j);
+        });
     }
 
     Array.ForEach(producers, p => p.Start());
@@ -96,16 +93,15 @@ void ConcurrentStackSample()
 {
     var concurrentStack = new ConcurrentStack<int>();
     const int producedLength = 100_000;
-    ThreadStart producerWork = () =>
-    {
-        for (var i = 0; i < producedLength; i++)
-            concurrentStack.Push(i);
-    };
 
     var producers = new Thread[Environment.ProcessorCount];
     for (var i = 0; i < producers.Length; i++)
     {
-        producers[i] = new Thread(producerWork);
+        producers[i] = new Thread(() =>
+        {
+            for (var j = 0; j < producedLength; j++)
+                concurrentStack.Push(j);
+        });
     }
 
     Array.ForEach(producers, p => p.Start());
