@@ -16,4 +16,4 @@
 - [C# Threadlerle Hızınızı Artırın: Paralel Programlama Yolculuğu](https://www.youtube.com/watch?v=-0RyMR5QEv0&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=11)
 - [C# Thread Synchronization: Race Condition Sorunu ve Çözümleri (Lock, Mutex, Semaphore)](https://www.youtube.com/watch?v=8tzW8XwWomo&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=12)
 - [C# Deadlock, Livelock Nedir ve Nasıl Önlenir?](https://www.youtube.com/watch?v=ah-RYC6QK-0&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=13)
-- [C# Thread Safe Collections Kullanımı]()
+- [C# Thread Safe Collections Kullanımı](https://www.youtube.com/watch?v=bj05Zl_BmCQ&list=PLBEMB-Eql15t2u11zT4TzNPmTC04SIWue&index=14)
