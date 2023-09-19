@@ -1,5 +1,6 @@
 ﻿//ThreadPoolSample();
-IocpThreadSample();
+//IocpThreadSample();
+ThreadStarvationSample();
 
 Console.ReadLine();
 return;
@@ -44,8 +45,31 @@ void IocpThreadSample()
     while (true)
     {
         ThreadPool.GetAvailableThreads(out var workerThreads, out var iocpThreads);
-        Console.WriteLine("Worker threads: {0} IOCP threads: {1} ThreadCount: {2}", workerThreads, iocpThreads,  ThreadPool.ThreadCount);
+        Console.WriteLine("Worker threads: {0} IOCP threads: {1} ThreadCount: {2}", workerThreads, iocpThreads,
+            ThreadPool.ThreadCount);
         Thread.Sleep(1000);
     }
+}
 
+void ThreadStarvationSample()
+{
+    var isSetMinThreads = ThreadPool.SetMinThreads(1, 1);
+    var isSetMaxThreads = ThreadPool.SetMaxThreads(5, 1);
+    var semaphore = new SemaphoreSlim(1);
+    var subWork = async (int number) =>
+    {
+        Console.WriteLine("Number: {0}, ThreadId: {1} started", number, Environment.CurrentManagedThreadId);
+        await Task.Delay(1000);
+        Console.WriteLine("End: {0}, ThreadId: {1} started", number, Environment.CurrentManagedThreadId);
+    };
+
+    for (var i = 0; i < 4; i++)
+    {
+        ThreadPool.QueueUserWorkItem(number =>
+        {
+            semaphore.Wait();
+            subWork((int)number!).GetAwaiter().GetResult();
+            semaphore.Release();
+        }, i);
+    }
 }
