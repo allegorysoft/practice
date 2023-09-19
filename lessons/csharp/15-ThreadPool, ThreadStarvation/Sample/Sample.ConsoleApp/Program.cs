@@ -44,7 +44,7 @@ void IocpThreadSample()
     while (true)
     {
         ThreadPool.GetAvailableThreads(out var workerThreads, out var iocpThreads);
-        Console.WriteLine("Worker threads: {0} IOCP threads: {1}", workerThreads, iocpThreads);
+        Console.WriteLine("Worker threads: {0} IOCP threads: {1} ThreadCount: {2}", workerThreads, iocpThreads,  ThreadPool.ThreadCount);
         Thread.Sleep(1000);
     }
 
