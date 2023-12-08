@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Allegory.StockManagement.Customers;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -74,13 +76,19 @@ public class StockManagementDbContext :
         builder.ConfigureFeatureManagement();
         builder.ConfigureTenantManagement();
 
-        /* Configure your own tables/entities inside here */
+        builder.Entity<Customer>(b =>
+        {
+            b.ToTable(StockManagementConsts.DbTablePrefix + "Customers", StockManagementConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
 
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(StockManagementConsts.DbTablePrefix + "YourEntities", StockManagementConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
+            b
+                .Property(x => x.Code)
+                .IsRequired()
+                .HasMaxLength(CustomerConsts.MaxNameLength);
+
+            b
+                .Property(x => x.Name)
+                .HasMaxLength(CustomerConsts.MaxNameLength);
+        });
     }
 }

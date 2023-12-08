@@ -13,13 +13,8 @@ public class Program
     public async static Task<int> Main(string[] args)
     {
         Log.Logger = new LoggerConfiguration()
-#if DEBUG
-            .MinimumLevel.Debug()
-#else
-            .MinimumLevel.Information()
-#endif
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+            .MinimumLevel.Error()
+            .MinimumLevel.Override("Allegory.StockManagement", LogEventLevel.Information)
             .Enrich.FromLogContext()
             .WriteTo.Async(c => c.File("Logs/logs.txt"))
             .WriteTo.Async(c => c.Console())

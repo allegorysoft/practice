@@ -1,4 +1,5 @@
 ﻿using System;
+using Allegory.StockManagement.Customers;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -38,9 +39,8 @@ public class StockManagementEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<StockManagementDbContext>(options =>
         {
-                /* Remove "includeAllEntities: true" to create
-                 * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
+            options.AddRepository<Customer, EfCoreCustomerRepository>();
         });
 
         Configure<AbpDbContextOptions>(options =>
