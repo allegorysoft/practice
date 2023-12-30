@@ -152,6 +152,7 @@ public class StockManagementAppHttpApiHostModule : AbpModule
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "StockManagementApp API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
+                options.HideAbpEndpoints();
             });
     }
 
