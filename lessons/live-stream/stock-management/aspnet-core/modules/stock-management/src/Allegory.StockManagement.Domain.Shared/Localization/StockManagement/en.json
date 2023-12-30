@@ -2,6 +2,7 @@
   "culture": "en",
   "texts": {
     "MyAccount":  "My account",
-    "SamplePageMessage": "A sample page for the StockManagement module"
+    "SamplePageMessage": "A sample page for the StockManagement module",
+    "StockManagement:00001": "{CustomerCode} already exists!"
   }
 }

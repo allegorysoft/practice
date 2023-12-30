@@ -2,5 +2,5 @@
 
 public static class StockManagementErrorCodes
 {
-    //Add your business exception error codes here...
+    public static string CustomerCodeAlreadyExists => "StockManagement:00001";
 }
