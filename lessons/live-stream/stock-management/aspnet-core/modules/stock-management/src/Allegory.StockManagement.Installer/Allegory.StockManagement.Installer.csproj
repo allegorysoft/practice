@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+        <RootNamespace>Allegory.StockManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="..\..\Allegory.StockManagement.abpmdl" />
+      <Content Include="..\..\Allegory.StockManagement.abpmdl">
+        <Pack>true</Pack>
+        <PackagePath>content\</PackagePath>
+      </Content>
+    </ItemGroup>
+
+</Project>

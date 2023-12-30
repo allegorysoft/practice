@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "Allegory.StockManagement.Domain.Shared": {
+      "path": "src/Allegory.StockManagement.Domain.Shared/Allegory.StockManagement.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Domain": {
+      "path": "src/Allegory.StockManagement.Domain/Allegory.StockManagement.Domain.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Application.Contracts": {
+      "path": "src/Allegory.StockManagement.Application.Contracts/Allegory.StockManagement.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Application": {
+      "path": "src/Allegory.StockManagement.Application/Allegory.StockManagement.Application.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.EntityFrameworkCore": {
+      "path": "src/Allegory.StockManagement.EntityFrameworkCore/Allegory.StockManagement.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.MongoDB": {
+      "path": "src/Allegory.StockManagement.MongoDB/Allegory.StockManagement.MongoDB.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.HttpApi": {
+      "path": "src/Allegory.StockManagement.HttpApi/Allegory.StockManagement.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.HttpApi.Client": {
+      "path": "src/Allegory.StockManagement.HttpApi.Client/Allegory.StockManagement.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.TestBase": {
+      "path": "test/Allegory.StockManagement.TestBase/Allegory.StockManagement.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.EntityFrameworkCore.Tests": {
+      "path": "test/Allegory.StockManagement.EntityFrameworkCore.Tests/Allegory.StockManagement.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.MongoDB.Tests": {
+      "path": "test/Allegory.StockManagement.MongoDB.Tests/Allegory.StockManagement.MongoDB.Tests.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.Domain.Tests": {
+      "path": "test/Allegory.StockManagement.Domain.Tests/Allegory.StockManagement.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.Application.Tests": {
+      "path": "test/Allegory.StockManagement.Application.Tests/Allegory.StockManagement.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.HttpApi.Host": {
+      "path": "host/Allegory.StockManagement.HttpApi.Host/Allegory.StockManagement.HttpApi.Host.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.Web": {
+      "path": "src/Allegory.StockManagement.Web/Allegory.StockManagement.Web.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Allegory.StockManagement.HttpApi.Client.ConsoleTestApp/Allegory.StockManagement.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "Allegory.StockManagement.Web.Host": {
+      "path": "host/Allegory.StockManagement.Web.Host/Allegory.StockManagement.Web.Host.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.AuthServer": {
+      "path": "host/Allegory.StockManagement.AuthServer/Allegory.StockManagement.AuthServer.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.Host.Shared": {
+      "path": "host/Allegory.StockManagement.Host.Shared/Allegory.StockManagement.Host.Shared.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.Web.Unified": {
+      "path": "host/Allegory.StockManagement.Web.Unified/Allegory.StockManagement.Web.Unified.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.Blazor": {
+      "path": "src/Allegory.StockManagement.Blazor/Allegory.StockManagement.Blazor.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Blazor.Host": {
+      "path": "host/Allegory.StockManagement.Blazor.Host/Allegory.StockManagement.Blazor.Host.abppkg",
+      "folder": "host"
+    },
+    "Allegory.StockManagement.Blazor.Server": {
+      "path": "src/Allegory.StockManagement.Blazor.Server/Allegory.StockManagement.Blazor.Server.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Blazor.WebAssembly": {
+      "path": "src/Allegory.StockManagement.Blazor.WebAssembly/Allegory.StockManagement.Blazor.WebAssembly.abppkg",
+      "folder": "src"
+    },
+    "Allegory.StockManagement.Blazor.Server.Host": {
+      "path": "host/Allegory.StockManagement.Blazor.Server.Host/Allegory.StockManagement.Blazor.Server.Host.abppkg",
+      "folder": "host"
+    }
+  }
+}

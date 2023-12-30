@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Allegory.StockManagement</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="EphemeralMongo.Core" Version="1.1.3" />
+    <PackageReference Include="EphemeralMongo6.runtime.linux-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('Linux'))" />
+    <PackageReference Include="EphemeralMongo6.runtime.osx-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('OSX'))" />
+    <PackageReference Include="EphemeralMongo6.runtime.win-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('Windows'))" />
+    <ProjectReference Include="..\..\src\Allegory.StockManagement.MongoDB\Allegory.StockManagement.MongoDB.csproj" />
+    <ProjectReference Include="..\Allegory.StockManagement.Application.Tests\Allegory.StockManagement.Application.Tests.csproj" />
+  </ItemGroup>
+
+</Project>
