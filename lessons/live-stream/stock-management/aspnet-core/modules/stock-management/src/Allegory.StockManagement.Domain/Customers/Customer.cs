@@ -7,7 +7,7 @@ namespace Allegory.StockManagement.Customers;
 public class Customer : AuditedAggregateRoot<Guid>
 {
     public string Code { get; protected set; }
-    public string Name { get; protected set; }
+    public string? Name { get; protected set; }
 
     protected Customer()
     {
@@ -26,7 +26,7 @@ public class Customer : AuditedAggregateRoot<Guid>
         Code = code;
     }
 
-    public void SetName(string name)
+    public void SetName(string? name)
     {
         Check.Length(name, nameof(Name), CustomerConsts.MaxNameLength);
         Name = name;
