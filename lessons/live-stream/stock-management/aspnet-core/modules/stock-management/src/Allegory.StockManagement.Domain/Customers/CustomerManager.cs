@@ -17,7 +17,7 @@ public class CustomerManager : DomainService
     {
         var existingCustomer = await CustomerRepository.FindByCodeAsync(code);
 
-        if (existingCustomer == null)
+        if (existingCustomer != null)
         {
             throw new BusinessException(StockManagementErrorCodes.CustomerCodeAlreadyExists)
                 .WithData("CustomerCode", code);
