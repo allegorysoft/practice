@@ -35,6 +35,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.StockManagementApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allegory.StockManagementApp.HttpApi.Host", "src\Allegory.StockManagementApp.HttpApi.Host\Allegory.StockManagementApp.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{1A975B82-A1C1-4B91-83D9-CAB069A1FCAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stock-management", "stock-management", "{302FB359-6DC2-4DBD-B6C6-B5E03EF04745}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9760945B-3225-4E2A-887B-BFCCAAC026C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application", "modules\stock-management\src\Allegory.StockManagement.Application\Allegory.StockManagement.Application.csproj", "{C1908CD3-113F-40E1-A471-66E2ED354918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application.Contracts", "modules\stock-management\src\Allegory.StockManagement.Application.Contracts\Allegory.StockManagement.Application.Contracts.csproj", "{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain", "modules\stock-management\src\Allegory.StockManagement.Domain\Allegory.StockManagement.Domain.csproj", "{B08460CC-795C-4C0B-971A-F766D3A4E135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain.Shared", "modules\stock-management\src\Allegory.StockManagement.Domain.Shared\Allegory.StockManagement.Domain.Shared.csproj", "{B962FE62-AACB-4A43-93D0-38AF15D45DFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.EntityFrameworkCore", "modules\stock-management\src\Allegory.StockManagement.EntityFrameworkCore\Allegory.StockManagement.EntityFrameworkCore.csproj", "{7BB1287C-861D-4295-8F23-BE191B2BD6F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi", "modules\stock-management\src\Allegory.StockManagement.HttpApi\Allegory.StockManagement.HttpApi.csproj", "{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi.Client", "modules\stock-management\src\Allegory.StockManagement.HttpApi.Client\Allegory.StockManagement.HttpApi.Client.csproj", "{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +117,34 @@ Global
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1908CD3-113F-40E1-A471-66E2ED354918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1908CD3-113F-40E1-A471-66E2ED354918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1908CD3-113F-40E1-A471-66E2ED354918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1908CD3-113F-40E1-A471-66E2ED354918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B08460CC-795C-4C0B-971A-F766D3A4E135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08460CC-795C-4C0B-971A-F766D3A4E135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08460CC-795C-4C0B-971A-F766D3A4E135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08460CC-795C-4C0B-971A-F766D3A4E135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B962FE62-AACB-4A43-93D0-38AF15D45DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B962FE62-AACB-4A43-93D0-38AF15D45DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B962FE62-AACB-4A43-93D0-38AF15D45DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B962FE62-AACB-4A43-93D0-38AF15D45DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BB1287C-861D-4295-8F23-BE191B2BD6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BB1287C-861D-4295-8F23-BE191B2BD6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BB1287C-861D-4295-8F23-BE191B2BD6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BB1287C-861D-4295-8F23-BE191B2BD6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +164,15 @@ Global
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{302FB359-6DC2-4DBD-B6C6-B5E03EF04745} = {1A975B82-A1C1-4B91-83D9-CAB069A1FCAC}
+		{9760945B-3225-4E2A-887B-BFCCAAC026C1} = {302FB359-6DC2-4DBD-B6C6-B5E03EF04745}
+		{C1908CD3-113F-40E1-A471-66E2ED354918} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{37F4993B-40E7-4F2A-826D-A8EB5F909DA0} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{B08460CC-795C-4C0B-971A-F766D3A4E135} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{B962FE62-AACB-4A43-93D0-38AF15D45DFA} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{7BB1287C-861D-4295-8F23-BE191B2BD6F1} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{9660B70E-DEEA-431B-AE20-393AAE1B9D5B} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
+		{36C7909B-86F5-4498-A5DD-4D5D68CF6F23} = {9760945B-3225-4E2A-887B-BFCCAAC026C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30BF1EE3-3EF2-F721-AEA1-6F05450B28B2}

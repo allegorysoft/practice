@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Allegory.StockManagement;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Allegory.StockManagementApp.MultiTenancy;
 using Volo.Abp.AuditLogging;
@@ -28,7 +29,8 @@ namespace Allegory.StockManagementApp;
     typeof(AbpPermissionManagementDomainIdentityModule),
     typeof(AbpSettingManagementDomainModule),
     typeof(AbpTenantManagementDomainModule),
-    typeof(AbpEmailingModule)
+    typeof(AbpEmailingModule),
+    typeof(StockManagementDomainModule)
 )]
 public class StockManagementAppDomainModule : AbpModule
 {

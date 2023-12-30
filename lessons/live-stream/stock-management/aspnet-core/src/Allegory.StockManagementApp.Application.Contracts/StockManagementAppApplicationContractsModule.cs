@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Account;
+﻿using Allegory.StockManagement;
+using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
@@ -17,7 +18,8 @@ namespace Allegory.StockManagementApp;
     typeof(AbpPermissionManagementApplicationContractsModule),
     typeof(AbpSettingManagementApplicationContractsModule),
     typeof(AbpTenantManagementApplicationContractsModule),
-    typeof(AbpObjectExtendingModule)
+    typeof(AbpObjectExtendingModule),
+    typeof(StockManagementApplicationContractsModule)
 )]
 public class StockManagementAppApplicationContractsModule : AbpModule
 {

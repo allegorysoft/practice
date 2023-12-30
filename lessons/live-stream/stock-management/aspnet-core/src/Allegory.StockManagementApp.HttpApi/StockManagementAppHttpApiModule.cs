@@ -1,4 +1,5 @@
-﻿using Localization.Resources.AbpUi;
+﻿using Allegory.StockManagement;
+using Localization.Resources.AbpUi;
 using Allegory.StockManagementApp.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
@@ -18,7 +19,8 @@ namespace Allegory.StockManagementApp;
     typeof(AbpPermissionManagementHttpApiModule),
     typeof(AbpTenantManagementHttpApiModule),
     typeof(AbpFeatureManagementHttpApiModule),
-    typeof(AbpSettingManagementHttpApiModule)
+    typeof(AbpSettingManagementHttpApiModule),
+    typeof(StockManagementHttpApiModule)
     )]
 public class StockManagementAppHttpApiModule : AbpModule
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Allegory.StockManagement.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -25,7 +26,8 @@ namespace Allegory.StockManagementApp.EntityFrameworkCore;
     typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
-    typeof(AbpFeatureManagementEntityFrameworkCoreModule)
+    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(StockManagementEntityFrameworkCoreModule)
     )]
 public class StockManagementAppEntityFrameworkCoreModule : AbpModule
 {

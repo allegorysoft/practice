@@ -1,4 +1,5 @@
-﻿using Allegory.StockManagementApp.Localization;
+﻿using Allegory.StockManagement;
+using Allegory.StockManagementApp.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -23,7 +24,8 @@ namespace Allegory.StockManagementApp;
     typeof(AbpOpenIddictDomainSharedModule),
     typeof(AbpPermissionManagementDomainSharedModule),
     typeof(AbpSettingManagementDomainSharedModule),
-    typeof(AbpTenantManagementDomainSharedModule)    
+    typeof(AbpTenantManagementDomainSharedModule),
+    typeof(StockManagementDomainSharedModule)
     )]
 public class StockManagementAppDomainSharedModule : AbpModule
 {
