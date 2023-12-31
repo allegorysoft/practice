@@ -17,10 +17,10 @@
       "@proxy": ["src/app/proxy/index.ts"],
       "@proxy/*": ["src/app/proxy/*"],
       "@allegory/stock-management": [
-        "../aspnet-core/modules/stock-management/angular/projects/stock-management/src/public-api.ts"
+        "../modules/stock-management/angular/projects/stock-management/src/public-api.ts"
       ],
       "@allegory/stock-management/config": [
-        "../aspnet-core/modules/stock-management/angular/projects/stock-management/config/src/public-api.ts"
+        "../modules/stock-management/angular/projects/stock-management/config/src/public-api.ts"
       ],
       "@abp/ng.core": ["node_modules/@abp/ng.core"],
       "@angular/*": ["node_modules/@angular/*"]
