@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\stock-management\src\Allegory.StockManagement.HttpApi.Client\Allegory.StockManagement.HttpApi.Client.csproj" />
+    <ProjectReference Include="..\..\..\modules\stock-management\src\Allegory.StockManagement.HttpApi.Client\Allegory.StockManagement.HttpApi.Client.csproj" />
     <ProjectReference Include="..\Allegory.StockManagementApp.Application.Contracts\Allegory.StockManagementApp.Application.Contracts.csproj" />
   </ItemGroup>
 

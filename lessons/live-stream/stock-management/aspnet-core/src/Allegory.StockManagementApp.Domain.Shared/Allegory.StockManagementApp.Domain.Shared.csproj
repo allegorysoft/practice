@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\stock-management\src\Allegory.StockManagement.Domain.Shared\Allegory.StockManagement.Domain.Shared.csproj" />
+    <ProjectReference Include="..\..\..\modules\stock-management\src\Allegory.StockManagement.Domain.Shared\Allegory.StockManagement.Domain.Shared.csproj" />
   </ItemGroup>
 
 </Project>

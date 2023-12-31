@@ -41,19 +41,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stock-management", "stock-m
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9760945B-3225-4E2A-887B-BFCCAAC026C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application", "modules\stock-management\src\Allegory.StockManagement.Application\Allegory.StockManagement.Application.csproj", "{C1908CD3-113F-40E1-A471-66E2ED354918}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application", "..\modules\stock-management\src\Allegory.StockManagement.Application\Allegory.StockManagement.Application.csproj", "{C1908CD3-113F-40E1-A471-66E2ED354918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application.Contracts", "modules\stock-management\src\Allegory.StockManagement.Application.Contracts\Allegory.StockManagement.Application.Contracts.csproj", "{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Application.Contracts", "..\modules\stock-management\src\Allegory.StockManagement.Application.Contracts\Allegory.StockManagement.Application.Contracts.csproj", "{37F4993B-40E7-4F2A-826D-A8EB5F909DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain", "modules\stock-management\src\Allegory.StockManagement.Domain\Allegory.StockManagement.Domain.csproj", "{B08460CC-795C-4C0B-971A-F766D3A4E135}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain", "..\modules\stock-management\src\Allegory.StockManagement.Domain\Allegory.StockManagement.Domain.csproj", "{B08460CC-795C-4C0B-971A-F766D3A4E135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain.Shared", "modules\stock-management\src\Allegory.StockManagement.Domain.Shared\Allegory.StockManagement.Domain.Shared.csproj", "{B962FE62-AACB-4A43-93D0-38AF15D45DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.Domain.Shared", "..\modules\stock-management\src\Allegory.StockManagement.Domain.Shared\Allegory.StockManagement.Domain.Shared.csproj", "{B962FE62-AACB-4A43-93D0-38AF15D45DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.EntityFrameworkCore", "modules\stock-management\src\Allegory.StockManagement.EntityFrameworkCore\Allegory.StockManagement.EntityFrameworkCore.csproj", "{7BB1287C-861D-4295-8F23-BE191B2BD6F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.EntityFrameworkCore", "..\modules\stock-management\src\Allegory.StockManagement.EntityFrameworkCore\Allegory.StockManagement.EntityFrameworkCore.csproj", "{7BB1287C-861D-4295-8F23-BE191B2BD6F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi", "modules\stock-management\src\Allegory.StockManagement.HttpApi\Allegory.StockManagement.HttpApi.csproj", "{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi", "..\modules\stock-management\src\Allegory.StockManagement.HttpApi\Allegory.StockManagement.HttpApi.csproj", "{9660B70E-DEEA-431B-AE20-393AAE1B9D5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi.Client", "modules\stock-management\src\Allegory.StockManagement.HttpApi.Client\Allegory.StockManagement.HttpApi.Client.csproj", "{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allegory.StockManagement.HttpApi.Client", "..\modules\stock-management\src\Allegory.StockManagement.HttpApi.Client\Allegory.StockManagement.HttpApi.Client.csproj", "{36C7909B-86F5-4498-A5DD-4D5D68CF6F23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
