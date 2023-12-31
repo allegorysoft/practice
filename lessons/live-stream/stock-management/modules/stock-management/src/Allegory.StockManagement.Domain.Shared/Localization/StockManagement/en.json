@@ -4,6 +4,7 @@
     "MyAccount":  "My account",
     "SamplePageMessage": "A sample page for the StockManagement module",
     "StockManagement:00001": "There is a {0} with the same code, Code: {1}",
-    "Allegory.StockManagement.Customers.Customer" : "Customer"
+    "Allegory.StockManagement.Customers.Customer" : "Customer",
+    "Allegory.StockManagement.Products.Product": "Product"
   }
 }

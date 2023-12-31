@@ -4,6 +4,7 @@
     "MyAccount":  "Hesabım",
     "SamplePageMessage": "StockManagement modulünden örnek bir sayfa",
     "StockManagement:00001": "Aynı koda sahip {0} var, Kod: {1}",
-    "Allegory.StockManagement.Customers.Customer": "Müşteri"
+    "Allegory.StockManagement.Customers.Customer": "Müşteri",
+    "Allegory.StockManagement.Products.Product": "Ürün"
   }
 }
