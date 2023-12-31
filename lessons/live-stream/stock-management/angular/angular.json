@@ -105,6 +105,17 @@
                 "inject": true,
                 "bundleName": "ngx-datatable-material"
               },
+              {
+                "input": "node_modules/primeng/resources/primeng.min.css",
+                "inject": true,
+                "bundleName": "primeng"
+              },
+              {
+                "input": "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                "inject": true,
+                "bundleName": "prime-lara-light-blue"
+              },
+
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.scss"
             ],

@@ -32,7 +32,8 @@
     "@angular/router": "~17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.1.0",
-    "zone.js": "~0.14.0"
+    "zone.js": "~0.14.0",
+    "primeng":"~17.3.0"
   },
   "devDependencies": {
     "@abp/ng.schematics": "~8.0.0",
