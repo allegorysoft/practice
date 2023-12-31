@@ -5,6 +5,11 @@
     "SamplePageMessage": "StockManagement modulünden örnek bir sayfa",
     "StockManagement:00001": "Aynı koda sahip {0} var, Kod: {1}",
     "Allegory.StockManagement.Customers.Customer": "Müşteri",
-    "Allegory.StockManagement.Products.Product": "Ürün"
+    "Allegory.StockManagement.Products.Product": "Ürün",
+    "Permission:StockManagement":"Stok Yönetimi",
+    "Permission:Products":"Ürünler",
+    "Permission:Create":"Ürün ekle",
+    "Permission:Update":"Ürün güncelle",
+    "Permission:Delete":"Ürün sil"
   }
 }
