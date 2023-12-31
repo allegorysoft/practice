@@ -22,8 +22,11 @@
       "@allegory/stock-management/config": [
         "../modules/stock-management/angular/projects/stock-management/config/src/public-api.ts"
       ],
+      "@angular/*": ["node_modules/@angular/*"],
+      "primeng": ["node_modules/primeng"],
       "@abp/ng.core": ["node_modules/@abp/ng.core"],
-      "@angular/*": ["node_modules/@angular/*"]
+      "@abp/ng.theme.shared": ["node_modules/@abp/ng.theme.shared"],
+      "@ngx-validate/core": ["node_modules/@ngx-validate/core"]
     },
     "useDefineForClassFields": false
   },
