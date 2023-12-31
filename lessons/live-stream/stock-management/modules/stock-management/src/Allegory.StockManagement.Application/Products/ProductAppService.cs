@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Allegory.StockManagement.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 
 namespace Allegory.StockManagement.Products;
 
+[Authorize(StockManagementPermissions.Products.Default)]
 public class ProductAppService : StockManagementAppService, IProductAppService
 {
     public IProductRepository ProductRepository { get; }
@@ -51,6 +54,7 @@ public class ProductAppService : StockManagementAppService, IProductAppService
         return ObjectMapper.Map<Product, ProductDto>(product);
     }
 
+    [Authorize(StockManagementPermissions.Products.Create)]
     public virtual async Task<ProductDto> CreateAsync(ProductCreateUpdateDto input)
     {
         var product = await ProductManager.CreateAsync(input.Code);
@@ -59,6 +63,7 @@ public class ProductAppService : StockManagementAppService, IProductAppService
         return ObjectMapper.Map<Product, ProductDto>(product);
     }
 
+    [Authorize(StockManagementPermissions.Products.Update)]
     public virtual async Task<ProductDto> UpdateAsync(Guid id, ProductCreateUpdateDto input)
     {
         var product = await ProductRepository.GetAsync(id);
@@ -70,6 +75,7 @@ public class ProductAppService : StockManagementAppService, IProductAppService
         return ObjectMapper.Map<Product, ProductDto>(product);
     }
 
+    [Authorize(StockManagementPermissions.Products.Delete)]
     public virtual async Task DeleteAsync(Guid id)
     {
         await ProductRepository.DeleteAsync(id);

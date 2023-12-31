@@ -8,7 +8,13 @@ public class StockManagementPermissionDefinitionProvider : PermissionDefinitionP
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(StockManagementPermissions.GroupName, L("Permission:StockManagement"));
+        var stockManagementGroup = context.AddGroup(StockManagementPermissions.GroupName, L("Permission:StockManagement"));
+
+        var productsPermission = stockManagementGroup.AddPermission(StockManagementPermissions.Products.Default, L("Permission:Products"));
+        productsPermission.AddChild(StockManagementPermissions.Products.Create, L("Permission:Create"));
+        productsPermission.AddChild(StockManagementPermissions.Products.Update, L("Permission:Update"));
+        productsPermission.AddChild(StockManagementPermissions.Products.Delete, L("Permission:Delete"));
+
     }
 
     private static LocalizableString L(string name)
