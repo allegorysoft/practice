@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
@@ -19,7 +19,7 @@
     "@abp/ng.oauth": "~8.0.0",
     "@abp/ng.setting-management": "~8.0.0",
     "@abp/ng.tenant-management": "~8.0.0",
-    "@abp/ng.theme.lepton-x": "~3.0.0-rc.1",
+    "@abp/ng.theme.lepton-x": "~3.0.0",
     "@abp/ng.theme.shared": "~8.0.0",
     "@angular/animations": "~17.0.0",
     "@angular/common": "~17.0.0",

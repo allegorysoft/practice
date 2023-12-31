@@ -147,10 +147,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "StockManagementApp:build:production"
+              "buildTarget": "StockManagementApp:build:production"
             },
             "development": {
-              "browserTarget": "StockManagementApp:build:development"
+              "buildTarget": "StockManagementApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -158,7 +158,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "StockManagementApp:build"
+            "buildTarget": "StockManagementApp:build"
           }
         },
         "test": {
