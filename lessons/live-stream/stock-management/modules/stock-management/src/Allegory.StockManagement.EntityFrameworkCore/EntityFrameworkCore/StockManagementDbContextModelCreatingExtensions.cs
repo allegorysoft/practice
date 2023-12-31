@@ -1,4 +1,5 @@
 ﻿using Allegory.StockManagement.Customers;
+using Allegory.StockManagement.Products;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
@@ -25,6 +26,21 @@ public static class StockManagementDbContextModelCreatingExtensions
             b
                 .Property(q => q.Name)
                 .HasMaxLength(CustomerConsts.MaxNameLength);
+        });
+
+        builder.Entity<Product>(b =>
+        {
+            b.ToTable(StockManagementDbProperties.DbTablePrefix + "Products", StockManagementDbProperties.DbSchema);
+            b.ConfigureByConvention();
+
+            b
+                .Property(q => q.Code)
+                .IsRequired()
+                .HasMaxLength(ProductConsts.MaxCodeLength);
+
+            b
+                .Property(q => q.Name)
+                .HasMaxLength(ProductConsts.MaxNameLength);
         });
     }
 }

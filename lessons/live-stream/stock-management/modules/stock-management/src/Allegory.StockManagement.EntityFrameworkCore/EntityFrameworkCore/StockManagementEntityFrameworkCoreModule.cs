@@ -1,4 +1,5 @@
 ﻿using Allegory.StockManagement.Customers;
+using Allegory.StockManagement.Products;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
@@ -16,6 +17,7 @@ public class StockManagementEntityFrameworkCoreModule : AbpModule
         context.Services.AddAbpDbContext<StockManagementDbContext>(options =>
         {
             options.AddRepository<Customer, EfCoreCustomerRepository>();
+            options.AddRepository<Product, EfCoreProductRepository>();
         });
     }
 }

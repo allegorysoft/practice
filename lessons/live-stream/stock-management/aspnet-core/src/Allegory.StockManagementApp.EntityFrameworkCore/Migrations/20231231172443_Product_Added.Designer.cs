@@ -4,6 +4,7 @@ using Allegory.StockManagementApp.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Allegory.StockManagementApp.Migrations
 {
     [DbContext(typeof(StockManagementAppDbContext))]
-    partial class StockManagementAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231231172443_Product_Added")]
+    partial class Product_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
