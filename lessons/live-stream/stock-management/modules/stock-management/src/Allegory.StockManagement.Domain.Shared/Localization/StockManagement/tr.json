@@ -3,6 +3,7 @@
   "texts": {
     "MyAccount":  "Hesabım",
     "SamplePageMessage": "StockManagement modulünden örnek bir sayfa",
-    "StockManagement:00001": "{CustomerCode} bu kodlu müşteri zaten kayıtlı!"
+    "StockManagement:00001": "Aynı koda sahip {0} var, Kod: {1}",
+    "Allegory.StockManagement.Customers.Customer": "Müşteri"
   }
 }

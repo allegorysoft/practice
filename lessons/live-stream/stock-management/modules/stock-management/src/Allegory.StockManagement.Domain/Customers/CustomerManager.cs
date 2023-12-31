@@ -19,8 +19,7 @@ public class CustomerManager : DomainService
 
         if (existingCustomer != null)
         {
-            throw new BusinessException(StockManagementErrorCodes.CustomerCodeAlreadyExists)
-                .WithData("CustomerCode", code);
+            throw new CodeAlreadyExistsException(typeof(Customer), code);
         }
 
         return new Customer(GuidGenerator.Create(), code);

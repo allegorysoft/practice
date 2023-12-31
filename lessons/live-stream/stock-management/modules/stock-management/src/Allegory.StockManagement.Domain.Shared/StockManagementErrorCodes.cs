@@ -2,5 +2,5 @@
 
 public static class StockManagementErrorCodes
 {
-    public static string CustomerCodeAlreadyExists => "StockManagement:00001";
+    public static string CodeAlreadyExists => "StockManagement:00001";
 }
