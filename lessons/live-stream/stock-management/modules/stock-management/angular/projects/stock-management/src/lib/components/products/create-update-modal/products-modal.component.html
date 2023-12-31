@@ -1,0 +1,32 @@
+<abp-modal [visible]="true" (visibleChange)="onClose($event)">
+  <ng-template #abpHeader>
+    <h3>
+      {{
+        (viewService.id ? 'StockManagement::Edit' : 'StockManagement::NewProduct') | abpLocalization
+      }}
+    </h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form id="productForm" [formGroup]="productForm" (submit)="save()">
+      <div class="mb-3 form-group">
+        <label for="code" class="form-label">{{ 'StockManagement::Code' | abpLocalization }}</label>
+        <input class="w-100" type="text" pInputText formControlName="code" />
+      </div>
+
+      <div class="mb-3">
+        <label for="code" class="form-label">{{ 'StockManagement::Name' | abpLocalization }}</label>
+        <input class="w-100" type="text" pInputText formControlName="name" />
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ 'StockManagement::Cancel' | abpLocalization }}
+    </button>
+    <abp-button iconClass="fa fa-check" (click)="save()" formName="productForm">
+      {{ 'StockManagement::Save' | abpLocalization }}
+    </abp-button>
+  </ng-template>
+</abp-modal>

@@ -1,0 +1,48 @@
+<abp-page [breadcrumb]="false" [title]="'ProductManagement::Products' | abpLocalization">
+  <div>
+    <button class="btn btn-primary" (click)="viewService.modalVisible = true">
+      {{ 'AbpUi::AddNew' | abpLocalization }}
+    </button>
+  </div>
+
+  <p-table
+    dataKey="id"
+    [lazy]="true"
+    (onLazyLoad)="viewService.getList($event)"
+    [value]="viewService.products"
+    [rows]="2"
+    [paginator]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [totalRecords]="viewService.totalCount"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ 'AbpUi::Actions' | abpLocalization }}</th>
+        <th>{{ 'StockManagement::Code' | abpLocalization }}</th>
+        <th>{{ 'StockManagement::Name' | abpLocalization }}</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>
+          <button (click)="viewService.edit(product.id)" class="btn btn-sm btn-secondary">
+            {{ 'AbpUi::Edit' | abpLocalization }}
+          </button>
+
+          <button (click)="viewService.delete(product.id)" class="btn btn-sm btn-danger m-1">
+            {{ 'AbpUi::Delete' | abpLocalization }}
+          </button>
+        </td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</abp-page>
+
+@defer (when viewService.modalVisible) { 
+  @if(viewService.modalVisible) {
+    <alg-products-modal (visibleChange)="viewService.modalVisible = $event" />
+  } 
+}
