@@ -1,0 +1,14 @@
+{
+  "name": "@allegory/stock-management",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "~17.0.0",
+    "@angular/core": "~17.0.0",
+    "@abp/ng.core": "~8.0.0",
+    "@abp/ng.theme.shared": "~8.0.0"
+  },
+  "dependencies": {
+    "primeng": "~17.3.0",
+    "tslib": "^2.1.0"
+  }
+}

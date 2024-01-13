@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Allegory.StockManagementApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\stock-management\src\Allegory.StockManagement.Application.Contracts\Allegory.StockManagement.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Allegory.StockManagementApp.Domain.Shared\Allegory.StockManagementApp.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.ObjectExtending" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

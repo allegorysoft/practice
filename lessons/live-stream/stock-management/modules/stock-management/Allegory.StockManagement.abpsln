@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Allegory.StockManagement": {
+      "path": "Allegory.StockManagement.abpmdl"
+    }
+  }
+}
